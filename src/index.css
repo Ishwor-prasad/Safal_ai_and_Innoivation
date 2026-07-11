@@ -21,11 +21,11 @@
   --color-surface-card:   #FFFFFF;
   --color-surface-alt:    #F9FAFB;
 
-  /* ── Text ── */
+  /* ── Text (High Contrast) ── */
   --color-text-primary:   #0F172A;
-  --color-text-secondary: #374151;
-  --color-text-muted:     #6B7280;
-  --color-text-light:     #9CA3AF;
+  --color-text-secondary: #1F2937;
+  --color-text-muted:     #374151;
+  --color-text-light:     #4B5563;
 
   /* ── Borders ── */
   --color-border:         #E5E7EB;

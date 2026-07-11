@@ -481,13 +481,13 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <a href="#hero" className="flex items-center gap-2 group" id="logo-anchor">
             <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-brand to-brand-accent flex items-center justify-center shadow-lg shadow-brand/20 group-hover:scale-105 transition-transform duration-300">
-              <Cpu className="text-white h-5 w-5 animate-pulse" />
+              <Cpu className="text-white h-5 w-5" />
             </div>
             <div>
               <span className="font-display text-xl font-bold tracking-tight text-gray-900 block">
                 SAFAL <span className="text-brand">AI</span>
               </span>
-              <span className="text-[10px] text-gray-400 font-mono tracking-widest block uppercase">
+              <span className="text-[10px] text-gray-600 font-mono tracking-widest block uppercase">
                 &amp; Innovation Centre
               </span>
             </div>
@@ -500,7 +500,7 @@ export default function App() {
             <a href="#case-studies" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Case Studies</a>
             <a href="#training" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Training</a>
             <a href="#vibe-coding" className="text-brand font-semibold text-sm transition-colors flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block" />
               Vibe Coding
             </a>
             <a href="#research" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Research</a>
@@ -641,7 +641,7 @@ export default function App() {
             
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 rounded-full px-4 py-1.5 text-xs text-brand font-medium uppercase tracking-wider mx-auto lg:mx-0">
-                <Sparkles className="h-3.5 w-3.5 text-brand-accent animate-spin" style={{ animationDuration: '4s' }} />
+                <Sparkles className="h-3.5 w-3.5 text-brand-accent" />
                 <span>Nepal's Premier AI Catalyst</span>
               </div>
               
@@ -705,8 +705,8 @@ export default function App() {
 
                 {/* Central Futuristic Ring/Brain Graphic */}
                 <div className="w-full h-full flex items-center justify-center">
-                  <div className="relative h-44 w-44 rounded-full border border-dashed border-brand/30 flex items-center justify-center animate-spin" style={{ animationDuration: '30s' }}>
-                    <div className="absolute h-36 w-36 rounded-full border border-brand/20 flex items-center justify-center animate-reverse" style={{ animationDuration: '15s' }}>
+                  <div className="relative h-44 w-44 rounded-full border border-dashed border-brand/30 flex items-center justify-center">
+                    <div className="absolute h-36 w-36 rounded-full border border-brand/20 flex items-center justify-center">
                       <div className="absolute h-24 w-24 rounded-full bg-brand/5 flex items-center justify-center">
                       </div>
                     </div>
@@ -780,7 +780,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
               AI Solutions For Every Sector
             </h2>
-            <p className="text-gray-500 font-light">
+            <p className="text-gray-600 font-light">
               We operate beyond training. SAFAL AI is Nepal's core innovation partner building strategic solutions, custom frameworks, and curriculum architectures to empower modern institutions.
             </p>
           </div>
@@ -805,12 +805,12 @@ export default function App() {
                     {s.title}
                   </h3>
                   
-                  <p className="text-slate-300 text-sm leading-relaxed mb-4 font-light">
+                  <p className="text-gray-700 text-sm leading-relaxed mb-4 font-light">
                     {s.description}
                   </p>
 
                   <div className="pt-4 border-t border-white/5 mt-auto">
-                    <p className="text-xs text-slate-400 font-light leading-relaxed">
+                    <p className="text-xs text-gray-600 font-light leading-relaxed">
                       {s.longDescription}
                     </p>
                   </div>
@@ -829,7 +829,7 @@ export default function App() {
               <h3 className="font-display text-2xl font-bold text-white tracking-tight">
                 Require a bespoke localized Artificial Intelligence blueprint?
               </h3>
-              <p className="text-gray-300 text-sm font-light">
+              <p className="text-gray-700 text-sm font-light">
                 Consult with our research architects to map specialized data pathways, security frameworks, and custom digital transformation pipelines.
               </p>
             </div>
@@ -859,7 +859,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Our AI Products
             </h2>
-            <p className="text-gray-300 font-light">
+            <p className="text-gray-700 font-light">
               We design and construct production-ready AI layers that integrate local context, CDC syllabi guidelines, and regional workflows. Explore our product matrix.
             </p>
           </div>
@@ -882,8 +882,8 @@ export default function App() {
                     <span
                       className={`text-[10px] font-mono tracking-widest px-2.5 py-1 rounded-full uppercase font-bold ${
                         prod.status === "Beta"
-                          ? "bg-brand/10 text-brand border border-brand/20 animate-pulse"
-                          : "bg-white/5 text-gray-400"
+                          ? "bg-brand/10 text-brand border border-brand/20"
+                          : "bg-white/5 text-gray-600"
                       }`}
                     >
                       {prod.status}
@@ -896,11 +896,11 @@ export default function App() {
                   </h3>
                   <p className="text-xs font-mono text-brand mb-4">{prod.tagline}</p>
                   
-                  <p className="text-gray-300 text-sm font-light leading-relaxed mb-6">
+                  <p className="text-gray-700 text-sm font-light leading-relaxed mb-6">
                     {prod.description}
                   </p>
 
-                  <ul className="space-y-2.5 mb-8 text-xs text-gray-400">
+                  <ul className="space-y-2.5 mb-8 text-xs text-gray-600">
                     {prod.features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
@@ -920,7 +920,7 @@ export default function App() {
                     </a>
                   ) : (
                     <button
-                      className="w-full bg-white/5 text-gray-500 font-medium text-sm py-3 px-6 rounded-xl cursor-not-allowed"
+                      className="w-full bg-white/5 text-gray-600 font-medium text-sm py-3 px-6 rounded-xl cursor-not-allowed"
                       disabled
                     >
                       Coming Soon
@@ -944,7 +944,7 @@ export default function App() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/5 pb-6 mb-8">
               <div className="flex items-center gap-3">
                 <div className="h-12 w-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand">
-                  <Terminal className="h-6 w-6 animate-pulse" />
+                  <Terminal className="h-6 w-6" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
@@ -955,12 +955,12 @@ export default function App() {
                       Interactive Live Demo
                     </span>
                   </div>
-                  <p className="text-xs text-gray-400 mt-0.5">
+                  <p className="text-xs text-gray-600 mt-0.5">
                     Generate CDC-aligned Nepalese lesson plans in seconds powered by the Gemini 3.5 Engine.
                   </p>
                 </div>
               </div>
-              <div className="text-xs font-mono text-gray-500">
+              <div className="text-xs font-mono text-gray-600">
                 <span>Version: CDC-Beta_2.1</span>
               </div>
             </div>
@@ -971,7 +971,7 @@ export default function App() {
               {/* Left Column Settings */}
               <form onSubmit={handleGenerateTeacherAI} className="lg:col-span-4 space-y-5" id="sandbox-form">
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-1.5" htmlFor="grade-select">
+                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="grade-select">
                     Grade Level Target
                   </label>
                   <select
@@ -989,7 +989,7 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-1.5" htmlFor="subject-select">
+                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="subject-select">
                     Subject Stream
                   </label>
                   <select
@@ -1015,7 +1015,7 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-1.5" htmlFor="topic-input">
+                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="topic-input">
                     Topic / Chapter
                   </label>
                   <input
@@ -1030,7 +1030,7 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-1.5" htmlFor="lang-select">
+                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="lang-select">
                     Syllabus Language Output
                   </label>
                   <div className="grid grid-cols-2 gap-2" id="lang-select">
@@ -1040,7 +1040,7 @@ export default function App() {
                       className={`py-2 px-3 rounded-lg border text-xs font-mono font-medium transition-all cursor-pointer ${
                         demoLanguage === "English"
                           ? "bg-brand/10 border-brand text-white"
-                          : "bg-dark-primary border-white/5 text-gray-400 hover:text-white"
+                          : "bg-dark-primary border-white/5 text-gray-600 hover:text-white"
                       }`}
                     >
                       English Language
@@ -1050,8 +1050,8 @@ export default function App() {
                       onClick={() => setDemoLanguage("Nepali")}
                       className={`py-2 px-3 rounded-lg border text-xs font-mono font-medium transition-all cursor-pointer ${
                         demoLanguage === "Nepali"
-                          ? "bg-brand/10 border-brand text-white animate-pulse"
-                          : "bg-dark-primary border-white/5 text-gray-400 hover:text-white"
+                          ? "bg-brand/10 border-brand text-white"
+                          : "bg-dark-primary border-white/5 text-gray-600 hover:text-white"
                       }`}
                     >
                       नेपाली संस्करण
@@ -1060,7 +1060,7 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-400 mb-1.5" htmlFor="focus-input">
+                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="focus-input">
                     Special Focus (Optional)
                   </label>
                   <input
@@ -1071,7 +1071,7 @@ export default function App() {
                     placeholder="e.g., experiential lab activity, low-cost resources"
                     className="w-full bg-dark-primary border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-colors text-xs"
                   />
-                  <span className="text-[10px] text-gray-500 mt-1 block leading-relaxed">
+                  <span className="text-[10px] text-gray-600 mt-1 block leading-relaxed">
                     Hints highlight specific pedagogical constraints like local Nepalese villages or high-end laboratory availability.
                   </span>
                 </div>
@@ -1104,7 +1104,7 @@ export default function App() {
                     <div className="h-3 w-3 bg-red-500 rounded-full opacity-60" />
                     <div className="h-3 w-3 bg-yellow-500 rounded-full opacity-60" />
                     <div className="h-3 w-3 bg-green-500 rounded-full opacity-60" />
-                    <span className="text-xs font-mono text-gray-400 ml-3">lessonplane_generator.sh</span>
+                    <span className="text-xs font-mono text-gray-600 ml-3">lessonplane_generator.sh</span>
                   </div>
 
                   {demoResult && (
@@ -1116,7 +1116,7 @@ export default function App() {
                       )}
                       <button
                         onClick={handleCopyDemoClipboard}
-                        className="text-gray-400 hover:text-white p-1.5 rounded bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-1 text-xs font-mono cursor-pointer"
+                        className="text-gray-600 hover:text-white p-1.5 rounded bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-1 text-xs font-mono cursor-pointer"
                         title="Copy to Clipboard"
                       >
                         {demoCopied ? (
@@ -1141,15 +1141,15 @@ export default function App() {
                     <div className="h-full flex flex-col items-center justify-center text-center space-y-4">
                       {/* Interactive Loader Circle */}
                       <div className="relative h-16 w-16 flex items-center justify-center">
-                        <div className="absolute h-16 w-16 rounded-full border-4 border-dashed border-brand/20 animate-spin" style={{ animationDuration: '6s' }} />
-                        <div className="absolute h-10 w-10 rounded-full border-2 border-brand-accent/50 border-t-transparent animate-spin" />
+                        <div className="absolute h-16 w-16 rounded-full border-4 border-dashed border-brand/20" />
+                        <div className="absolute h-10 w-10 rounded-full border-2 border-brand-accent/50 border-t-transparent" />
                       </div>
                       
                       <div className="space-y-1">
-                        <p className="text-sm text-gray-300 font-mono tracking-wide">
+                        <p className="text-sm text-gray-700 font-mono tracking-wide">
                           {loadingSteps[currentLoadingStep]}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-gray-600">
                           Deploying deep NLP context layers to matches NEB standards...
                         </p>
                       </div>
@@ -1176,7 +1176,7 @@ export default function App() {
                         <h4 className="font-display text-base font-bold text-white">
                           No Lesson Blueprint Generated Yet
                         </h4>
-                        <p className="text-xs text-gray-400 leading-relaxed">
+                        <p className="text-xs text-gray-600 leading-relaxed">
                           Configure the sidebar metrics for Grade, Subject, and Chapter on the left, then click **Generate Lesson Blueprint**. SAFAL AI will compile a specialized pedagogical plan instantly.
                         </p>
                       </div>
@@ -1189,7 +1189,7 @@ export default function App() {
                             setDemoSubject("Science");
                             setDemoTopic("Force and Motion");
                           }}
-                          className="bg-white/5 hover:bg-white/10 text-gray-300 border border-white/5 text-[10px] font-mono px-3 py-1.5 rounded-full transition-colors cursor-pointer"
+                          className="bg-white/5 hover:bg-white/10 text-gray-700 border border-white/5 text-[10px] font-mono px-3 py-1.5 rounded-full transition-colors cursor-pointer"
                         >
                           Grade 10 S.E.E. Force Plan
                         </button>
@@ -1201,7 +1201,7 @@ export default function App() {
                             setDemoTopic("नेपालका सांस्कृतिक सम्पदा");
                             setDemoLanguage("Nepali");
                           }}
-                          className="bg-white/5 hover:bg-white/10 text-gray-300 border border-white/5 text-[10px] font-mono px-3 py-1.5 rounded-full transition-colors cursor-pointer"
+                          className="bg-white/5 hover:bg-white/10 text-gray-700 border border-white/5 text-[10px] font-mono px-3 py-1.5 rounded-full transition-colors cursor-pointer"
                         >
                           कक्षा ८ नेपाली योजना
                         </button>
@@ -1211,9 +1211,9 @@ export default function App() {
                 </div>
 
                 {/* Footer status line info */}
-                <div className="bg-dark-secondary/40 border-t border-white/5 px-4 py-2 flex items-center justify-between text-[11px] font-mono text-gray-500">
+                <div className="bg-dark-secondary/40 border-t border-white/5 px-4 py-2 flex items-center justify-between text-[11px] font-mono text-gray-600">
                   <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-brand-accent animate-ping" />
+                    <span className="h-2 w-2 rounded-full bg-brand-accent" />
                     <span>Active Gateway: secure_ssl</span>
                   </div>
                   <span>Output: Markdown Format</span>
@@ -1240,7 +1240,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-center">
               Why Organizations Choose SAFAL AI
             </h2>
-            <p className="text-slate-400 font-light">
+            <p className="text-gray-600 font-light">
               We construct local intelligence paradigms that are highly practical and designed to solve actual structural, pedagogical, and administrative challenges within the Nepalese system.
             </p>
           </div>
@@ -1271,7 +1271,7 @@ export default function App() {
                     {reason.title}
                   </h3>
                   
-                  <p className="text-slate-300 text-sm leading-relaxed font-light">
+                  <p className="text-gray-700 text-sm leading-relaxed font-light">
                     {reason.description}
                   </p>
                 </div>
@@ -1294,7 +1294,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Industries We Serve
             </h2>
-            <p className="text-slate-400 font-light">
+            <p className="text-gray-600 font-light">
               Designing optimized intelligence structures that bridge capabilities across schools, local civil offices, rapidly expanding SMEs, and international development bodies.
             </p>
           </div>
@@ -1321,7 +1321,7 @@ export default function App() {
                         {/* Subsectors pills */}
                         <div className="flex flex-wrap gap-1 mt-1">
                           {ind.subsectors.map((s, i) => (
-                            <span key={i} className="text-[10px] bg-white/5 text-slate-300 border border-white/5 font-mono tracking-wider px-2 py-0.5 rounded-full uppercase">
+                            <span key={i} className="text-[10px] bg-white/5 text-gray-700 border border-white/5 font-mono tracking-wider px-2 py-0.5 rounded-full uppercase">
                               {s}
                             </span>
                           ))}
@@ -1329,12 +1329,12 @@ export default function App() {
                       </div>
                     </div>
 
-                    <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">
+                    <p className="text-gray-700 text-sm leading-relaxed mb-6 font-light">
                       {ind.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
+                  <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-gray-600">
                     <span>Target Deployment Matrix</span>
                     <span className="text-brand flex items-center gap-1 group">
                       <span>Inquire Scope</span>
@@ -1365,7 +1365,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               AI Impact Case Studies
             </h2>
-            <p className="text-slate-400 font-light text-sm sm:text-base">
+            <p className="text-gray-600 font-light text-sm sm:text-base">
               A comprehensive review of how our specialized curriculum assistants, enterprise workflows, and e-governance systems create measurable social and operational return.
             </p>
           </div>
@@ -1391,8 +1391,8 @@ export default function App() {
                   {/* Challenge & Solution */}
                   <div className="space-y-4 pt-2">
                     <div className="space-y-1">
-                      <h4 className="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">The Challenge</h4>
-                      <p className="text-slate-300 font-light text-sm leading-relaxed">
+                      <h4 className="text-[11px] font-mono text-gray-600 uppercase tracking-wider font-semibold">The Challenge</h4>
+                      <p className="text-gray-700 font-light text-sm leading-relaxed">
                         {cs.challenge}
                       </p>
                     </div>
@@ -1410,7 +1410,7 @@ export default function App() {
                     <h4 className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider font-semibold">Measurable Results</h4>
                     <ul className="space-y-2">
                       {cs.results.map((resMsg, ridx) => (
-                        <li key={ridx} className="flex gap-2.5 items-start text-xs font-light text-slate-300 leading-normal">
+                        <li key={ridx} className="flex gap-2.5 items-start text-xs font-light text-gray-700 leading-normal">
                           <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{resMsg}</span>
                         </li>
@@ -1425,12 +1425,12 @@ export default function App() {
                     "
                   </div>
                   <figure className="space-y-3 relative z-10">
-                    <blockquote className="text-slate-300 text-xs italic font-light leading-relaxed">
+                    <blockquote className="text-gray-700 text-xs italic font-light leading-relaxed">
                       "{cs.quote}"
                     </blockquote>
                     <figcaption className="text-[10px] font-mono text-white flex flex-col">
                       <span className="font-semibold">{cs.author}</span>
-                      <span className="text-slate-400">{cs.role}</span>
+                      <span className="text-gray-600">{cs.role}</span>
                     </figcaption>
                   </figure>
                 </div>
@@ -1459,18 +1459,18 @@ export default function App() {
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                 Researching Tomorrow's <br />AI Solutions
               </h2>
-              <p className="text-gray-300 text-base font-light leading-relaxed">
+              <p className="text-gray-700 text-base font-light leading-relaxed">
                 SAFAL AI is deeply committed to exploring innovative AI applications that address Nepal's unique educational, corporate, linguistic, and societal challenges. We believe in building solutions that scale across geography and resource diversity.
               </p>
 
-              <div className="pt-4 space-y-3 text-sm text-gray-300">
+              <div className="pt-4 space-y-3 text-sm text-gray-700">
                 <div className="flex items-start gap-3">
                   <div className="h-6 w-6 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0 mt-0.5">
                     <Check className="h-4.5 w-4.5" />
                   </div>
                   <div>
                     <span className="font-semibold text-white block">Local NLP Fine-Tuning</span>
-                    <p className="text-xs text-gray-400">Deploying LLM adapters and classifiers that operate in highly refined Nepali syntax structures.</p>
+                    <p className="text-xs text-gray-600">Deploying LLM adapters and classifiers that operate in highly refined Nepali syntax structures.</p>
                   </div>
                 </div>
 
@@ -1480,7 +1480,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="font-semibold text-white block">Resource-Constrained Optimization</span>
-                    <p className="text-xs text-gray-400">Designing server-assisted workflows that execute seamlessly over standard mobile data links.</p>
+                    <p className="text-xs text-gray-600">Designing server-assisted workflows that execute seamlessly over standard mobile data links.</p>
                   </div>
                 </div>
               </div>
@@ -1488,7 +1488,7 @@ export default function App() {
 
             {/* Right Interactive List column */}
             <div className="lg:col-span-6 space-y-4">
-              <span className="text-xs font-mono text-gray-400 block tracking-wider uppercase mb-2">
+              <span className="text-xs font-mono text-gray-600 block tracking-wider uppercase mb-2">
                 Primary Research &amp; Focus Domains:
               </span>
               
@@ -1506,7 +1506,7 @@ export default function App() {
                       <h3 className="font-display text-base font-bold text-white tracking-tight">
                         {focus.title}
                       </h3>
-                      <p className="text-xs text-gray-400 leading-relaxed mt-1 font-light">
+                      <p className="text-xs text-gray-600 leading-relaxed mt-1 font-light">
                         {focus.description}
                       </p>
                     </div>
@@ -1532,7 +1532,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               AI Learning Programs
             </h2>
-            <p className="text-slate-400 font-light">
+            <p className="text-gray-600 font-light">
               Deploying highly structured educational pipelines that take learners from general AI foundations to constructing custom client deployments safely and productively.
             </p>
           </div>
@@ -1549,7 +1549,7 @@ export default function App() {
                     <span className="text-xs font-mono font-medium text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded">
                       {prog.duration}
                     </span>
-                    <span className="text-[10px] font-mono tracking-widest uppercase text-slate-400">
+                    <span className="text-[10px] font-mono tracking-widest uppercase text-gray-600">
                       Accredited Course
                     </span>
                   </div>
@@ -1557,11 +1557,11 @@ export default function App() {
                   <h3 className="font-display text-xl font-bold text-white mb-1 tracking-tight">
                     {prog.title}
                   </h3>
-                  <p className="text-xs font-medium text-slate-400 mb-6 font-mono">Target: {prog.target}</p>
+                  <p className="text-xs font-medium text-gray-600 mb-6 font-mono">Target: {prog.target}</p>
 
                   <div className="space-y-3.5 mb-8">
-                    <span className="text-xs font-mono font-semibold uppercase text-slate-300 block">Syllabus Overview:</span>
-                    <ul className="space-y-2 text-xs text-slate-300 font-light">
+                    <span className="text-xs font-mono font-semibold uppercase text-gray-700 block">Syllabus Overview:</span>
+                    <ul className="space-y-2 text-xs text-gray-700 font-light">
                       {prog.syllabus.map((syl, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <Check className="h-4 w-4 text-brand-accent mt-0.5 shrink-0" />
@@ -1618,7 +1618,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               What Our Participants Say
             </h2>
-            <p className="text-gray-300 font-light">
+            <p className="text-gray-700 font-light">
               Read how teachers, professionals, software engineers, and community executives leverage our tools to restructure efficiency.
             </p>
           </div>
@@ -1632,7 +1632,7 @@ export default function App() {
                 className={`px-5 py-2 rounded-full text-xs font-mono font-medium tracking-wider transition-all cursor-pointer ${
                   activeTestimonialCategory === cat
                     ? "bg-brand text-white shadow-md shadow-brand/20"
-                    : "bg-white/5 text-gray-400 hover:text-white"
+                    : "bg-white/5 text-gray-600 hover:text-white"
                 }`}
               >
                 {cat} Testimonials
@@ -1651,7 +1651,7 @@ export default function App() {
                 {/* Quote details */}
                 <div className="space-y-4 mb-6">
                   <div className="text-brand-accent font-display text-4xl leading-none">“</div>
-                  <p className="text-gray-300 text-sm leading-relaxed italic font-light">
+                  <p className="text-gray-700 text-sm leading-relaxed italic font-light">
                     {testimonial.quote}
                   </p>
                 </div>
@@ -1663,7 +1663,7 @@ export default function App() {
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-white tracking-tight">{testimonial.author}</h4>
-                    <p className="text-[11px] text-gray-400 font-light">{testimonial.role}</p>
+                    <p className="text-[11px] text-gray-600 font-light">{testimonial.role}</p>
                     <p className="text-[10px] text-brand font-mono">{testimonial.institution}</p>
                   </div>
                 </div>
@@ -1683,7 +1683,7 @@ export default function App() {
             <h3 className="font-display text-lg font-bold text-white tracking-tight">
               Trusted By
             </h3>
-            <p className="text-xs text-slate-400 font-light uppercase tracking-wider">
+            <p className="text-xs text-gray-600 font-light uppercase tracking-wider">
               Schools, Colleges, Enterprises &amp; Municipal Governments
             </p>
           </div>
@@ -1697,7 +1697,7 @@ export default function App() {
                 className={`px-4 py-1.5 rounded-full text-[10px] font-mono tracking-wider transition-all cursor-pointer ${
                   activePartnerFilter === cat
                     ? "bg-white text-[#0B1020] font-semibold"
-                    : "bg-white/5 text-slate-400 hover:text-white"
+                    : "bg-white/5 text-gray-600 hover:text-white"
                 }`}
               >
                 {cat}s
@@ -1723,10 +1723,10 @@ export default function App() {
                   className={`border ${colorClass} rounded-xl p-4 flex flex-col items-center justify-center text-center group cursor-default transition-all duration-300 hover:scale-[1.02]`}
                   title={p.name}
                 >
-                  <span className="text-xs font-display font-semibold text-slate-300 group-hover:text-white transition-colors uppercase tracking-wider block">
+                  <span className="text-xs font-display font-semibold text-gray-700 group-hover:text-white transition-colors uppercase tracking-wider block">
                     {p.logoText}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400 tracking-widest mt-1 block uppercase font-medium">
+                  <span className="text-[10px] font-mono text-gray-600 tracking-widest mt-1 block uppercase font-medium">
                     {p.category}
                   </span>
                 </div>
@@ -1753,7 +1753,7 @@ export default function App() {
                 About SAFAL AI &amp; Innovation Centre
               </h2>
               
-              <div className="space-y-4 text-slate-300 text-sm font-light leading-relaxed">
+              <div className="space-y-4 text-gray-700 text-sm font-light leading-relaxed">
                 <p>
                   SAFAL AI &amp; Innovation Centre is a Nepal-based artificial intelligence company dedicated to empowering individuals and organizations through AI education, innovation and technology solutions. We believe in building solutions that scale across geography and resource diversity.
                 </p>
@@ -1770,7 +1770,7 @@ export default function App() {
                     <Lightbulb className="h-5 w-5 text-brand" />
                   </div>
                   <h3 className="font-display text-base font-bold text-white tracking-tight">Our Mission</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">
+                  <p className="text-xs text-gray-700 leading-relaxed font-light">
                     "Empowering Nepal Through Artificial Intelligence" — making advanced tools accessible, localized, practical, and highly impactful.
                   </p>
                 </div>
@@ -1780,7 +1780,7 @@ export default function App() {
                     <HeartHandshake className="h-5 w-5 text-brand-accent" />
                   </div>
                   <h3 className="font-display text-base font-bold text-white tracking-tight">Our Vision</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">
+                  <p className="text-xs text-gray-700 leading-relaxed font-light">
                     To become Nepal's most trusted, ethical, and advanced artificial intelligence innovation and technology solutions partner.
                   </p>
                 </div>
@@ -1802,26 +1802,26 @@ export default function App() {
                     <CheckCircle2 className="h-4 w-4 text-brand-accent shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white font-medium block">Localization Priority</strong>
-                      <span className="text-slate-300 font-light">Products are custom-tuned to Nepalese grammatical, curriculum, and administrative norms.</span>
+                      <span className="text-gray-700 font-light">Products are custom-tuned to Nepalese grammatical, curriculum, and administrative norms.</span>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <CheckCircle2 className="h-4 w-4 text-brand-accent shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white font-medium block">Inclusivity Mindset</strong>
-                      <span className="text-slate-300 font-light">Architectures planned to require minimal computational load, operating over standard networks.</span>
+                      <span className="text-gray-700 font-light">Architectures planned to require minimal computational load, operating over standard networks.</span>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <CheckCircle2 className="h-4 w-4 text-brand-accent shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white font-medium block">Sovereign Data Integrity</strong>
-                      <span className="text-slate-300 font-light">Strict safety rules guarding sensitive institutional and curriculum assets securely.</span>
+                      <span className="text-gray-700 font-light">Strict safety rules guarding sensitive institutional and curriculum assets securely.</span>
                     </div>
                   </li>
                 </ul>
 
-                <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-600">
                   <span>SAFAL INNOVATION LAB</span>
                   <span>EST. 2026</span>
                 </div>
@@ -1848,7 +1848,7 @@ export default function App() {
             <h2 className="font-display text-4xl font-extrabold text-gray-900 tracking-tight mt-3">
               Meet The Team Behind SAFAL AI
             </h2>
-            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
               A passionate team dedicated to empowering Nepal through Artificial Intelligence, innovation and digital transformation.
             </p>
           </div>
@@ -1903,14 +1903,14 @@ export default function App() {
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-9 w-9 rounded-xl bg-gray-50 hover:bg-[#0A66FF] border border-gray-200 hover:border-transparent text-gray-500 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
+                    className="h-9 w-9 rounded-xl bg-gray-50 hover:bg-[#0A66FF] border border-gray-200 hover:border-transparent text-gray-600 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
                     title={`Connect with ${member.name} on LinkedIn`}
                   >
                     <Linkedin className="h-4.5 w-4.5" />
                   </a>
                   <a
                     href={`mailto:${member.email}`}
-                    className="text-[11px] font-mono text-gray-400 hover:text-brand transition-colors"
+                    className="text-[11px] font-mono text-gray-600 hover:text-brand transition-colors"
                   >
                     {member.email}
                   </a>
@@ -1940,7 +1940,7 @@ export default function App() {
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-brand/10 border border-brand/20 text-brand px-3 py-1.5 rounded-full">
-                    <span className="h-1.5 w-1.5 bg-brand rounded-full animate-pulse inline-block" />
+                    <span className="h-1.5 w-1.5 bg-brand rounded-full inline-block" />
                     New Course 2026
                   </span>
                   <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-gray-100 border border-gray-250 text-gray-700 px-3 py-1.5 rounded-full">
@@ -1961,7 +1961,7 @@ export default function App() {
                   projects — even if you are a complete beginner.
                 </p>
 
-                <p className="text-sm text-gray-500 font-mono">
+                <p className="text-sm text-gray-600 font-mono">
                   <span className="text-brand font-semibold">Updated:</span> 07/2026 &nbsp;&middot;&nbsp;
                   <span className="text-brand font-semibold">Duration:</span> 1.5 Months (68 Hours) &nbsp;&middot;&nbsp;
                   <span className="text-brand font-semibold">6</span> Upcoming Batches
@@ -2011,7 +2011,7 @@ export default function App() {
                     </div>
                   ))}
                   <div className="pt-4 border-t border-gray-100">
-                    <p className="text-xs text-gray-500 font-mono text-center">
+                    <p className="text-xs text-gray-600 font-mono text-center">
                       Taught in <span className="text-brand font-semibold">Nepali and English</span> · Hands-on projects every week
                     </p>
                   </div>
@@ -2030,7 +2030,7 @@ export default function App() {
                   <div className="font-display text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-brand to-brand-accent bg-clip-text text-transparent">
                     {stat.value}
                   </div>
-                  <p className="text-xs text-gray-500 font-semibold uppercase tracking-widest">{stat.label}</p>
+                  <p className="text-xs text-gray-600 font-semibold uppercase tracking-widest">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -2095,7 +2095,7 @@ export default function App() {
             <div className="text-center max-w-3xl mx-auto mb-14">
               <span className="section-badge mb-3 block text-center">Full Curriculum</span>
               <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-3">6-Week Learning Journey</h3>
-              <p className="text-gray-500 mt-3 font-sans font-light">Every week is packed with practical sessions, real project milestones, and mentor-led code reviews.</p>
+              <p className="text-gray-600 mt-3 font-sans font-light">Every week is packed with practical sessions, real project milestones, and mentor-led code reviews.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -2103,7 +2103,7 @@ export default function App() {
                 <div key={mod.id} id={`vibe-module-${mod.id}`} className="rounded-2xl border border-gray-200 bg-white p-7 flex flex-col gap-4 hover:border-brand/40 hover:shadow-md transition-all duration-300 group shadow-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded-full">{mod.week}</span>
-                    <span className="h-8 w-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 font-display font-bold text-sm group-hover:bg-brand/10 group-hover:text-brand transition-colors">{String(idx + 1).padStart(2, "0")}</span>
+                    <span className="h-8 w-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-600 font-display font-bold text-sm group-hover:bg-brand/10 group-hover:text-brand transition-colors">{String(idx + 1).padStart(2, "0")}</span>
                   </div>
                   <h4 className="font-display text-base font-bold text-gray-900 leading-snug">{mod.title}</h4>
                   <ul className="space-y-2">
@@ -2139,18 +2139,18 @@ export default function App() {
             <div className="text-center mb-12">
               <span className="section-badge mb-3 block">Upcoming Classes</span>
               <h3 className="font-display text-3xl font-extrabold text-gray-900 mt-3">Choose Your Batch Schedule</h3>
-              <p className="text-gray-500 mt-2 font-sans font-light">6 upcoming batches — Morning, Evening, and Night options available.</p>
+              <p className="text-gray-600 mt-2 font-sans font-light">6 upcoming batches — Morning, Evening, and Night options available.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {VIBE_SCHEDULES.map((sch) => (
                 <div key={sch.id} id={`schedule-${sch.id}`} className="rounded-2xl border border-gray-200 bg-white p-6 space-y-4 hover:border-brand/35 hover:shadow-md transition-all group shadow-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 px-2.5 py-1 rounded-full">{sch.tag}</span>
-                    <Calendar className="h-4 w-4 text-gray-400 group-hover:text-brand transition-colors" />
+                    <Calendar className="h-4 w-4 text-gray-600 group-hover:text-brand transition-colors" />
                   </div>
                   <div>
                     <p className="font-display text-xl font-bold text-gray-900">{sch.date}</p>
-                    <p className="text-xs text-gray-400 font-mono mt-0.5">{sch.day}</p>
+                    <p className="text-xs text-gray-600 font-mono mt-0.5">{sch.day}</p>
                   </div>
                   <div className="space-y-1.5">
                     {sch.times.map((t, i) => (
@@ -2188,11 +2188,11 @@ export default function App() {
                   <div>
                     <h4 className="font-display font-bold text-gray-900">{story.name}</h4>
                     <p className="text-xs text-brand font-mono mt-0.5">{story.position}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{story.company}</p>
+                    <p className="text-xs text-gray-600 mt-0.5">{story.company}</p>
                   </div>
                   <div className="space-y-1 text-xs text-gray-600 border-t border-gray-100 pt-4 font-sans font-light">
-                    <p><span className="text-gray-400">Course: </span>{story.course}</p>
-                    <p><span className="text-gray-400">Education: </span>{story.college}</p>
+                    <p><span className="text-gray-600">Course: </span>{story.course}</p>
+                    <p><span className="text-gray-600">Education: </span>{story.college}</p>
                   </div>
                 </div>
               ))}
@@ -2204,7 +2204,7 @@ export default function App() {
         <div className="bg-white py-16 border-t border-gray-100">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-gray-900">Ready to Start Your AI Coding Journey?</h3>
-            <p className="text-gray-500 font-sans font-light">Our syllabus covers only the major module headlines. For a complete walkthrough and to customize the course, book a free counseling session today.</p>
+            <p className="text-gray-600 font-sans font-light">Our syllabus covers only the major module headlines. For a complete walkthrough and to customize the course, book a free counseling session today.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 id="vibe-quick-inquire"
@@ -2238,7 +2238,7 @@ export default function App() {
                 <h2 className="font-display text-4xl font-extrabold text-gray-900 tracking-tight leading-tight mt-3">
                   Get In Touch
                 </h2>
-                <p className="text-gray-500 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-sm">
                   Interested in AI training, AI solutions, partnerships or consulting? Contact our team.
                 </p>
               </div>
@@ -2252,7 +2252,7 @@ export default function App() {
                   <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
                     <div>
                       <h4 className="font-semibold text-gray-900 text-xs">Uday Ram Jaishi</h4>
-                      <p className="text-[10px] text-gray-400">Chief Executive Officer (CEO)</p>
+                      <p className="text-[10px] text-gray-600">Chief Executive Officer (CEO)</p>
                     </div>
                     <a href="mailto:uday@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
                       uday@safalai.org
@@ -2261,7 +2261,7 @@ export default function App() {
                   <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
                     <div>
                       <h4 className="font-semibold text-gray-900 text-xs">Ishwor Dhungana</h4>
-                      <p className="text-[10px] text-gray-400">Lead AI Trainer</p>
+                      <p className="text-[10px] text-gray-600">Lead AI Trainer</p>
                     </div>
                     <a href="mailto:ishwor@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
                       ishwor@safalai.org
@@ -2270,7 +2270,7 @@ export default function App() {
                   <div className="flex justify-between items-center py-1.5">
                     <div>
                       <h4 className="font-semibold text-gray-900 text-xs">Kamram Muazzam</h4>
-                      <p className="text-[10px] text-gray-400">AI Solution Engineer</p>
+                      <p className="text-[10px] text-gray-600">AI Solution Engineer</p>
                     </div>
                     <a href="mailto:kamram@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
                       kamram@safalai.org
@@ -2287,7 +2287,7 @@ export default function App() {
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-gray-400 block uppercase tracking-wider font-semibold">Email Address</span>
+                    <span className="text-xs font-mono text-gray-600 block uppercase tracking-wider font-semibold">Email Address</span>
                     <a href="mailto:info@safalai.org" className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
                       info@safalai.org
                     </a>
@@ -2299,7 +2299,7 @@ export default function App() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-gray-400 block uppercase tracking-wider font-semibold">Phone Number</span>
+                    <span className="text-xs font-mono text-gray-600 block uppercase tracking-wider font-semibold">Phone Number</span>
                     <a href="tel:+97714455667" className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
                       +977 1 4455667
                     </a>
@@ -2311,7 +2311,7 @@ export default function App() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-gray-400 block uppercase tracking-wider font-semibold">Office Location</span>
+                    <span className="text-xs font-mono text-gray-600 block uppercase tracking-wider font-semibold">Office Location</span>
                     <p className="text-sm font-semibold text-gray-900 leading-normal">
                       Level 3, Star Complex, Putalisadak, Kathmandu, Nepal
                     </p>
@@ -2322,14 +2322,14 @@ export default function App() {
 
               {/* Embedded Social link grids */}
               <div className="space-y-3 pt-4 border-t border-gray-150">
-                <span className="text-xs font-mono text-gray-400 block uppercase font-semibold">Connect &amp; Follow Us</span>
+                <span className="text-xs font-mono text-gray-600 block uppercase font-semibold">Connect &amp; Follow Us</span>
                 <div className="flex gap-3" id="social-links-grid">
                   <a
                     href="https://linkedin.com"
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 bg-white hover:bg-[#0A66FF] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-500 hover:text-white transition-all"
+                    className="h-10 w-10 bg-white hover:bg-[#0A66FF] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-600 hover:text-white transition-all"
                     title="LinkedIn"
                   >
                     <Linkedin className="h-4.5 w-4.5" />
@@ -2339,7 +2339,7 @@ export default function App() {
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 bg-white hover:bg-[#1877F2] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-500 hover:text-white transition-all"
+                    className="h-10 w-10 bg-white hover:bg-[#1877F2] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-600 hover:text-white transition-all"
                     title="Facebook"
                   >
                     <Facebook className="h-4.5 w-4.5" />
@@ -2349,7 +2349,7 @@ export default function App() {
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 bg-white hover:bg-[#E4405F] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-500 hover:text-white transition-all"
+                    className="h-10 w-10 bg-white hover:bg-[#E4405F] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-600 hover:text-white transition-all"
                     title="Instagram"
                   >
                     <Instagram className="h-4.5 w-4.5" />
@@ -2359,7 +2359,7 @@ export default function App() {
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 bg-white hover:bg-[#FF0000] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-500 hover:text-white transition-all"
+                    className="h-10 w-10 bg-white hover:bg-[#FF0000] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-600 hover:text-white transition-all"
                     title="YouTube"
                   >
                     <Youtube className="h-4.5 w-4.5" />
@@ -2392,7 +2392,7 @@ export default function App() {
                 <form onSubmit={handleContactSubmit} className="space-y-5" id="contact-form">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-name">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="contact-name">
                         Name
                       </label>
                       <input
@@ -2402,11 +2402,11 @@ export default function App() {
                         value={contactName}
                         onChange={(e) => setContactName(e.target.value)}
                         placeholder="e.g. Binod Acharya"
-                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400"
+                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-600"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-org">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="contact-org">
                         Organization
                       </label>
                       <input
@@ -2416,14 +2416,14 @@ export default function App() {
                         value={contactOrg}
                         onChange={(e) => setContactOrg(e.target.value)}
                         placeholder="e.g., CDC Board, Elite Academy"
-                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400"
+                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-600"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-email">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="contact-email">
                         Email
                       </label>
                       <input
@@ -2433,11 +2433,11 @@ export default function App() {
                         value={contactEmail}
                         onChange={(e) => setContactEmail(e.target.value)}
                         placeholder="name@organization.org"
-                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400"
+                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-600"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-phone">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="contact-phone">
                         Phone Number
                       </label>
                       <input
@@ -2446,13 +2446,13 @@ export default function App() {
                         value={contactPhone}
                         onChange={(e) => setContactPhone(e.target.value)}
                         placeholder="e.g. +977 9851000000"
-                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400"
+                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-600"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-msg">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="contact-msg">
                       Message
                     </label>
                     <textarea
@@ -2462,7 +2462,7 @@ export default function App() {
                       value={contactMessage}
                       onChange={(e) => setContactMessage(e.target.value)}
                       placeholder="Detail what localized AI models, capacity training bootcamps, or workflow automation integrations your administration is researching."
-                      className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl p-4 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400 resize-none"
+                      className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl p-4 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-600 resize-none"
                     />
                   </div>
 
@@ -2485,7 +2485,7 @@ export default function App() {
 
 
       {/* FOOTER */}
-      <footer className="bg-dark-primary text-gray-300 py-16 border-t border-white/10 relative z-20" id="full-footer">
+      <footer className="bg-dark-primary text-gray-700 py-16 border-t border-white/10 relative z-20" id="full-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
@@ -2500,7 +2500,7 @@ export default function App() {
                   <span className="font-display text-lg font-bold tracking-tight text-white block">
                     SAFAL <span className="text-brand-accent">AI</span>
                   </span>
-                  <span className="text-[9px] text-gray-400 font-mono tracking-wider block uppercase">
+                  <span className="text-[9px] text-gray-600 font-mono tracking-wider block uppercase">
                     &amp; Innovation Centre
                   </span>
                 </div>
@@ -2508,7 +2508,7 @@ export default function App() {
               <p className="text-xs text-slate-450 leading-relaxed font-light">
                 Empowering Nepal Through Artificial Intelligence. Deploying curriculum-aligned educational systems, robust customized business workflows, and inclusive public governance templates nationwide.
               </p>
-              <div className="text-[11px] text-slate-500 font-mono">
+              <div className="text-[11px] text-gray-600 font-mono">
                 <span>EST: 2026</span>
               </div>
             </div>
@@ -2518,7 +2518,7 @@ export default function App() {
               <h4 className="font-display text-xs font-bold text-white tracking-widest uppercase">
                 Solutions Scope
               </h4>
-              <ul className="space-y-2 text-xs font-light text-slate-400">
+              <ul className="space-y-2 text-xs font-light text-gray-600">
                 <li><a href="#solutions" className="hover:text-brand transition-colors block">AI Instruction &amp; Training</a></li>
                 <li><a href="#solutions" className="hover:text-brand transition-colors block">Workflow Automations</a></li>
                 <li><a href="#solutions" className="hover:text-brand transition-colors block">Product Engineering</a></li>
@@ -2532,10 +2532,10 @@ export default function App() {
               <h4 className="font-display text-xs font-bold text-white tracking-widest uppercase">
                 Our Products
               </h4>
-              <ul className="space-y-2 text-xs font-light text-slate-400">
+              <ul className="space-y-2 text-xs font-light text-gray-600">
                 <li><a href="#products" className="hover:text-brand transition-colors block">SAFAL Teacher AI <span className="text-[9px] text-brand bg-brand/10 border border-brand/20 px-1 rounded ml-1 font-mono uppercase">Beta</span></a></li>
-                <li><span className="text-slate-500 block">SAFAL Business AI</span></li>
-                <li><span className="text-slate-500 block">SAFAL Municipal AI</span></li>
+                <li><span className="text-gray-600 block">SAFAL Business AI</span></li>
+                <li><span className="text-gray-600 block">SAFAL Municipal AI</span></li>
                 <li><a href="#sandbox" className="hover:text-brand transition-colors block">CDC-Aligned Sandbox</a></li>
               </ul>
             </div>
@@ -2545,7 +2545,7 @@ export default function App() {
               <h4 className="font-display text-xs font-bold text-white tracking-widest uppercase">
                 Training Stream
               </h4>
-              <ul className="space-y-2 text-xs font-light text-slate-400">
+              <ul className="space-y-2 text-xs font-light text-gray-600">
                 <li><a href="#training" className="hover:text-brand transition-colors block">AI For Educators</a></li>
                 <li><a href="#training" className="hover:text-brand transition-colors block">AI For Students</a></li>
                 <li><a href="#training" className="hover:text-brand transition-colors block">AI For Professionals</a></li>
@@ -2558,7 +2558,7 @@ export default function App() {
               <h4 className="font-display text-xs font-bold text-white tracking-widest uppercase">
                 Company Hub
               </h4>
-              <ul className="space-y-2 text-xs font-light text-slate-400">
+              <ul className="space-y-2 text-xs font-light text-gray-600">
                 <li><a href="#about" className="hover:text-brand transition-colors block">About Our Mission</a></li>
                 <li><a href="#research" className="hover:text-brand transition-colors block">Innovation Lab</a></li>
                 <li><a href="#contact" className="hover:text-brand transition-colors block">Contact Lab Desk</a></li>
@@ -2569,12 +2569,12 @@ export default function App() {
           </div>
 
           {/* Under footer lines */}
-          <div className="border-t border-white/5 mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+          <div className="border-t border-white/5 mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-600">
             <div>
               <span>© 2026 SAFAL AI &amp; Innovation Centre. All Rights Reserved.</span>
             </div>
             <div className="flex gap-4">
-              <span className="text-slate-400 italic font-sans text-xs flex items-center justify-center gap-1">Empowering Nepal Through Artificial Intelligence.</span>
+              <span className="text-gray-600 italic font-sans text-xs flex items-center justify-center gap-1">Empowering Nepal Through Artificial Intelligence.</span>
             </div>
           </div>
 
@@ -2597,7 +2597,7 @@ export default function App() {
               <button
                 id="close-consult-modal"
                 onClick={() => setConsultModalOpen(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white p-1 rounded-full bg-white/5 cursor-pointer border-none"
+                className="absolute top-4 right-4 text-gray-600 hover:text-white p-1 rounded-full bg-white/5 cursor-pointer border-none"
                 title="Close"
               >
                 <X className="h-5 w-5" />
@@ -2610,7 +2610,7 @@ export default function App() {
               <h3 className="font-display text-2xl font-bold tracking-tight text-white mb-1">
                 Book Consultation
               </h3>
-              <p className="text-slate-300 text-xs font-light">
+              <p className="text-gray-700 text-xs font-light">
                 Secure a structured 30-minute integration review call with SAFAL educational and automation leads.
               </p>
             </div>
@@ -2619,7 +2619,7 @@ export default function App() {
             <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-4">
               {consultSuccessMsg ? (
                 <div className="p-6 bg-[#00C853]/10 border border-[#00C853]/25 rounded-2xl text-[#00C853] space-y-3" id="modal-success-box">
-                  <CheckCircle2 className="h-10 w-10 text-brand-accent animate-pulse" />
+                  <CheckCircle2 className="h-10 w-10 text-brand-accent" />
                   <h4 className="font-display text-base font-bold">Consultation Interest Logged</h4>
                   <p className="text-xs font-light text-slate-100 leading-relaxed">
                     {consultSuccessMsg}
@@ -2638,7 +2638,7 @@ export default function App() {
                 <form onSubmit={handleBookConsultation} className="space-y-4" id="consultation-form">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="consult-name">
+                      <label className="block text-[10px] font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="consult-name">
                         Your Full Name
                       </label>
                       <input
@@ -2648,11 +2648,11 @@ export default function App() {
                         value={consultName}
                         onChange={(e) => setConsultName(e.target.value)}
                         placeholder="e.g., Sunil Sharma"
-                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-slate-500"
+                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-gray-600"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="consult-email">
+                      <label className="block text-[10px] font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="consult-email">
                         Your Professional Email
                       </label>
                       <input
@@ -2662,14 +2662,14 @@ export default function App() {
                         value={consultEmail}
                         onChange={(e) => setConsultEmail(e.target.value)}
                         placeholder="sunil@academy.edu.np"
-                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-slate-500"
+                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-gray-600"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="consult-org">
+                      <label className="block text-[10px] font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="consult-org">
                         Organization / Authority
                       </label>
                       <input
@@ -2679,11 +2679,11 @@ export default function App() {
                         value={consultOrg}
                         onChange={(e) => setConsultOrg(e.target.value)}
                         placeholder="e.g. Lalitpur Ward office, Zenith School"
-                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-slate-500"
+                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-gray-600"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="consult-phone">
+                      <label className="block text-[10px] font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="consult-phone">
                         Phone Contact Coordinate
                       </label>
                       <input
@@ -2693,13 +2693,13 @@ export default function App() {
                         value={consultPhone}
                         onChange={(e) => setConsultPhone(e.target.value)}
                         placeholder="+977-9800000000"
-                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-slate-500"
+                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-gray-600"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="consult-sector-select">
+                    <label className="block text-[10px] font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="consult-sector-select">
                       Primary sector focus
                     </label>
                     <select
@@ -2716,7 +2716,7 @@ export default function App() {
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="consult-msg">
+                    <label className="block text-[10px] font-mono uppercase tracking-wider text-gray-600 mb-1" htmlFor="consult-msg">
                       What target challenge is your team targeting?
                     </label>
                     <textarea
@@ -2725,7 +2725,7 @@ export default function App() {
                       value={consultMessage}
                       onChange={(e) => setConsultMessage(e.target.value)}
                       placeholder="Briefly share any special workflows or curricula goals you intend to transform."
-                      className="w-full bg-[#0B1020] border border-white/10 rounded-xl p-4 text-xs text-white focus:outline-none focus:border-brand resize-none placeholder:text-slate-500"
+                      className="w-full bg-[#0B1020] border border-white/10 rounded-xl p-4 text-xs text-white focus:outline-none focus:border-brand resize-none placeholder:text-gray-600"
                     />
                   </div>
 
@@ -2735,7 +2735,7 @@ export default function App() {
                     className="w-full bg-brand hover:bg-brand-light disabled:bg-gray-600 text-white font-semibold py-3 rounded-xl transition-all shadow-md text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-none ring-pulse"
                   >
                     <span>Request Placement Slot</span>
-                    <Calendar className="h-4 w-4 animate-bounce" />
+                    <Calendar className="h-4 w-4" />
                   </button>
                 </form>
               )}
@@ -2759,13 +2759,13 @@ export default function App() {
                   <div className="h-10 w-10 rounded-xl bg-brand/20 border border-brand/35 flex items-center justify-center">
                     <Bot className="h-5 w-5 text-brand-accent" />
                   </div>
-                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-brand-accent border-2 border-dark-primary animate-pulse" />
+                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-brand-accent border-2 border-dark-primary" />
                 </div>
                 <div>
                   <h4 className="font-display text-sm font-bold text-white leading-tight">
                     SAFAL AI Mitra
                   </h4>
-                  <span className="text-[10px] text-gray-400 font-mono tracking-wider uppercase flex items-center gap-1">
+                  <span className="text-[10px] text-gray-600 font-mono tracking-wider uppercase flex items-center gap-1">
                     <span>Virtual Advisor</span>
                   </span>
                 </div>
@@ -2773,7 +2773,7 @@ export default function App() {
               <button
                 id="close-chatbot"
                 onClick={() => setChatOpen(false)}
-                className="text-gray-400 hover:text-white p-1 rounded-full hover:bg-white/5 transition-all cursor-pointer border-none"
+                className="text-gray-600 hover:text-white p-1 rounded-full hover:bg-white/5 transition-all cursor-pointer border-none"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -2833,7 +2833,7 @@ export default function App() {
                 );
               })}
               {chatLoading && (
-                <div className="flex items-center gap-2 text-slate-400 text-[10px] font-mono pl-9 py-2">
+                <div className="flex items-center gap-2 text-gray-600 text-[10px] font-mono pl-9 py-2">
                   <Loader2 className="h-3 w-3 animate-spin text-brand" />
                   <span>Mitra is synthesizing responses...</span>
                 </div>
@@ -2851,12 +2851,12 @@ export default function App() {
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 placeholder="Ask SAFAL AI Mitra..."
-                className="flex-1 bg-white/5 border border-white/5 focus:border-[#0A66FF] rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none placeholder:text-slate-500 font-light"
+                className="flex-1 bg-white/5 border border-white/5 focus:border-[#0A66FF] rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none placeholder:text-gray-600 font-light"
               />
               <button
                 type="submit"
                 disabled={!chatInput.trim() || chatLoading}
-                className="h-8 w-8 rounded-xl bg-brand hover:bg-brand-light disabled:bg-white/5 disabled:text-slate-500 text-white flex items-center justify-center transition-all cursor-pointer border-none shadow-md"
+                className="h-8 w-8 rounded-xl bg-brand hover:bg-brand-light disabled:bg-white/5 disabled:text-gray-600 text-white flex items-center justify-center transition-all cursor-pointer border-none shadow-md"
               >
                 <Send className="h-3.5 w-3.5" />
               </button>
@@ -2869,7 +2869,7 @@ export default function App() {
             className="pointer-events-auto h-12 w-fit px-4 rounded-full bg-brand hover:bg-brand-light shadow-2xl shadow-brand/20 flex items-center gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer ring-pulse"
           >
             <div className="relative">
-              <MessageSquare className="h-5 w-5 animate-pulse" />
+              <MessageSquare className="h-5 w-5" />
               <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-[#00C853] border-2 border-[#0A66FF]" />
             </div>
             <span className="text-xs font-mono tracking-wider font-semibold uppercase shrink-0">SAFAL Mitra</span>
