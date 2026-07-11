@@ -433,6 +433,17 @@ export const TEAM_MEMBERS: TeamMember[] = [
     phone: "+977 9851 202020"
   },
   {
+    id: "team-ram",
+    name: "Ram Tamang",
+    position: "Full Stack Developer & Product Lead",
+    description: "Building innovative web solutions, driving technical architecture and ensuring seamless user experiences for SAFAL AI's digital ecosystem.",
+    linkedinUrl: "https://ram.tamang.com.np",
+    avatarInitials: "RT",
+    avatarBg: "from-[#22C55E] to-[#84CC16]",
+    email: "ram@safalai.org",
+    phone: "+977 9851 404040"
+  },
+  {
     id: "team-kamram",
     name: "Kamram Muazzam",
     position: "AI Solution Engineer",
