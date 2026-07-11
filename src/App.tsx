@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Markdown from "react-markdown";
 import {
-  Cpu,
-  Sparkles,
+  GraduationCap,
+  Leaf,
   BookOpen,
   Briefcase,
   Building,
@@ -26,10 +26,10 @@ import {
   Sliders,
   Terminal,
   HelpCircle,
-  Lightbulb,
+  TreePine,
   HeartHandshake,
   MessageSquare,
-  Bot,
+  Heart,
   Loader2,
   Linkedin,
   Facebook,
@@ -532,7 +532,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <a href="#hero" className="flex items-center gap-2 group" id="logo-anchor">
             <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-brand to-brand-accent flex items-center justify-center shadow-lg shadow-brand/20 group-hover:scale-105 transition-transform duration-300">
-              <Cpu className="text-white h-5 w-5" />
+              <GraduationCap className="text-white h-5 w-5" />
             </div>
             <div>
               <span className="font-display text-xl font-bold tracking-tight text-gray-900 block">
@@ -693,7 +693,7 @@ export default function App() {
             
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 rounded-full px-4 py-1.5 text-xs text-brand font-medium uppercase tracking-wider mx-auto lg:mx-0 animate-pulse">
-                <Sparkles className="h-3.5 w-3.5 text-brand-accent animate-spin" style={{ animationDuration: '3s' }} />
+                <Leaf className="h-3.5 w-3.5 text-brand-accent animate-spin" style={{ animationDuration: '3s' }} />
                 <span>{t.hero.badge}</span>
               </div>
 
@@ -760,7 +760,7 @@ export default function App() {
                 <div className="absolute bottom-8 right-8 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl float-bob border border-brand/20" style={{ animationDelay: '1s' }}>
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-brand/10 rounded-lg">
-                      <Sparkles className="h-6 w-6 text-brand animate-pulse" />
+                      <Leaf className="h-6 w-6 text-brand animate-pulse" />
                     </div>
                     <div>
                       <p className="text-xs font-bold text-brand">AI for Nepal</p>
@@ -772,7 +772,7 @@ export default function App() {
                 {/* Central AI Icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="h-24 w-24 bg-white rounded-2xl flex items-center justify-center shadow-2xl animate-pulse border-4 border-brand/30">
-                    <Cpu className="text-brand h-12 w-12" />
+                    <GraduationCap className="text-brand h-12 w-12" />
                   </div>
                 </div>
               </div>
@@ -948,7 +948,7 @@ export default function App() {
                     >
                       {prod.status}
                     </span>
-                    <Cpu className={`h-5 w-5 ${prod.status === "Beta" ? "text-brand" : "text-gray-600"}`} />
+                    <GraduationCap className={`h-5 w-5 ${prod.status === "Beta" ? "text-brand" : "text-gray-600"}`} />
                   </div>
 
                   <h3 className="font-display text-2xl font-bold text-white mb-1 tracking-tight">
@@ -1148,7 +1148,7 @@ export default function App() {
                     </>
                   ) : (
                     <>
-                      <Sparkles className="h-4 w-4 text-brand-accent" />
+                      <Leaf className="h-4 w-4 text-brand-accent" />
                       <span>Generate Lesson Blueprint</span>
                     </>
                   )}
@@ -1341,7 +1341,7 @@ export default function App() {
                     <span className={`text-[10px] font-semibold tracking-wider font-mono px-3 py-1 rounded-full uppercase ${bgColors[keyBadgeIndex]}`}>
                       {reason.title.split(" ")[0]}
                     </span>
-                    <Sparkles className="h-4 w-4 text-brand opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <Leaf className="h-4 w-4 text-brand opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                   
                   <h3 className="font-display text-lg font-bold text-white mb-2 tracking-tight">
@@ -1583,7 +1583,7 @@ export default function App() {
                     className="p-5 rounded-2xl bg-dark-secondary/60 border border-white/5 hover:border-brand/40 transition-all flex items-start gap-4"
                   >
                     <div className="h-9 w-9 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0">
-                      <Cpu className="h-4.5 w-4.5" />
+                      <GraduationCap className="h-4.5 w-4.5" />
                     </div>
                     <div>
                       <h3 className="font-display text-base font-bold text-white tracking-tight">
@@ -1850,7 +1850,7 @@ export default function App() {
                 
                 <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
                   <div className="h-10 w-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand">
-                    <Lightbulb className="h-5 w-5 text-brand" />
+                    <TreePine className="h-5 w-5 text-brand" />
                   </div>
                   <h3 className="font-display text-base font-bold text-white tracking-tight">Our Mission</h3>
                   <p className="text-xs text-gray-700 leading-relaxed font-light">
@@ -2577,7 +2577,7 @@ export default function App() {
             <div className="md:col-span-4 space-y-4">
               <a href="#hero" className="flex items-center gap-2 group">
                 <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-brand to-brand-accent flex items-center justify-center font-bold text-white text-base shadow-sm">
-                  <Cpu className="h-4 w-4" />
+                  <GraduationCap className="h-4 w-4" />
                 </div>
                 <div>
                   <span className="font-display text-lg font-bold tracking-tight text-white block">
@@ -2840,7 +2840,7 @@ export default function App() {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="h-10 w-10 rounded-xl bg-brand/20 border border-brand/35 flex items-center justify-center">
-                    <Bot className="h-5 w-5 text-brand-accent" />
+                    <Heart className="h-5 w-5 text-brand-accent" />
                   </div>
                   <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-brand-accent border-2 border-dark-primary" />
                 </div>
