@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/Safal_ai_and_Innoivation/',
+    base: '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
