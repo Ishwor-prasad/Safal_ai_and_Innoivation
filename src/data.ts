@@ -445,4 +445,200 @@ export const TEAM_MEMBERS: TeamMember[] = [
   }
 ];
 
+// ─────────────────────────────────────────────────────────────
+// VIBE CODING WITH AI — Course Data
+// ─────────────────────────────────────────────────────────────
 
+export interface VibeModule {
+  id: string;
+  week: string;
+  title: string;
+  topics: string[];
+}
+
+export interface VibeSchedule {
+  id: string;
+  date: string;
+  day: string;
+  times: string[];
+  tag: string;
+}
+
+export interface VibeStat {
+  id: string;
+  value: string;
+  label: string;
+}
+
+export interface VibeCourseSkill {
+  id: string;
+  icon: string;
+  label: string;
+}
+
+export const VIBE_MODULES: VibeModule[] = [
+  {
+    id: "vm-01",
+    week: "Week 1",
+    title: "Foundations of Vibe Coding & AI",
+    topics: [
+      "Traditional coding vs. Prompt-driven vs. Vibe coding",
+      "Understanding Large Language Models (LLMs) for developers",
+      "Setting up your full AI development environment",
+      "Your first Claude Code / Gemini Code session"
+    ]
+  },
+  {
+    id: "vm-02",
+    week: "Week 2",
+    title: "Mastering AI Prompting for Code",
+    topics: [
+      "Developer's guide to effective prompting",
+      "Prompting for code generation, debugging & review",
+      "Context management strategies with CLAUDE.md",
+      "Prompt anti-patterns and how to avoid them"
+    ]
+  },
+  {
+    id: "vm-03",
+    week: "Week 3",
+    title: "Claude Code Architecture & Commands",
+    topics: [
+      "Deep dive: Claude Code agent loop & tool use",
+      "Plan Mode, checkpoints & safe execution model",
+      "Built-in slash commands (/commit, /review, /doctor)",
+      "Creating custom slash commands & project commands"
+    ]
+  },
+  {
+    id: "vm-04",
+    week: "Week 4",
+    title: "Hooks, Automation & Front-End Development",
+    topics: [
+      "Pre-tool & post-tool hooks: gate-keeping AI actions",
+      "Building end-to-end automated CI/CD workflows",
+      "AI-assisted UI design — React component generation",
+      "Milestone project: Build a full Calendar Application"
+    ]
+  },
+  {
+    id: "vm-05",
+    week: "Week 5",
+    title: "Back-End, APIs & Multi-Agent Systems",
+    topics: [
+      "Node.js + Express REST API generation with AI",
+      "Authentication, JWT, RBAC & OAuth 2.0 via prompt",
+      "Database design with AI: MongoDB & SQL schemas",
+      "Building agents: subagent orchestration & memory patterns"
+    ]
+  },
+  {
+    id: "vm-06",
+    week: "Week 6",
+    title: "MCP, Testing & Capstone Project",
+    topics: [
+      "Model Context Protocol (MCP): architecture & servers",
+      "Connecting Claude to databases, GitHub & web tools",
+      "Test-Driven Development & AI-powered code review",
+      "Capstone: Full-stack authenticated REST API + Frontend"
+    ]
+  }
+];
+
+export const VIBE_SCHEDULES: VibeSchedule[] = [
+  {
+    id: "vs-01",
+    date: "12 Jul 2026",
+    day: "Sunday",
+    times: ["03:00 PM – 04:30 PM"],
+    tag: "Morning Batch"
+  },
+  {
+    id: "vs-02",
+    date: "20 Jul 2026",
+    day: "Monday",
+    times: ["07:00 AM – 08:30 AM", "02:30 PM – 04:00 PM"],
+    tag: "Dual Batch"
+  },
+  {
+    id: "vs-03",
+    date: "26 Jul 2026",
+    day: "Sunday",
+    times: ["06:30 AM – 08:00 AM"],
+    tag: "Early Bird"
+  },
+  {
+    id: "vs-04",
+    date: "27 Jul 2026",
+    day: "Monday",
+    times: ["06:00 PM – 07:30 PM"],
+    tag: "Evening Batch"
+  },
+  {
+    id: "vs-05",
+    date: "02 Aug 2026",
+    day: "Sunday",
+    times: ["08:00 PM – 09:30 PM"],
+    tag: "Night Batch"
+  },
+  {
+    id: "vs-06",
+    date: "03 Aug 2026",
+    day: "Monday",
+    times: ["06:00 PM – 07:30 PM"],
+    tag: "Evening Batch"
+  }
+];
+
+export const VIBE_STATS: VibeStat[] = [
+  { id: "vst-01", value: "1.5", label: "Months Duration" },
+  { id: "vst-02", value: "68", label: "Total Hours" },
+  { id: "vst-03", value: "6", label: "Upcoming Batches" },
+  { id: "vst-04", value: "100%", label: "Hands-On Projects" }
+];
+
+export const VIBE_SKILLS: VibeCourseSkill[] = [
+  { id: "sk-01", icon: "🤖", label: "Claude Code & Gemini CLI" },
+  { id: "sk-02", icon: "💬", label: "Advanced Prompt Engineering" },
+  { id: "sk-03", icon: "⚛️",  label: "React with AI Assistance" },
+  { id: "sk-04", icon: "🛠️", label: "Node.js + Express APIs" },
+  { id: "sk-05", icon: "🔗", label: "Model Context Protocol (MCP)" },
+  { id: "sk-06", icon: "🤝", label: "Multi-Agent Workflows" },
+  { id: "sk-07", icon: "🗄️", label: "AI-Assisted Database Design" },
+  { id: "sk-08", icon: "🧪", label: "Test-Driven Dev with AI" },
+  { id: "sk-09", icon: "🚀", label: "Production-Ready CI/CD" },
+  { id: "sk-10", icon: "🔒", label: "Auth, JWT & Security Audits" }
+];
+
+export const VIBE_SUCCESS_STORIES = [
+  {
+    id: "vss-01",
+    name: "Binod Bastola",
+    course: "MERN Stack Development with GenAI Training",
+    college: "Lumbini ICT Campus / BSc. CSIT",
+    company: "Mango Software Solutions Pvt. Ltd.",
+    position: "React Developer",
+    initial: "BB",
+    gradient: "from-emerald-500 to-teal-600"
+  },
+  {
+    id: "vss-02",
+    name: "Ashmita Jha",
+    course: "Machine Learning, Deep Learning & Generative AI",
+    college: "Thapathali Engineering College / Electronics & Comm.",
+    company: "Palm Mind Technology Pvt. Ltd.",
+    position: "AI Developer",
+    initial: "AJ",
+    gradient: "from-green-500 to-emerald-600"
+  },
+  {
+    id: "vss-03",
+    name: "Pankaj Ghimire",
+    course: "Graphics Design & AI Tools",
+    college: "Cambridge Institute of Technology / BBS",
+    company: "Sealinks Group",
+    position: "Lead Graphics Designer",
+    initial: "PG",
+    gradient: "from-teal-500 to-cyan-600"
+  }
+];

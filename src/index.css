@@ -6,61 +6,113 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand: #0A66FF;
-  --color-brand-accent: #00C853;
-  --color-dark-primary: #0B1020;
-  --color-dark-secondary: #121A30;
-  --color-dark-slate: #1F2E54;
+  /* ---- Green-first brand palette ---- */
+  --color-brand: #16A34A;          /* rich forest green */
+  --color-brand-light: #22C55E;    /* vibrant mid green */
+  --color-brand-accent: #4ADE80;   /* lime-green highlight */
+  --color-brand-muted: #166534;    /* deep green */
+
+  --color-dark-primary: #070D0A;   /* near-black with green tint */
+  --color-dark-secondary: #0D1710; /* dark green-tinted panel */
+  --color-dark-slate: #1A3025;     /* dark slate border */
+  --color-dark-card: #101A14;      /* card background */
 }
 
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
-  background-color: #0B1020;
+  background-color: #070D0A;
 }
 
-/* Custom CSS Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0B1020;
-}
-::-webkit-scrollbar-thumb {
-  background: #1F2E54;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #0A66FF;
-}
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #070D0A; }
+::-webkit-scrollbar-thumb { background: #1A3025; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #16A34A; }
 
+/* ── Diagonal clip utility ── */
 @layer utilities {
   .clip-diagonal {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   }
+
+  /* Glowing green text */
+  .text-glow-green {
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.45), 0 0 40px rgba(22, 163, 74, 0.25);
+  }
+
+  /* Shimmer animation for badges */
+  .shimmer {
+    background: linear-gradient(90deg, transparent 0%, rgba(74, 222, 128, 0.15) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position:  200% 0; }
+  }
+
+  /* Pulse ring around CTA buttons */
+  .ring-pulse {
+    animation: ring-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes ring-pulse {
+    0%, 100% { box-shadow: 0 0 0 0px rgba(22, 163, 74, 0.6); }
+    50%       { box-shadow: 0 0 0 8px rgba(22, 163, 74, 0.0); }
+  }
+
+  /* Spin reverse */
+  .animate-reverse {
+    animation-direction: reverse;
+  }
+
+  /* Float bob */
+  .float-bob {
+    animation: floatBob 4s ease-in-out infinite;
+  }
+  @keyframes floatBob {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+  }
+
+  /* Fade-in-up */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Horizontal scroll snap for schedule cards */
+  .scroll-snap-x {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .snap-start { scroll-snap-align: start; }
 }
 
-/* Typographic markdown support for teacher AI panel */
+/* ── Markdown body (Teacher AI panel) ── */
 .markdown-body {
   font-family: var(--font-sans);
-  color: #e2e8f0;
+  color: #d1fae5;
 }
-.markdown-body h1, .markdown-body h2 {
+.markdown-body h1,
+.markdown-body h2 {
   font-family: var(--font-display);
   font-weight: 700;
   color: #ffffff;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
-  border-bottom: 1px solid #1F2E54;
+  border-bottom: 1px solid #1A3025;
   padding-bottom: 0.25rem;
 }
-.markdown-body h2 {
-  font-size: 1.25rem;
-}
+.markdown-body h2 { font-size: 1.25rem; }
 .markdown-body h3 {
   font-family: var(--font-display);
   font-weight: 600;
-  color: #38bdf8;
+  color: #4ADE80;
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
@@ -69,30 +121,38 @@ html {
   margin-bottom: 0.75rem;
   line-height: 1.6;
 }
-.markdown-body ul, .markdown-body ol {
+.markdown-body ul,
+.markdown-body ol {
   margin-left: 1.5rem;
   margin-bottom: 1rem;
   list-style-type: decimal;
 }
-.markdown-body ul {
-  list-style-type: disc;
-}
-.markdown-body li {
-  margin-bottom: 0.25rem;
-}
+.markdown-body ul { list-style-type: disc; }
+.markdown-body li { margin-bottom: 0.25rem; }
 .markdown-body blockquote {
-  border-left: 4px solid #0A66FF;
+  border-left: 4px solid #16A34A;
   padding-left: 1rem;
   margin: 1rem 0;
-  color: #94a3b8;
+  color: #86efac;
   font-style: italic;
-  background-color: rgba(10, 102, 255, 0.05);
+  background-color: rgba(22, 163, 74, 0.06);
 }
 .markdown-body code {
   font-family: var(--font-mono);
-  background-color: #1e293b;
+  background-color: #0D1710;
   padding: 0.125rem 0.25rem;
   border-radius: 0.25rem;
   font-size: 0.875rem;
-  color: #f43f5e;
+  color: #4ADE80;
+}
+
+/* ── Curriculum tree connector lines ── */
+.curriculum-item::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #16A34A, transparent);
 }

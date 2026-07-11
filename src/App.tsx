@@ -47,7 +47,12 @@ import {
   TRUSTED_PARTNERS,
   PartnerOrg,
   CASE_STUDIES,
-  TEAM_MEMBERS
+  TEAM_MEMBERS,
+  VIBE_MODULES,
+  VIBE_SCHEDULES,
+  VIBE_STATS,
+  VIBE_SKILLS,
+  VIBE_SUCCESS_STORIES
 } from "./data";
 
 export default function App() {
@@ -237,13 +242,13 @@ export default function App() {
 
       // Create subtle dark gradient
       const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-      bgGrad.addColorStop(0, "#0B1020");
-      bgGrad.addColorStop(1, "#121A30");
+      bgGrad.addColorStop(0, "#070D0A");
+      bgGrad.addColorStop(1, "#0D1710");
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
 
       // Draw grid lines
-      ctx.strokeStyle = "rgba(10, 102, 255, 0.05)";
+      ctx.strokeStyle = "rgba(22, 163, 74, 0.06)";
       ctx.lineWidth = 1;
       const gridSize = 40;
       for (let x = 0; x < width; x += gridSize) {
@@ -267,8 +272,8 @@ export default function App() {
           const n2 = nodes[j];
           const dist = Math.hypot(n1.x - n2.x, n1.y - n2.y);
           if (dist < 110) {
-            const alpha = (1 - dist / 110) * 0.22;
-            ctx.strokeStyle = `rgba(10, 102, 255, ${alpha})`;
+            const alpha = (1 - dist / 110) * 0.25;
+            ctx.strokeStyle = `rgba(22, 163, 74, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(n1.x, n1.y);
             ctx.lineTo(n2.x, n2.y);
@@ -276,7 +281,7 @@ export default function App() {
 
             // Accent connections
             if (dist < 50 && i % 4 === 0) {
-              ctx.strokeStyle = `rgba(0, 200, 83, ${alpha * 0.8})`;
+              ctx.strokeStyle = `rgba(74, 222, 128, ${alpha * 0.9})`;
               ctx.stroke();
             }
           }
@@ -293,14 +298,14 @@ export default function App() {
         if (node.x < 0 || node.x > width) node.vx *= -1;
         if (node.y < 0 || node.y > height) node.vy *= -1;
 
-        ctx.fillStyle = i % 5 === 0 ? "#00C853" : "#0A66FF";
+        ctx.fillStyle = i % 5 === 0 ? "#4ADE80" : "#16A34A";
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
 
         // Aura effect for key nodes
         if (i % 8 === 0) {
-          ctx.fillStyle = "rgba(10, 102, 255, 0.15)";
+          ctx.fillStyle = "rgba(22, 163, 74, 0.18)";
           ctx.beginPath();
           ctx.arc(node.x, node.y, node.radius * 3, 0, Math.PI * 2);
           ctx.fill();
@@ -460,17 +465,17 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-[#0B1020] text-white selection:bg-brand selection:text-white relative overflow-hidden" id="safal-main">
-      {/* Elegant Dark Abstract Gradient Glow Overlay and blur particles */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0A66FF] opacity-10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#00C853] opacity-5 rounded-full blur-[100px] -ml-32 pointer-events-none"></div>
+    <div className="min-h-screen flex flex-col font-sans bg-dark-primary text-white selection:bg-brand selection:text-white relative overflow-hidden" id="safal-main">
+      {/* Elegant Dark Abstract Gradient Glow Overlay */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand opacity-10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-brand-accent opacity-5 rounded-full blur-[100px] -ml-32 pointer-events-none"></div>
       
       {/* STICKY HEADER */}
       <header
         id="navbar"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#0B1020]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-xl"
+            ? "bg-dark-primary/90 backdrop-blur-md border-b border-white/10 py-3 shadow-xl"
             : "bg-transparent py-5"
         }`}
       >
@@ -505,6 +510,10 @@ export default function App() {
             </a>
             <a href="#training" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
               Training
+            </a>
+            <a href="#vibe-coding" className="text-gray-200 hover:text-brand-accent font-medium text-sm transition-colors flex items-center gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block animate-pulse" />
+              Vibe Coding
             </a>
             <a href="#research" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
               Research
@@ -584,6 +593,14 @@ export default function App() {
               Training
             </a>
             <a
+              href="#vibe-coding"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-brand-accent hover:text-brand text-base py-2 border-b border-white/5 font-medium flex items-center gap-2"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block" />
+              Vibe Coding with AI
+            </a>
+            <a
               href="#research"
               onClick={() => setMobileMenuOpen(false)}
               className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
@@ -651,7 +668,7 @@ export default function App() {
               
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                 Building Nepal's <br />
-                <span className="text-brand bg-gradient-to-r from-brand to-cyan-400 bg-clip-text text-transparent">AI Future</span>
+                <span className="bg-gradient-to-r from-brand-light to-brand-accent bg-clip-text text-transparent text-glow-green">AI Future</span>
               </h1>
               
               <p className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mx-auto lg:mx-0 font-light">
@@ -1600,7 +1617,7 @@ export default function App() {
                 setConsultMessage("Hi, I want details regarding standard academic program options and available custom slots.");
                 setConsultModalOpen(true);
               }}
-              className="inline-flex items-center gap-2 bg-[#0A66FF] hover:bg-blue-600 hover:scale-105 transition-all text-white font-medium text-sm py-4 px-8 rounded-full shadow-lg shadow-blue-900/10 cursor-pointer border-none"
+              className="inline-flex items-center gap-2 bg-brand hover:bg-brand-light hover:scale-105 transition-all text-white font-medium text-sm py-4 px-8 rounded-full shadow-lg shadow-brand/20 cursor-pointer border-none"
             >
               <span>Explore Custom Institutional Programs</span>
               <ChevronRight className="h-4 w-4" />
@@ -1927,8 +1944,309 @@ export default function App() {
       </section>
 
 
+      {/* ════════════════════════════════════════════════════
+          VIBE CODING WITH AI — COURSE LANDING SECTION
+      ════════════════════════════════════════════════════ */}
+      <section id="vibe-coding" className="relative py-0 scroll-mt-20 border-t border-white/10">
+
+        {/* COURSE HERO BANNER */}
+        <div className="relative bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-primary overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-brand/8 rounded-full blur-[140px]" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-brand-accent/5 rounded-full blur-[100px]" />
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-brand/15 border border-brand/30 text-brand-accent px-3 py-1.5 rounded-full">
+                    <span className="h-1.5 w-1.5 bg-brand-accent rounded-full animate-pulse inline-block" />
+                    New Course 2026
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-white/5 border border-white/10 text-gray-300 px-3 py-1.5 rounded-full">
+                    🎓 Industry Certificate
+                  </span>
+                </div>
+
+                <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                  Vibe Coding{" "}
+                  <span className="bg-gradient-to-r from-brand-light to-brand-accent bg-clip-text text-transparent">
+                    with AI
+                  </span>
+                </h2>
+
+                <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+                  Learn to build real applications faster using AI coding tools like Claude Code and Gemini.
+                  Master prompt engineering, automation, multi-agent workflows, and ship production-ready
+                  projects — even if you are a complete beginner.
+                </p>
+
+                <p className="text-sm text-slate-400 font-mono">
+                  <span className="text-brand-accent">Updated:</span> 07/2026 &nbsp;&middot;&nbsp;
+                  <span className="text-brand-accent">Duration:</span> 1.5 Months (68 Hours) &nbsp;&middot;&nbsp;
+                  <span className="text-brand-accent">6</span> Upcoming Batches
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                  <button
+                    id="vibe-enroll-btn"
+                    onClick={() => {
+                      setConsultSector("Education");
+                      setConsultMessage("I am interested in enrolling in the Vibe Coding with AI course. Please share available batch schedules and fee details.");
+                      setConsultModalOpen(true);
+                    }}
+                    className="bg-brand hover:bg-brand-light text-white font-semibold px-8 py-3.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-brand/30 flex items-center justify-center gap-2 cursor-pointer border-none ring-pulse"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    <span>Enroll Now — Select Batch</span>
+                  </button>
+                  <a
+                    href="#vibe-curriculum"
+                    className="bg-white/5 hover:bg-white/10 border border-white/15 hover:border-brand/40 text-white font-medium px-8 py-3.5 rounded-full transition-all text-center text-sm flex items-center justify-center"
+                  >
+                    View Full Curriculum ↓
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <div className="rounded-3xl border border-brand/20 bg-dark-card/80 backdrop-blur-sm p-8 space-y-5 shadow-2xl shadow-brand/10">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="h-8 w-8 rounded-lg bg-brand/20 flex items-center justify-center">
+                      <Award className="h-4 w-4 text-brand-accent" />
+                    </div>
+                    <span className="font-display font-bold text-white">Course Highlights</span>
+                  </div>
+                  {[
+                    { icon: "🤖", text: "Claude Code, Gemini CLI and Cursor IDE mastery" },
+                    { icon: "🏗️", text: "Build full-stack authenticated REST APIs" },
+                    { icon: "⚛️", text: "Production-ready React front-end apps" },
+                    { icon: "🔗", text: "Model Context Protocol (MCP) integration" },
+                    { icon: "🤝", text: "Multi-agent orchestration workflows" },
+                    { icon: "🎓", text: "Industry certificate upon completion" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-lg leading-none mt-0.5 shrink-0">{item.icon}</span>
+                      <span className="text-sm text-slate-200 font-light leading-snug">{item.text}</span>
+                    </div>
+                  ))}
+                  <div className="pt-4 border-t border-white/10">
+                    <p className="text-xs text-slate-400 font-mono text-center">
+                      Taught in <span className="text-brand-accent font-semibold">Nepali and English</span> · Hands-on projects every week
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* STATS BAR */}
+        <div className="bg-dark-secondary border-y border-dark-slate py-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {VIBE_STATS.map((stat) => (
+                <div key={stat.id} className="space-y-1">
+                  <div className="font-display text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-brand-light to-brand-accent bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <p className="text-xs text-gray-400 font-medium uppercase tracking-widest">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* OVERVIEW + SKILLS */}
+        <div className="bg-dark-primary py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              <div className="space-y-6">
+                <span className="text-xs font-semibold text-brand tracking-widest uppercase block">Course Overview</span>
+                <h3 className="font-display text-3xl font-bold text-white tracking-tight">
+                  Learn Smarter, Build Faster with AI Tools
+                </h3>
+                <p className="text-slate-300 leading-relaxed font-light">
+                  The best developers do not just write code — they know how to think, adapt, and build faster than everyone else.
+                  <strong className="text-white font-medium"> Vibe Coding with AI</strong> is a hands-on training program designed
+                  for the AI era. This is not about replacing your skills. It is about multiplying them.
+                </p>
+                <p className="text-slate-300 leading-relaxed font-light">
+                  You will go from understanding how large language models work to using Claude Code like a powerful development partner.
+                  Along the way you will learn prompting, custom commands, intelligent automation, multi-agent workflows, scalable
+                  architecture, and the Model Context Protocol to connect AI with external tools.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <button
+                    onClick={() => { setConsultSector("Education"); setConsultMessage("Please share the full Vibe Coding with AI syllabus."); setConsultModalOpen(true); }}
+                    className="inline-flex items-center gap-2 bg-brand/10 border border-brand/30 text-brand-accent hover:bg-brand/20 text-sm font-medium px-6 py-3 rounded-full transition-all cursor-pointer"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Download Syllabus
+                  </button>
+                  <button
+                    onClick={() => { setConsultSector("Education"); setConsultMessage("I want to inquire about the Vibe Coding with AI course."); setConsultModalOpen(true); }}
+                    className="inline-flex items-center gap-2 border border-white/15 hover:border-white/30 text-white text-sm font-medium px-6 py-3 rounded-full transition-all cursor-pointer bg-transparent"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Send Inquiry
+                  </button>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <span className="text-xs font-semibold text-brand tracking-widest uppercase block">Skills You Will Learn</span>
+                <div className="grid grid-cols-2 gap-3">
+                  {VIBE_SKILLS.map((skill) => (
+                    <div key={skill.id} className="flex items-center gap-3 p-3.5 rounded-xl bg-dark-secondary/60 border border-white/5 hover:border-brand/30 hover:bg-brand/5 transition-all group">
+                      <span className="text-xl shrink-0">{skill.icon}</span>
+                      <span className="text-xs text-slate-200 font-medium leading-snug group-hover:text-white transition-colors">{skill.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 6-WEEK CURRICULUM */}
+        <div id="vibe-curriculum" className="bg-dark-secondary py-20 scroll-mt-20 border-t border-dark-slate">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="text-xs font-semibold text-brand tracking-widest uppercase block mb-3">Full Curriculum</span>
+              <h3 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">6-Week Learning Journey</h3>
+              <p className="text-slate-400 font-light mt-3">Every week is packed with practical sessions, real project milestones, and mentor-led code reviews.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {VIBE_MODULES.map((mod, idx) => (
+                <div key={mod.id} id={`vibe-module-${mod.id}`} className="rounded-2xl border border-white/8 bg-dark-card p-7 flex flex-col gap-4 hover:border-brand/40 hover:shadow-lg hover:shadow-brand/5 transition-all duration-300 group">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded-full">{mod.week}</span>
+                    <span className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 font-display font-bold text-sm group-hover:bg-brand/10 group-hover:text-brand-accent transition-colors">{String(idx + 1).padStart(2, "0")}</span>
+                  </div>
+                  <h4 className="font-display text-base font-bold text-white leading-snug">{mod.title}</h4>
+                  <ul className="space-y-2">
+                    {mod.topics.map((topic, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-slate-300 font-light">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-brand-accent shrink-0 mt-0.5" />
+                        <span>{topic}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-14 rounded-2xl border border-brand/20 bg-gradient-to-r from-brand/10 via-brand/5 to-transparent p-8 flex flex-col sm:flex-row items-center gap-6">
+              <div className="h-16 w-16 rounded-2xl bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
+                <Award className="h-8 w-8 text-brand-accent" />
+              </div>
+              <div className="flex-1 text-center sm:text-left">
+                <h4 className="font-display font-bold text-white text-lg mb-1">Earn a High-Value Industry Certificate</h4>
+                <p className="text-sm text-slate-300 font-light">Add this credential to your LinkedIn profile, resume, or CV to stand out to recruiters across Nepal and globally.</p>
+              </div>
+              <button onClick={() => { setConsultSector("Education"); setConsultMessage("I want to inquire about the Vibe Coding certificate."); setConsultModalOpen(true); }} className="shrink-0 bg-brand hover:bg-brand-light text-white font-semibold text-sm px-6 py-3 rounded-full transition-all cursor-pointer border-none">
+                Get Certified
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* UPCOMING SCHEDULES */}
+        <div className="bg-dark-primary py-20 border-t border-dark-slate">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="text-xs font-semibold text-brand tracking-widest uppercase block mb-3">Upcoming Classes</span>
+              <h3 className="font-display text-3xl font-bold text-white">Choose Your Batch Schedule</h3>
+              <p className="text-slate-400 font-light mt-2">6 upcoming batches — Morning, Evening, and Night options available.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {VIBE_SCHEDULES.map((sch) => (
+                <div key={sch.id} id={`schedule-${sch.id}`} className="rounded-2xl border border-white/8 bg-dark-secondary p-6 space-y-4 hover:border-brand/35 transition-all group">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-brand-accent bg-brand/10 border border-brand/20 px-2.5 py-1 rounded-full">{sch.tag}</span>
+                    <Calendar className="h-4 w-4 text-slate-500 group-hover:text-brand transition-colors" />
+                  </div>
+                  <div>
+                    <p className="font-display text-xl font-bold text-white">{sch.date}</p>
+                    <p className="text-xs text-slate-400 font-mono mt-0.5">{sch.day}</p>
+                  </div>
+                  <div className="space-y-1.5">
+                    {sch.times.map((t, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs text-slate-200">
+                        <span className="h-1.5 w-1.5 bg-brand-accent rounded-full shrink-0" />
+                        {t}
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => { setConsultSector("Education"); setConsultMessage(`I would like to enroll in the Vibe Coding with AI batch starting ${sch.date} (${sch.times.join(", ")}).`); setConsultModalOpen(true); }}
+                    className="w-full mt-2 border border-brand/30 hover:bg-brand hover:border-brand text-brand-accent hover:text-white text-xs font-semibold py-2.5 rounded-xl transition-all cursor-pointer bg-transparent"
+                  >
+                    Select This Batch →
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* SUCCESS STORIES */}
+        <div className="bg-dark-secondary py-20 border-t border-dark-slate">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="text-xs font-semibold text-brand tracking-widest uppercase block mb-3">Success Stories</span>
+              <h3 className="font-display text-3xl font-bold text-white">Hear From Our Graduates</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {VIBE_SUCCESS_STORIES.map((story) => (
+                <div key={story.id} className="rounded-2xl border border-white/8 bg-dark-card p-7 space-y-4 hover:border-brand/30 transition-all">
+                  <div className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${story.gradient} flex items-center justify-center font-display font-black text-white text-lg shadow-lg`}>
+                    {story.initial}
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold text-white">{story.name}</h4>
+                    <p className="text-xs text-brand-accent font-mono mt-0.5">{story.position}</p>
+                    <p className="text-xs text-slate-400 mt-0.5">{story.company}</p>
+                  </div>
+                  <div className="space-y-1 text-xs text-slate-300 border-t border-white/5 pt-4">
+                    <p><span className="text-slate-500">Course: </span>{story.course}</p>
+                    <p><span className="text-slate-500">Education: </span>{story.college}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* QUICK CTA */}
+        <div className="bg-dark-primary py-16 border-t border-dark-slate">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">Ready to Start Your AI Coding Journey?</h3>
+            <p className="text-slate-400 font-light">Our syllabus covers only the major module headlines. For a complete walkthrough and to customize the course, book a free counseling session today.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                id="vibe-quick-inquire"
+                onClick={() => { setConsultSector("Education"); setConsultMessage("Quick inquiry about Vibe Coding with AI course."); setConsultModalOpen(true); }}
+                className="bg-brand hover:bg-brand-light text-white font-semibold px-8 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-brand/25 flex items-center justify-center gap-2 ring-pulse cursor-pointer border-none"
+              >
+                <Send className="h-4 w-4" />
+                Send Quick Inquiry
+              </button>
+              <a href="#vibe-curriculum" className="bg-white/5 border border-white/15 hover:border-brand/30 text-white font-medium px-8 py-4 rounded-full transition-all text-center flex items-center justify-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                Review Curriculum
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* CONTACT SECTION WITH FORM INQUIRY SUBMISSIONS */}
-      <section id="contact" className="py-24 bg-[#0B1020]/20 border-t border-white/10 scroll-mt-20">
+      <section id="contact" className="py-24 bg-dark-primary/20 border-t border-white/10 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
@@ -2436,7 +2754,7 @@ export default function App() {
                   <button
                     type="submit"
                     disabled={consultSubmitting}
-                    className="w-full bg-[#0A66FF] hover:bg-blue-600 disabled:bg-gray-400 text-white font-semibold py-3 rounded-xl transition-all shadow-md text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-none"
+                    className="w-full bg-brand hover:bg-brand-light disabled:bg-gray-600 text-white font-semibold py-3 rounded-xl transition-all shadow-md text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-none ring-pulse"
                   >
                     <span>Request Placement Slot</span>
                     <Calendar className="h-4 w-4 animate-bounce" />
@@ -2454,16 +2772,16 @@ export default function App() {
         {chatOpen ? (
           <div
             id="chatbot-drawer"
-            className="w-80 sm:w-96 max-w-[calc(100vw-2rem)] h-[480px] bg-[#0E1528] rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden pointer-events-auto transition-all duration-300 transform scale-100 opacity-100"
+            className="w-80 sm:w-96 max-w-[calc(100vw-2rem)] h-[480px] bg-dark-secondary rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden pointer-events-auto transition-all duration-300 transform scale-100 opacity-100"
           >
             {/* Header branding */}
             <div className="bg-[#0B1020] px-5 py-4 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="h-10 w-10 rounded-xl bg-[#0A66FF]/20 border border-[#0A66FF]/35 text-[#0A66FF] flex items-center justify-center font-display font-black">
-                    <Bot className="h-5 w-5 text-[#0A66FF]" />
+                  <div className="h-10 w-10 rounded-xl bg-brand/20 border border-brand/35 flex items-center justify-center">
+                    <Bot className="h-5 w-5 text-brand-accent" />
                   </div>
-                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-[#00C853] border-2 border-[#0B1020] animate-pulse" />
+                  <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-brand-accent border-2 border-dark-primary animate-pulse" />
                 </div>
                 <div>
                   <h4 className="font-display text-sm font-bold text-white leading-tight">
@@ -2518,7 +2836,7 @@ export default function App() {
                     className={`flex items-start gap-2.5 ${isAI ? "justify-start" : "justify-end"}`}
                   >
                     {isAI && (
-                      <div className="h-7 w-7 rounded-lg bg-[#0A66FF]/10 text-[#0A66FF] shrink-0 flex items-center justify-center font-bold text-xs border border-[#0A66FF]/20">
+                      <div className="h-7 w-7 rounded-lg bg-brand/10 text-brand-accent shrink-0 flex items-center justify-center font-bold text-xs border border-brand/20">
                         स
                       </div>
                     )}
@@ -2526,7 +2844,7 @@ export default function App() {
                       className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-xs font-light leading-relaxed ${
                         isAI
                           ? "bg-white/[0.04] text-slate-200 rounded-tl-none border border-white/5"
-                          : "bg-[#0A66FF] text-white rounded-tr-none"
+                          : "bg-brand text-white rounded-tr-none"
                       }`}
                     >
                       <div className="markdown-body text-xs text-left">
@@ -2538,7 +2856,7 @@ export default function App() {
               })}
               {chatLoading && (
                 <div className="flex items-center gap-2 text-slate-400 text-[10px] font-mono pl-9 py-2">
-                  <Loader2 className="h-3 w-3 animate-spin text-[#0A66FF]" />
+                  <Loader2 className="h-3 w-3 animate-spin text-brand" />
                   <span>Mitra is synthesizing responses...</span>
                 </div>
               )}
@@ -2560,7 +2878,7 @@ export default function App() {
               <button
                 type="submit"
                 disabled={!chatInput.trim() || chatLoading}
-                className="h-8 w-8 rounded-xl bg-[#0A66FF] hover:bg-blue-600 disabled:bg-white/5 disabled:text-slate-500 text-white flex items-center justify-center transition-all cursor-pointer border-none shadow-md animate-none"
+                className="h-8 w-8 rounded-xl bg-brand hover:bg-brand-light disabled:bg-white/5 disabled:text-slate-500 text-white flex items-center justify-center transition-all cursor-pointer border-none shadow-md"
               >
                 <Send className="h-3.5 w-3.5" />
               </button>
@@ -2570,7 +2888,7 @@ export default function App() {
           <button
             id="open-chatbot"
             onClick={() => setChatOpen(true)}
-            className="pointer-events-auto h-12 hover:h-12 w-fit px-4 rounded-full bg-[#0A66FF] hover:bg-blue-600 shadow-2xl shadow-[#0A66FF]/20 flex items-center gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer"
+            className="pointer-events-auto h-12 w-fit px-4 rounded-full bg-brand hover:bg-brand-light shadow-2xl shadow-brand/20 flex items-center gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer ring-pulse"
           >
             <div className="relative">
               <MessageSquare className="h-5 w-5 animate-pulse" />
