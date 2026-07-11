@@ -465,18 +465,17 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-dark-primary text-white selection:bg-brand selection:text-white relative overflow-hidden" id="safal-main">
-      {/* Elegant Dark Abstract Gradient Glow Overlay */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand opacity-10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-brand-accent opacity-5 rounded-full blur-[100px] -ml-32 pointer-events-none"></div>
-      
+    <div className="min-h-screen flex flex-col font-sans bg-white text-gray-900 selection:bg-brand selection:text-white" id="safal-main">
+      {/* Subtle top-right green glow */}
+      <div className="fixed top-0 right-0 w-[500px] h-[300px] bg-brand/5 rounded-full blur-[120px] -mr-48 -mt-24 pointer-events-none z-0" />
+
       {/* STICKY HEADER */}
       <header
         id="navbar"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-dark-primary/90 backdrop-blur-md border-b border-white/10 py-3 shadow-xl"
-            : "bg-transparent py-5"
+            ? "bg-white/95 backdrop-blur-md border-b border-gray-200 py-3 shadow-sm"
+            : "bg-white/90 backdrop-blur py-5 border-b border-gray-100"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -485,8 +484,8 @@ export default function App() {
               <Cpu className="text-white h-5 w-5 animate-pulse" />
             </div>
             <div>
-              <span className="font-display text-xl font-bold tracking-tight text-white block">
-                SAFAL <span className="text-brand-accent">AI</span>
+              <span className="font-display text-xl font-bold tracking-tight text-gray-900 block">
+                SAFAL <span className="text-brand">AI</span>
               </span>
               <span className="text-[10px] text-gray-400 font-mono tracking-widest block uppercase">
                 &amp; Innovation Centre
@@ -494,39 +493,20 @@ export default function App() {
             </div>
           </a>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8" id="desktop-nav">
-            <a href="#hero" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              Home
-            </a>
-            <a href="#solutions" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              Solutions
-            </a>
-            <a href="#products" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              Products
-            </a>
-            <a href="#case-studies" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              Case Studies
-            </a>
-            <a href="#training" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              Training
-            </a>
-            <a href="#vibe-coding" className="text-gray-200 hover:text-brand-accent font-medium text-sm transition-colors flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block animate-pulse" />
+            <a href="#hero" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Home</a>
+            <a href="#solutions" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Solutions</a>
+            <a href="#products" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Products</a>
+            <a href="#case-studies" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Case Studies</a>
+            <a href="#training" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Training</a>
+            <a href="#vibe-coding" className="text-brand font-semibold text-sm transition-colors flex items-center gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block animate-pulse" />
               Vibe Coding
             </a>
-            <a href="#research" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              Research
-            </a>
-            <a href="#about" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              About Us
-            </a>
-            <a href="#team" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              Team
-            </a>
-            <a href="#contact" className="text-gray-200 hover:text-brand font-medium text-sm transition-colors">
-              Contact
-            </a>
+            <a href="#research" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Research</a>
+            <a href="#about" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">About Us</a>
+            <a href="#team" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Team</a>
+            <a href="#contact" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Contact</a>
           </nav>
 
           <div className="hidden md:block">
@@ -540,11 +520,10 @@ export default function App() {
             </button>
           </div>
 
-          {/* Mobile hamburger menu */}
           <button
             id="mobile-menu-trigger"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-300 hover:text-white focus:outline-none p-1 pointer-events-auto"
+            className="md:hidden text-gray-600 hover:text-brand focus:outline-none p-1 pointer-events-auto"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -555,7 +534,7 @@ export default function App() {
         {mobileMenuOpen && (
           <div
             id="mobile-dropdown"
-            className="md:hidden bg-dark-primary border-t border-dark-slate absolute top-full left-0 w-full p-6 space-y-4 shadow-xl text-center flex flex-col"
+            className="md:hidden bg-white border-t border-gray-100 absolute top-full left-0 w-full p-6 space-y-4 shadow-lg text-center flex flex-col"
           >
             <a
               href="#hero"
@@ -574,57 +553,57 @@ export default function App() {
             <a
               href="#products"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               Products
             </a>
             <a
               href="#case-studies"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               Case Studies
             </a>
             <a
               href="#training"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               Training
             </a>
             <a
               href="#vibe-coding"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-brand-accent hover:text-brand text-base py-2 border-b border-white/5 font-medium flex items-center gap-2"
+              className="block text-brand font-semibold text-base py-2 border-b border-gray-100 flex items-center gap-2"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-accent inline-block" />
+              <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block" />
               Vibe Coding with AI
             </a>
             <a
               href="#research"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               Research
             </a>
             <a
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               About Us
             </a>
             <a
               href="#team"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               Team
             </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2"
+              className="block text-gray-600 hover:text-brand text-base py-2"
             >
               Contact
             </a>
@@ -643,19 +622,19 @@ export default function App() {
       </header>
 
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION — light theme with dark green gradient */}
       <section
         id="hero"
-        className="relative bg-dark-primary pt-36 pb-20 overflow-hidden flex flex-col justify-center min-h-[90vh]"
+        className="relative bg-gradient-to-br from-[#052e16] via-[#14532d] to-[#064e3b] pt-36 pb-20 overflow-hidden flex flex-col justify-center min-h-[90vh]"
       >
-        {/* Vector particle grid canvas */}
-        <div className="absolute inset-0 z-0 opacity-80 pointer-events-none">
+        {/* Particle canvas */}
+        <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
           <canvas ref={canvasRef} className="w-full h-full block" />
         </div>
 
-        {/* Ambient background glow dots */}
-        <div className="absolute top-1/4 left-1/4 w-[380px] h-[380px] bg-brand/10 rounded-full filter blur-[100px] pointer-events-none z-0"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-[280px] h-[280px] bg-brand-accent/5 rounded-full filter blur-[80px] pointer-events-none z-0"></div>
+        {/* Ambient glows */}
+        <div className="absolute top-1/4 left-1/4 w-[380px] h-[380px] bg-green-400/10 rounded-full filter blur-[100px] pointer-events-none z-0" />
+        <div className="absolute bottom-1/3 right-1/4 w-[280px] h-[280px] bg-emerald-300/8 rounded-full filter blur-[80px] pointer-events-none z-0" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full text-center lg:text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -668,31 +647,31 @@ export default function App() {
               
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                 Building Nepal's <br />
-                <span className="bg-gradient-to-r from-brand-light to-brand-accent bg-clip-text text-transparent text-glow-green">AI Future</span>
+                <span className="text-gradient-green">AI Future</span>
               </h1>
               
-              <p className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mx-auto lg:mx-0 font-light">
+              <p className="text-green-100 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mx-auto lg:mx-0 font-light">
                 We help schools, businesses, organizations and governments harness the power of Artificial Intelligence through innovative products, automation solutions, training and digital transformation.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
                 <a
                   href="#solutions"
-                  className="bg-brand hover:bg-brand/90 hover:shadow-lg hover:shadow-brand/20 text-white font-medium px-8 py-3.5 rounded-full transition-all text-center flex items-center justify-center gap-2 group pointer-events-auto"
+                  className="bg-white text-brand hover:bg-green-50 font-semibold px-8 py-3.5 rounded-full transition-all text-center flex items-center justify-center gap-2 group shadow-lg ring-pulse"
                 >
                   <span>Explore Solutions</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <button
                   onClick={() => setConsultModalOpen(true)}
-                  className="bg-transparent hover:bg-white/5 border border-white/20 hover:border-white/40 text-white font-medium px-8 py-3.5 rounded-full transition-all text-center tracking-wide cursor-pointer text-sm"
+                  className="bg-transparent hover:bg-white/10 border border-white/40 hover:border-white/60 text-white font-medium px-8 py-3.5 rounded-full transition-all text-center tracking-wide cursor-pointer text-sm"
                 >
                   Book Consultation
                 </button>
               </div>
 
-              {/* Minimalist SEO Badges */}
-              <div className="pt-6 border-t border-white/5 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 text-xs font-mono text-gray-500">
+              {/* SEO Badges */}
+              <div className="pt-6 border-t border-white/10 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 text-xs font-mono text-green-300/70">
                 <span>#AICompanyNepal</span>
                 <span>#ArtificialIntelligenceNepal</span>
                 <span>#EdTechNepal</span>
@@ -702,25 +681,25 @@ export default function App() {
 
             {/* Visual Column */}
             <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-              <div className="w-full max-w-[420px] aspect-square rounded-3xl bg-gradient-to-tr from-brand/20 to-brand-accent/10 border border-white/10 p-6 backdrop-blur-sm relative group overflow-hidden shadow-2xl">
-                {/* Simulated Floating UI Glass Plates */}
-                <div className="absolute top-6 left-6 right-6 p-4 rounded-xl bg-dark-secondary/60 border border-white/5 shadow-md flex items-center gap-3 backdrop-blur-md">
-                  <div className="p-2 bg-brand/15 rounded-lg text-brand">
+              <div className="w-full max-w-[420px] aspect-square rounded-3xl bg-white/10 border border-white/20 p-6 backdrop-blur-sm relative group overflow-hidden shadow-2xl">
+                {/* Floating cards */}
+                <div className="absolute top-6 left-6 right-6 p-4 rounded-xl bg-white/10 border border-white/15 shadow-md flex items-center gap-3 backdrop-blur-md">
+                  <div className="p-2 bg-white/20 rounded-lg text-white">
                     <BookOpen className="h-5 w-5" />
                   </div>
                   <div className="text-left">
-                    <span className="text-xs font-mono text-brand-accent block">SAFAL Teacher AI</span>
-                    <span className="text-xs text-slate-300 font-light block">Curriculum plans generated in seconds.</span>
+                    <span className="text-xs font-mono text-green-300 block">SAFAL Teacher AI</span>
+                    <span className="text-xs text-white/80 font-light block">Curriculum plans generated in seconds.</span>
                   </div>
                 </div>
 
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-dark-secondary/60 border border-white/5 shadow-md flex items-center gap-3 backdrop-blur-md">
-                  <div className="p-2 bg-brand-accent/15 rounded-lg text-brand-accent">
+                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/10 border border-white/15 shadow-md flex items-center gap-3 backdrop-blur-md">
+                  <div className="p-2 bg-white/20 rounded-lg text-white">
                     <CheckCircle2 className="h-5 w-5" />
                   </div>
                   <div className="text-left">
-                    <span className="text-xs font-mono text-emerald-400 block">Digital Transformation</span>
-                    <span className="text-xs text-slate-300 font-light block">Local administrative channels automated.</span>
+                    <span className="text-xs font-mono text-green-300 block">Digital Transformation</span>
+                    <span className="text-xs text-white/80 font-light block">Local administrative channels automated.</span>
                   </div>
                 </div>
 
@@ -745,42 +724,42 @@ export default function App() {
 
 
       {/* STATISTICS SECTION */}
-      <section id="statistics" className="bg-[#070b16] py-12 border-y border-dark-slate">
+      <section id="statistics" className="bg-brand py-12 border-y border-green-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
             
             <div className="p-4" id="stat-trained">
-              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-                <span className="text-brand">{stats.trained}+</span>
+              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
+                <span className="text-white">{stats.trained}+</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-400 font-medium mt-2 tracking-wide uppercase">
+              <p className="text-xs sm:text-sm text-green-100 font-medium mt-2 tracking-wide uppercase">
                 Professionals Trained
               </p>
             </div>
 
             <div className="p-4" id="stat-workshops">
-              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-                <span className="text-brand-accent">{stats.workshops}+</span>
+              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
+                <span className="text-white">{stats.workshops}+</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-400 font-medium mt-2 tracking-wide uppercase">
+              <p className="text-xs sm:text-sm text-green-100 font-medium mt-2 tracking-wide uppercase">
                 Workshops Conducted
               </p>
             </div>
 
             <div className="p-4" id="stat-partners">
-              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-                <span className="text-brand">{stats.partners}+</span>
+              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
+                <span className="text-white">{stats.partners}+</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-400 font-medium mt-2 tracking-wide uppercase">
+              <p className="text-xs sm:text-sm text-green-100 font-medium mt-2 tracking-wide uppercase">
                 Partner Institutions
               </p>
             </div>
 
             <div className="p-4" id="stat-impacted">
-              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-                <span className="text-brand-accent">{stats.learners}+</span>
+              <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
+                <span className="text-white">{stats.learners}+</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-400 font-medium mt-2 tracking-wide uppercase">
+              <p className="text-xs sm:text-sm text-green-100 font-medium mt-2 tracking-wide uppercase">
                 Learners Impacted
               </p>
             </div>
@@ -791,17 +770,17 @@ export default function App() {
 
 
       {/* OUR SERVICES / SOLUTIONS SECTION */}
-      <section id="solutions" className="py-24 bg-[#0B1020]/20 scroll-mt-10 border-b border-white/10 relative">
+      <section id="solutions" className="py-24 bg-surface-muted scroll-mt-10 border-b border-gray-200 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase">
               Unified Ecosystem
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
               AI Solutions For Every Sector
             </h2>
-            <p className="text-slate-400 font-light">
+            <p className="text-gray-500 font-light">
               We operate beyond training. SAFAL AI is Nepal's core innovation partner building strategic solutions, custom frameworks, and curriculum architectures to empower modern institutions.
             </p>
           </div>
@@ -814,7 +793,7 @@ export default function App() {
                 <div
                   key={s.id}
                   id={`service-card-${s.id}`}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-8 shadow-lg hover:shadow-2xl hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden"
+                  className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden"
                 >
                   <div className="absolute top-0 left-0 w-1.5 h-full bg-transparent group-hover:bg-brand transition-colors duration-300" />
                   
@@ -822,7 +801,7 @@ export default function App() {
                     <IconComp className="h-6 w-6" />
                   </div>
 
-                  <h3 className="font-display text-xl font-bold text-white mb-3 tracking-tight group-hover:text-brand transition-colors">
+                  <h3 className="font-display text-xl font-bold text-gray-900 mb-3 tracking-tight group-hover:text-brand transition-colors">
                     {s.title}
                   </h3>
                   
