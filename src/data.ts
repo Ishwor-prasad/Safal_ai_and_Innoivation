@@ -438,7 +438,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedinUrl: "https://linkedin.com/in/uday-ram-jaishi",
     avatarInitials: "URJ",
     avatarBg: "from-[#0A66FF] to-[#00F0FF]",
-    email: "uday@safalai.org",
+    email: "uday@safalai.com.np",
     phone: "+977 9851 101010",
     profileImage: "/uday_ram_jaishi.jpeg"
   },
@@ -450,7 +450,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedinUrl: "https://linkedin.com/in/ishwor-dhungana",
     avatarInitials: "ID",
     avatarBg: "from-[#8A2BE2] to-[#FF007F]",
-    email: "ishwor@safalai.org",
+    email: "ishwor@safalai.com.np",
     phone: "+977 9851 202020",
     profileImage: "/ishwor_dhungana.jpeg"
   },
@@ -462,7 +462,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedinUrl: "https://ram.tamang.com.np",
     avatarInitials: "RT",
     avatarBg: "from-[#22C55E] to-[#84CC16]",
-    email: "ram@safalai.org",
+    email: "ram@safalai.com.np",
     phone: "+977 9851 404040",
     profileImage: "/ram_tamang.png"
   },
@@ -474,7 +474,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedinUrl: "https://linkedin.com/in/kamram-muazzam",
     avatarInitials: "KM",
     avatarBg: "from-[#00C853] to-[#009688]",
-    email: "kamram@safalai.org",
+    email: "kamram@safalai.com.np",
     phone: "+977 9851 303030"
   }
 ];

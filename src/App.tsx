@@ -155,7 +155,7 @@ export default function App() {
     } catch {
       setChatMessages(prev => [...prev, {
         role: "assistant",
-        content: "I'm having a bit of trouble communicating with my neural network right now. Please try again in a moment, or feel free to email our support coordinate at **info@safalai.org**."
+        content: "I'm having a bit of trouble communicating with my neural network right now. Please try again in a moment, or feel free to email our support coordinate at **info@safalai.com.np**."
       }]);
     } finally {
       setChatLoading(false);
@@ -2434,8 +2434,8 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-xs font-mono text-gray-600 block uppercase tracking-wider font-semibold">Email Address</span>
-                    <a href="mailto:info@safalai.org" className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
-                      info@safalai.org
+                    <a href="mailto:info@safalai.com.np" className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
+                      info@safalai.com.np
                     </a>
                   </div>
                 </div>
