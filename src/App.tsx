@@ -14,6 +14,7 @@ import {
   Check,
   Send,
   ArrowRight,
+  ArrowUp,
   Award,
   Globe,
   FileText,
@@ -62,6 +63,7 @@ export default function App() {
   // Navigation states
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showTopButton, setShowTopButton] = useState(false);
 
   // General Interactive States
   const [activeTestimonialCategory, setActiveTestimonialCategory] = useState<
@@ -179,6 +181,8 @@ export default function App() {
       } else {
         setScrolled(false);
       }
+      // Show top button when scrolled down more than 500px
+      setShowTopButton(window.scrollY > 500);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -485,6 +489,44 @@ export default function App() {
       vibe: language === "en" ? "Vibe Coding" : "Vibe कोडिङ",
       about: language === "en" ? "About" : "बारेमा",
       contact: language === "en" ? "Contact" : "सम्पर्क"
+    },
+    solutions: {
+      title: language === "en" ? "Our Solutions" : "हाम्रो समाधानहरू",
+      description: language === "en" ? "Comprehensive AI-powered tools for Nepal's educational and business sectors" : "नेपालको शिक्षा र व्यावसायिक क्षेत्रका लागि व्यापक AI-संचालित उपकरणहरू"
+    },
+    products: {
+      title: language === "en" ? "Flagship Products" : "मुख्य उत्पादनहरू",
+      description: language === "en" ? "Advanced AI solutions tailored for Nepalese institutions" : "नेपाली संस्थाहरूका लागि विशेष गरी तैयार गरिएको उन्नत AI समाधान"
+    },
+    whyChoose: {
+      title: language === "en" ? "Why Choose Safal AI" : "किन Safal AI छनौट गर्नुहोस्",
+      description: language === "en" ? "We understand Nepal's unique challenges and opportunities" : "हामी नेपालको अद्वितीय चुनौती र अवसरहरू बुझ्छौं"
+    },
+    industries: {
+      title: language === "en" ? "Industries We Serve" : "हामी सेवा गर्ने उद्योगहरू",
+      description: language === "en" ? "Education, Government, Healthcare, Private Sector, and Non-profits" : "शिक्षा, सरकार, स्वास्थ्य, निजी क्षेत्र र गैर-लाभकारी संस्था"
+    },
+    caseStudies: {
+      title: language === "en" ? "Success Stories from Nepal" : "नेपालका सफलताका कहानीहरू",
+      description: language === "en" ? "Real implementations making real impact" : "वास्तविक कार्यान्वयन वास्तविक प्रभाव सृष्टि गर्दै"
+    },
+    research: {
+      title: language === "en" ? "Research & Innovation" : "अनुसन्धान र नवीनता",
+      description: language === "en" ? "Advancing AI for Nepalese context and culture" : "नेपाली प्रसंग र संस्कृतिको लागि AI को विकास"
+    },
+    training: {
+      title: language === "en" ? "Training Programs" : "प्रशिक्षण कार्यक्रमहरू",
+      description: language === "en" ? "Build AI skills for Nepal's workforce" : "नेपालको कार्यबलको लागि AI कौशल विकास गर्नुहोस्"
+    },
+    about: {
+      title: language === "en" ? "About Safal AI" : "Safal AI बारेमा",
+      description: language === "en" ? "Empowering Nepal through Artificial Intelligence" : "कृत्रिम बुद्धिमत्ताको माध्यमबाट नेपाललाई सशक्त बनाउँदै"
+    },
+    footer: {
+      about: language === "en" ? "About" : "बारेमा",
+      contact: language === "en" ? "Contact" : "सम्पर्क",
+      privacy: language === "en" ? "Privacy" : "गोपनीयता",
+      terms: language === "en" ? "Terms" : "शर्तहरू"
     }
   };
 
@@ -2827,6 +2869,17 @@ export default function App() {
         </div>
       )}
 
+
+      {/* FLOATING TOP BUTTON */}
+      {showTopButton && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed top-6 right-6 z-40 p-3 bg-brand hover:bg-brand-light text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 animate-pulse cursor-pointer border-none"
+          title={language === "en" ? "Back to Top" : "माथि जानुहोस्"}
+        >
+          <ArrowUp className="h-5 w-5" />
+        </button>
+      )}
 
       {/* FLOATING AI CHATBOT SYSTEM */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none select-none">
