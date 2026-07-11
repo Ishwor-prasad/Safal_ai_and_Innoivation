@@ -847,8 +847,8 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.map((s, idx) => {
-              const iconsList = [BookOpen, Sparkles, Cpu, Sliders, Terminal];
-              const IconComp = iconsList[idx] || Sparkles;
+              const iconsList = [BookOpen, Leaf, GraduationCap, Sliders, Terminal];
+              const IconComp = iconsList[idx] || Leaf;
               return (
                 <div
                   key={s.id}
