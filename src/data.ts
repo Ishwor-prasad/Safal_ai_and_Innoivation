@@ -426,6 +426,7 @@ export interface TeamMember {
   avatarBg: string;
   email: string;
   phone: string;
+  profileImage?: string;
 }
 
 export const TEAM_MEMBERS: TeamMember[] = [
@@ -438,7 +439,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     avatarInitials: "URJ",
     avatarBg: "from-[#0A66FF] to-[#00F0FF]",
     email: "uday@safalai.org",
-    phone: "+977 9851 101010"
+    phone: "+977 9851 101010",
+    profileImage: "/uday_ram_jaishi.jpeg"
   },
   {
     id: "team-ishwor",
@@ -449,7 +451,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     avatarInitials: "ID",
     avatarBg: "from-[#8A2BE2] to-[#FF007F]",
     email: "ishwor@safalai.org",
-    phone: "+977 9851 202020"
+    phone: "+977 9851 202020",
+    profileImage: "/ishwor_dhungana.jpeg"
   },
   {
     id: "team-ram",
@@ -460,7 +463,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     avatarInitials: "RT",
     avatarBg: "from-[#22C55E] to-[#84CC16]",
     email: "ram@safalai.org",
-    phone: "+977 9851 404040"
+    phone: "+977 9851 404040",
+    profileImage: "/ram_tamang.png"
   },
   {
     id: "team-kamram",

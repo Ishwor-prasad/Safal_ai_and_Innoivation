@@ -2007,14 +2007,23 @@ export default function App() {
                     <div className="absolute inset-x-0 inset-y-0 rounded-full bg-gradient-to-tr from-brand to-brand-accent p-[2px] animate-none group-hover:rotate-45 transition-transform duration-500">
                       <div className="h-full w-full rounded-full bg-white" />
                     </div>
-                    {/* Inner avatar monogram */}
-                    <div className={`relative h-24 w-24 rounded-full bg-gradient-to-br ${member.avatarBg} p-[3px] flex items-center justify-center shadow-lg`}>
-                      <div className="h-full w-full rounded-full bg-white flex items-center justify-center">
-                        <span className="text-brand text-xl font-display font-extrabold tracking-wider">
-                          {member.avatarInitials}
-                        </span>
+                    {/* Profile image or avatar monogram */}
+                    {member.profileImage ? (
+                      <img 
+                        src={member.profileImage}
+                        alt={member.name}
+                        className="relative h-24 w-24 rounded-full object-cover shadow-lg border-4 border-white"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={`relative h-24 w-24 rounded-full bg-gradient-to-br ${member.avatarBg} p-[3px] flex items-center justify-center shadow-lg`}>
+                        <div className="h-full w-full rounded-full bg-white flex items-center justify-center">
+                          <span className="text-brand text-xl font-display font-extrabold tracking-wider">
+                            {member.avatarInitials}
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
 
                   {/* Name and position */}
