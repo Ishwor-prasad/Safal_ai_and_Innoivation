@@ -14,6 +14,11 @@
   --color-brand-border:   #BBF7D0;   /* green border */
   --color-brand-dark:     #052e16;   /* very dark green */
 
+  /* ── Dark Brand Surfaces ── */
+  --color-dark-primary:    #07130D;
+  --color-dark-secondary:  #0C1D14;
+  --color-dark-slate:      #183525;
+
   /* ── Light Backgrounds ── */
   --color-surface:        #FFFFFF;
   --color-surface-soft:   #F8FAFB;
@@ -181,7 +186,81 @@ body {
     border: 1px solid #BBF7D0;
     border-radius: 1rem;
   }
+
+  .dark-section {
+    color: #F8FAFC;
+    background:
+      radial-gradient(circle at top left, rgba(34, 197, 94, 0.10), transparent 34rem),
+      linear-gradient(135deg, #07130D 0%, #0C1D14 52%, #08140F 100%);
+  }
+
+  .dark-section .section-kicker {
+    color: #4ADE80;
+  }
+
+  .dark-section .text-gray-600,
+  .dark-section .text-gray-700,
+  .dark-section .text-gray-650,
+  .dark-section .text-gray-655,
+  .dark-section .text-gray-750,
+  .dark-section .text-gray-605 {
+    color: #C7D2CC;
+  }
+
+  .dark-section .text-slate-200 {
+    color: #E5EFE9;
+  }
+
+  .dark-section .soft-copy {
+    color: #D6E2DC;
+  }
+
+  .image-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(187, 247, 208, 0.22);
+    background: #0C1D14;
+    box-shadow: 0 24px 70px -32px rgba(0, 0, 0, 0.65);
+  }
+
+  .image-panel img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+  }
+
+  .image-panel:hover img {
+    transform: scale(1.06);
+    opacity: 0.92;
+  }
+
+  .image-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 34%, rgba(7, 19, 13, 0.88) 100%);
+    pointer-events: none;
+  }
+
+  .image-panel-caption {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1;
+  }
+
+  .consult-card-light {
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.96), rgba(240,253,244,0.96)),
+      radial-gradient(circle at top right, rgba(10,102,255,0.15), transparent 18rem);
+    border: 1px solid #BBF7D0;
+    box-shadow: 0 24px 70px -36px rgba(21, 128, 61, 0.45);
+  }
 }
+
 
 /* ────────────────────────────────────── */
 /*  Markdown (Sandbox output)             */

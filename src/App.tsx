@@ -488,6 +488,33 @@ export default function App() {
     }
   };
 
+
+
+  const showcaseImages = [
+    {
+      src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+      label: "Teacher Enablement",
+      caption: "AI training that feels practical inside real classrooms."
+    },
+    {
+      src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+      label: "Digital Workflows",
+      caption: "Automation systems for teams that need speed and clarity."
+    },
+    {
+      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
+      label: "Institution Strategy",
+      caption: "Consulting, adoption planning, and measurable rollout support."
+    }
+  ];
+
+  const industryImages = [
+    "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+  ];
+
   return (
     <div className="min-h-screen flex flex-col font-sans bg-white text-gray-900 selection:bg-brand selection:text-white" id="safal-main">
       {/* Subtle top-right green glow */}
@@ -564,14 +591,14 @@ export default function App() {
             <a
               href="#hero"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               Home
             </a>
             <a
               href="#solutions"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-200 hover:text-brand text-base py-2 border-b border-white/5"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               Solutions
             </a>
@@ -853,13 +880,13 @@ export default function App() {
           </div>
 
           {/* Book Consultation Banner */}
-          <div className="mt-16 bg-gradient-to-br from-[#0A66FF]/25 to-transparent border border-[#0A66FF]/35 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
+          <div className="mt-16 consult-card-light rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-brand/5 rounded-full filter blur-[50px] pointer-events-none" />
             <div className="space-y-3 max-w-2xl text-center md:text-left">
               <span className="text-xs font-mono text-brand-accent tracking-wider uppercase block">
                 Enterprise &amp; Academic Integration
               </span>
-              <h3 className="font-display text-2xl font-bold text-white tracking-tight">
+              <h3 className="font-display text-2xl font-bold text-gray-900 tracking-tight">
                 Require a bespoke localized Artificial Intelligence blueprint?
               </h3>
               <p className="text-gray-700 text-sm font-light">
@@ -880,7 +907,7 @@ export default function App() {
 
 
       {/* FLAGSHIP PRODUCTS SECTION WITH EMBEDDED REAL-TIME SANDBOX AI DEMO */}
-      <section id="products" className="py-24 bg-dark-primary scroll-mt-20 relative overflow-hidden">
+      <section id="products" className="py-24 bg-dark-primary dark-section scroll-mt-20 relative overflow-hidden">
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-dark-secondary to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1263,7 +1290,7 @@ export default function App() {
 
 
       {/* WHY CHOOSE SAFAL AI */}
-      <section className="py-24 bg-[#0B1020]/20 border-y border-white/10">
+      <section className="py-24 dark-section border-y border-white/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
@@ -1276,6 +1303,23 @@ export default function App() {
             <p className="text-gray-600 font-light">
               We construct local intelligence paradigms that are highly practical and designed to solve actual structural, pedagogical, and administrative challenges within the Nepalese system.
             </p>
+          </div>
+
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+            {showcaseImages.map((item, idx) => (
+              <div
+                key={item.label}
+                className={`image-panel h-64 md:h-72 fade-in-up ${idx === 1 ? "md:mt-8" : ""}`}
+                style={{ animationDelay: `${idx * 120}ms` }}
+              >
+                <img src={item.src} alt={item.label} loading="lazy" />
+                <div className="image-panel-caption">
+                  <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest font-semibold">{item.label}</span>
+                  <p className="text-sm text-white font-medium leading-snug mt-1">{item.caption}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -1317,7 +1361,7 @@ export default function App() {
 
 
       {/* INDUSTRIES WE SERVE */}
-      <section id="industries" className="py-24 bg-[#0B1020]/40 border-b border-white/10">
+      <section id="industries" className="py-24 dark-section border-b border-white/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
@@ -1343,6 +1387,12 @@ export default function App() {
                   className="bg-white/5 rounded-2xl border border-white/10 p-8 shadow-lg flex flex-col justify-between transition-all duration-300 hover:bg-white/[0.08] hover:-translate-y-0.5"
                 >
                   <div>
+                  <div className="image-panel h-44 mb-6 -mt-2">
+                    <img src={industryImages[idx]} alt={`${ind.title} AI deployment`} loading="lazy" />
+                    <div className="image-panel-caption">
+                      <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest font-semibold">{ind.title}</span>
+                    </div>
+                  </div>
                     <div className="flex items-center gap-3.5 mb-5">
                       <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center border border-brand/20">
                         <IconComp className="h-5 w-5" />
@@ -1384,7 +1434,7 @@ export default function App() {
 
 
       {/* CASE STUDIES SECTION */}
-      <section id="case-studies" className="py-24 bg-dark-primary scroll-mt-20 border-b border-white/10 relative overflow-hidden">
+      <section id="case-studies" className="py-24 bg-dark-primary dark-section scroll-mt-20 border-b border-white/10 relative overflow-hidden">
         {/* Ambient background accent */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand/5 rounded-full filter blur-[120px] pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-accent/5 rounded-full filter blur-[120px] pointer-events-none" />
@@ -1476,7 +1526,7 @@ export default function App() {
 
 
       {/* RESEARCH & INNOVATION SECTION */}
-      <section id="research" className="py-24 bg-dark-primary scroll-mt-10 relative overflow-hidden">
+      <section id="research" className="py-24 bg-dark-primary dark-section scroll-mt-10 relative overflow-hidden">
         {/* Decorative background visual node elements */}
         <div className="absolute top-1/2 left-0 w-80 h-80 bg-brand-accent/5 rounded-full filter blur-[100px] pointer-events-none" />
         
@@ -1555,7 +1605,7 @@ export default function App() {
 
 
       {/* TRAINING PROGRAMS SECTION */}
-      <section id="training" className="py-24 bg-[#0B1020]/20 scroll-mt-20 border-b border-white/10">
+      <section id="training" className="py-24 dark-section scroll-mt-20 border-b border-white/10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
@@ -1641,7 +1691,7 @@ export default function App() {
 
 
       {/* TESTIMONIALS SECTION */}
-      <section id="testimonials" className="py-24 bg-[#070b16] border-y border-dark-slate">
+      <section id="testimonials" className="py-24 bg-[#070b16] dark-section border-y border-dark-slate">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
@@ -1709,7 +1759,7 @@ export default function App() {
 
 
       {/* PARTNER ORGANIZATIONS (TRUSTED BY) SECTION */}
-      <section className="py-16 bg-[#0B1020]/30 border-b border-white/10">
+      <section className="py-16 dark-section border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto space-y-1 mb-10">
@@ -1772,7 +1822,7 @@ export default function App() {
 
 
       {/* ABOUT US SECTION */}
-      <section id="about" className="py-24 bg-[#0B1020]/20 border-b border-white/10 scroll-mt-20">
+      <section id="about" className="py-24 dark-section border-b border-white/10 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -2518,7 +2568,7 @@ export default function App() {
 
 
       {/* FOOTER */}
-      <footer className="bg-dark-primary text-gray-700 py-16 border-t border-white/10 relative z-20" id="full-footer">
+      <footer className="bg-dark-primary dark-section text-gray-700 py-16 border-t border-white/10 relative z-20" id="full-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
@@ -2626,7 +2676,7 @@ export default function App() {
             className="w-full max-w-lg bg-[#0D1527] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col max-h-[90vh]"
           >
             {/* Header banner */}
-            <div className="bg-[#0B1020] p-6 text-white relative border-b border-white/10">
+            <div className="bg-[#0B1020] dark-section p-6 text-white relative border-b border-white/10">
               <button
                 id="close-consult-modal"
                 onClick={() => setConsultModalOpen(false)}
@@ -2783,7 +2833,7 @@ export default function App() {
         {chatOpen ? (
           <div
             id="chatbot-drawer"
-            className="w-80 sm:w-96 max-w-[calc(100vw-2rem)] h-[480px] bg-dark-secondary rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden pointer-events-auto transition-all duration-300 transform scale-100 opacity-100"
+            className="w-80 sm:w-96 max-w-[calc(100vw-2rem)] h-[480px] bg-dark-secondary dark-section rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden pointer-events-auto transition-all duration-300 transform scale-100 opacity-100"
           >
             {/* Header branding */}
             <div className="bg-[#0B1020] px-5 py-4 border-b border-white/10 flex items-center justify-between">
