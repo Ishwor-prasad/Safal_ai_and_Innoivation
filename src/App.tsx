@@ -56,6 +56,9 @@ import {
 } from "./data";
 
 export default function App() {
+  // Language state - default English
+  const [language, setLanguage] = useState<"en" | "ne">("en");
+
   // Navigation states
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -464,6 +467,27 @@ export default function App() {
     return p.category === activePartnerFilter;
   });
 
+  // Translation content
+  const t = {
+    hero: {
+      badge: language === "en" ? "Nepal's Premier AI Catalyst" : "नेपालको प्रमुख AI उत्प्रेरक",
+      title: language === "en" ? "Building Nepal's" : "नेपालको निर्माण",
+      titleAccent: language === "en" ? "AI Future" : "AI भविष्य",
+      description: language === "en"
+        ? "We help schools, businesses, organizations and governments harness the power of Artificial Intelligence through innovative products, automation solutions, training and digital transformation."
+        : "हामी स्कूल, व्यवसाय, संस्था र सरकारलाई नवीन उत्पादन, स्वचालन समाधान, तालिम र डिजिटल रूपान्तरण मार्फत कृत्रिम बुद्धिमत्ताको शक्ति प्रयोग गर्न मद्दत गर्छौं।",
+      cta1: language === "en" ? "Explore Solutions" : "समाधान अन्वेषण गर्नुहोस्",
+      cta2: language === "en" ? "Book Consultation" : "परामर्श बुक गर्नुहोस्"
+    },
+    nav: {
+      home: language === "en" ? "Home" : "गृहपृष्ठ",
+      products: language === "en" ? "Products" : "उत्पादनहरू",
+      vibe: language === "en" ? "Vibe Coding" : "Vibe कोडिङ",
+      about: language === "en" ? "About" : "बारेमा",
+      contact: language === "en" ? "Contact" : "सम्पर्क"
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col font-sans bg-white text-gray-900 selection:bg-brand selection:text-white" id="safal-main">
       {/* Subtle top-right green glow */}
@@ -495,18 +519,19 @@ export default function App() {
 
           <nav className="hidden md:flex items-center gap-6 lg:gap-8" id="desktop-nav">
             <a href="#hero" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Home</a>
-            <a href="#solutions" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Solutions</a>
             <a href="#products" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Products</a>
-            <a href="#case-studies" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Case Studies</a>
-            <a href="#training" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Training</a>
             <a href="#vibe-coding" className="text-brand font-semibold text-sm transition-colors flex items-center gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block" />
+              <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block animate-pulse" />
               Vibe Coding
             </a>
-            <a href="#research" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Research</a>
-            <a href="#about" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">About Us</a>
-            <a href="#team" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Team</a>
+            <a href="#about" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">About</a>
             <a href="#contact" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Contact</a>
+            <button
+              onClick={() => setLanguage(language === "en" ? "ne" : "en")}
+              className="ml-2 px-3 py-1 text-xs font-semibold border border-brand text-brand hover:bg-brand hover:text-white rounded-full transition-all"
+            >
+              {language === "en" ? "नेपाली" : "English"}
+            </button>
           </nav>
 
           <div className="hidden md:block">
@@ -640,33 +665,33 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 rounded-full px-4 py-1.5 text-xs text-brand font-medium uppercase tracking-wider mx-auto lg:mx-0">
-                <Sparkles className="h-3.5 w-3.5 text-brand-accent" />
-                <span>Nepal's Premier AI Catalyst</span>
+              <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 rounded-full px-4 py-1.5 text-xs text-brand font-medium uppercase tracking-wider mx-auto lg:mx-0 animate-pulse">
+                <Sparkles className="h-3.5 w-3.5 text-brand-accent animate-spin" style={{ animationDuration: '3s' }} />
+                <span>{t.hero.badge}</span>
               </div>
-              
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Building Nepal's <br />
-                <span className="text-gradient-green">AI Future</span>
+
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight animate-fade-in">
+                {t.hero.title} <br />
+                <span className="text-gradient-green">{t.hero.titleAccent}</span>
               </h1>
-              
+
               <p className="text-green-100 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mx-auto lg:mx-0 font-light">
-                We help schools, businesses, organizations and governments harness the power of Artificial Intelligence through innovative products, automation solutions, training and digital transformation.
+                {t.hero.description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
                 <a
-                  href="#solutions"
-                  className="bg-white text-brand hover:bg-green-50 font-semibold px-8 py-3.5 rounded-full transition-all text-center flex items-center justify-center gap-2 group shadow-lg ring-pulse"
+                  href="#products"
+                  className="bg-white text-brand hover:bg-green-50 font-semibold px-8 py-3.5 rounded-full transition-all text-center flex items-center justify-center gap-2 group shadow-lg ring-pulse hover:scale-105"
                 >
-                  <span>Explore Solutions</span>
+                  <span>{t.hero.cta1}</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <button
                   onClick={() => setConsultModalOpen(true)}
-                  className="bg-transparent hover:bg-white/10 border border-white/40 hover:border-white/60 text-white font-medium px-8 py-3.5 rounded-full transition-all text-center tracking-wide cursor-pointer text-sm"
+                  className="bg-transparent hover:bg-white/10 border border-white/40 hover:border-white/60 text-white font-medium px-8 py-3.5 rounded-full transition-all text-center tracking-wide cursor-pointer text-sm hover:scale-105"
                 >
-                  Book Consultation
+                  {t.hero.cta2}
                 </button>
               </div>
 
@@ -679,40 +704,48 @@ export default function App() {
               </div>
             </div>
 
-            {/* Visual Column */}
+            {/* Visual Column - Nepali Theme */}
             <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-              <div className="w-full max-w-[420px] aspect-square rounded-3xl bg-white/10 border border-white/20 p-6 backdrop-blur-sm relative group overflow-hidden shadow-2xl">
-                {/* Floating cards */}
-                <div className="absolute top-6 left-6 right-6 p-4 rounded-xl bg-white/10 border border-white/15 shadow-md flex items-center gap-3 backdrop-blur-md">
-                  <div className="p-2 bg-white/20 rounded-lg text-white">
-                    <BookOpen className="h-5 w-5" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-xs font-mono text-green-300 block">SAFAL Teacher AI</span>
-                    <span className="text-xs text-white/80 font-light block">Curriculum plans generated in seconds.</span>
-                  </div>
-                </div>
+              <div className="w-full max-w-[420px] aspect-square rounded-3xl overflow-hidden relative group shadow-2xl border-4 border-white/20 hover:border-brand/40 transition-all duration-500">
+                {/* Nepali Cultural Background Image */}
+                <img
+                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop"
+                  alt="Mountains of Nepal"
+                  className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700"
+                />
 
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/10 border border-white/15 shadow-md flex items-center gap-3 backdrop-blur-md">
-                  <div className="p-2 bg-white/20 rounded-lg text-white">
-                    <CheckCircle2 className="h-5 w-5" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-xs font-mono text-green-300 block">Digital Transformation</span>
-                    <span className="text-xs text-white/80 font-light block">Local administrative channels automated.</span>
-                  </div>
-                </div>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-brand/60 via-transparent to-emerald-900/60" />
 
-                {/* Central Futuristic Ring/Brain Graphic */}
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="relative h-44 w-44 rounded-full border border-dashed border-brand/30 flex items-center justify-center">
-                    <div className="absolute h-36 w-36 rounded-full border border-brand/20 flex items-center justify-center">
-                      <div className="absolute h-24 w-24 rounded-full bg-brand/5 flex items-center justify-center">
-                      </div>
+                {/* Animated Floating Elements */}
+                <div className="absolute top-8 left-8 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl float-bob border border-brand/20">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-brand/10 rounded-lg">
+                      <BookOpen className="h-6 w-6 text-brand" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-brand">SAFAL Teacher AI</p>
+                      <p className="text-[10px] text-gray-600">Instant Lesson Plans</p>
                     </div>
                   </div>
-                  <div className="absolute h-16 w-16 bg-gradient-to-tr from-brand to-cyan-500 rounded-full flex items-center justify-center shadow-lg shadow-brand/40">
-                    <Cpu className="text-white h-8 w-8" />
+                </div>
+
+                <div className="absolute bottom-8 right-8 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl float-bob border border-brand/20" style={{ animationDelay: '1s' }}>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-brand/10 rounded-lg">
+                      <Sparkles className="h-6 w-6 text-brand animate-pulse" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-brand">AI for Nepal</p>
+                      <p className="text-[10px] text-gray-600">नेपालको लागि AI</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Central AI Icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-24 w-24 bg-white rounded-2xl flex items-center justify-center shadow-2xl animate-pulse border-4 border-brand/30">
+                    <Cpu className="text-brand h-12 w-12" />
                   </div>
                 </div>
               </div>
