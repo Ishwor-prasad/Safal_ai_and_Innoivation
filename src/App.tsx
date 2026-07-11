@@ -1513,6 +1513,18 @@ export default function App() {
                     </h3>
                   </div>
 
+                  {/* Case Study Image */}
+                  {cs.image && (
+                    <div className="rounded-lg overflow-hidden border border-white/10 h-48">
+                      <img 
+                        src={cs.image} 
+                        alt={cs.clientName}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
                   {/* Challenge & Solution */}
                   <div className="space-y-4 pt-2">
                     <div className="space-y-1">

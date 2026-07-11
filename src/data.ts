@@ -344,9 +344,28 @@ export interface CaseStudy {
   author: string;
   role: string;
   gradient: string;
+  image?: string;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
+  {
+    id: "case-ime",
+    industry: "Corporate Training & Human Resources",
+    clientName: "IME Group - Nepal's Leading Money Transfer",
+    challenge: "IME Group sought to upskill their entire workforce in AI fundamentals, data literacy, and practical AI tools integration without disrupting daily operations. Needed culturally-relevant, accessible training for staff across multiple branches nationwide.",
+    solution: "Designed and delivered comprehensive AI certification program customized for IME Group staff, featuring hands-on workshops, real-world use cases, and certification distribution. Training adapted to organizational workflows and included practical exercises for financial sector applications.",
+    results: [
+      "Successfully certified 150+ employees across multiple branches.",
+      "100% training completion rate with positive feedback.",
+      "Staff adopted AI tools for improving customer service workflows.",
+      "Created internal knowledge base for ongoing AI literacy."
+    ],
+    quote: "SAFAL AI's training was exactly what we needed - practical, relevant, and delivered professionally. Our team is now confident using AI tools in their daily work.",
+    author: "IME Group Management",
+    role: "Human Resources & Operations",
+    gradient: "from-orange-600/20 to-amber-500/5",
+    image: "/ime-group-certification-1.jpeg"
+  },
   {
     id: "case-edu",
     industry: "Education (Academic Management)",
