@@ -55,7 +55,7 @@ import {
   VIBE_SKILLS,
   VIBE_SUCCESS_STORIES
 } from "./data";
-import safalLogo from "./images/org/logo.jpeg";
+import safalLogo from "./images/org/logo.png";
 
 export default function App() {
   // Language state - default English
@@ -582,7 +582,7 @@ export default function App() {
                 SAFAL <span className="text-brand">AI</span>
               </span>
               <span className="text-[10px] text-gray-600 font-mono tracking-widest block uppercase">
-                &amp; Innovation Centre
+                and Innovation Centre
               </span>
             </div>
           </a>
@@ -604,7 +604,19 @@ export default function App() {
             </button>
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              id="nav-whatsapp-btn"
+              href="https://wa.me/9779869627250?text=Hello%20Safal%20AI%20and%20Innovation%20Centre"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-sm py-2 px-4.5 rounded-full transition-all hover:scale-105 hover:ring-2 hover:ring-[#25D366]/40 flex items-center gap-2 shadow-md cursor-pointer border-none"
+            >
+              <svg className="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z"/>
+              </svg>
+              <span>WhatsApp</span>
+            </a>
             <button
               id="nav-consult-btn"
               onClick={() => setConsultModalOpen(true)}
@@ -698,9 +710,21 @@ export default function App() {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-gray-600 hover:text-brand text-base py-2"
+              className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100"
             >
               Contact
+            </a>
+            <a
+              href="https://wa.me/9779869627250?text=Hello%20Safal%20AI%20and%20Innovation%20Centre"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full bg-[#25D366] text-white py-3 rounded-full text-base font-semibold transition-all hover:bg-[#20ba5a] flex items-center justify-center gap-2 border-none mb-3"
+            >
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z"/>
+              </svg>
+              <span>Easy Message</span>
             </a>
             <button
               id="mobile-consult-btn"
@@ -1890,12 +1914,12 @@ export default function App() {
                 The SAFAL Story
               </span>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                About SAFAL AI &amp; Innovation Centre
+                About SAFAL AI and Innovation Centre
               </h2>
               
               <div className="space-y-4 text-gray-700 text-sm font-light leading-relaxed">
                 <p>
-                  SAFAL AI &amp; Innovation Centre is a Nepal-based artificial intelligence company dedicated to empowering individuals and organizations through AI education, innovation and technology solutions. We believe in building solutions that scale across geography and resource diversity.
+                  SAFAL AI and Innovation Centre is a Nepal-based artificial intelligence company dedicated to empowering individuals and organizations through AI education, innovation and technology solutions. We believe in building solutions that scale across geography and resource diversity.
                 </p>
                 <p>
                   Our work actively bridges academic curriculum alignments, sector-specific digital automations, and targeted policy assistance. Rather than acting as a static school or standard training institute, our framework is geared to serve as a deep technology and consulting partner to local Nepalese entities.
@@ -2449,8 +2473,8 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-xs font-mono text-gray-600 block uppercase tracking-wider font-semibold">Phone Number</span>
-                    <a href="tel:+97714455667" className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
-                      +977 1 4455667
+                    <a href="tel:+9779869627250" className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
+                      +977 986-9627250
                     </a>
                   </div>
                 </div>
@@ -2484,7 +2508,7 @@ export default function App() {
                     <Linkedin className="h-4.5 w-4.5" />
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/profile.php?id=100083926890788"
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
@@ -2650,7 +2674,7 @@ export default function App() {
                     SAFAL <span className="text-brand-accent">AI</span>
                   </span>
                   <span className="text-[9px] text-gray-600 font-mono tracking-wider block uppercase">
-                    &amp; Innovation Centre
+                    and Innovation Centre
                   </span>
                 </div>
               </a>
@@ -2720,7 +2744,7 @@ export default function App() {
           {/* Under footer lines */}
           <div className="border-t border-white/5 mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-600">
             <div>
-              <span>© 2026 SAFAL AI &amp; Innovation Centre. All Rights Reserved.</span>
+              <span>© 2026 SAFAL AI and Innovation Centre. All Rights Reserved.</span>
             </div>
             <div className="flex gap-4">
               <span className="text-gray-600 italic font-sans text-xs flex items-center justify-center gap-1">Empowering Nepal Through Artificial Intelligence.</span>
@@ -3023,17 +3047,31 @@ export default function App() {
             </form>
           </div>
         ) : (
-          <button
-            id="open-chatbot"
-            onClick={() => setChatOpen(true)}
-            className="pointer-events-auto h-12 w-fit px-4 rounded-full bg-brand hover:bg-brand-light shadow-2xl shadow-brand/20 flex items-center gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer ring-pulse"
-          >
-            <div className="relative">
-              <MessageSquare className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-[#00C853] border-2 border-[#0A66FF]" />
-            </div>
-            <span className="text-xs font-mono tracking-wider font-semibold uppercase shrink-0">SAFAL Mitra</span>
-          </button>
+          <>
+            <a
+              id="floating-whatsapp-btn"
+              href="https://wa.me/9779869627250?text=Hello%20Safal%20AI%20and%20Innovation%20Centre"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pointer-events-auto h-12 w-fit px-4 rounded-full bg-[#25D366] hover:bg-[#20ba5a] shadow-2xl shadow-[#25D366]/30 flex items-center gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer hover:ring-4 hover:ring-[#25D366]/20"
+            >
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z"/>
+              </svg>
+              <span className="text-xs font-mono tracking-wider font-semibold uppercase shrink-0">WhatsApp Us</span>
+            </a>
+            <button
+              id="open-chatbot"
+              onClick={() => setChatOpen(true)}
+              className="pointer-events-auto h-12 w-fit px-4 rounded-full bg-brand hover:bg-brand-light shadow-2xl shadow-brand/20 flex items-center gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer ring-pulse"
+            >
+              <div className="relative">
+                <MessageSquare className="h-5 w-5" />
+                <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-[#00C853] border-2 border-[#0A66FF]" />
+              </div>
+              <span className="text-xs font-mono tracking-wider font-semibold uppercase shrink-0">SAFAL Mitra</span>
+            </button>
+          </>
         )}
       </div>
 
