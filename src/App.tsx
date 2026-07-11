@@ -55,6 +55,7 @@ import {
   VIBE_SKILLS,
   VIBE_SUCCESS_STORIES
 } from "./data";
+import safalLogo from "./images/org/logo.jpeg";
 
 export default function App() {
   // Language state - default English
@@ -474,12 +475,12 @@ export default function App() {
   // Translation content
   const t = {
     hero: {
-      badge: language === "en" ? "Nepal's Premier AI Catalyst" : "नेपालको प्रमुख AI उत्प्रेरक",
+      badge: language === "en" ? "Nepal's Premier AI Catalyst | Sfal AI" : "नेपालको प्रमुख AI उत्प्रेरक | Sfal AI",
       title: language === "en" ? "Building Nepal's" : "नेपालको निर्माण",
       titleAccent: language === "en" ? "AI Future" : "AI भविष्य",
       description: language === "en"
-        ? "We help schools, businesses, organizations and governments harness the power of Artificial Intelligence through innovative products, automation solutions, training and digital transformation."
-        : "हामी स्कूल, व्यवसाय, संस्था र सरकारलाई नवीन उत्पादन, स्वचालन समाधान, तालिम र डिजिटल रूपान्तरण मार्फत कृत्रिम बुद्धिमत्ताको शक्ति प्रयोग गर्न मद्दत गर्छौं।",
+        ? "Safal AI (Sfal AI) is Nepal's leading AI company. We provide industry-standard corporate training, curriculum-aligned AI for teachers, custom workflow automation, and digital transformations for enterprises and schools across Nepal."
+        : "सफल AI (Sfal AI) नेपालको अग्रणी AI कम्पनी हो। हामी विद्यालयहरू र व्यवसायहरूलाई AI तालिम (Corporate Training), शिक्षकहरूको लागि AI शिक्षण उपकरण (AI for Teachers), र प्रक्रिया स्वचालन (Automation Solutions) मार्फत डिजिटल रूपान्तरण गर्न मद्दत गर्छौं।",
       cta1: language === "en" ? "Explore Solutions" : "समाधान अन्वेषण गर्नुहोस्",
       cta2: language === "en" ? "Book Consultation" : "परामर्श बुक गर्नुहोस्"
     },
@@ -573,8 +574,8 @@ export default function App() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <a href="#hero" className="flex items-center gap-2 group" id="logo-anchor">
-            <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-brand to-brand-accent flex items-center justify-center shadow-lg shadow-brand/20 group-hover:scale-105 transition-transform duration-300">
-              <GraduationCap className="text-white h-5 w-5" />
+            <div className="h-10 w-10 rounded-lg overflow-hidden flex items-center justify-center bg-white border border-gray-200 shadow-md shadow-brand/10 group-hover:scale-105 transition-transform duration-300 shrink-0">
+              <img src={safalLogo} alt="Safal AI Logo" className="h-full w-full object-cover" />
             </div>
             <div>
               <span className="font-display text-xl font-bold tracking-tight text-gray-900 block">
@@ -766,10 +767,12 @@ export default function App() {
 
               {/* SEO Badges */}
               <div className="pt-6 border-t border-white/10 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 text-xs font-mono text-green-300/70">
+                <span>#NepalAI</span>
+                <span>#SfalAI</span>
                 <span>#AICompanyNepal</span>
+                <span>#CorporateTrainingNepal</span>
+                <span>#AIForTeachers</span>
                 <span>#ArtificialIntelligenceNepal</span>
-                <span>#EdTechNepal</span>
-                <span>#AITraining</span>
               </div>
             </div>
 
@@ -813,8 +816,8 @@ export default function App() {
 
                 {/* Central AI Icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-24 w-24 bg-white rounded-2xl flex items-center justify-center shadow-2xl animate-pulse border-4 border-brand/30">
-                    <GraduationCap className="text-brand h-12 w-12" />
+                  <div className="h-24 w-24 bg-white rounded-2xl overflow-hidden flex items-center justify-center shadow-2xl animate-pulse border-4 border-brand/30">
+                    <img src={safalLogo} alt="Safal AI Logo" className="h-full w-full object-cover" />
                   </div>
                 </div>
               </div>
@@ -2639,8 +2642,8 @@ export default function App() {
             {/* Column 1 Logo */}
             <div className="md:col-span-4 space-y-4">
               <a href="#hero" className="flex items-center gap-2 group">
-                <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-brand to-brand-accent flex items-center justify-center font-bold text-white text-base shadow-sm">
-                  <GraduationCap className="h-4 w-4" />
+                <div className="h-9 w-9 rounded-lg overflow-hidden flex items-center justify-center bg-white border border-white/10 shadow-sm shrink-0">
+                  <img src={safalLogo} alt="Safal AI Logo" className="h-full w-full object-cover" />
                 </div>
                 <div>
                   <span className="font-display text-lg font-bold tracking-tight text-white block">
