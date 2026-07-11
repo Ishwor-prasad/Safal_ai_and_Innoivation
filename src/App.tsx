@@ -1835,20 +1835,20 @@ export default function App() {
 
 
       {/* LEADERSHIP TEAM SECTION */}
-      <section id="team" className="py-24 bg-dark-primary border-t border-white/10 scroll-mt-20 relative overflow-hidden">
+      <section id="team" className="py-24 bg-white border-t border-gray-100 scroll-mt-20 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand/5 rounded-full filter blur-[140px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-            <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
+            <span className="section-badge">
               Our Visionaries
             </span>
-            <h2 className="font-display text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="font-display text-4xl font-extrabold text-gray-900 tracking-tight mt-3">
               Meet The Team Behind SAFAL AI
             </h2>
-            <p className="text-slate-400 font-light text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
               A passionate team dedicated to empowering Nepal through Artificial Intelligence, innovation and digital transformation.
             </p>
           </div>
@@ -1858,22 +1858,22 @@ export default function App() {
               <div
                 key={member.id}
                 id={`member-card-${member.id}`}
-                className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col items-center justify-between text-center relative overflow-hidden group transition-all duration-300 hover:border-brand hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/5"
+                className="bg-white border border-gray-200 rounded-3xl p-8 flex flex-col items-center justify-between text-center relative overflow-hidden group transition-all duration-300 hover:border-brand shadow-sm card-hover"
               >
                 {/* Background light hover highlight */}
-                <div className="absolute inset-0 bg-gradient-to-b from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <div className="space-y-6 flex flex-col items-center relative z-10 w-full animate-none">
                   {/* Circular profile photo container */}
                   <div className="relative">
                     {/* Ring decoration */}
                     <div className="absolute inset-x-0 inset-y-0 rounded-full bg-gradient-to-tr from-brand to-brand-accent p-[2px] animate-none group-hover:rotate-45 transition-transform duration-500">
-                      <div className="h-full w-full rounded-full bg-[#0E1528]" />
+                      <div className="h-full w-full rounded-full bg-white" />
                     </div>
                     {/* Inner avatar monogram */}
                     <div className={`relative h-24 w-24 rounded-full bg-gradient-to-br ${member.avatarBg} p-[3px] flex items-center justify-center shadow-lg`}>
-                      <div className="h-full w-full rounded-full bg-[#0E1528] flex items-center justify-center">
-                        <span className="text-white text-xl font-display font-extrabold tracking-wider">
+                      <div className="h-full w-full rounded-full bg-white flex items-center justify-center">
+                        <span className="text-brand text-xl font-display font-extrabold tracking-wider">
                           {member.avatarInitials}
                         </span>
                       </div>
@@ -1882,7 +1882,7 @@ export default function App() {
 
                   {/* Name and position */}
                   <div className="space-y-1">
-                    <h3 className="font-display text-lg font-bold text-white tracking-tight transition-colors group-hover:text-brand">
+                    <h3 className="font-display text-lg font-bold text-gray-900 tracking-tight transition-colors group-hover:text-brand">
                       {member.name}
                     </h3>
                     <p className="text-xs font-mono text-brand font-semibold uppercase tracking-wider">
@@ -1891,26 +1891,26 @@ export default function App() {
                   </div>
 
                   {/* Description biography */}
-                  <p className="text-slate-300 font-light text-xs leading-relaxed max-w-[240px] mx-auto min-h-[4.5rem]">
+                  <p className="text-gray-600 font-light text-xs leading-relaxed max-w-[240px] mx-auto min-h-[4.5rem]">
                     {member.description}
                   </p>
                 </div>
 
                 {/* LinkedIn button & action row */}
-                <div className="pt-6 mt-6 border-t border-white/5 w-full flex flex-col items-center gap-2.5 relative z-10">
+                <div className="pt-6 mt-6 border-t border-gray-100 w-full flex flex-col items-center gap-2.5 relative z-10">
                   <a
                     href={member.linkedinUrl}
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-9 w-9 rounded-xl bg-white/5 hover:bg-[#0A66FF] border border-white/10 hover:border-transparent text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
+                    className="h-9 w-9 rounded-xl bg-gray-50 hover:bg-[#0A66FF] border border-gray-200 hover:border-transparent text-gray-500 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
                     title={`Connect with ${member.name} on LinkedIn`}
                   >
                     <Linkedin className="h-4.5 w-4.5" />
                   </a>
                   <a
                     href={`mailto:${member.email}`}
-                    className="text-[11px] font-mono text-slate-400 hover:text-brand transition-colors"
+                    className="text-[11px] font-mono text-gray-400 hover:text-brand transition-colors"
                   >
                     {member.email}
                   </a>
@@ -1926,12 +1926,12 @@ export default function App() {
       {/* ════════════════════════════════════════════════════
           VIBE CODING WITH AI — COURSE LANDING SECTION
       ════════════════════════════════════════════════════ */}
-      <section id="vibe-coding" className="relative py-0 scroll-mt-20 border-t border-white/10">
+      <section id="vibe-coding" className="relative py-0 scroll-mt-20 border-t border-gray-100 bg-white">
 
         {/* COURSE HERO BANNER */}
-        <div className="relative bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-primary overflow-hidden">
+        <div className="relative bg-gradient-to-br from-white via-surface-soft to-white overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-brand/8 rounded-full blur-[140px]" />
+            <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-brand/5 rounded-full blur-[140px]" />
             <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-brand-accent/5 rounded-full blur-[100px]" />
           </div>
 
@@ -1939,32 +1939,32 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-brand/15 border border-brand/30 text-brand-accent px-3 py-1.5 rounded-full">
-                    <span className="h-1.5 w-1.5 bg-brand-accent rounded-full animate-pulse inline-block" />
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-brand/10 border border-brand/20 text-brand px-3 py-1.5 rounded-full">
+                    <span className="h-1.5 w-1.5 bg-brand rounded-full animate-pulse inline-block" />
                     New Course 2026
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-white/5 border border-white/10 text-gray-300 px-3 py-1.5 rounded-full">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-gray-100 border border-gray-250 text-gray-700 px-3 py-1.5 rounded-full">
                     🎓 Industry Certificate
                   </span>
                 </div>
 
-                <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
                   Vibe Coding{" "}
-                  <span className="bg-gradient-to-r from-brand-light to-brand-accent bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-brand to-brand-accent bg-clip-text text-transparent">
                     with AI
                   </span>
                 </h2>
 
-                <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+                <p className="text-gray-650 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
                   Learn to build real applications faster using AI coding tools like Claude Code and Gemini.
                   Master prompt engineering, automation, multi-agent workflows, and ship production-ready
                   projects — even if you are a complete beginner.
                 </p>
 
-                <p className="text-sm text-slate-400 font-mono">
-                  <span className="text-brand-accent">Updated:</span> 07/2026 &nbsp;&middot;&nbsp;
-                  <span className="text-brand-accent">Duration:</span> 1.5 Months (68 Hours) &nbsp;&middot;&nbsp;
-                  <span className="text-brand-accent">6</span> Upcoming Batches
+                <p className="text-sm text-gray-500 font-mono">
+                  <span className="text-brand font-semibold">Updated:</span> 07/2026 &nbsp;&middot;&nbsp;
+                  <span className="text-brand font-semibold">Duration:</span> 1.5 Months (68 Hours) &nbsp;&middot;&nbsp;
+                  <span className="text-brand font-semibold">6</span> Upcoming Batches
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -1975,14 +1975,14 @@ export default function App() {
                       setConsultMessage("I am interested in enrolling in the Vibe Coding with AI course. Please share available batch schedules and fee details.");
                       setConsultModalOpen(true);
                     }}
-                    className="bg-brand hover:bg-brand-light text-white font-semibold px-8 py-3.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-brand/30 flex items-center justify-center gap-2 cursor-pointer border-none ring-pulse"
+                    className="bg-brand hover:bg-brand-accent text-white font-semibold px-8 py-3.5 rounded-full transition-all hover:scale-105 shadow-lg shadow-brand/10 flex items-center justify-center gap-2 cursor-pointer border-none ring-pulse"
                   >
                     <Calendar className="h-4 w-4" />
                     <span>Enroll Now — Select Batch</span>
                   </button>
                   <a
                     href="#vibe-curriculum"
-                    className="bg-white/5 hover:bg-white/10 border border-white/15 hover:border-brand/40 text-white font-medium px-8 py-3.5 rounded-full transition-all text-center text-sm flex items-center justify-center"
+                    className="bg-white hover:bg-gray-50 border border-gray-200 hover:border-brand hover:text-brand text-gray-750 font-medium px-8 py-3.5 rounded-full transition-all text-center text-sm flex items-center justify-center"
                   >
                     View Full Curriculum ↓
                   </a>
@@ -1990,12 +1990,12 @@ export default function App() {
               </div>
 
               <div className="lg:col-span-5">
-                <div className="rounded-3xl border border-brand/20 bg-dark-card/80 backdrop-blur-sm p-8 space-y-5 shadow-2xl shadow-brand/10">
+                <div className="rounded-3xl border border-gray-200 bg-white p-8 space-y-5 shadow-lg shadow-gray-100/50">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="h-8 w-8 rounded-lg bg-brand/20 flex items-center justify-center">
-                      <Award className="h-4 w-4 text-brand-accent" />
+                    <div className="h-8 w-8 rounded-lg bg-brand/10 flex items-center justify-center">
+                      <Award className="h-4 w-4 text-brand" />
                     </div>
-                    <span className="font-display font-bold text-white">Course Highlights</span>
+                    <span className="font-display font-bold text-gray-900">Course Highlights</span>
                   </div>
                   {[
                     { icon: "🤖", text: "Claude Code, Gemini CLI and Cursor IDE mastery" },
@@ -2007,12 +2007,12 @@ export default function App() {
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <span className="text-lg leading-none mt-0.5 shrink-0">{item.icon}</span>
-                      <span className="text-sm text-slate-200 font-light leading-snug">{item.text}</span>
+                      <span className="text-sm text-gray-700 font-light leading-snug">{item.text}</span>
                     </div>
                   ))}
-                  <div className="pt-4 border-t border-white/10">
-                    <p className="text-xs text-slate-400 font-mono text-center">
-                      Taught in <span className="text-brand-accent font-semibold">Nepali and English</span> · Hands-on projects every week
+                  <div className="pt-4 border-t border-gray-100">
+                    <p className="text-xs text-gray-500 font-mono text-center">
+                      Taught in <span className="text-brand font-semibold">Nepali and English</span> · Hands-on projects every week
                     </p>
                   </div>
                 </div>
@@ -2022,15 +2022,15 @@ export default function App() {
         </div>
 
         {/* STATS BAR */}
-        <div className="bg-dark-secondary border-y border-dark-slate py-6">
+        <div className="bg-surface-soft border-y border-gray-200 py-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {VIBE_STATS.map((stat) => (
                 <div key={stat.id} className="space-y-1">
-                  <div className="font-display text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-brand-light to-brand-accent bg-clip-text text-transparent">
+                  <div className="font-display text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-brand to-brand-accent bg-clip-text text-transparent">
                     {stat.value}
                   </div>
-                  <p className="text-xs text-gray-400 font-medium uppercase tracking-widest">{stat.label}</p>
+                  <p className="text-xs text-gray-500 font-semibold uppercase tracking-widest">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -2038,20 +2038,20 @@ export default function App() {
         </div>
 
         {/* OVERVIEW + SKILLS */}
-        <div className="bg-dark-primary py-20">
+        <div className="bg-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               <div className="space-y-6">
-                <span className="text-xs font-semibold text-brand tracking-widest uppercase block">Course Overview</span>
-                <h3 className="font-display text-3xl font-bold text-white tracking-tight">
+                <span className="section-badge">Course Overview</span>
+                <h3 className="font-display text-3xl font-extrabold text-gray-900 tracking-tight mt-3">
                   Learn Smarter, Build Faster with AI Tools
                 </h3>
-                <p className="text-slate-300 leading-relaxed font-light">
+                <p className="text-gray-650 leading-relaxed font-light font-sans">
                   The best developers do not just write code — they know how to think, adapt, and build faster than everyone else.
-                  <strong className="text-white font-medium"> Vibe Coding with AI</strong> is a hands-on training program designed
+                  <strong className="text-brand font-semibold"> Vibe Coding with AI</strong> is a hands-on training program designed
                   for the AI era. This is not about replacing your skills. It is about multiplying them.
                 </p>
-                <p className="text-slate-300 leading-relaxed font-light">
+                <p className="text-gray-655 leading-relaxed font-light font-sans">
                   You will go from understanding how large language models work to using Claude Code like a powerful development partner.
                   Along the way you will learn prompting, custom commands, intelligent automation, multi-agent workflows, scalable
                   architecture, and the Model Context Protocol to connect AI with external tools.
@@ -2059,14 +2059,14 @@ export default function App() {
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <button
                     onClick={() => { setConsultSector("Education"); setConsultMessage("Please share the full Vibe Coding with AI syllabus."); setConsultModalOpen(true); }}
-                    className="inline-flex items-center gap-2 bg-brand/10 border border-brand/30 text-brand-accent hover:bg-brand/20 text-sm font-medium px-6 py-3 rounded-full transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 text-brand hover:bg-brand/20 text-sm font-semibold px-6 py-3 rounded-full transition-all cursor-pointer"
                   >
                     <FileText className="h-4 w-4" />
                     Download Syllabus
                   </button>
                   <button
                     onClick={() => { setConsultSector("Education"); setConsultMessage("I want to inquire about the Vibe Coding with AI course."); setConsultModalOpen(true); }}
-                    className="inline-flex items-center gap-2 border border-white/15 hover:border-white/30 text-white text-sm font-medium px-6 py-3 rounded-full transition-all cursor-pointer bg-transparent"
+                    className="inline-flex items-center gap-2 border border-gray-200 hover:border-brand hover:text-brand text-gray-700 text-sm font-medium px-6 py-3 rounded-full transition-all cursor-pointer bg-transparent"
                   >
                     <Mail className="h-4 w-4" />
                     Send Inquiry
@@ -2075,12 +2075,12 @@ export default function App() {
               </div>
 
               <div className="space-y-4">
-                <span className="text-xs font-semibold text-brand tracking-widest uppercase block">Skills You Will Learn</span>
-                <div className="grid grid-cols-2 gap-3">
+                <span className="section-badge">Skills You Will Learn</span>
+                <div className="grid grid-cols-2 gap-3 mt-3">
                   {VIBE_SKILLS.map((skill) => (
-                    <div key={skill.id} className="flex items-center gap-3 p-3.5 rounded-xl bg-dark-secondary/60 border border-white/5 hover:border-brand/30 hover:bg-brand/5 transition-all group">
+                    <div key={skill.id} className="flex items-center gap-3 p-3.5 rounded-xl bg-surface-soft border border-gray-200 hover:border-brand hover:bg-brand/5 transition-all group">
                       <span className="text-xl shrink-0">{skill.icon}</span>
-                      <span className="text-xs text-slate-200 font-medium leading-snug group-hover:text-white transition-colors">{skill.label}</span>
+                      <span className="text-xs text-gray-700 font-semibold leading-snug group-hover:text-brand transition-colors">{skill.label}</span>
                     </div>
                   ))}
                 </div>
@@ -2090,26 +2090,26 @@ export default function App() {
         </div>
 
         {/* 6-WEEK CURRICULUM */}
-        <div id="vibe-curriculum" className="bg-dark-secondary py-20 scroll-mt-20 border-t border-dark-slate">
+        <div id="vibe-curriculum" className="bg-surface-soft py-20 scroll-mt-20 border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="text-xs font-semibold text-brand tracking-widest uppercase block mb-3">Full Curriculum</span>
-              <h3 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">6-Week Learning Journey</h3>
-              <p className="text-slate-400 font-light mt-3">Every week is packed with practical sessions, real project milestones, and mentor-led code reviews.</p>
+              <span className="section-badge mb-3 block text-center">Full Curriculum</span>
+              <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-3">6-Week Learning Journey</h3>
+              <p className="text-gray-500 mt-3 font-sans font-light">Every week is packed with practical sessions, real project milestones, and mentor-led code reviews.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {VIBE_MODULES.map((mod, idx) => (
-                <div key={mod.id} id={`vibe-module-${mod.id}`} className="rounded-2xl border border-white/8 bg-dark-card p-7 flex flex-col gap-4 hover:border-brand/40 hover:shadow-lg hover:shadow-brand/5 transition-all duration-300 group">
+                <div key={mod.id} id={`vibe-module-${mod.id}`} className="rounded-2xl border border-gray-200 bg-white p-7 flex flex-col gap-4 hover:border-brand/40 hover:shadow-md transition-all duration-300 group shadow-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded-full">{mod.week}</span>
-                    <span className="h-8 w-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 font-display font-bold text-sm group-hover:bg-brand/10 group-hover:text-brand-accent transition-colors">{String(idx + 1).padStart(2, "0")}</span>
+                    <span className="h-8 w-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 font-display font-bold text-sm group-hover:bg-brand/10 group-hover:text-brand transition-colors">{String(idx + 1).padStart(2, "0")}</span>
                   </div>
-                  <h4 className="font-display text-base font-bold text-white leading-snug">{mod.title}</h4>
+                  <h4 className="font-display text-base font-bold text-gray-900 leading-snug">{mod.title}</h4>
                   <ul className="space-y-2">
                     {mod.topics.map((topic, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs text-slate-300 font-light">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-brand-accent shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-2 text-xs text-gray-655 font-sans font-light">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-brand shrink-0 mt-0.5" />
                         <span>{topic}</span>
                       </li>
                     ))}
@@ -2119,14 +2119,14 @@ export default function App() {
             </div>
 
             <div className="mt-14 rounded-2xl border border-brand/20 bg-gradient-to-r from-brand/10 via-brand/5 to-transparent p-8 flex flex-col sm:flex-row items-center gap-6">
-              <div className="h-16 w-16 rounded-2xl bg-brand/20 border border-brand/30 flex items-center justify-center shrink-0">
-                <Award className="h-8 w-8 text-brand-accent" />
+              <div className="h-16 w-16 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center shrink-0">
+                <Award className="h-8 w-8 text-brand" />
               </div>
               <div className="flex-1 text-center sm:text-left">
-                <h4 className="font-display font-bold text-white text-lg mb-1">Earn a High-Value Industry Certificate</h4>
-                <p className="text-sm text-slate-300 font-light">Add this credential to your LinkedIn profile, resume, or CV to stand out to recruiters across Nepal and globally.</p>
+                <h4 className="font-display font-bold text-gray-900 text-lg mb-1">Earn a High-Value Industry Certificate</h4>
+                <p className="text-sm text-gray-600 font-sans font-light">Add this credential to your LinkedIn profile, resume, or CV to stand out to recruiters across Nepal and globally.</p>
               </div>
-              <button onClick={() => { setConsultSector("Education"); setConsultMessage("I want to inquire about the Vibe Coding certificate."); setConsultModalOpen(true); }} className="shrink-0 bg-brand hover:bg-brand-light text-white font-semibold text-sm px-6 py-3 rounded-full transition-all cursor-pointer border-none">
+              <button onClick={() => { setConsultSector("Education"); setConsultMessage("I want to inquire about the Vibe Coding certificate."); setConsultModalOpen(true); }} className="shrink-0 bg-brand hover:bg-brand-accent text-white font-semibold text-sm px-6 py-3 rounded-full transition-all cursor-pointer border-none shadow-md shadow-brand/10">
                 Get Certified
               </button>
             </div>
@@ -2134,35 +2134,35 @@ export default function App() {
         </div>
 
         {/* UPCOMING SCHEDULES */}
-        <div className="bg-dark-primary py-20 border-t border-dark-slate">
+        <div className="bg-white py-20 border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="text-xs font-semibold text-brand tracking-widest uppercase block mb-3">Upcoming Classes</span>
-              <h3 className="font-display text-3xl font-bold text-white">Choose Your Batch Schedule</h3>
-              <p className="text-slate-400 font-light mt-2">6 upcoming batches — Morning, Evening, and Night options available.</p>
+              <span className="section-badge mb-3 block">Upcoming Classes</span>
+              <h3 className="font-display text-3xl font-extrabold text-gray-900 mt-3">Choose Your Batch Schedule</h3>
+              <p className="text-gray-500 mt-2 font-sans font-light">6 upcoming batches — Morning, Evening, and Night options available.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {VIBE_SCHEDULES.map((sch) => (
-                <div key={sch.id} id={`schedule-${sch.id}`} className="rounded-2xl border border-white/8 bg-dark-secondary p-6 space-y-4 hover:border-brand/35 transition-all group">
+                <div key={sch.id} id={`schedule-${sch.id}`} className="rounded-2xl border border-gray-200 bg-white p-6 space-y-4 hover:border-brand/35 hover:shadow-md transition-all group shadow-sm">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-brand-accent bg-brand/10 border border-brand/20 px-2.5 py-1 rounded-full">{sch.tag}</span>
-                    <Calendar className="h-4 w-4 text-slate-500 group-hover:text-brand transition-colors" />
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 px-2.5 py-1 rounded-full">{sch.tag}</span>
+                    <Calendar className="h-4 w-4 text-gray-400 group-hover:text-brand transition-colors" />
                   </div>
                   <div>
-                    <p className="font-display text-xl font-bold text-white">{sch.date}</p>
-                    <p className="text-xs text-slate-400 font-mono mt-0.5">{sch.day}</p>
+                    <p className="font-display text-xl font-bold text-gray-900">{sch.date}</p>
+                    <p className="text-xs text-gray-400 font-mono mt-0.5">{sch.day}</p>
                   </div>
                   <div className="space-y-1.5">
                     {sch.times.map((t, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-slate-200">
-                        <span className="h-1.5 w-1.5 bg-brand-accent rounded-full shrink-0" />
+                      <div key={i} className="flex items-center gap-2 text-xs text-gray-600 font-sans">
+                        <span className="h-1.5 w-1.5 bg-brand rounded-full shrink-0" />
                         {t}
                       </div>
                     ))}
                   </div>
                   <button
                     onClick={() => { setConsultSector("Education"); setConsultMessage(`I would like to enroll in the Vibe Coding with AI batch starting ${sch.date} (${sch.times.join(", ")}).`); setConsultModalOpen(true); }}
-                    className="w-full mt-2 border border-brand/30 hover:bg-brand hover:border-brand text-brand-accent hover:text-white text-xs font-semibold py-2.5 rounded-xl transition-all cursor-pointer bg-transparent"
+                    className="w-full mt-2 border border-gray-200 hover:border-brand hover:bg-brand text-gray-605 hover:text-white text-xs font-semibold py-2.5 rounded-xl transition-all cursor-pointer bg-transparent"
                   >
                     Select This Batch →
                   </button>
@@ -2173,26 +2173,26 @@ export default function App() {
         </div>
 
         {/* SUCCESS STORIES */}
-        <div className="bg-dark-secondary py-20 border-t border-dark-slate">
+        <div className="bg-surface-soft py-20 border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="text-xs font-semibold text-brand tracking-widest uppercase block mb-3">Success Stories</span>
-              <h3 className="font-display text-3xl font-bold text-white">Hear From Our Graduates</h3>
+              <span className="section-badge mb-3 block">Success Stories</span>
+              <h3 className="font-display text-3xl font-extrabold text-gray-900 mt-3">Hear From Our Graduates</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {VIBE_SUCCESS_STORIES.map((story) => (
-                <div key={story.id} className="rounded-2xl border border-white/8 bg-dark-card p-7 space-y-4 hover:border-brand/30 transition-all">
-                  <div className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${story.gradient} flex items-center justify-center font-display font-black text-white text-lg shadow-lg`}>
+                <div key={story.id} className="rounded-2xl border border-gray-200 bg-white p-7 space-y-4 hover:border-brand/30 hover:shadow-md transition-all shadow-sm">
+                  <div className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${story.gradient} flex items-center justify-center font-display font-black text-white text-lg shadow-md`}>
                     {story.initial}
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-white">{story.name}</h4>
-                    <p className="text-xs text-brand-accent font-mono mt-0.5">{story.position}</p>
-                    <p className="text-xs text-slate-400 mt-0.5">{story.company}</p>
+                    <h4 className="font-display font-bold text-gray-900">{story.name}</h4>
+                    <p className="text-xs text-brand font-mono mt-0.5">{story.position}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{story.company}</p>
                   </div>
-                  <div className="space-y-1 text-xs text-slate-300 border-t border-white/5 pt-4">
-                    <p><span className="text-slate-500">Course: </span>{story.course}</p>
-                    <p><span className="text-slate-500">Education: </span>{story.college}</p>
+                  <div className="space-y-1 text-xs text-gray-600 border-t border-gray-100 pt-4 font-sans font-light">
+                    <p><span className="text-gray-400">Course: </span>{story.course}</p>
+                    <p><span className="text-gray-400">Education: </span>{story.college}</p>
                   </div>
                 </div>
               ))}
@@ -2201,20 +2201,20 @@ export default function App() {
         </div>
 
         {/* QUICK CTA */}
-        <div className="bg-dark-primary py-16 border-t border-dark-slate">
+        <div className="bg-white py-16 border-t border-gray-100">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">Ready to Start Your AI Coding Journey?</h3>
-            <p className="text-slate-400 font-light">Our syllabus covers only the major module headlines. For a complete walkthrough and to customize the course, book a free counseling session today.</p>
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-gray-900">Ready to Start Your AI Coding Journey?</h3>
+            <p className="text-gray-500 font-sans font-light">Our syllabus covers only the major module headlines. For a complete walkthrough and to customize the course, book a free counseling session today.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 id="vibe-quick-inquire"
                 onClick={() => { setConsultSector("Education"); setConsultMessage("Quick inquiry about Vibe Coding with AI course."); setConsultModalOpen(true); }}
-                className="bg-brand hover:bg-brand-light text-white font-semibold px-8 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-brand/25 flex items-center justify-center gap-2 ring-pulse cursor-pointer border-none"
+                className="bg-brand hover:bg-brand-accent text-white font-semibold px-8 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-brand/10 flex items-center justify-center gap-2 ring-pulse cursor-pointer border-none"
               >
                 <Send className="h-4 w-4" />
                 Send Quick Inquiry
               </button>
-              <a href="#vibe-curriculum" className="bg-white/5 border border-white/15 hover:border-brand/30 text-white font-medium px-8 py-4 rounded-full transition-all text-center flex items-center justify-center gap-2">
+              <a href="#vibe-curriculum" className="bg-white border border-gray-200 hover:border-brand hover:text-brand text-gray-755 font-medium px-8 py-4 rounded-full transition-all text-center flex items-center justify-center gap-2">
                 <BookOpen className="h-4 w-4" />
                 Review Curriculum
               </a>
@@ -2223,9 +2223,8 @@ export default function App() {
         </div>
       </section>
 
-
       {/* CONTACT SECTION WITH FORM INQUIRY SUBMISSIONS */}
-      <section id="contact" className="py-24 bg-dark-primary/20 border-t border-white/10 scroll-mt-20">
+      <section id="contact" className="py-24 bg-surface-soft border-t border-gray-100 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
@@ -2233,35 +2232,35 @@ export default function App() {
             {/* Informative column details */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-3">
-                <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
+                <span className="section-badge">
                   Let's Collaborate
                 </span>
-                <h2 className="font-display text-4xl font-extrabold text-white tracking-tight leading-tight">
+                <h2 className="font-display text-4xl font-extrabold text-gray-900 tracking-tight leading-tight mt-3">
                   Get In Touch
                 </h2>
-                <p className="text-slate-350 font-light leading-relaxed text-sm">
+                <p className="text-gray-500 leading-relaxed text-sm">
                   Interested in AI training, AI solutions, partnerships or consulting? Contact our team.
                 </p>
               </div>
 
               {/* Display Team Contacts explicitly */}
-              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/5 space-y-4">
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-[#0A66FF] font-mono">
+              <div className="p-6 rounded-2xl bg-white border border-gray-200 space-y-4 shadow-sm">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-brand font-mono">
                   Direct Team Contacts
                 </h3>
-                <div className="space-y-3 text-xs text-slate-300">
-                  <div className="flex justify-between items-center py-1.5 border-b border-white/5">
+                <div className="space-y-3 text-xs text-gray-600">
+                  <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
                     <div>
-                      <h4 className="font-semibold text-white text-xs">Uday Ram Jaishi</h4>
+                      <h4 className="font-semibold text-gray-900 text-xs">Uday Ram Jaishi</h4>
                       <p className="text-[10px] text-gray-400">Chief Executive Officer (CEO)</p>
                     </div>
                     <a href="mailto:uday@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
                       uday@safalai.org
                     </a>
                   </div>
-                  <div className="flex justify-between items-center py-1.5 border-b border-white/5">
+                  <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
                     <div>
-                      <h4 className="font-semibold text-white text-xs">Ishwor Dhungana</h4>
+                      <h4 className="font-semibold text-gray-900 text-xs">Ishwor Dhungana</h4>
                       <p className="text-[10px] text-gray-400">Lead AI Trainer</p>
                     </div>
                     <a href="mailto:ishwor@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
@@ -2270,7 +2269,7 @@ export default function App() {
                   </div>
                   <div className="flex justify-between items-center py-1.5">
                     <div>
-                      <h4 className="font-semibold text-white text-xs">Kamram Muazzam</h4>
+                      <h4 className="font-semibold text-gray-900 text-xs">Kamram Muazzam</h4>
                       <p className="text-[10px] text-gray-400">AI Solution Engineer</p>
                     </div>
                     <a href="mailto:kamram@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
@@ -2288,8 +2287,8 @@ export default function App() {
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-slate-400 block uppercase tracking-wider font-semibold">Email Address</span>
-                    <a href="mailto:info@safalai.org" className="text-sm font-semibold text-white hover:text-brand transition-colors">
+                    <span className="text-xs font-mono text-gray-400 block uppercase tracking-wider font-semibold">Email Address</span>
+                    <a href="mailto:info@safalai.org" className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
                       info@safalai.org
                     </a>
                   </div>
@@ -2300,8 +2299,8 @@ export default function App() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-slate-400 block uppercase tracking-wider font-semibold">Phone Number</span>
-                    <a href="tel:+97714455667" className="text-sm font-semibold text-white hover:text-brand transition-colors">
+                    <span className="text-xs font-mono text-gray-400 block uppercase tracking-wider font-semibold">Phone Number</span>
+                    <a href="tel:+97714455667" className="text-sm font-semibold text-gray-900 hover:text-brand transition-colors">
                       +977 1 4455667
                     </a>
                   </div>
@@ -2312,8 +2311,8 @@ export default function App() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-slate-400 block uppercase tracking-wider font-semibold">Office Location</span>
-                    <p className="text-sm font-semibold text-white leading-normal">
+                    <span className="text-xs font-mono text-gray-400 block uppercase tracking-wider font-semibold">Office Location</span>
+                    <p className="text-sm font-semibold text-gray-900 leading-normal">
                       Level 3, Star Complex, Putalisadak, Kathmandu, Nepal
                     </p>
                   </div>
@@ -2322,15 +2321,15 @@ export default function App() {
               </div>
 
               {/* Embedded Social link grids */}
-              <div className="space-y-3 pt-4 border-t border-white/5">
-                <span className="text-xs font-mono text-slate-400 block uppercase font-semibold">Connect &amp; Follow Us</span>
+              <div className="space-y-3 pt-4 border-t border-gray-150">
+                <span className="text-xs font-mono text-gray-400 block uppercase font-semibold">Connect &amp; Follow Us</span>
                 <div className="flex gap-3" id="social-links-grid">
                   <a
                     href="https://linkedin.com"
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 bg-white/5 hover:bg-[#0A66FF] hover:border-transparent border border-white/10 rounded-xl flex items-center justify-center text-slate-300 hover:text-white transition-all"
+                    className="h-10 w-10 bg-white hover:bg-[#0A66FF] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-500 hover:text-white transition-all"
                     title="LinkedIn"
                   >
                     <Linkedin className="h-4.5 w-4.5" />
@@ -2340,7 +2339,7 @@ export default function App() {
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 bg-white/5 hover:bg-[#1877F2] hover:border-transparent border border-white/10 rounded-xl flex items-center justify-center text-slate-300 hover:text-white transition-all"
+                    className="h-10 w-10 bg-white hover:bg-[#1877F2] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-500 hover:text-white transition-all"
                     title="Facebook"
                   >
                     <Facebook className="h-4.5 w-4.5" />
@@ -2350,7 +2349,7 @@ export default function App() {
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 bg-white/5 hover:bg-[#E4405F] hover:border-transparent border border-white/10 rounded-xl flex items-center justify-center text-slate-300 hover:text-white transition-all"
+                    className="h-10 w-10 bg-white hover:bg-[#E4405F] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-500 hover:text-white transition-all"
                     title="Instagram"
                   >
                     <Instagram className="h-4.5 w-4.5" />
@@ -2360,7 +2359,7 @@ export default function App() {
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 bg-white/5 hover:bg-[#FF0000] hover:border-transparent border border-white/10 rounded-xl flex items-center justify-center text-slate-300 hover:text-white transition-all"
+                    className="h-10 w-10 bg-white hover:bg-[#FF0000] hover:border-transparent border border-gray-200 rounded-xl flex items-center justify-center text-gray-500 hover:text-white transition-all"
                     title="YouTube"
                   >
                     <Youtube className="h-4.5 w-4.5" />
@@ -2370,21 +2369,21 @@ export default function App() {
             </div>
 
             {/* Right Form column */}
-            <div className="lg:col-span-7 bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl relative overflow-hidden">
-              <h3 className="font-display text-xl font-bold text-white mb-6 tracking-tight">
+            <div className="lg:col-span-7 bg-white rounded-2xl p-8 border border-gray-200 shadow-lg relative overflow-hidden">
+              <h3 className="font-display text-xl font-bold text-gray-900 mb-6 tracking-tight">
                 Submit an Inquiry Blueprint
               </h3>
 
               {contactSuccessMsg ? (
-                <div className="bg-emerald-500/10 border border-emerald-500/25 p-6 rounded-2xl text-emerald-300 space-y-3" id="contact-success-box">
-                  <CheckCircle2 className="h-10 w-10 text-emerald-400" />
+                <div className="bg-emerald-50 border border-emerald-250 p-6 rounded-2xl text-emerald-800 space-y-3" id="contact-success-box">
+                  <CheckCircle2 className="h-10 w-10 text-emerald-500" />
                   <h4 className="font-display text-base font-bold">Inquiry Record Generated Successfully</h4>
-                  <p className="text-sm font-light text-emerald-100/90 leading-relaxed">
+                  <p className="text-sm font-light text-emerald-700 leading-relaxed">
                     {contactSuccessMsg}
                   </p>
                   <button
                     onClick={() => setContactSuccessMsg(null)}
-                    className="text-xs font-mono text-emerald-400 underline font-semibold mt-2 block pointer-events-auto cursor-pointer bg-transparent border-none"
+                    className="text-xs font-mono text-emerald-600 underline font-semibold mt-2 block pointer-events-auto cursor-pointer bg-transparent border-none"
                   >
                     Send another inquiry
                   </button>
@@ -2393,7 +2392,7 @@ export default function App() {
                 <form onSubmit={handleContactSubmit} className="space-y-5" id="contact-form">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="contact-name">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-name">
                         Name
                       </label>
                       <input
@@ -2403,11 +2402,11 @@ export default function App() {
                         value={contactName}
                         onChange={(e) => setContactName(e.target.value)}
                         placeholder="e.g. Binod Acharya"
-                        className="w-full bg-[#0B1020]/60 border border-white/10 focus:bg-[#0B1020]/80 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-all placeholder:text-slate-500"
+                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="contact-org">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-org">
                         Organization
                       </label>
                       <input
@@ -2417,14 +2416,14 @@ export default function App() {
                         value={contactOrg}
                         onChange={(e) => setContactOrg(e.target.value)}
                         placeholder="e.g., CDC Board, Elite Academy"
-                        className="w-full bg-[#0B1020]/60 border border-white/10 focus:bg-[#0B1020]/80 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-all placeholder:text-slate-500"
+                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="contact-email">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-email">
                         Email
                       </label>
                       <input
@@ -2434,11 +2433,11 @@ export default function App() {
                         value={contactEmail}
                         onChange={(e) => setContactEmail(e.target.value)}
                         placeholder="name@organization.org"
-                        className="w-full bg-[#0B1020]/60 border border-white/10 focus:bg-[#0B1020]/80 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-all placeholder:text-slate-500"
+                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="contact-phone">
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-phone">
                         Phone Number
                       </label>
                       <input
@@ -2447,13 +2446,13 @@ export default function App() {
                         value={contactPhone}
                         onChange={(e) => setContactPhone(e.target.value)}
                         placeholder="e.g. +977 9851000000"
-                        className="w-full bg-[#0B1020]/60 border border-white/10 focus:bg-[#0B1020]/80 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-all placeholder:text-slate-500"
+                        className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1" htmlFor="contact-msg">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1" htmlFor="contact-msg">
                       Message
                     </label>
                     <textarea
@@ -2463,14 +2462,14 @@ export default function App() {
                       value={contactMessage}
                       onChange={(e) => setContactMessage(e.target.value)}
                       placeholder="Detail what localized AI models, capacity training bootcamps, or workflow automation integrations your administration is researching."
-                      className="w-full bg-[#0B1020]/60 border border-white/10 focus:bg-[#0B1020]/80 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-brand transition-all placeholder:text-slate-500 resize-none"
+                      className="w-full bg-white border border-gray-200 focus:bg-white rounded-xl p-4 text-sm text-gray-900 focus:outline-none focus:border-brand transition-all placeholder:text-gray-400 resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={contactSubmitting}
-                    className="w-full bg-[#0A66FF] hover:bg-blue-600 disabled:bg-gray-400 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-blue-900/25 flex items-center justify-center gap-2 cursor-pointer border-none"
+                    className="w-full bg-brand hover:bg-brand-accent disabled:bg-gray-400 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-brand/10 flex items-center justify-center gap-2 cursor-pointer border-none"
                   >
                     <span>Send Inquiry</span>
                     <Send className="h-4 w-4" />
