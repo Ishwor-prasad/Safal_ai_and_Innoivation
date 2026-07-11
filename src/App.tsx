@@ -492,17 +492,17 @@ export default function App() {
 
   const showcaseImages = [
     {
-      src: "https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
+      src: "https://images.pexels.com/photos/3807595/pexels-photo-3807595.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
       label: "Teacher Enablement",
       caption: "AI training that feels practical inside real classrooms."
     },
     {
-      src: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
+      src: "https://images.pexels.com/photos/3807501/pexels-photo-3807501.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
       label: "Digital Workflows",
       caption: "Automation systems for teams that need speed and clarity."
     },
     {
-      src: "https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
+      src: "https://images.pexels.com/photos/3862545/pexels-photo-3862545.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
       label: "Institution Strategy",
       caption: "Consulting, adoption planning, and measurable rollout support."
     }
@@ -512,7 +512,7 @@ export default function App() {
     "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
     "https://images.pexels.com/photos/3807609/pexels-photo-3807609.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
     "https://images.pexels.com/photos/3862630/pexels-photo-3862630.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
-    "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=900&q=80"
+    "https://images.pexels.com/photos/3807595/pexels-photo-3807595.jpeg?auto=compress&cs=tinysrgb&w=900&q=80"
   ];
 
   return (
