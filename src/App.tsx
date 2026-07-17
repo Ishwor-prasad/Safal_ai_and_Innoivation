@@ -434,6 +434,10 @@ export default function App() {
     }
   };
 
+  const sandboxLoading = demoLoading;
+  const compiledResult = demoResult;
+  const handleTriggerSandbox = handleGenerateTeacherAI;
+
   const handleCopyDemoClipboard = () => {
     if (!demoResult) return;
     navigator.clipboard.writeText(demoResult);
@@ -1418,7 +1422,7 @@ export default function App() {
                   <div className="space-y-6">
                     <div className="flex items-center gap-3">
                       <span className="text-[10px] font-mono font-bold text-brand uppercase tracking-widest bg-brand/10 border border-brand/20 px-3 py-1 rounded">
-                        {cs.sector}
+                        {cs.industry}
                       </span>
                       <span className="text-[10px] font-mono text-gray-500">
                         Deployment Success Case
@@ -1426,7 +1430,7 @@ export default function App() {
                     </div>
 
                     <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                      {cs.title}
+                      {cs.clientName}
                     </h3>
 
                     <div className="space-y-4 pt-4 border-t border-white/5 text-sm leading-relaxed">
