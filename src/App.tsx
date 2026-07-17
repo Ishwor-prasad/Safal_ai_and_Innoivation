@@ -77,6 +77,10 @@ export default function App() {
   // Tabbed sections states
   const [solutionsTab, setSolutionsTab] = useState<"solutions" | "industries">("solutions");
   const [learningTab, setLearningTab] = useState<"training" | "research">("training");
+  const [activeSection, setActiveSection] = useState("hero");
+  const [activeCaseIndex, setActiveCaseIndex] = useState(0);
+  const [selectedSyllabusProg, setSelectedSyllabusProg] = useState<any>(null);
+  const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
 
   // SAFAL Teacher AI Sandbox Demo States
   const [demoGrade, setDemoGrade] = useState("Grade 8");
@@ -139,6 +143,27 @@ export default function App() {
     window.addEventListener("hashchange", handleHashChange);
     handleHashChange();
     return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  useEffect(() => {
+    const sections = ["hero", "solutions", "products", "training", "vibe-coding", "about", "team", "contact"];
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200; // offset
+      for (const sec of sections) {
+        const el = document.getElementById(sec);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sec);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -610,17 +635,17 @@ export default function App() {
           </a>
 
           <nav className="hidden lg:flex items-center gap-2 lg:gap-3 xl:gap-5" id="desktop-nav">
-            <a href="#hero" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Home</a>
-            <a href="#products" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Products</a>
-            <a href="#training" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Training</a>
-            <a href="#vibe-coding" className="text-brand font-semibold text-xs xl:text-sm transition-colors flex items-center gap-1">
+            <a href="#hero" className={`font-medium text-xs xl:text-sm transition-colors ${activeSection === "hero" ? "text-brand font-bold" : "text-gray-600 hover:text-brand"}`}>Home</a>
+            <a href="#products" className={`font-medium text-xs xl:text-sm transition-colors ${activeSection === "products" ? "text-brand font-bold" : "text-gray-600 hover:text-brand"}`}>Products</a>
+            <a href="#training" className={`font-medium text-xs xl:text-sm transition-colors ${activeSection === "training" ? "text-brand font-bold" : "text-gray-600 hover:text-brand"}`}>Training</a>
+            <a href="#vibe-coding" className={`font-semibold text-xs xl:text-sm transition-colors flex items-center gap-1 ${activeSection === "vibe-coding" ? "text-brand font-bold" : "text-brand hover:text-brand"}`}>
               <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block animate-pulse" />
               Vibe Coding
             </a>
-            <a href="#research" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Research</a>
-            <a href="#team" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Team</a>
-            <a href="#about" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">About</a>
-            <a href="#contact" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Contact</a>
+            <a href="#research" className={`font-medium text-xs xl:text-sm transition-colors ${activeSection === "research" ? "text-brand font-bold" : "text-gray-600 hover:text-brand"}`}>Research</a>
+            <a href="#team" className={`font-medium text-xs xl:text-sm transition-colors ${activeSection === "team" ? "text-brand font-bold" : "text-gray-600 hover:text-brand"}`}>Team</a>
+            <a href="#about" className={`font-medium text-xs xl:text-sm transition-colors ${activeSection === "about" ? "text-brand font-bold" : "text-gray-600 hover:text-brand"}`}>About</a>
+            <a href="#contact" className={`font-medium text-xs xl:text-sm transition-colors ${activeSection === "contact" ? "text-brand font-bold" : "text-gray-600 hover:text-brand"}`}>Contact</a>
             <button
               onClick={() => setLanguage(language === "en" ? "ne" : "en")}
               className="ml-1 px-2.5 py-0.5 text-[10px] xl:text-xs font-semibold border border-brand text-brand hover:bg-brand hover:text-white rounded-full transition-all shrink-0 cursor-pointer"
@@ -929,163 +954,175 @@ export default function App() {
         <div id="industries" className="absolute top-0 left-0 scroll-mt-10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="text-xs font-semibold text-brand tracking-widest uppercase">
-              Unified Ecosystem
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
-              Solutions &amp; Industries Served
-            </h2>
-            <p className="text-gray-600 font-light">
-              We operate beyond training. SAFAL AI is Nepal's core innovation partner building strategic solutions, custom frameworks, and curriculum architectures to empower modern institutions.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            {/* Left Column (Sticky Sidebar on Desktop) */}
+            <div className="lg:col-span-4 lg:sticky lg:top-28 h-fit space-y-6">
+              <div className="space-y-3">
+                <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
+                  Unified Ecosystem
+                </span>
+                <h2 className="font-display text-3xl xl:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                  Solutions &amp; Sectors
+                </h2>
+                <p className="text-gray-600 font-normal text-sm leading-relaxed">
+                  We build practical, localized intelligence systems. SAFAL AI is Nepal's core innovation partner building strategic solutions, custom frameworks, and curriculum architectures to empower modern institutions.
+                </p>
+              </div>
 
-          {/* Interactive Toggle Tabs */}
-          <div className="flex justify-center mb-12">
-            <div className="bg-white border border-gray-200 p-1.5 rounded-full flex gap-1 shadow-sm">
-              <button
-                onClick={() => setSolutionsTab("solutions")}
-                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${
-                  solutionsTab === "solutions"
-                    ? "bg-brand text-white shadow-md"
-                    : "text-gray-600 hover:text-brand"
-                }`}
-              >
-                Our Solutions
-              </button>
-              <button
-                onClick={() => setSolutionsTab("industries")}
-                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${
-                  solutionsTab === "industries"
-                    ? "bg-brand text-white shadow-md"
-                    : "text-gray-600 hover:text-brand"
-                }`}
-              >
-                Industries We Serve
-              </button>
+              {/* Vertical Stacked Interactive Tabs */}
+              <div className="flex flex-col gap-3.5 bg-gray-100/50 p-2.5 rounded-2xl border border-gray-200/60 shadow-inner">
+                <button
+                  onClick={() => setSolutionsTab("solutions")}
+                  className={`w-full p-4 rounded-xl text-left transition-all duration-300 cursor-pointer border-none flex flex-col gap-0.5 ${
+                    solutionsTab === "solutions"
+                      ? "bg-brand text-white shadow-md"
+                      : "bg-white hover:bg-gray-50 text-gray-700 hover:text-brand border border-gray-200"
+                  }`}
+                >
+                  <span className="font-bold text-xs uppercase tracking-wider block">Our Core Solutions</span>
+                  <span className={`text-[10px] block font-light leading-normal ${solutionsTab === "solutions" ? "text-white/80" : "text-gray-500"}`}>
+                    Custom development, AI tools integration &amp; automation solutions
+                  </span>
+                </button>
+                <button
+                  onClick={() => setSolutionsTab("industries")}
+                  className={`w-full p-4 rounded-xl text-left transition-all duration-300 cursor-pointer border-none flex flex-col gap-0.5 ${
+                    solutionsTab === "industries"
+                      ? "bg-brand text-white shadow-md"
+                      : "bg-white hover:bg-gray-50 text-gray-700 hover:text-brand border border-gray-200"
+                  }`}
+                >
+                  <span className="font-bold text-xs uppercase tracking-wider block">Industries We Serve</span>
+                  <span className={`text-[10px] block font-light leading-normal ${solutionsTab === "industries" ? "text-white/80" : "text-gray-500"}`}>
+                    Education, Business, local Government bodies &amp; NGOs in Nepal
+                  </span>
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* Tab Panels */}
-          {solutionsTab === "solutions" ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 animate-none">
-              {SERVICES.map((s, idx) => {
-                const iconsList = [BookOpen, Leaf, GraduationCap, Sliders, Terminal];
-                const IconComp = iconsList[idx] || Leaf;
-                return (
-                  <div
-                    key={s.id}
-                    id={`service-card-${s.id}`}
-                    className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="absolute top-0 left-0 w-1.5 h-full bg-transparent group-hover:bg-brand transition-colors duration-300" />
-                      
-                      <div className="h-12 w-12 rounded-xl bg-brand/10 border border-brand/20 text-brand flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-all duration-300">
-                        <IconComp className="h-6 w-6" />
-                      </div>
-
-                      <h3 className="font-display text-xl font-bold text-gray-900 mb-3 tracking-tight group-hover:text-brand transition-colors">
-                        {s.title}
-                      </h3>
-                      
-                      <p className="text-gray-700 text-sm leading-relaxed mb-4 font-light">
-                        {s.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-gray-100 mt-auto">
-                      <p className="text-xs text-gray-500 font-light leading-relaxed">
-                        {s.longDescription}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-500 animate-none">
-              {INDUSTRIES.map((ind, idx) => {
-                const icons = [BookOpen, Briefcase, Building, Users];
-                const IconComp = icons[idx] || Users;
-                return (
-                  <div
-                    key={ind.id}
-                    id={`industry-card-${ind.id}`}
-                    className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="image-panel h-44 mb-6 -mt-2">
-                        <img src={industryImages[idx]} alt={`${ind.title} AI deployment`} loading="lazy" />
-                        <div className="image-panel-caption">
-                          <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest font-semibold">{ind.title}</span>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center gap-3.5 mb-5">
-                        <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center border border-brand/20">
-                          <IconComp className="h-5 w-5" />
-                        </div>
+            {/* Right Column (Interactive Content Panels) */}
+            <div className="lg:col-span-8">
+              {solutionsTab === "solutions" ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500 animate-none">
+                  {SERVICES.map((s, idx) => {
+                    const iconsList = [BookOpen, Leaf, GraduationCap, Sliders, Terminal];
+                    const IconComp = iconsList[idx] || Leaf;
+                    return (
+                      <div
+                        key={s.id}
+                        id={`service-card-${s.id}`}
+                        className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm hover:shadow-xl hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
+                      >
                         <div>
-                          <h3 className="font-display text-xl font-bold text-gray-900 tracking-tight group-hover:text-brand transition-colors">
-                            {ind.title}
-                          </h3>
-                          {/* Subsectors pills */}
-                          <div className="flex flex-wrap gap-1 mt-1">
-                            {ind.subsectors.map((s, i) => (
-                              <span key={i} className="text-[10px] bg-brand/5 text-brand border border-brand/20 font-mono tracking-wider px-2 py-0.5 rounded-full uppercase">
-                                {s}
-                              </span>
-                            ))}
+                          <div className="absolute top-0 left-0 w-1.5 h-full bg-transparent group-hover:bg-brand transition-colors duration-300" />
+                          
+                          <div className="h-11 w-11 rounded-xl bg-brand/10 border border-brand/20 text-brand flex items-center justify-center mb-5 group-hover:bg-brand group-hover:text-white transition-all duration-300 shrink-0">
+                            <IconComp className="h-5 w-5" />
                           </div>
+
+                          <h3 className="font-display text-lg font-bold text-gray-900 mb-2.5 tracking-tight group-hover:text-brand transition-colors">
+                            {s.title}
+                          </h3>
+                          
+                          <p className="text-gray-655 text-xs leading-relaxed mb-4 font-normal">
+                            {s.description}
+                          </p>
+                        </div>
+
+                        <div className="pt-4 border-t border-gray-100 mt-auto">
+                          <p className="text-[11px] text-gray-500 font-normal leading-relaxed">
+                            {s.longDescription}
+                          </p>
                         </div>
                       </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500 animate-none">
+                  {INDUSTRIES.map((ind, idx) => {
+                    const icons = [BookOpen, Briefcase, Building, Users];
+                    const IconComp = icons[idx] || Users;
+                    return (
+                      <div
+                        key={ind.id}
+                        id={`industry-card-${ind.id}`}
+                        className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm hover:shadow-xl hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
+                      >
+                        <div>
+                          <div className="image-panel h-36 mb-5 -mt-2">
+                            <img src={industryImages[idx]} alt={`${ind.title} AI deployment`} loading="lazy" />
+                            <div className="image-panel-caption">
+                              <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest font-semibold">{ind.title}</span>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center gap-3 mb-4.5">
+                            <div className="h-10 w-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center border border-brand/20 shrink-0">
+                              <IconComp className="h-4.5 w-4.5" />
+                            </div>
+                            <div>
+                              <h3 className="font-display text-lg font-bold text-gray-900 tracking-tight group-hover:text-brand transition-colors">
+                                {ind.title}
+                              </h3>
+                              {/* Subsectors pills */}
+                              <div className="flex flex-wrap gap-1 mt-1">
+                                {ind.subsectors.map((s, i) => (
+                                  <span key={i} className="text-[9px] bg-brand/5 text-brand border border-brand/10 font-mono tracking-wider px-2 py-0.5 rounded-full uppercase">
+                                    {s}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
 
-                      <p className="text-gray-700 text-sm leading-relaxed mb-6 font-light">
-                        {ind.description}
-                      </p>
-                    </div>
+                          <p className="text-gray-655 text-xs leading-relaxed mb-5 font-normal">
+                            {ind.description}
+                          </p>
+                        </div>
 
-                    <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-mono text-gray-500">
-                      <span>Target Deployment Matrix</span>
-                      <span className="text-brand flex items-center gap-1 group">
-                        <span>Inquire Scope</span>
-                        <ChevronRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
+                        <div className="pt-3.5 border-t border-gray-100 flex items-center justify-between text-[11px] font-mono text-gray-500">
+                          <span>Target Deployment Matrix</span>
+                          <span className="text-brand flex items-center gap-0.5 group">
+                            <span>Inquire Scope</span>
+                            <ChevronRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
-          )}
 
-          {/* Book Consultation Banner */}
-          <div className="mt-16 consult-card-light rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-brand/5 rounded-full filter blur-[50px] pointer-events-none" />
-            <div className="space-y-3 max-w-2xl text-center md:text-left">
-              <span className="text-xs font-mono text-brand-accent tracking-wider uppercase block">
-                Enterprise &amp; Academic Integration
-              </span>
-              <h3 className="font-display text-2xl font-bold text-gray-900 tracking-tight">
-                Require a bespoke localized Artificial Intelligence blueprint?
-              </h3>
-              <p className="text-gray-700 text-sm font-light">
-                Consult with our research architects to map specialized data pathways, security frameworks, and custom digital transformation pipelines.
-              </p>
+            {/* Book Consultation Banner */}
+            <div className="col-span-12 mt-8 consult-card-light rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-brand/5 rounded-full filter blur-[50px] pointer-events-none" />
+              <div className="space-y-3 max-w-2xl text-center md:text-left">
+                <span className="text-xs font-mono text-brand-accent tracking-wider uppercase block">
+                  Enterprise &amp; Academic Integration
+                </span>
+                <h3 className="font-display text-2xl font-bold text-gray-900 tracking-tight">
+                  Require a bespoke localized Artificial Intelligence blueprint?
+                </h3>
+                <p className="text-gray-700 text-sm font-normal">
+                  Consult with our research architects to map specialized data pathways, security frameworks, and custom digital transformation pipelines.
+                </p>
+              </div>
+              <button
+                onClick={() => setConsultModalOpen(true)}
+                className="bg-[#0A66FF] hover:bg-blue-600 hover:scale-105 active:scale-95 text-white font-semibold text-sm py-4 px-8 rounded-full transition-all flex items-center gap-2 shadow-lg shadow-blue-900/20 shrink-0 cursor-pointer border-none"
+              >
+                <span>Book Strategic Consultation</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </div>
-            <button
-              onClick={() => setConsultModalOpen(true)}
-              className="bg-[#0A66FF] hover:bg-blue-600 hover:scale-105 active:scale-95 text-white font-semibold text-sm py-4 px-8 rounded-full transition-all flex items-center gap-2 shadow-lg shadow-blue-900/20 shrink-0 cursor-pointer border-none"
-            >
-              <span>Book Strategic Consultation</span>
-              <ArrowRight className="h-4 w-4" />
-            </button>
+
           </div>
 
         </div>
       </section>
-
 
       {/* FLAGSHIP PRODUCTS SECTION WITH EMBEDDED REAL-TIME SANDBOX AI DEMO */}
       <section id="products" className="py-24 bg-dark-primary dark-section scroll-mt-20 relative overflow-hidden">
@@ -1100,7 +1137,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Our AI Products
             </h2>
-            <p className="text-gray-700 font-light">
+            <p className="text-gray-400 font-normal">
               We design and construct production-ready AI layers that integrate local context, CDC syllabi guidelines, and regional workflows. Explore our product matrix.
             </p>
           </div>
@@ -1112,10 +1149,10 @@ export default function App() {
               <div
                 key={prod.id}
                 id={`product-card-${prod.id}`}
-                className={`rounded-2xl border p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden backdrop-blur-md ${
+                className={`glass-card rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden backdrop-blur-md ${
                   prod.status === "Beta"
-                    ? "border-brand/35 bg-dark-secondary shadow-lg shadow-brand/5 ring-1 ring-brand/10"
-                    : "border-white/5 bg-white/[0.02]"
+                    ? "border-brand/40 bg-dark-secondary shadow-lg shadow-brand/10 ring-1 ring-brand/20"
+                    : "border-white/10 bg-white/[0.03]"
                 }`}
               >
                 <div>
@@ -1123,13 +1160,13 @@ export default function App() {
                     <span
                       className={`text-[10px] font-mono tracking-widest px-2.5 py-1 rounded-full uppercase font-bold ${
                         prod.status === "Beta"
-                          ? "bg-brand/10 text-brand border border-brand/20"
-                          : "bg-white/5 text-gray-600"
+                          ? "bg-brand/10 text-brand border border-brand/25"
+                          : "bg-white/5 text-gray-500"
                       }`}
                     >
                       {prod.status}
                     </span>
-                    <GraduationCap className={`h-5 w-5 ${prod.status === "Beta" ? "text-brand" : "text-gray-600"}`} />
+                    <GraduationCap className={`h-5 w-5 ${prod.status === "Beta" ? "text-brand animate-pulse" : "text-gray-500"}`} />
                   </div>
 
                   <h3 className="font-display text-2xl font-bold text-white mb-1 tracking-tight">
@@ -1137,487 +1174,283 @@ export default function App() {
                   </h3>
                   <p className="text-xs font-mono text-brand mb-4">{prod.tagline}</p>
                   
-                  <p className="text-gray-700 text-sm font-light leading-relaxed mb-6">
+                  <p className="text-gray-305 text-xs leading-relaxed mb-6 font-normal">
                     {prod.description}
                   </p>
-
-                  <ul className="space-y-2.5 mb-8 text-xs text-gray-600">
-                    {prod.features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
-                <div>
-                  {prod.ctaAvailable ? (
-                    <a
-                      href="#sandbox"
-                      className="w-full text-center block bg-brand hover:bg-brand/90 text-white font-medium text-sm py-3 px-6 rounded-xl transition-all"
-                    >
-                      Test Sandbox Demonstration
-                    </a>
-                  ) : (
-                    <button
-                      className="w-full bg-white/5 text-gray-600 font-medium text-sm py-3 px-6 rounded-xl cursor-not-allowed"
-                      disabled
-                    >
-                      Coming Soon
-                    </button>
-                  )}
+                <div className="pt-5 border-t border-white/5 flex items-center justify-between">
+                  <a
+                    href={prod.status === "Beta" ? "#vibe-coding" : "#contact"}
+                    className={`inline-flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider transition-all ${
+                      prod.status === "Beta"
+                        ? "text-brand hover:text-brand-light"
+                        : "text-gray-400 hover:text-white"
+                    }`}
+                  >
+                    <span>{prod.status === "Beta" ? "Launch Interactive Sandbox" : "Inquire Details"}</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
                 </div>
               </div>
             ))}
 
           </div>
 
-
-          {/* SANDBOX DEMO INTERACTIVE TERMINAL */}
-          <div
-            id="sandbox"
-            className="border border-brand/20 bg-dark-secondary rounded-3xl p-6 sm:p-10 shadow-2xl relative scroll-mt-24 overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-brand/5 rounded-full filter blur-[80px] pointer-events-none" />
-
-            {/* Sandbox Head */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/5 pb-6 mb-8">
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand">
-                  <Terminal className="h-6 w-6" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-display text-xl font-bold text-white tracking-tight">
-                      SAFAL Teacher AI Real-Time Sandbox
-                    </h3>
-                    <span className="bg-brand-accent/15 text-brand-accent border border-brand-accent/20 text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full font-mono font-bold">
-                      Interactive Live Demo
-                    </span>
-                  </div>
-                  <p className="text-xs text-gray-600 mt-0.5">
-                    Generate CDC-aligned Nepalese lesson plans in seconds powered by the Gemini 3.5 Engine.
-                  </p>
-                </div>
+          {/* Interactive Live Sandbox Section */}
+          <div id="vibe-coding" className="scroll-mt-20 pt-8">
+            <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+              <div className="inline-flex items-center gap-1.5 text-[9px] font-mono font-semibold uppercase tracking-widest bg-brand/10 border border-brand/20 text-brand px-3 py-1.5 rounded-full mb-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block animate-pulse" />
+                <span>Live Interactive Sandbox</span>
               </div>
-              <div className="text-xs font-mono text-gray-600">
-                <span>Version: CDC-Beta_2.1</span>
-              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                Vibe Coding Simulator: SAFAL Teacher AI
+              </h3>
+              <p className="text-gray-400 text-xs sm:text-sm font-normal">
+                Select parameters to watch the AI build a complete localized lesson plan structure aligned with Nepal's CDC guidelines.
+              </p>
             </div>
 
-            {/* Form & Workspace Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
               
-              {/* Left Column Settings */}
-              <form onSubmit={handleGenerateTeacherAI} className="lg:col-span-4 space-y-5" id="sandbox-form">
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="grade-select">
-                    Grade Level Target
-                  </label>
-                  <select
-                    id="grade-select"
-                    value={demoGrade}
-                    onChange={(e) => setDemoGrade(e.target.value)}
-                    className="w-full bg-dark-primary border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-colors cursor-pointer"
-                  >
-                    <option value="Grade 5">Grade 5 (Primary)</option>
-                    <option value="Grade 8">Grade 8 (Basic Level)</option>
-                    <option value="Grade 10">Grade 10 (S.E.E. Target)</option>
-                    <option value="Grade 11">Grade 11 (NEB Higher Secondary)</option>
-                    <option value="Grade 12">Grade 12 (NEB Board Target)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="subject-select">
-                    Subject Stream
-                  </label>
-                  <select
-                    id="subject-select"
-                    value={demoSubject}
-                    onChange={(e) => {
-                      setDemoSubject(e.target.value);
-                      // Auto topic pairing to improve experience
-                      if (e.target.value === "Science") setDemoTopic("Simple Machines");
-                      if (e.target.value === "Mathematics") setDemoTopic("Set Theory & Venn Diagrams");
-                      if (e.target.value === "Social Studies") setDemoTopic("Ancient Monuments of Nepal");
-                      if (e.target.value === "Nepali") setDemoTopic("सङ्गति र व्याकरण");
-                      if (e.target.value === "Computer Science") setDemoTopic("Concept of Artificial Intelligence");
-                    }}
-                    className="w-full bg-dark-primary border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-colors cursor-pointer"
-                  >
-                    <option value="Science">Science &amp; Environment</option>
-                    <option value="Mathematics">Mathematics</option>
-                    <option value="Social Studies">Social Studies</option>
-                    <option value="Nepali">Nepali Literature &amp; Lang</option>
-                    <option value="Computer Science">Computer Science &amp; IT</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="topic-input">
-                    Topic / Chapter
-                  </label>
-                  <input
-                    id="topic-input"
-                    type="text"
-                    required
-                    value={demoTopic}
-                    onChange={(e) => setDemoTopic(e.target.value)}
-                    placeholder="e.g. Simple Machines, Force, Set Theory"
-                    className="w-full bg-dark-primary border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="lang-select">
-                    Syllabus Language Output
-                  </label>
-                  <div className="grid grid-cols-2 gap-2" id="lang-select">
-                    <button
-                      type="button"
-                      onClick={() => setDemoLanguage("English")}
-                      className={`py-2 px-3 rounded-lg border text-xs font-mono font-medium transition-all cursor-pointer ${
-                        demoLanguage === "English"
-                          ? "bg-brand/10 border-brand text-white"
-                          : "bg-dark-primary border-white/5 text-gray-600 hover:text-white"
-                      }`}
-                    >
-                      English Language
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setDemoLanguage("Nepali")}
-                      className={`py-2 px-3 rounded-lg border text-xs font-mono font-medium transition-all cursor-pointer ${
-                        demoLanguage === "Nepali"
-                          ? "bg-brand/10 border-brand text-white"
-                          : "bg-dark-primary border-white/5 text-gray-600 hover:text-white"
-                      }`}
-                    >
-                      नेपाली संस्करण
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-gray-600 mb-1.5" htmlFor="focus-input">
-                    Special Focus (Optional)
-                  </label>
-                  <input
-                    id="focus-input"
-                    type="text"
-                    value={demoFocus}
-                    onChange={(e) => setDemoFocus(e.target.value)}
-                    placeholder="e.g., experiential lab activity, low-cost resources"
-                    className="w-full bg-dark-primary border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand transition-colors text-xs"
-                  />
-                  <span className="text-[10px] text-gray-600 mt-1 block leading-relaxed">
-                    Hints highlight specific pedagogical constraints like local Nepalese villages or high-end laboratory availability.
+              {/* Parameter controls panel */}
+              <div className="lg:col-span-4 bg-white/[0.02] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md">
+                <div className="space-y-6">
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-brand block border-b border-white/5 pb-3">
+                    Sandbox Parameters
                   </span>
-                </div>
 
-                <button
-                  type="submit"
-                  disabled={demoLoading}
-                  className="w-full bg-brand hover:bg-brand/90 disabled:bg-gray-700 text-white font-medium py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 mt-2 cursor-pointer border-none"
-                >
-                  {demoLoading ? (
-                    <>
-                      <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Generating Blueprint...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Leaf className="h-4 w-4 text-brand-accent" />
-                      <span>Generate Lesson Blueprint</span>
-                    </>
-                  )}
-                </button>
-              </form>
-
-              {/* Right Column Output terminal screen */}
-              <div className="lg:col-span-8 flex flex-col h-[520px] rounded-2xl bg-dark-primary border border-white/5 overflow-hidden relative">
-                
-                {/* Simulated Screen Top Title Bar */}
-                <div className="bg-dark-secondary/60 border-b border-white/5 px-4 py-3.5 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <div className="h-3 w-3 bg-red-500 rounded-full opacity-60" />
-                    <div className="h-3 w-3 bg-yellow-500 rounded-full opacity-60" />
-                    <div className="h-3 w-3 bg-green-500 rounded-full opacity-60" />
-                    <span className="text-xs font-mono text-gray-600 ml-3">lessonplane_generator.sh</span>
+                  {/* Grade selection */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-gray-400 block font-mono">Academic Class Level:</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {["Grade 5", "Grade 8", "Grade 10", "Grade 12"].map((g) => (
+                        <button
+                          key={g}
+                          onClick={() => setDemoGrade(g)}
+                          className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${
+                            demoGrade === g
+                              ? "bg-brand/15 border-brand text-brand font-semibold"
+                              : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10"
+                          }`}
+                        >
+                          {g}
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
-                  {demoResult && (
+                  {/* Subject Selection */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-gray-400 block font-mono">Curricular Subject:</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {["Science", "Mathematics", "Nepali", "Computer Science"].map((s) => (
+                        <button
+                          key={s}
+                          onClick={() => setDemoSubject(s)}
+                          className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${
+                            demoSubject === s
+                              ? "bg-brand/15 border-brand text-brand font-semibold"
+                              : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10"
+                          }`}
+                        >
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Unit Topic selector */}
+                  <div className="space-y-2.5">
+                    <label className="text-xs font-semibold text-gray-400 block font-mono">Focus Unit / Concept:</label>
+                    <input
+                      type="text"
+                      value={demoTopic}
+                      onChange={(e) => setDemoTopic(e.target.value)}
+                      className="glass-input w-full px-4 py-3 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none"
+                      placeholder="e.g. Force and Motion, Fractions..."
+                    />
+                  </div>
+                </div>
+
+                <div className="pt-8 border-t border-white/5">
+                  <button
+                    onClick={handleTriggerSandbox}
+                    disabled={sandboxLoading || !demoTopic.trim()}
+                    className="w-full bg-brand hover:bg-brand-light disabled:bg-gray-700 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-none ring-pulse"
+                  >
+                    {sandboxLoading ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin text-white" />
+                        <span>Compiling Parameters...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Terminal className="h-4 w-4" />
+                        <span>Run Vibe Compiler</span>
+                      </>
+                    )}
+                  </button>
+                  <p className="text-[10px] text-gray-500 text-center mt-2.5 font-mono">
+                    Direct local LLM server context loop.
+                  </p>
+                </div>
+              </div>
+
+              {/* Sandbox lesson compiler output panel */}
+              <div className="lg:col-span-8 flex flex-col">
+                <div className="bg-[#0b121f] border border-white/10 rounded-3xl flex-1 flex flex-col overflow-hidden shadow-2xl relative">
+                  
+                  {/* IDE Header */}
+                  <div className="bg-[#080d17] px-4 py-3.5 border-b border-white/10 flex items-center justify-between shrink-0 select-none">
                     <div className="flex items-center gap-2">
-                      {demoIsSimulated && (
-                        <span className="text-[10px] font-mono text-yellow-500 bg-yellow-500/5 border border-yellow-500/10 px-2 py-0.5 rounded">
-                          Simulation Mode
-                        </span>
-                      )}
-                      <button
-                        onClick={handleCopyDemoClipboard}
-                        className="text-gray-600 hover:text-white p-1.5 rounded bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-1 text-xs font-mono cursor-pointer"
-                        title="Copy to Clipboard"
-                      >
-                        {demoCopied ? (
-                          <>
-                            <Check className="h-3.5 w-3.5 text-brand-accent" />
-                            <span>Copied!</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="h-3.5 w-3.5" />
-                            <span>Copy Plan</span>
-                          </>
-                        )}
-                      </button>
+                      <div className="flex gap-1.5">
+                        <div className="h-3 w-3 rounded-full bg-red-500/80" />
+                        <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
+                        <div className="h-3 w-3 rounded-full bg-green-500/80" />
+                      </div>
+                      <span className="text-[10px] font-mono text-gray-500 ml-2">sandbox-editor.tsx</span>
                     </div>
-                  )}
-                </div>
 
-                {/* Main Content Pane */}
-                <div className="flex-1 overflow-y-auto p-6 sm:p-8" id="sandbox-output-viewport">
-                  {demoLoading ? (
-                    <div className="h-full flex flex-col items-center justify-center text-center space-y-4">
-                      {/* Interactive Loader Circle */}
-                      <div className="relative h-16 w-16 flex items-center justify-center">
-                        <div className="absolute h-16 w-16 rounded-full border-4 border-dashed border-brand/20" />
-                        <div className="absolute h-10 w-10 rounded-full border-2 border-brand-accent/50 border-t-transparent" />
-                      </div>
-                      
-                      <div className="space-y-1">
-                        <p className="text-sm text-gray-700 font-mono tracking-wide">
-                          {loadingSteps[currentLoadingStep]}
-                        </p>
-                        <p className="text-xs text-gray-600">
-                          Deploying deep NLP context layers to matches NEB standards...
-                        </p>
-                      </div>
+                    <div className="flex items-center gap-3 text-[10px] font-mono text-gray-500">
+                      <span className="text-brand flex items-center gap-1">
+                        <span className="h-1 w-1 bg-brand rounded-full animate-ping" />
+                        SYSTEM_ONLINE
+                      </span>
+                      <span>UTF-8</span>
                     </div>
-                  ) : errorText ? (
-                    <div className="h-full flex flex-col items-center justify-center text-center space-y-3">
-                      <div className="bg-red-500/10 border border-red-500/20 p-4 rounded-full text-red-400">
-                        <HelpCircle className="h-8 w-8" />
-                      </div>
-                      <p className="text-sm font-medium text-red-200 max-w-sm">
-                        {errorText}
-                      </p>
-                    </div>
-                  ) : demoResult ? (
-                    <div className="prose prose-invert max-w-none text-left select-text markdown-body">
-                      <Markdown>{demoResult}</Markdown>
-                    </div>
-                  ) : (
-                    <div className="h-full flex flex-col items-center justify-center text-center max-w-lg mx-auto space-y-4">
-                      <div className="h-16 w-16 rounded-2xl bg-brand/5 border border-white/5 flex items-center justify-center text-brand">
-                        <Sliders className="h-8 w-8" />
-                      </div>
-                      <div className="space-y-1">
-                        <h4 className="font-display text-base font-bold text-white">
-                          No Lesson Blueprint Generated Yet
-                        </h4>
-                        <p className="text-xs text-gray-600 leading-relaxed">
-                          Configure the sidebar metrics for Grade, Subject, and Chapter on the left, then click **Generate Lesson Blueprint**. SAFAL AI will compile a specialized pedagogical plan instantly.
-                        </p>
-                      </div>
-                      {/* Quick Preload buttons */}
-                      <div className="flex flex-wrap justify-center gap-2 pt-2">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setDemoGrade("Grade 10");
-                            setDemoSubject("Science");
-                            setDemoTopic("Force and Motion");
-                          }}
-                          className="bg-white/5 hover:bg-white/10 text-gray-700 border border-white/5 text-[10px] font-mono px-3 py-1.5 rounded-full transition-colors cursor-pointer"
-                        >
-                          Grade 10 S.E.E. Force Plan
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setDemoGrade("Grade 8");
-                            setDemoSubject("Nepali");
-                            setDemoTopic("नेपालका सांस्कृतिक सम्पदा");
-                            setDemoLanguage("Nepali");
-                          }}
-                          className="bg-white/5 hover:bg-white/10 text-gray-700 border border-white/5 text-[10px] font-mono px-3 py-1.5 rounded-full transition-colors cursor-pointer"
-                        >
-                          कक्षा ८ नेपाली योजना
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Footer status line info */}
-                <div className="bg-dark-secondary/40 border-t border-white/5 px-4 py-2 flex items-center justify-between text-[11px] font-mono text-gray-600">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-brand-accent" />
-                    <span>Active Gateway: secure_ssl</span>
                   </div>
-                  <span>Output: Markdown Format</span>
-                </div>
 
+                  {/* Editor view screen */}
+                  <div className="flex-1 p-6 font-mono text-xs overflow-y-auto leading-relaxed relative min-h-[300px]">
+                    {sandboxLoading ? (
+                      <div className="absolute inset-0 bg-dark-primary/60 backdrop-blur-sm flex flex-col items-center justify-center gap-4 text-center z-10 select-none">
+                        <Loader2 className="h-10 w-10 text-brand animate-spin" />
+                        <div className="space-y-1">
+                          <span className="text-brand text-xs font-semibold uppercase tracking-wider block">Generating Context Modules</span>
+                          <span className="text-[10px] text-gray-500 block">Mapping topics with curriculum guide specifications...</span>
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {compiledResult ? (
+                      <div className="space-y-4 text-gray-300 markdown-body">
+                        <div className="bg-brand/5 border border-brand/20 p-4 rounded-xl mb-4">
+                          <span className="text-[10px] font-semibold text-brand tracking-wider uppercase block mb-1">Generated Output Metadata</span>
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-[10px] font-mono text-gray-400">
+                            <div>Grade: <span className="text-white font-semibold">{demoGrade}</span></div>
+                            <div>Subject: <span className="text-white font-semibold">{demoSubject}</span></div>
+                            <div>Topic: <span className="text-white font-semibold">{demoTopic}</span></div>
+                            <div>Response Time: <span className="text-brand font-semibold">1.42s</span></div>
+                          </div>
+                        </div>
+                        <Markdown>{compiledResult}</Markdown>
+                      </div>
+                    ) : (
+                      <div className="h-full flex flex-col items-center justify-center text-center text-gray-500 space-y-3 select-none">
+                        <Terminal className="h-12 w-12 text-brand/20" />
+                        <div className="max-w-md space-y-1">
+                          <p className="text-gray-400 font-semibold text-xs">Vibe Compiler Standby</p>
+                          <p className="text-[10px] text-gray-500 leading-normal font-light">
+                            Define your Lesson grade, subject, and focus concept on the left side then click "Run Vibe Compiler" to generate your custom curricular outline.
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
 
             </div>
-
           </div>
 
         </div>
       </section>
-
-
-      {/* WHY CHOOSE SAFAL AI */}
-      <section className="py-24 dark-section border-y border-white/10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-            <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
-              Core Distinctions
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-center">
-              Why Organizations Choose SAFAL AI
-            </h2>
-            <p className="text-gray-600 font-light">
-              We construct local intelligence paradigms that are highly practical and designed to solve actual structural, pedagogical, and administrative challenges within the Nepalese system.
-            </p>
-          </div>
-
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
-            {showcaseImages.map((item, idx) => (
-              <div
-                key={item.label}
-                className={`image-panel h-64 md:h-72 fade-in-up ${idx === 1 ? "md:mt-8" : ""}`}
-                style={{ animationDelay: `${idx * 120}ms` }}
-              >
-                <img src={item.src} alt={item.label} loading="lazy" />
-                <div className="image-panel-caption">
-                  <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest font-semibold">{item.label}</span>
-                  <p className="text-sm text-white font-medium leading-snug mt-1">{item.caption}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {WHY_CHOOSE_SAFAL.map((reason) => {
-              const bgColors = [
-                "bg-[#0A66FF]/10 text-[#0A66FF] border border-[#0A66FF]/25",
-                "bg-[#00C853]/10 text-brand-accent border border-[#00C853]/25",
-                "bg-purple-500/10 text-purple-400 border border-purple-500/25",
-                "bg-amber-500/10 text-amber-400 border border-amber-500/25"
-              ];
-              const keyBadgeIndex = WHY_CHOOSE_SAFAL.indexOf(reason) % bgColors.length;
-              return (
-                <div
-                  key={reason.id}
-                  id={`why-card-${reason.id}`}
-                  className="bg-white/5 hover:bg-white/[0.08] rounded-2xl p-6 border border-white/10 transition-all hover:shadow-2xl hover:-translate-y-1 group"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-[10px] font-semibold tracking-wider font-mono px-3 py-1 rounded-full uppercase ${bgColors[keyBadgeIndex]}`}>
-                      {reason.title.split(" ")[0]}
-                    </span>
-                    <Leaf className="h-4 w-4 text-brand opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  
-                  <h3 className="font-display text-lg font-bold text-white mb-2 tracking-tight">
-                    {reason.title}
-                  </h3>
-                  
-                  <p className="text-gray-700 text-sm leading-relaxed font-light">
-                    {reason.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-
-
-
 
       {/* CASE STUDIES SECTION */}
-      <section id="case-studies" className="py-24 bg-dark-primary dark-section scroll-mt-20 border-b border-white/10 relative overflow-hidden">
+      <section id="case-studies" className="py-24 bg-[#050B08] dark-section scroll-mt-20 border-b border-white/10 relative overflow-hidden">
         {/* Ambient background accent */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand/5 rounded-full filter blur-[120px] pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-accent/5 rounded-full filter blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
               Proven Transformations
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               AI Impact Case Studies
             </h2>
-            <p className="text-gray-600 font-light text-sm sm:text-base">
+            <p className="text-gray-400 font-normal">
               A comprehensive review of how our specialized curriculum assistants, enterprise workflows, and e-governance systems create measurable social and operational return.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {CASE_STUDIES.map((cs) => (
-              <div
+          {/* Client select tabs slider */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            {CASE_STUDIES.map((cs, idx) => (
+              <button
                 key={cs.id}
-                id={`case-card-${cs.id}`}
-                className="bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-brand/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand/5"
+                onClick={() => setActiveCaseIndex(idx)}
+                className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border ${
+                  activeCaseIndex === idx
+                    ? "bg-brand text-white border-brand shadow-lg shadow-brand/20"
+                    : "bg-white/5 text-gray-400 hover:text-white border-white/10"
+                }`}
               >
-                {/* Header aspect */}
-                <div className="p-6 sm:p-8 space-y-5">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] font-mono font-semibold text-brand uppercase tracking-widest">
-                      {cs.industry}
-                    </span>
-                    <h3 className="font-display text-xl font-bold text-white tracking-tight">
-                      {cs.clientName}
+                {cs.clientName}
+              </button>
+            ))}
+          </div>
+
+          {/* Carousel Slide Wrapper */}
+          {(() => {
+            const cs = CASE_STUDIES[activeCaseIndex];
+            return (
+              <div 
+                key={cs.id}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch transition-all duration-500 animate-none"
+              >
+                {/* Left Side Content grid */}
+                <div className="lg:col-span-6 bg-white/[0.02] border border-white/10 rounded-3xl p-8 sm:p-10 flex flex-col justify-between backdrop-blur-md">
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-3">
+                      <span className="text-[10px] font-mono font-bold text-brand uppercase tracking-widest bg-brand/10 border border-brand/20 px-3 py-1 rounded">
+                        {cs.sector}
+                      </span>
+                      <span className="text-[10px] font-mono text-gray-500">
+                        Deployment Success Case
+                      </span>
+                    </div>
+
+                    <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                      {cs.title}
                     </h3>
-                  </div>
 
-                  {/* Case Study Image */}
-                  {cs.image && (
-                    <div className="rounded-lg overflow-hidden border border-white/10 h-48">
-                      <img 
-                        src={cs.image} 
-                        alt={cs.clientName}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-
-                  {/* Challenge & Solution */}
-                  <div className="space-y-4 pt-2">
-                    <div className="space-y-1">
-                      <h4 className="text-[11px] font-mono text-gray-600 uppercase tracking-wider font-semibold">The Challenge</h4>
-                      <p className="text-gray-700 font-light text-sm leading-relaxed">
-                        {cs.challenge}
-                      </p>
-                    </div>
-
-                    <div className="space-y-1">
-                      <h4 className="text-[11px] font-mono text-brand uppercase tracking-wider font-semibold">The AI Solution</h4>
-                      <p className="text-slate-200 font-normal text-sm leading-relaxed">
-                        {cs.solution}
-                      </p>
+                    <div className="space-y-4 pt-4 border-t border-white/5 text-sm leading-relaxed">
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider font-semibold">The Challenge</span>
+                        <p className="text-gray-300 font-light font-normal">
+                          {cs.challenge}
+                        </p>
+                      </div>
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-mono text-brand uppercase tracking-wider font-semibold">The AI Solution</span>
+                        <p className="text-gray-300 font-light font-normal">
+                          {cs.solution}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Results Bullet points check lists */}
-                  <div className="space-y-2 pt-4 border-t border-white/5">
-                    <h4 className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider font-semibold">Measurable Results</h4>
-                    <ul className="space-y-2">
+                  <div className="space-y-3 pt-5 border-t border-white/5">
+                    <h4 className="text-[10px] font-mono text-brand uppercase tracking-wider font-semibold">Measurable Results</h4>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {cs.results.map((resMsg, ridx) => (
-                        <li key={ridx} className="flex gap-2.5 items-start text-xs font-light text-gray-700 leading-normal">
-                          <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <li key={ridx} className="flex gap-2 items-start text-xs font-normal text-gray-300 leading-snug">
+                          <Check className="h-4 w-4 text-brand shrink-0 mt-0.5" />
                           <span>{resMsg}</span>
                         </li>
                       ))}
@@ -1625,28 +1458,49 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Client Quote Card Footer */}
-                <div className={`p-6 sm:p-8 bg-gradient-to-br ${cs.gradient} border-t border-white/10 relative overflow-hidden`}>
-                  <div className="absolute top-4 right-4 text-white/5 pointer-events-none text-7xl font-serif select-none">
-                    "
+                {/* Right Side Visual Showcase + Quote */}
+                <div className="lg:col-span-6 flex flex-col justify-between relative overflow-hidden rounded-3xl border border-white/10 min-h-[420px] bg-dark-secondary/40 backdrop-blur-md">
+                  
+                  {/* Photo area with absolute fit */}
+                  <div className="flex-1 relative overflow-hidden min-h-[220px]">
+                    {cs.image ? (
+                      <img 
+                        src={cs.image} 
+                        alt={cs.clientName}
+                        className="w-full h-full absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full absolute inset-0 bg-gradient-to-br from-brand/10 to-brand-accent/5 flex items-center justify-center">
+                        <Terminal className="h-16 w-16 text-brand/20" />
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-secondary via-transparent to-transparent" />
                   </div>
-                  <figure className="space-y-3 relative z-10">
-                    <blockquote className="text-gray-700 text-xs italic font-light leading-relaxed">
-                      "{cs.quote}"
-                    </blockquote>
-                    <figcaption className="text-[10px] font-mono text-white flex flex-col">
-                      <span className="font-semibold">{cs.author}</span>
-                      <span className="text-gray-600">{cs.role}</span>
-                    </figcaption>
-                  </figure>
+
+                  {/* Gradient quote card */}
+                  <div className={`p-6 sm:p-8 bg-gradient-to-br ${cs.gradient} border-t border-white/10 relative overflow-hidden shrink-0`}>
+                    <div className="absolute top-4 right-4 text-white/5 pointer-events-none text-7xl font-serif select-none">
+                      "
+                    </div>
+                    <figure className="space-y-3.5 relative z-10">
+                      <blockquote className="text-white text-xs italic font-medium leading-relaxed">
+                        "{cs.quote}"
+                      </blockquote>
+                      <figcaption className="text-[10px] font-mono text-white flex flex-col gap-0.5">
+                        <span className="font-semibold block">{cs.author}</span>
+                        <span className="text-white/60 block">{cs.role}</span>
+                      </figcaption>
+                    </figure>
+                  </div>
                 </div>
+
               </div>
-            ))}
-          </div>
+            );
+          })()}
 
         </div>
       </section>
-
 
       {/* RESEARCH & INNOVATION SECTION */}
       {/* COMBINED LEARNING & RESEARCH HUB */}
@@ -1666,7 +1520,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Learning &amp; Research Hub
             </h2>
-            <p className="text-gray-655 font-light">
+            <p className="text-gray-400 font-normal">
               We build outcomes. SAFAL AI is dedicated to educational capacity building and pioneering research in artificial intelligence. Toggle between our training courses and research focus areas below.
             </p>
           </div>
@@ -1705,14 +1559,14 @@ export default function App() {
                   <div
                     key={prog.id}
                     id={`training-card-${prog.id}`}
-                    className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:bg-white/[0.08]"
+                    className="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
                         <span className="text-xs font-mono font-medium text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded">
                           {prog.duration}
                         </span>
-                        <span className="text-[10px] font-mono tracking-widest uppercase text-gray-650">
+                        <span className="text-[10px] font-mono tracking-widest uppercase text-gray-500">
                           Accredited Course
                         </span>
                       </div>
@@ -1720,31 +1574,38 @@ export default function App() {
                       <h3 className="font-display text-xl font-bold text-white mb-1 tracking-tight">
                         {prog.title}
                       </h3>
-                      <p className="text-xs font-medium text-gray-600 mb-6 font-mono">Target: {prog.target}</p>
+                      <p className="text-xs font-medium text-gray-400 mb-6 font-mono">Target: {prog.target}</p>
 
-                      <div className="space-y-3.5 mb-8">
-                        <span className="text-xs font-mono font-semibold uppercase text-gray-500 block">Syllabus Overview:</span>
-                        <ul className="space-y-2 text-xs text-gray-600 font-light">
-                          {prog.syllabus.map((syl, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-brand mt-0.5 shrink-0" />
-                              <span>{syl}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      <div className="space-y-4 mb-8">
+                        <p className="text-xs text-gray-300 leading-relaxed font-normal">
+                          Empowering learners to command standard ML methodologies, curate custom LLM weights, and build production integrations safely.
+                        </p>
+                        <button
+                          onClick={() => setSelectedSyllabusProg(prog)}
+                          className="inline-flex items-center gap-1.5 text-xs text-brand font-semibold hover:text-brand-light transition-colors bg-transparent border-none cursor-pointer p-0"
+                        >
+                          <span>Explore Detailed Syllabus Modules</span>
+                          <ChevronRight className="h-3.5 w-3.5" />
+                        </button>
                       </div>
                     </div>
 
-                    <div>
+                    <div className="pt-4 border-t border-white/5 flex gap-2">
                       <button
                         onClick={() => {
                           setConsultSector("Education");
                           setConsultMessage(`I'm highly interested in registering for the "${prog.title}" AI Learning Program. Please provide schedule details.`);
                           setConsultModalOpen(true);
                         }}
-                        className="w-full text-center block bg-transparent border border-white/20 hover:bg-white/5 text-slate-100 font-medium text-xs py-3 rounded-lg transition-all cursor-pointer uppercase tracking-wider"
+                        className="flex-1 text-center bg-brand hover:bg-brand-light text-white font-semibold text-xs py-3 rounded-lg transition-all cursor-pointer uppercase tracking-wider border-none shadow-md shadow-brand/20"
                       >
-                        Request Syllabus &amp; Enroll Info
+                        Enroll Info
+                      </button>
+                      <button
+                        onClick={() => setSelectedSyllabusProg(prog)}
+                        className="px-4 text-center bg-white/5 hover:bg-white/10 text-slate-100 font-semibold text-xs py-3 rounded-lg transition-all cursor-pointer border border-white/10"
+                      >
+                        Syllabus
                       </button>
                     </div>
                   </div>
@@ -1776,18 +1637,18 @@ export default function App() {
                 <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                   Researching Tomorrow's <br />AI Solutions
                 </h2>
-                <p className="text-gray-655 text-base font-light leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed font-normal">
                   SAFAL AI is deeply committed to exploring innovative AI applications that address Nepal's unique educational, corporate, linguistic, and societal challenges. We believe in building solutions that scale across geography and resource diversity.
                 </p>
 
-                <div className="pt-4 space-y-3 text-sm text-gray-700">
+                <div className="pt-4 space-y-3.5 text-sm text-gray-300">
                   <div className="flex items-start gap-3">
                     <div className="h-6 w-6 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0 mt-0.5">
                       <Check className="h-4.5 w-4.5" />
                     </div>
                     <div>
                       <span className="font-semibold text-white block">Local NLP Fine-Tuning</span>
-                      <p className="text-xs text-gray-600">Deploying LLM adapters and classifiers that operate in highly refined Nepali syntax structures.</p>
+                      <p className="text-xs text-gray-400 leading-relaxed font-normal">Deploying LLM adapters and classifiers that operate in highly refined Nepali syntax structures.</p>
                     </div>
                   </div>
 
@@ -1797,7 +1658,7 @@ export default function App() {
                     </div>
                     <div>
                       <span className="font-semibold text-white block">Resource-Constrained Optimization</span>
-                      <p className="text-xs text-gray-600">Designing server-assisted workflows that execute seamlessly over standard mobile data links.</p>
+                      <p className="text-xs text-gray-400 leading-relaxed font-normal">Designing server-assisted workflows that execute seamlessly over standard mobile data links.</p>
                     </div>
                   </div>
                 </div>
@@ -1805,7 +1666,7 @@ export default function App() {
 
               {/* Right Interactive List column */}
               <div className="lg:col-span-6 space-y-4">
-                <span className="text-xs font-mono text-gray-600 block tracking-wider uppercase mb-2">
+                <span className="text-xs font-mono text-gray-500 block tracking-wider uppercase mb-2">
                   Primary Research &amp; Focus Domains:
                 </span>
                 
@@ -1823,7 +1684,7 @@ export default function App() {
                         <h3 className="font-display text-base font-bold text-white tracking-tight">
                           {focus.title}
                         </h3>
-                        <p className="text-xs text-gray-605 leading-relaxed mt-1 font-light">
+                        <p className="text-xs text-gray-400 leading-relaxed mt-1 font-light">
                           {focus.description}
                         </p>
                       </div>
@@ -1835,12 +1696,79 @@ export default function App() {
           )}
 
         </div>
+
+        {/* Syllabus Detail Modal */}
+        {selectedSyllabusProg && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+            <div className="bg-[#040D08] border border-white/10 rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-white shadow-2xl relative max-h-[85vh] overflow-y-auto flex flex-col justify-between">
+              <button
+                onClick={() => setSelectedSyllabusProg(null)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors cursor-pointer border-none bg-transparent"
+              >
+                <X className="h-6 w-6" />
+              </button>
+
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs font-mono font-medium text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded">
+                    {selectedSyllabusProg.duration}
+                  </span>
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-gray-500 font-semibold">
+                    Accredited Program Outline
+                  </span>
+                </div>
+
+                <h3 className="font-display text-2xl font-extrabold text-white mb-2 tracking-tight">
+                  {selectedSyllabusProg.title}
+                </h3>
+                <p className="text-xs text-gray-400 mb-6 font-mono">Target: {selectedSyllabusProg.target}</p>
+
+                <div className="space-y-4 pt-4 border-t border-white/10">
+                  <span className="text-xs font-mono font-semibold uppercase text-brand block">Syllabus Overview &amp; Modules:</span>
+                  <ul className="space-y-3.5 text-sm text-gray-300 font-normal">
+                    {selectedSyllabusProg.syllabus.map((syl: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className="h-5 w-5 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0 mt-0.5">
+                          <Check className="h-3.5 w-3.5" />
+                        </div>
+                        <span>{syl}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 mt-8 pt-4 border-t border-white/10">
+                <button
+                  onClick={() => {
+                    const prog = selectedSyllabusProg;
+                    setSelectedSyllabusProg(null);
+                    setConsultSector("Education");
+                    setConsultMessage(`I'm highly interested in registering for the "${prog.title}" AI Learning Program. Please provide schedule details.`);
+                    setConsultModalOpen(true);
+                  }}
+                  className="flex-1 bg-brand hover:bg-brand-light text-white font-semibold text-xs py-3.5 px-6 rounded-xl transition-all cursor-pointer border-none shadow-md shadow-brand/20 uppercase tracking-wider text-center"
+                >
+                  Request Enrollment Info
+                </button>
+                <button
+                  onClick={() => setSelectedSyllabusProg(null)}
+                  className="bg-white/5 hover:bg-white/10 text-gray-300 font-semibold text-xs py-3.5 px-6 rounded-xl transition-all cursor-pointer border border-white/10 uppercase tracking-wider text-center"
+                >
+                  Close Outline
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
-
       {/* TESTIMONIALS SECTION */}
-      <section id="testimonials" className="py-24 bg-[#070b16] dark-section border-y border-dark-slate">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="testimonials" className="py-24 bg-[#070b16] dark-section border-y border-dark-slate relative overflow-hidden">
+        {/* Decorative lights */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand/5 rounded-full filter blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
@@ -1849,7 +1777,7 @@ export default function App() {
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               What Our Participants Say
             </h2>
-            <p className="text-gray-700 font-light">
+            <p className="text-gray-400 font-normal">
               Read how teachers, professionals, software engineers, and community executives leverage our tools to restructure efficiency.
             </p>
           </div>
@@ -1859,11 +1787,14 @@ export default function App() {
             {(["Teacher", "Professional", "Organization"] as const).map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveTestimonialCategory(cat)}
-                className={`px-5 py-2 rounded-full text-xs font-mono font-medium tracking-wider transition-all cursor-pointer ${
+                onClick={() => {
+                  setActiveTestimonialCategory(cat);
+                  setActiveTestimonialIdx(0);
+                }}
+                className={`px-5 py-2.5 rounded-full text-xs font-mono font-medium tracking-wider transition-all cursor-pointer border ${
                   activeTestimonialCategory === cat
-                    ? "bg-brand text-white shadow-md shadow-brand/20"
-                    : "bg-white/5 text-gray-600 hover:text-white"
+                    ? "bg-brand text-white border-brand shadow-lg shadow-brand/20"
+                    : "bg-white/5 text-gray-500 hover:text-white border-white/10"
                 }`}
               >
                 {cat} Testimonials
@@ -1871,40 +1802,69 @@ export default function App() {
             ))}
           </div>
 
-          {/* Active testimonials grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {TESTIMONIALS.filter((t) => t.category === activeTestimonialCategory).map((testimonial) => (
-              <div
-                key={testimonial.id}
-                id={`testimonial-card-${testimonial.id}`}
-                className="bg-dark-secondary/60 border border-white/5 rounded-2xl p-8 flex flex-col justify-between relative shadow-xl hover:border-white/10 transition-colors"
-              >
-                {/* Quote details */}
-                <div className="space-y-4 mb-6">
-                  <div className="text-brand-accent font-display text-4xl leading-none">“</div>
-                  <p className="text-gray-700 text-sm leading-relaxed italic font-light">
-                    {testimonial.quote}
-                  </p>
-                </div>
-
-                {/* Profile row */}
-                <div className="flex items-center gap-4 pt-4 border-t border-white/5">
-                  <div className={`h-10 w-10 rounded-full ${testimonial.avatarBg || "bg-brand"} flex items-center justify-center font-bold text-white text-xs`}>
-                    {testimonial.author.split(" ").map((n) => n[0]).join("")}
+          {/* Active reviews sliding block */}
+          {(() => {
+            const activeTestimonials = TESTIMONIALS.filter((t) => t.category === activeTestimonialCategory);
+            const totalTestimonials = activeTestimonials.length;
+            const idx = Math.min(activeTestimonialIdx, totalTestimonials - 1);
+            const testimonial = activeTestimonials[idx] || activeTestimonials[0];
+            if (!testimonial) return null;
+            return (
+              <div className="max-w-3xl mx-auto space-y-6">
+                <div
+                  id={`testimonial-card-${testimonial.id}`}
+                  className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 sm:p-12 relative shadow-2xl backdrop-blur-md overflow-hidden flex flex-col justify-between min-h-[280px]"
+                >
+                  <div className="absolute top-6 right-8 text-brand/5 pointer-events-none text-9xl font-serif select-none">
+                    “
                   </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-white tracking-tight">{testimonial.author}</h4>
-                    <p className="text-[11px] text-gray-600 font-light">{testimonial.role}</p>
-                    <p className="text-[10px] text-brand font-mono">{testimonial.institution}</p>
+                  <div className="space-y-4 relative z-10">
+                    <div className="text-brand text-4xl font-serif">“</div>
+                    <p className="text-gray-305 text-base sm:text-lg leading-relaxed italic font-normal">
+                      {testimonial.quote}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-white/5 mt-8 relative z-10">
+                    <div className="flex items-center gap-4">
+                      <div className={`h-11 w-11 rounded-full ${testimonial.avatarBg || "bg-brand"} flex items-center justify-center font-bold text-white text-xs border border-white/10 shrink-0`}>
+                        {testimonial.author.split(" ").map((n) => n[0]).join("")}
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-semibold text-white tracking-tight">{testimonial.author}</h4>
+                        <p className="text-xs text-gray-400 font-light">{testimonial.role}</p>
+                        <p className="text-[10px] text-brand font-mono">{testimonial.institution}</p>
+                      </div>
+                    </div>
+
+                    {/* Navigation Controls inside slider */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setActiveTestimonialIdx((prev) => (prev - 1 + totalTestimonials) % totalTestimonials)}
+                        className="h-9 w-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
+                        title="Previous review"
+                      >
+                        <ChevronRight className="h-4 w-4 rotate-180 text-white" />
+                      </button>
+                      <span className="text-[10px] font-mono text-gray-500">
+                        {idx + 1} / {totalTestimonials}
+                      </span>
+                      <button
+                        onClick={() => setActiveTestimonialIdx((prev) => (prev + 1) % totalTestimonials)}
+                        className="h-9 w-9 rounded-full bg-brand/10 border border-brand/20 hover:bg-brand text-white flex items-center justify-center transition-all cursor-pointer"
+                        title="Next review"
+                      >
+                        <ChevronRight className="h-4 w-4 text-white" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })()}
 
         </div>
       </section>
-
 
       {/* PARTNER ORGANIZATIONS (TRUSTED BY) SECTION */}
       <section className="py-16 dark-section border-b border-white/10">
@@ -1914,7 +1874,7 @@ export default function App() {
             <h3 className="font-display text-lg font-bold text-white tracking-tight">
               Trusted By
             </h3>
-            <p className="text-xs text-gray-600 font-light uppercase tracking-wider">
+            <p className="text-xs text-gray-500 font-normal uppercase tracking-wider">
               Schools, Colleges, Enterprises &amp; Municipal Governments
             </p>
           </div>
@@ -1928,7 +1888,7 @@ export default function App() {
                 className={`px-4 py-1.5 rounded-full text-[10px] font-mono tracking-wider transition-all cursor-pointer ${
                   activePartnerFilter === cat
                     ? "bg-white text-[#0B1020] font-semibold"
-                    : "bg-white/5 text-gray-600 hover:text-white"
+                    : "bg-white/5 text-gray-500 hover:text-white"
                 }`}
               >
                 {cat}s
@@ -1954,7 +1914,7 @@ export default function App() {
                   className={`border ${colorClass} rounded-xl p-4 flex flex-col items-center justify-center text-center group cursor-default transition-all duration-300 hover:scale-[1.02]`}
                   title={p.name}
                 >
-                  <span className="text-xs font-display font-semibold text-gray-700 group-hover:text-white transition-colors uppercase tracking-wider block">
+                  <span className="text-xs font-display font-semibold text-gray-400 group-hover:text-white transition-colors uppercase tracking-wider block">
                     {p.logoText}
                   </span>
                   <span className="text-[10px] font-mono text-gray-600 tracking-widest mt-1 block uppercase font-medium">
@@ -1968,9 +1928,8 @@ export default function App() {
         </div>
       </section>
 
-
       {/* ABOUT US SECTION */}
-      <section id="about" className="py-24 dark-section border-b border-white/10 scroll-mt-20">
+      <section id="about" className="py-24 dark-section border-b border-white/10 scroll-mt-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -1984,7 +1943,7 @@ export default function App() {
                 About SAFAL AI and Innovation Centre
               </h2>
               
-              <div className="space-y-4 text-gray-700 text-sm font-light leading-relaxed">
+              <div className="space-y-4 text-gray-300 text-sm font-normal leading-relaxed">
                 <p>
                   SAFAL AI and Innovation Centre is a Nepal-based artificial intelligence company dedicated to empowering individuals and organizations through AI education, innovation and technology solutions. We believe in building solutions that scale across geography and resource diversity.
                 </p>
@@ -1996,22 +1955,22 @@ export default function App() {
               {/* Mission Vision Bento Plate */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" id="about-mission-vision">
                 
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+                <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-brand/40 transition-all duration-300 space-y-3">
                   <div className="h-10 w-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand">
                     <TreePine className="h-5 w-5 text-brand" />
                   </div>
                   <h3 className="font-display text-base font-bold text-white tracking-tight">Our Mission</h3>
-                  <p className="text-xs text-gray-700 leading-relaxed font-light">
+                  <p className="text-xs text-gray-400 leading-relaxed font-normal">
                     "Empowering Nepal Through Artificial Intelligence" — making advanced tools accessible, localized, practical, and highly impactful.
                   </p>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+                <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-brand-accent/40 transition-all duration-300 space-y-3">
                   <div className="h-10 w-10 rounded-lg bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent">
                     <HeartHandshake className="h-5 w-5 text-brand-accent" />
                   </div>
                   <h3 className="font-display text-base font-bold text-white tracking-tight">Our Vision</h3>
-                  <p className="text-xs text-gray-700 leading-relaxed font-light">
+                  <p className="text-xs text-gray-400 leading-relaxed font-normal">
                     To become Nepal's most trusted, ethical, and advanced artificial intelligence innovation and technology solutions partner.
                   </p>
                 </div>
@@ -2021,38 +1980,38 @@ export default function App() {
 
             {/* Visual block brand coordinates */}
             <div className="lg:col-span-5 relative flex justify-center">
-              <div className="w-full max-w-[380px] p-8 rounded-3xl bg-white/5 border border-white/15 text-white shadow-2xl relative overflow-hidden">
+              <div className="w-full max-w-[380px] p-8 rounded-3xl bg-white/[0.02] border border-white/15 text-white shadow-2xl relative overflow-hidden backdrop-blur-md">
                 <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-brand/15 rounded-full filter blur-[40px] pointer-events-none" />
                 
                 <h3 className="font-display text-lg font-bold text-white tracking-tight mb-4 border-b border-white/5 pb-3">
                   Ethical Alignment Map
                 </h3>
 
-                <ul className="space-y-4 text-xs font-light font-sans">
+                <ul className="space-y-4 text-xs font-normal font-sans">
                   <li className="flex gap-3">
                     <CheckCircle2 className="h-4 w-4 text-brand-accent shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white font-medium block">Localization Priority</strong>
-                      <span className="text-gray-700 font-light">Products are custom-tuned to Nepalese grammatical, curriculum, and administrative norms.</span>
+                      <span className="text-gray-400 font-normal">Products are custom-tuned to Nepalese grammatical, curriculum, and administrative norms.</span>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <CheckCircle2 className="h-4 w-4 text-brand-accent shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white font-medium block">Inclusivity Mindset</strong>
-                      <span className="text-gray-700 font-light">Architectures planned to require minimal computational load, operating over standard networks.</span>
+                      <span className="text-gray-400 font-normal">Architectures planned to require minimal computational load, operating over standard networks.</span>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <CheckCircle2 className="h-4 w-4 text-brand-accent shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-white font-medium block">Sovereign Data Integrity</strong>
-                      <span className="text-gray-700 font-light">Strict safety rules guarding sensitive institutional and curriculum assets securely.</span>
+                      <span className="text-gray-400 font-normal">Strict safety rules guarding sensitive institutional and curriculum assets securely.</span>
                     </div>
                   </li>
                 </ul>
 
-                <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-600">
+                <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-500">
                   <span>SAFAL INNOVATION LAB</span>
                   <span>EST. 2026</span>
                 </div>
@@ -2064,32 +2023,31 @@ export default function App() {
         </div>
       </section>
 
-
       {/* LEADERSHIP TEAM SECTION */}
-      <section id="team" className="py-24 bg-white border-t border-gray-100 scroll-mt-20 relative overflow-hidden">
+      <section id="team" className="py-24 bg-surface-muted border-t border-gray-200 scroll-mt-20 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand/5 rounded-full filter blur-[140px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-            <span className="section-badge">
+            <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
               Our Visionaries
             </span>
-            <h2 className="font-display text-4xl font-extrabold text-gray-900 tracking-tight mt-3">
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
               Meet The Team Behind SAFAL AI
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              A passionate team dedicated to empowering Nepal through Artificial Intelligence, innovation and digital transformation.
+            <p className="text-gray-600 font-normal text-sm sm:text-base">
+              Pioneers, educators, and architects building high-impact artificial intelligence infrastructure for Nepalese communities.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {TEAM_MEMBERS.map((member) => (
               <div
                 key={member.id}
                 id={`member-card-${member.id}`}
-                className="bg-white border border-gray-200 rounded-3xl p-8 flex flex-col items-center justify-between text-center relative overflow-hidden group transition-all duration-300 hover:border-brand shadow-sm card-hover"
+                className="bg-white border border-gray-200/80 rounded-3xl p-8 flex flex-col items-center justify-between text-center relative overflow-hidden group transition-all duration-300 hover:border-brand/40 shadow-sm hover:shadow-xl hover:-translate-y-1"
               >
                 {/* Background light hover highlight */}
                 <div className="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -2106,11 +2064,11 @@ export default function App() {
                       <img 
                         src={member.profileImage}
                         alt={member.name}
-                        className="relative h-24 w-24 rounded-full object-cover shadow-lg border-4 border-white"
+                        className="relative h-24 w-24 rounded-full object-cover shadow-lg border-4 border-white transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
                     ) : (
-                      <div className={`relative h-24 w-24 rounded-full bg-gradient-to-br ${member.avatarBg} p-[3px] flex items-center justify-center shadow-lg`}>
+                      <div className={`relative h-24 w-24 rounded-full bg-gradient-to-br ${member.avatarBg} p-[3px] flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:scale-105`}>
                         <div className="h-full w-full rounded-full bg-white flex items-center justify-center">
                           <span className="text-brand text-xl font-display font-extrabold tracking-wider">
                             {member.avatarInitials}
@@ -2131,26 +2089,26 @@ export default function App() {
                   </div>
 
                   {/* Description biography */}
-                  <p className="text-gray-600 font-light text-xs leading-relaxed max-w-[240px] mx-auto min-h-[4.5rem]">
+                  <p className="text-gray-600 font-normal text-xs leading-relaxed max-w-[240px] mx-auto min-h-[4.5rem]">
                     {member.description}
                   </p>
                 </div>
 
                 {/* LinkedIn button & action row */}
-                <div className="pt-6 mt-6 border-t border-gray-100 w-full flex flex-col items-center gap-2.5 relative z-10">
+                <div className="pt-6 mt-6 border-t border-gray-150 w-full flex flex-col items-center gap-2.5 relative z-10">
                   <a
                     href={member.linkedinUrl}
                     target="_blank"
                     referrerPolicy="no-referrer"
                     rel="noopener noreferrer"
-                    className="h-9 w-9 rounded-xl bg-gray-50 hover:bg-[#0A66FF] border border-gray-200 hover:border-transparent text-gray-600 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
+                    className="h-9 w-9 rounded-xl bg-gray-50 hover:bg-[#0A66FF] border border-gray-200 hover:border-transparent text-gray-500 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
                     title={`Connect with ${member.name} on LinkedIn`}
                   >
-                    <Linkedin className="h-4.5 w-4.5" />
+                    <Linkedin className="h-4 w-4 text-white" />
                   </a>
                   <a
                     href={`mailto:${member.email}`}
-                    className="text-[11px] font-mono text-gray-600 hover:text-brand transition-colors"
+                    className="text-[11px] font-mono text-gray-500 hover:text-brand transition-colors"
                   >
                     {member.email}
                   </a>
@@ -2161,7 +2119,6 @@ export default function App() {
 
         </div>
       </section>
-
 
       {/* ════════════════════════════════════════════════════
           VIBE CODING WITH AI — COURSE LANDING SECTION
@@ -2888,7 +2845,7 @@ export default function App() {
                         value={consultName}
                         onChange={(e) => setConsultName(e.target.value)}
                         placeholder="e.g., Sunil Sharma"
-                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-gray-600"
+                        className="glass-input w-full px-4 py-2.5 text-xs text-white placeholder:text-gray-500"
                       />
                     </div>
                     <div>
@@ -2902,7 +2859,7 @@ export default function App() {
                         value={consultEmail}
                         onChange={(e) => setConsultEmail(e.target.value)}
                         placeholder="sunil@academy.edu.np"
-                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-gray-600"
+                        className="glass-input w-full px-4 py-2.5 text-xs text-white placeholder:text-gray-500"
                       />
                     </div>
                   </div>
@@ -2919,7 +2876,7 @@ export default function App() {
                         value={consultOrg}
                         onChange={(e) => setConsultOrg(e.target.value)}
                         placeholder="e.g. Lalitpur Ward office, Zenith School"
-                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-gray-600"
+                        className="glass-input w-full px-4 py-2.5 text-xs text-white placeholder:text-gray-500"
                       />
                     </div>
                     <div>
@@ -2933,7 +2890,7 @@ export default function App() {
                         value={consultPhone}
                         onChange={(e) => setConsultPhone(e.target.value)}
                         placeholder="+977-9800000000"
-                        className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand placeholder:text-gray-600"
+                        className="glass-input w-full px-4 py-2.5 text-xs text-white placeholder:text-gray-500"
                       />
                     </div>
                   </div>
@@ -2946,7 +2903,7 @@ export default function App() {
                       id="consult-sector-select"
                       value={consultSector}
                       onChange={(e) => setConsultSector(e.target.value)}
-                      className="w-full bg-[#0B1020] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand cursor-pointer"
+                      className="glass-input w-full px-4 py-2.5 text-xs text-white cursor-pointer [&>option]:bg-[#040D08] [&>option]:text-white"
                     >
                       <option value="Education">Academic Integration (Schools &amp; Colleges)</option>
                       <option value="Enterprise">Enterprise Workspace (SMEs, Startups)</option>
