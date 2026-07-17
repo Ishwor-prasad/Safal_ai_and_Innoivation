@@ -74,6 +74,10 @@ export default function App() {
     "All" | "School" | "College" | "Municipality" | "Enterprise"
   >("All");
 
+  // Tabbed sections states
+  const [solutionsTab, setSolutionsTab] = useState<"solutions" | "industries">("solutions");
+  const [learningTab, setLearningTab] = useState<"training" | "research">("training");
+
   // SAFAL Teacher AI Sandbox Demo States
   const [demoGrade, setDemoGrade] = useState("Grade 8");
   const [demoSubject, setDemoSubject] = useState("Science");
@@ -118,6 +122,24 @@ export default function App() {
   const [chatInput, setChatInput] = useState("");
   const [chatLoading, setChatLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === "#solutions") {
+        setSolutionsTab("solutions");
+      } else if (hash === "#industries") {
+        setSolutionsTab("industries");
+      } else if (hash === "#training") {
+        setLearningTab("training");
+      } else if (hash === "#research") {
+        setLearningTab("research");
+      }
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    handleHashChange();
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   useEffect(() => {
     if (chatOpen && chatEndRef.current) {
@@ -535,27 +557,27 @@ export default function App() {
 
   const showcaseImages = [
     {
-      src: "https://images.pexels.com/photos/3807595/pexels-photo-3807595.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
+      src: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=900&auto=format&fit=crop&q=80",
       label: "Teacher Enablement",
       caption: "AI training that feels practical inside real classrooms."
     },
     {
-      src: "https://images.pexels.com/photos/3807501/pexels-photo-3807501.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
+      src: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&auto=format&fit=crop&q=80",
       label: "Digital Workflows",
       caption: "Automation systems for teams that need speed and clarity."
     },
     {
-      src: "https://images.pexels.com/photos/3862545/pexels-photo-3862545.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
+      src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&auto=format&fit=crop&q=80",
       label: "Institution Strategy",
       caption: "Consulting, adoption planning, and measurable rollout support."
     }
   ];
 
   const industryImages = [
-    "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
-    "https://images.pexels.com/photos/3807609/pexels-photo-3807609.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
-    "https://images.pexels.com/photos/3862630/pexels-photo-3862630.jpeg?auto=compress&cs=tinysrgb&w=900&q=80",
-    "https://images.pexels.com/photos/3807595/pexels-photo-3807595.jpeg?auto=compress&cs=tinysrgb&w=900&q=80"
+    "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=900&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=900&auto=format&fit=crop&q=80"
   ];
 
   return (
@@ -587,32 +609,35 @@ export default function App() {
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8" id="desktop-nav">
-            <a href="#hero" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Home</a>
-            <a href="#products" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Products</a>
-            <a href="#vibe-coding" className="text-brand font-semibold text-sm transition-colors flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-2 lg:gap-3 xl:gap-5" id="desktop-nav">
+            <a href="#hero" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Home</a>
+            <a href="#products" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Products</a>
+            <a href="#training" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Training</a>
+            <a href="#vibe-coding" className="text-brand font-semibold text-xs xl:text-sm transition-colors flex items-center gap-1">
               <span className="h-1.5 w-1.5 rounded-full bg-brand inline-block animate-pulse" />
               Vibe Coding
             </a>
-            <a href="#about" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">About</a>
-            <a href="#contact" className="text-gray-600 hover:text-brand font-medium text-sm transition-colors">Contact</a>
+            <a href="#research" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Research</a>
+            <a href="#team" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Team</a>
+            <a href="#about" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">About</a>
+            <a href="#contact" className="text-gray-600 hover:text-brand font-medium text-xs xl:text-sm transition-colors">Contact</a>
             <button
               onClick={() => setLanguage(language === "en" ? "ne" : "en")}
-              className="ml-2 px-3 py-1 text-xs font-semibold border border-brand text-brand hover:bg-brand hover:text-white rounded-full transition-all"
+              className="ml-1 px-2.5 py-0.5 text-[10px] xl:text-xs font-semibold border border-brand text-brand hover:bg-brand hover:text-white rounded-full transition-all shrink-0 cursor-pointer"
             >
               {language === "en" ? "नेपाली" : "English"}
             </button>
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
             <a
               id="nav-whatsapp-btn"
               href="https://wa.me/9779869627250?text=Hello%20Safal%20AI%20and%20Innovation%20Centre"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-sm py-2 px-4.5 rounded-full transition-all hover:scale-105 hover:ring-2 hover:ring-[#25D366]/40 flex items-center gap-2 shadow-md cursor-pointer border-none"
+              className="hidden xl:flex bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-xs xl:text-sm py-2 px-3.5 rounded-full transition-all hover:scale-105 hover:ring-2 hover:ring-[#25D366]/40 items-center gap-1.5 shadow-md cursor-pointer border-none"
             >
-              <svg className="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z"/>
               </svg>
               <span>WhatsApp</span>
@@ -620,7 +645,7 @@ export default function App() {
             <button
               id="nav-consult-btn"
               onClick={() => setConsultModalOpen(true)}
-              className="bg-brand hover:bg-brand/90 text-white font-medium text-sm py-2 px-5 rounded-full transition-all hover:scale-105 hover:ring-2 hover:ring-brand/40 flex items-center gap-2 shadow-md cursor-pointer"
+              className="bg-brand hover:bg-brand/90 text-white font-medium text-xs xl:text-sm py-2 px-4 rounded-full transition-all hover:scale-105 hover:ring-2 hover:ring-brand/40 flex items-center gap-1.5 shadow-md cursor-pointer shrink-0 border-none"
             >
               <span>Book Consultation</span>
               <Calendar className="h-4 w-4" />
@@ -630,7 +655,7 @@ export default function App() {
           <button
             id="mobile-menu-trigger"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-600 hover:text-brand focus:outline-none p-1 pointer-events-auto"
+            className="lg:hidden text-gray-600 hover:text-brand focus:outline-none p-1 pointer-events-auto"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -641,7 +666,7 @@ export default function App() {
         {mobileMenuOpen && (
           <div
             id="mobile-dropdown"
-            className="md:hidden bg-white border-t border-gray-100 absolute top-full left-0 w-full p-6 space-y-4 shadow-lg text-center flex flex-col"
+            className="lg:hidden bg-white border-t border-gray-100 absolute top-full left-0 w-full p-6 space-y-4 shadow-lg text-center flex flex-col"
           >
             <a
               href="#hero"
@@ -898,55 +923,142 @@ export default function App() {
       </section>
 
 
-      {/* OUR SERVICES / SOLUTIONS SECTION */}
+      {/* COMBINED SOLUTIONS & INDUSTRIES SECTION */}
       <section id="solutions" className="py-24 bg-surface-muted scroll-mt-10 border-b border-gray-200 relative">
+        {/* Extra anchor to allow industries navigation */}
+        <div id="industries" className="absolute top-0 left-0 scroll-mt-10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase">
               Unified Ecosystem
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
-              AI Solutions For Every Sector
+              Solutions &amp; Industries Served
             </h2>
             <p className="text-gray-600 font-light">
               We operate beyond training. SAFAL AI is Nepal's core innovation partner building strategic solutions, custom frameworks, and curriculum architectures to empower modern institutions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((s, idx) => {
-              const iconsList = [BookOpen, Leaf, GraduationCap, Sliders, Terminal];
-              const IconComp = iconsList[idx] || Leaf;
-              return (
-                <div
-                  key={s.id}
-                  id={`service-card-${s.id}`}
-                  className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden"
-                >
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-transparent group-hover:bg-brand transition-colors duration-300" />
-                  
-                  <div className="h-12 w-12 rounded-xl bg-brand/10 border border-brand/20 text-brand flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-all duration-300">
-                    <IconComp className="h-6 w-6" />
-                  </div>
-
-                  <h3 className="font-display text-xl font-bold text-gray-900 mb-3 tracking-tight group-hover:text-brand transition-colors">
-                    {s.title}
-                  </h3>
-                  
-                  <p className="text-gray-700 text-sm leading-relaxed mb-4 font-light">
-                    {s.description}
-                  </p>
-
-                  <div className="pt-4 border-t border-white/5 mt-auto">
-                    <p className="text-xs text-gray-600 font-light leading-relaxed">
-                      {s.longDescription}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+          {/* Interactive Toggle Tabs */}
+          <div className="flex justify-center mb-12">
+            <div className="bg-white border border-gray-200 p-1.5 rounded-full flex gap-1 shadow-sm">
+              <button
+                onClick={() => setSolutionsTab("solutions")}
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${
+                  solutionsTab === "solutions"
+                    ? "bg-brand text-white shadow-md"
+                    : "text-gray-600 hover:text-brand"
+                }`}
+              >
+                Our Solutions
+              </button>
+              <button
+                onClick={() => setSolutionsTab("industries")}
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${
+                  solutionsTab === "industries"
+                    ? "bg-brand text-white shadow-md"
+                    : "text-gray-600 hover:text-brand"
+                }`}
+              >
+                Industries We Serve
+              </button>
+            </div>
           </div>
+
+          {/* Tab Panels */}
+          {solutionsTab === "solutions" ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 animate-none">
+              {SERVICES.map((s, idx) => {
+                const iconsList = [BookOpen, Leaf, GraduationCap, Sliders, Terminal];
+                const IconComp = iconsList[idx] || Leaf;
+                return (
+                  <div
+                    key={s.id}
+                    id={`service-card-${s.id}`}
+                    className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="absolute top-0 left-0 w-1.5 h-full bg-transparent group-hover:bg-brand transition-colors duration-300" />
+                      
+                      <div className="h-12 w-12 rounded-xl bg-brand/10 border border-brand/20 text-brand flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white transition-all duration-300">
+                        <IconComp className="h-6 w-6" />
+                      </div>
+
+                      <h3 className="font-display text-xl font-bold text-gray-900 mb-3 tracking-tight group-hover:text-brand transition-colors">
+                        {s.title}
+                      </h3>
+                      
+                      <p className="text-gray-700 text-sm leading-relaxed mb-4 font-light">
+                        {s.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-100 mt-auto">
+                      <p className="text-xs text-gray-500 font-light leading-relaxed">
+                        {s.longDescription}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-500 animate-none">
+              {INDUSTRIES.map((ind, idx) => {
+                const icons = [BookOpen, Briefcase, Building, Users];
+                const IconComp = icons[idx] || Users;
+                return (
+                  <div
+                    key={ind.id}
+                    id={`industry-card-${ind.id}`}
+                    className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-brand/30 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="image-panel h-44 mb-6 -mt-2">
+                        <img src={industryImages[idx]} alt={`${ind.title} AI deployment`} loading="lazy" />
+                        <div className="image-panel-caption">
+                          <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest font-semibold">{ind.title}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-3.5 mb-5">
+                        <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center border border-brand/20">
+                          <IconComp className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <h3 className="font-display text-xl font-bold text-gray-900 tracking-tight group-hover:text-brand transition-colors">
+                            {ind.title}
+                          </h3>
+                          {/* Subsectors pills */}
+                          <div className="flex flex-wrap gap-1 mt-1">
+                            {ind.subsectors.map((s, i) => (
+                              <span key={i} className="text-[10px] bg-brand/5 text-brand border border-brand/20 font-mono tracking-wider px-2 py-0.5 rounded-full uppercase">
+                                {s}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      <p className="text-gray-700 text-sm leading-relaxed mb-6 font-light">
+                        {ind.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-mono text-gray-500">
+                      <span>Target Deployment Matrix</span>
+                      <span className="text-brand flex items-center gap-1 group">
+                        <span>Inquire Scope</span>
+                        <ChevronRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
 
           {/* Book Consultation Banner */}
           <div className="mt-16 consult-card-light rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
@@ -1429,77 +1541,7 @@ export default function App() {
       </section>
 
 
-      {/* INDUSTRIES WE SERVE */}
-      <section id="industries" className="py-24 dark-section border-b border-white/10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-            <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
-              Strategic Verticals
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Industries We Serve
-            </h2>
-            <p className="text-gray-600 font-light">
-              Designing optimized intelligence structures that bridge capabilities across schools, local civil offices, rapidly expanding SMEs, and international development bodies.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {INDUSTRIES.map((ind, idx) => {
-              const icons = [BookOpen, Briefcase, Building, Users];
-              const IconComp = icons[idx] || Users;
-              return (
-                <div
-                  key={ind.id}
-                  id={`industry-card-${ind.id}`}
-                  className="bg-white/5 rounded-2xl border border-white/10 p-8 shadow-lg flex flex-col justify-between transition-all duration-300 hover:bg-white/[0.08] hover:-translate-y-0.5"
-                >
-                  <div>
-                  <div className="image-panel h-44 mb-6 -mt-2">
-                    <img src={industryImages[idx]} alt={`${ind.title} AI deployment`} loading="lazy" />
-                    <div className="image-panel-caption">
-                      <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest font-semibold">{ind.title}</span>
-                    </div>
-                  </div>
-                    <div className="flex items-center gap-3.5 mb-5">
-                      <div className="h-11 w-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center border border-brand/20">
-                        <IconComp className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-xl font-bold text-white tracking-tight">
-                          {ind.title}
-                        </h3>
-                        {/* Subsectors pills */}
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {ind.subsectors.map((s, i) => (
-                            <span key={i} className="text-[10px] bg-white/5 text-gray-700 border border-white/5 font-mono tracking-wider px-2 py-0.5 rounded-full uppercase">
-                              {s}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-gray-700 text-sm leading-relaxed mb-6 font-light">
-                      {ind.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-gray-600">
-                    <span>Target Deployment Matrix</span>
-                    <span className="text-brand flex items-center gap-1 group">
-                      <span>Inquire Scope</span>
-                      <ChevronRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
 
 
       {/* CASE STUDIES SECTION */}
@@ -1607,165 +1649,190 @@ export default function App() {
 
 
       {/* RESEARCH & INNOVATION SECTION */}
-      <section id="research" className="py-24 bg-dark-primary dark-section scroll-mt-10 relative overflow-hidden">
+      {/* COMBINED LEARNING & RESEARCH HUB */}
+      <section id="training" className="py-24 bg-dark-primary dark-section scroll-mt-20 border-b border-white/10 relative overflow-hidden">
         {/* Decorative background visual node elements */}
         <div className="absolute top-1/2 left-0 w-80 h-80 bg-brand-accent/5 rounded-full filter blur-[100px] pointer-events-none" />
         
+        {/* Extra anchor to allow research navigation */}
+        <div id="research" className="absolute top-0 left-0 scroll-mt-20" />
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left Content column */}
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
-                Pioneering Tomorrow
-              </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                Researching Tomorrow's <br />AI Solutions
-              </h2>
-              <p className="text-gray-700 text-base font-light leading-relaxed">
-                SAFAL AI is deeply committed to exploring innovative AI applications that address Nepal's unique educational, corporate, linguistic, and societal challenges. We believe in building solutions that scale across geography and resource diversity.
-              </p>
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+            <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
+              Skill &amp; Knowledge Accelerator
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Learning &amp; Research Hub
+            </h2>
+            <p className="text-gray-655 font-light">
+              We build outcomes. SAFAL AI is dedicated to educational capacity building and pioneering research in artificial intelligence. Toggle between our training courses and research focus areas below.
+            </p>
+          </div>
 
-              <div className="pt-4 space-y-3 text-sm text-gray-700">
-                <div className="flex items-start gap-3">
-                  <div className="h-6 w-6 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0 mt-0.5">
-                    <Check className="h-4.5 w-4.5" />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-white block">Local NLP Fine-Tuning</span>
-                    <p className="text-xs text-gray-600">Deploying LLM adapters and classifiers that operate in highly refined Nepali syntax structures.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="h-6 w-6 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0 mt-0.5">
-                    <Check className="h-4.5 w-4.5" />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-white block">Resource-Constrained Optimization</span>
-                    <p className="text-xs text-gray-600">Designing server-assisted workflows that execute seamlessly over standard mobile data links.</p>
-                  </div>
-                </div>
-              </div>
+          {/* Interactive Toggle Tabs */}
+          <div className="flex justify-center mb-12">
+            <div className="bg-white/5 border border-white/10 p-1.5 rounded-full flex gap-1 shadow-sm">
+              <button
+                onClick={() => setLearningTab("training")}
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${
+                  learningTab === "training"
+                    ? "bg-brand text-white shadow-md"
+                    : "text-gray-400 hover:text-brand"
+                }`}
+              >
+                Training Programs
+              </button>
+              <button
+                onClick={() => setLearningTab("research")}
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${
+                  learningTab === "research"
+                    ? "bg-brand text-white shadow-md"
+                    : "text-gray-400 hover:text-brand"
+                }`}
+              >
+                Research Focus Areas
+              </button>
             </div>
+          </div>
 
-            {/* Right Interactive List column */}
-            <div className="lg:col-span-6 space-y-4">
-              <span className="text-xs font-mono text-gray-600 block tracking-wider uppercase mb-2">
-                Primary Research &amp; Focus Domains:
-              </span>
-              
-              <div className="space-y-3.5">
-                {RESEARCH_FOCUS_AREAS.map((focus) => (
+          {/* Tab Panels */}
+          {learningTab === "training" ? (
+            <div className="space-y-12 transition-all duration-500 animate-none">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {TRAINING_PROGRAMS.map((prog) => (
                   <div
-                    key={focus.id}
-                    id={`research-row-${focus.id}`}
-                    className="p-5 rounded-2xl bg-dark-secondary/60 border border-white/5 hover:border-brand/40 transition-all flex items-start gap-4"
+                    key={prog.id}
+                    id={`training-card-${prog.id}`}
+                    className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:bg-white/[0.08]"
                   >
-                    <div className="h-9 w-9 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0">
-                      <GraduationCap className="h-4.5 w-4.5" />
-                    </div>
                     <div>
-                      <h3 className="font-display text-base font-bold text-white tracking-tight">
-                        {focus.title}
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-xs font-mono font-medium text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded">
+                          {prog.duration}
+                        </span>
+                        <span className="text-[10px] font-mono tracking-widest uppercase text-gray-650">
+                          Accredited Course
+                        </span>
+                      </div>
+
+                      <h3 className="font-display text-xl font-bold text-white mb-1 tracking-tight">
+                        {prog.title}
                       </h3>
-                      <p className="text-xs text-gray-600 leading-relaxed mt-1 font-light">
-                        {focus.description}
-                      </p>
+                      <p className="text-xs font-medium text-gray-600 mb-6 font-mono">Target: {prog.target}</p>
+
+                      <div className="space-y-3.5 mb-8">
+                        <span className="text-xs font-mono font-semibold uppercase text-gray-500 block">Syllabus Overview:</span>
+                        <ul className="space-y-2 text-xs text-gray-600 font-light">
+                          {prog.syllabus.map((syl, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <Check className="h-4 w-4 text-brand mt-0.5 shrink-0" />
+                              <span>{syl}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div>
+                      <button
+                        onClick={() => {
+                          setConsultSector("Education");
+                          setConsultMessage(`I'm highly interested in registering for the "${prog.title}" AI Learning Program. Please provide schedule details.`);
+                          setConsultModalOpen(true);
+                        }}
+                        className="w-full text-center block bg-transparent border border-white/20 hover:bg-white/5 text-slate-100 font-medium text-xs py-3 rounded-lg transition-all cursor-pointer uppercase tracking-wider"
+                      >
+                        Request Syllabus &amp; Enroll Info
+                      </button>
                     </div>
                   </div>
                 ))}
               </div>
+
+              {/* Bottom general action */}
+              <div className="text-center">
+                <button
+                  onClick={() => {
+                    setConsultSector("Education");
+                    setConsultMessage("Hi, I want details regarding standard academic program options and available custom slots.");
+                    setConsultModalOpen(true);
+                  }}
+                  className="inline-flex items-center gap-2 bg-brand hover:bg-brand-light hover:scale-105 transition-all text-white font-medium text-sm py-4 px-8 rounded-full shadow-lg shadow-brand/20 cursor-pointer border-none"
+                >
+                  <span>Explore Custom Institutional Programs</span>
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center transition-all duration-500 animate-none">
+              {/* Left Content column */}
+              <div className="lg:col-span-6 space-y-6">
+                <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
+                  Pioneering Tomorrow
+                </span>
+                <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                  Researching Tomorrow's <br />AI Solutions
+                </h2>
+                <p className="text-gray-655 text-base font-light leading-relaxed">
+                  SAFAL AI is deeply committed to exploring innovative AI applications that address Nepal's unique educational, corporate, linguistic, and societal challenges. We believe in building solutions that scale across geography and resource diversity.
+                </p>
 
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* TRAINING PROGRAMS SECTION */}
-      <section id="training" className="py-24 dark-section scroll-mt-20 border-b border-white/10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-            <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
-              Skill Acceleration
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              AI Learning Programs
-            </h2>
-            <p className="text-gray-600 font-light">
-              Deploying highly structured educational pipelines that take learners from general AI foundations to constructing custom client deployments safely and productively.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {TRAINING_PROGRAMS.map((prog) => (
-              <div
-                key={prog.id}
-                id={`training-card-${prog.id}`}
-                className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:bg-white/[0.08]"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-medium text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded">
-                      {prog.duration}
-                    </span>
-                    <span className="text-[10px] font-mono tracking-widest uppercase text-gray-600">
-                      Accredited Course
-                    </span>
+                <div className="pt-4 space-y-3 text-sm text-gray-700">
+                  <div className="flex items-start gap-3">
+                    <div className="h-6 w-6 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0 mt-0.5">
+                      <Check className="h-4.5 w-4.5" />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-white block">Local NLP Fine-Tuning</span>
+                      <p className="text-xs text-gray-600">Deploying LLM adapters and classifiers that operate in highly refined Nepali syntax structures.</p>
+                    </div>
                   </div>
 
-                  <h3 className="font-display text-xl font-bold text-white mb-1 tracking-tight">
-                    {prog.title}
-                  </h3>
-                  <p className="text-xs font-medium text-gray-600 mb-6 font-mono">Target: {prog.target}</p>
-
-                  <div className="space-y-3.5 mb-8">
-                    <span className="text-xs font-mono font-semibold uppercase text-gray-700 block">Syllabus Overview:</span>
-                    <ul className="space-y-2 text-xs text-gray-700 font-light">
-                      {prog.syllabus.map((syl, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-brand-accent mt-0.5 shrink-0" />
-                          <span>{syl}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="flex items-start gap-3">
+                    <div className="h-6 w-6 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0 mt-0.5">
+                      <Check className="h-4.5 w-4.5" />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-white block">Resource-Constrained Optimization</span>
+                      <p className="text-xs text-gray-600">Designing server-assisted workflows that execute seamlessly over standard mobile data links.</p>
+                    </div>
                   </div>
-                </div>
-
-                <div>
-                  <button
-                    onClick={() => {
-                      setConsultSector("Education");
-                      setConsultMessage(`I'm highly interested in registering for the "${prog.title}" AI Learning Program. Please provide schedule details.`);
-                      setConsultModalOpen(true);
-                    }}
-                    className="w-full text-center block bg-transparent border border-white/20 hover:bg-white/5 text-slate-100 font-medium text-xs py-3 rounded-lg transition-all cursor-pointer uppercase tracking-wider"
-                  >
-                    Request Syllabus &amp; Enroll Info
-                  </button>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Bottom general action */}
-          <div className="text-center mt-12">
-            <button
-              onClick={() => {
-                setConsultSector("Education");
-                setConsultMessage("Hi, I want details regarding standard academic program options and available custom slots.");
-                setConsultModalOpen(true);
-              }}
-              className="inline-flex items-center gap-2 bg-brand hover:bg-brand-light hover:scale-105 transition-all text-white font-medium text-sm py-4 px-8 rounded-full shadow-lg shadow-brand/20 cursor-pointer border-none"
-            >
-              <span>Explore Custom Institutional Programs</span>
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
+              {/* Right Interactive List column */}
+              <div className="lg:col-span-6 space-y-4">
+                <span className="text-xs font-mono text-gray-600 block tracking-wider uppercase mb-2">
+                  Primary Research &amp; Focus Domains:
+                </span>
+                
+                <div className="space-y-3.5">
+                  {RESEARCH_FOCUS_AREAS.map((focus) => (
+                    <div
+                      key={focus.id}
+                      id={`research-row-${focus.id}`}
+                      className="p-5 rounded-2xl bg-dark-secondary/60 border border-white/5 hover:border-brand/40 transition-all flex items-start gap-4"
+                    >
+                      <div className="h-9 w-9 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand shrink-0">
+                        <GraduationCap className="h-4.5 w-4.5" />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-base font-bold text-white tracking-tight">
+                          {focus.title}
+                        </h3>
+                        <p className="text-xs text-gray-605 leading-relaxed mt-1 font-light">
+                          {focus.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
 
         </div>
       </section>
