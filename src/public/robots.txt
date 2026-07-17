@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://safalai.com.np/sitemap.xml
