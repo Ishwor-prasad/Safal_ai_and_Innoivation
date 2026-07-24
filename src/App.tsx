@@ -808,11 +808,11 @@ export default function App() {
         <div className="absolute top-1/4 left-1/4 w-[380px] h-[380px] bg-green-400/10 rounded-full filter blur-[100px] pointer-events-none z-0" />
         <div className="absolute bottom-1/3 right-1/4 w-[280px] h-[280px] bg-emerald-300/8 rounded-full filter blur-[80px] pointer-events-none z-0" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full text-center lg:text-left">
-          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full text-center xl:text-left">
+          <div className="flex flex-col xl:grid xl:grid-cols-12 gap-12 xl:gap-8 items-center">
 
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 rounded-full px-4 py-1.5 text-xs text-brand font-medium uppercase tracking-wider mx-auto lg:mx-0 animate-pulse">
+            <div className="xl:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 rounded-full px-4 py-1.5 text-xs text-brand font-medium uppercase tracking-wider mx-auto xl:mx-0 animate-pulse">
                 <Leaf className="h-3.5 w-3.5 text-brand-accent animate-spin" style={{ animationDuration: '3s' }} />
                 <span>{t.hero.badge}</span>
               </div>
@@ -822,11 +822,11 @@ export default function App() {
                 <span className="text-gradient-green">{t.hero.titleAccent}</span>
               </h1>
 
-              <p className="text-green-100 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mx-auto lg:mx-0 font-light">
+              <p className="text-green-100 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mx-auto xl:mx-0 font-light">
                 {t.hero.description}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center xl:justify-start pt-2">
                 <a
                   href="#products"
                   className="bg-white text-brand hover:bg-green-50 font-semibold px-8 py-3.5 rounded-full transition-all text-center flex items-center justify-center gap-2 group shadow-lg ring-pulse hover:scale-105"
@@ -957,10 +957,10 @@ export default function App() {
         <div id="industries" className="absolute top-0 left-0 scroll-mt-10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="flex flex-col xl:grid xl:grid-cols-12 gap-12">
 
             {/* Left Column (Sticky Sidebar on Desktop) */}
-            <div className="lg:col-span-4 lg:sticky lg:top-28 h-fit space-y-6">
+            <div className="xl:col-span-4 xl:sticky xl:top-28 h-fit space-y-6">
               <div className="space-y-3">
                 <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
                   Unified Ecosystem
@@ -1003,7 +1003,7 @@ export default function App() {
             </div>
 
             {/* Right Column (Interactive Content Panels) */}
-            <div className="lg:col-span-8">
+            <div className="xl:col-span-8">
               {solutionsTab === "solutions" ? (
                 <div className="flex flex-col md:grid md:grid-cols-2 gap-6 transition-all duration-500 animate-none">
                   {SERVICES.map((s, idx) => {
@@ -1144,7 +1144,7 @@ export default function App() {
           </div>
 
           {/* Cards grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
             {PRODUCTS.map((prod) => (
               <div
@@ -1210,10 +1210,10 @@ export default function App() {
               </p>
             </div>
 
-            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
+            <div className="flex flex-col xl:grid xl:grid-cols-12 gap-8 items-stretch">
 
               {/* Parameter controls panel */}
-              <div className="lg:col-span-4 bg-white/[0.02] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md">
+              <div className="xl:col-span-4 bg-white/[0.02] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md">
                 <div className="space-y-6">
                   <span className="text-xs font-mono font-semibold uppercase tracking-wider text-brand block border-b border-white/5 pb-3">
                     Sandbox Parameters
@@ -1295,7 +1295,7 @@ export default function App() {
               </div>
 
               {/* Sandbox lesson compiler output panel */}
-              <div className="lg:col-span-8 flex flex-col">
+              <div className="xl:col-span-8 flex flex-col">
                 <div className="bg-[#0b121f] border border-white/10 rounded-3xl flex-1 flex flex-col overflow-hidden shadow-2xl relative">
 
                   {/* IDE Header */}
@@ -1406,10 +1406,10 @@ export default function App() {
             return (
               <div
                 key={cs.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch transition-all duration-500 animate-none"
+                className="flex flex-col xl:grid xl:grid-cols-12 gap-8 items-stretch transition-all duration-500 animate-none"
               >
                 {/* Left Side Content grid */}
-                <div className="lg:col-span-6 bg-white/[0.02] border border-white/10 rounded-3xl p-8 sm:p-10 flex flex-col justify-between backdrop-blur-md">
+                <div className="xl:col-span-6 bg-white/[0.02] border border-white/10 rounded-3xl p-8 sm:p-10 flex flex-col justify-between backdrop-blur-md">
                   <div className="space-y-6">
                     <div className="flex items-center gap-3">
                       <span className="text-[10px] font-mono font-bold text-brand uppercase tracking-widest bg-brand/10 border border-brand/20 px-3 py-1 rounded">
@@ -1454,7 +1454,7 @@ export default function App() {
                 </div>
 
                 {/* Right Side Visual Showcase + Quote */}
-                <div className="lg:col-span-6 flex flex-col justify-between relative overflow-hidden rounded-3xl border border-white/10 min-h-[420px] bg-dark-secondary/40 backdrop-blur-md">
+                <div className="xl:col-span-6 flex flex-col justify-between relative overflow-hidden rounded-3xl border border-white/10 min-h-[420px] bg-dark-secondary/40 backdrop-blur-md">
 
                   {/* Photo area with absolute fit */}
                   <div className="flex-1 relative overflow-hidden min-h-[220px]">
@@ -1621,9 +1621,9 @@ export default function App() {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center transition-all duration-500 animate-none">
+            <div className="flex flex-col xl:grid xl:grid-cols-12 gap-12 items-center transition-all duration-500 animate-none">
               {/* Left Content column */}
-              <div className="lg:col-span-6 space-y-6">
+              <div className="xl:col-span-6 space-y-6">
                 <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
                   Pioneering Tomorrow
                 </span>
@@ -1658,7 +1658,7 @@ export default function App() {
               </div>
 
               {/* Right Interactive List column */}
-              <div className="lg:col-span-6 space-y-4">
+              <div className="xl:col-span-6 space-y-4">
                 <span className="text-xs font-mono text-gray-500 block tracking-wider uppercase mb-2">
                   Primary Research &amp; Focus Domains:
                 </span>
@@ -1923,10 +1923,10 @@ export default function App() {
       <section id="about" className="py-24 dark-section border-b border-white/10 scroll-mt-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="flex flex-col xl:grid xl:grid-cols-12 gap-12 xl:gap-8 items-center">
 
             {/* Mission Vision statement column */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="xl:col-span-7 space-y-6">
               <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
                 The SAFAL Story
               </span>
@@ -1970,7 +1970,7 @@ export default function App() {
             </div>
 
             {/* Visual block brand coordinates */}
-            <div className="lg:col-span-5 relative flex justify-center">
+            <div className="xl:col-span-5 relative flex justify-center">
               <div className="w-full max-w-[380px] p-8 rounded-3xl bg-white/[0.02] border border-white/15 text-white shadow-2xl relative overflow-hidden backdrop-blur-md">
                 <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-brand/15 rounded-full filter blur-[40px] pointer-events-none" />
 
@@ -2124,8 +2124,8 @@ export default function App() {
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-7 space-y-6">
+            <div className="flex flex-col xl:grid xl:grid-cols-12 gap-12 items-center">
+              <div className="xl:col-span-7 space-y-6">
                 <div className="flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-brand/10 border border-brand/20 text-brand px-3 py-1.5 rounded-full">
                     <span className="h-1.5 w-1.5 bg-brand rounded-full inline-block" />
@@ -2177,7 +2177,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="lg:col-span-5">
+              <div className="xl:col-span-5">
                 <div className="rounded-3xl border border-gray-200 bg-white p-8 space-y-5 shadow-lg shadow-gray-100/50">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="h-8 w-8 rounded-lg bg-brand/10 flex items-center justify-center">
@@ -2228,7 +2228,7 @@ export default function App() {
         {/* OVERVIEW + SKILLS */}
         <div className="bg-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div className="flex flex-col xl:grid xl:grid-cols-2 gap-16 items-start">
               <div className="space-y-6">
                 <span className="section-badge">Course Overview</span>
                 <h3 className="font-display text-3xl font-extrabold text-gray-900 tracking-tight mt-3">
@@ -2415,10 +2415,10 @@ export default function App() {
       <section id="contact" className="py-24 bg-surface-soft border-t border-gray-100 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+          <div className="flex flex-col xl:grid xl:grid-cols-12 gap-12 xl:gap-8 items-start">
 
             {/* Informative column details */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="xl:col-span-5 space-y-8">
               <div className="space-y-3">
                 <span className="section-badge">
                   Let's Collaborate
@@ -2557,7 +2557,7 @@ export default function App() {
             </div>
 
             {/* Right Form column */}
-            <div className="lg:col-span-7 bg-white rounded-2xl p-8 border border-gray-200 shadow-lg relative overflow-hidden">
+            <div className="xl:col-span-7 bg-white rounded-2xl p-8 border border-gray-200 shadow-lg relative overflow-hidden">
               <h3 className="font-display text-xl font-bold text-gray-900 mb-6 tracking-tight">
                 Submit an Inquiry Blueprint
               </h3>
