@@ -1693,7 +1693,7 @@ export default function App() {
         {/* Syllabus Detail Modal */}
         {selectedSyllabusProg && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
-            <div className="bg-[#040D08] border border-white/10 rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-white shadow-2xl relative max-h-[85vh] overflow-y-auto flex flex-col justify-between">
+            <div className="bg-[#161617] border border-white/10 rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-white shadow-2xl relative max-h-[85vh] overflow-y-auto flex flex-col justify-between">
               <button
                 onClick={() => setSelectedSyllabusProg(null)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors cursor-pointer border-none bg-transparent"
@@ -1740,7 +1740,7 @@ export default function App() {
                     setConsultMessage(`I'm highly interested in registering for the "${prog.title}" AI Learning Program. Please provide schedule details.`);
                     setConsultModalOpen(true);
                   }}
-                  className="flex-1 bg-brand hover:bg-brand-light text-white font-semibold text-xs py-3.5 px-6 rounded-xl transition-all cursor-pointer border-none shadow-md shadow-brand/20 uppercase tracking-wider text-center"
+                  className="flex-1 bg-white hover:bg-gray-100 text-black font-semibold text-xs py-3.5 px-6 rounded-xl transition-all cursor-pointer border-none shadow-md uppercase tracking-wider text-center"
                 >
                   Request Enrollment Info
                 </button>
@@ -2774,14 +2774,14 @@ export default function App() {
       {consultModalOpen && (
         <div
           id="consultation-modal-backdrop"
-          className="fixed inset-0 bg-[#0B1020]/80 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6"
         >
           <div
             id="consultation-modal-card"
-            className="w-full max-w-lg bg-[#0D1527] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col max-h-[90vh]"
+            className="w-full max-w-lg bg-[#161617] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex flex-col max-h-[90vh]"
           >
             {/* Header banner */}
-            <div className="bg-[#0B1020] dark-section p-6 text-white relative border-b border-white/10">
+            <div className="bg-[#161617] dark-section p-6 text-white relative border-b border-white/10">
               <button
                 id="close-consult-modal"
                 onClick={() => setConsultModalOpen(false)}
@@ -2894,7 +2894,7 @@ export default function App() {
                       id="consult-sector-select"
                       value={consultSector}
                       onChange={(e) => setConsultSector(e.target.value)}
-                      className="glass-input w-full px-4 py-2.5 text-xs text-white cursor-pointer [&>option]:bg-[#040D08] [&>option]:text-white"
+                      className="glass-input w-full px-4 py-2.5 text-xs text-white cursor-pointer [&>option]:bg-[#161617] [&>option]:text-white"
                     >
                       <option value="Education">Academic Integration (Schools &amp; Colleges)</option>
                       <option value="Enterprise">Enterprise Workspace (SMEs, Startups)</option>
@@ -2913,7 +2913,7 @@ export default function App() {
                       value={consultMessage}
                       onChange={(e) => setConsultMessage(e.target.value)}
                       placeholder="Briefly share any special workflows or curricula goals you intend to transform."
-                      className="w-full bg-[#0B1020] border border-white/10 rounded-xl p-4 text-xs text-white focus:outline-none focus:border-brand resize-none placeholder:text-gray-600"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl p-4 text-xs text-white focus:outline-none focus:border-brand resize-none placeholder:text-gray-600"
                     />
                   </div>
 
@@ -2952,7 +2952,7 @@ export default function App() {
             className="w-80 sm:w-96 max-w-[calc(100vw-2rem)] h-[480px] bg-dark-secondary dark-section rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden pointer-events-auto transition-all duration-300 transform scale-100 opacity-100"
           >
             {/* Header branding */}
-            <div className="bg-[#0B1020] px-5 py-4 border-b border-white/10 flex items-center justify-between">
+            <div className="bg-[#161617] px-5 py-4 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="h-10 w-10 rounded-xl bg-brand/20 border border-brand/35 flex items-center justify-center">
@@ -3042,7 +3042,7 @@ export default function App() {
             {/* Text entry board */}
             <form
               onSubmit={handleSendChatMessage}
-              className="p-3 bg-[#0B1020] border-t border-white/10 flex items-center gap-1.5"
+              className="p-3 bg-[#161617] border-t border-white/10 flex items-center gap-1.5"
             >
               <input
                 type="text"
