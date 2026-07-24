@@ -610,7 +610,7 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-white text-gray-900 selection:bg-brand selection:text-white" id="safal-main">
+    <div className="min-h-screen flex flex-col font-sans bg-white text-gray-900 selection:bg-brand selection:text-white overflow-x-hidden" id="safal-main">
       {/* Subtle top-right green glow */}
       <div className="fixed top-0 right-0 w-[500px] h-[300px] bg-brand/5 rounded-full blur-[120px] -mr-48 -mt-24 pointer-events-none z-0" />
 
@@ -618,8 +618,8 @@ export default function App() {
       <header
         id="navbar"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-gray-200 py-3 shadow-sm"
-            : "bg-white/90 backdrop-blur py-5 border-b border-gray-100"
+            ? "bg-white/80 backdrop-blur-xl border-b border-black/5 py-3 shadow-sm"
+            : "bg-white/70 backdrop-blur-lg py-5 border-b border-black/5"
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -629,7 +629,7 @@ export default function App() {
             </div>
             <div>
               <span className="font-display text-xl font-bold tracking-tight text-gray-900 block">
-                SAFAL <span className="text-brand">AI</span>
+                SAFAL <span className="text-brand-accent">AI</span>
               </span>
               <span className="text-[10px] text-gray-600 font-mono tracking-widest block uppercase">
                 and Innovation Centre
@@ -694,7 +694,7 @@ export default function App() {
         {mobileMenuOpen && (
           <div
             id="mobile-dropdown"
-            className="lg:hidden bg-white border-t border-gray-100 absolute top-full left-0 w-full p-6 space-y-4 shadow-lg text-center flex flex-col"
+            className="lg:hidden bg-white/95 backdrop-blur-2xl border-t border-black/5 absolute top-full left-0 w-full p-8 space-y-4 shadow-2xl text-center flex flex-col z-50"
           >
             <a
               href="#hero"
@@ -906,42 +906,42 @@ export default function App() {
 
 
       {/* STATISTICS SECTION */}
-      <section id="statistics" className="bg-brand py-12 border-y border-green-700">
+      <section id="statistics" className="bg-surface-soft py-12 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
 
             <div className="p-4" id="stat-trained">
               <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
-                <span className="text-white">{stats.trained}+</span>
+                <span className="text-brand">{stats.trained}+</span>
               </div>
-              <p className="text-xs sm:text-sm text-green-100 font-medium mt-2 tracking-wide uppercase">
+              <p className="text-xs sm:text-sm text-gray-500 font-medium mt-2 tracking-wide uppercase">
                 Professionals Trained
               </p>
             </div>
 
             <div className="p-4" id="stat-workshops">
               <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
-                <span className="text-white">{stats.workshops}+</span>
+                <span className="text-brand">{stats.workshops}+</span>
               </div>
-              <p className="text-xs sm:text-sm text-green-100 font-medium mt-2 tracking-wide uppercase">
+              <p className="text-xs sm:text-sm text-gray-500 font-medium mt-2 tracking-wide uppercase">
                 Workshops Conducted
               </p>
             </div>
 
             <div className="p-4" id="stat-partners">
               <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
-                <span className="text-white">{stats.partners}+</span>
+                <span className="text-brand">{stats.partners}+</span>
               </div>
-              <p className="text-xs sm:text-sm text-green-100 font-medium mt-2 tracking-wide uppercase">
+              <p className="text-xs sm:text-sm text-gray-500 font-medium mt-2 tracking-wide uppercase">
                 Partner Institutions
               </p>
             </div>
 
             <div className="p-4" id="stat-impacted">
               <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
-                <span className="text-white">{stats.learners}+</span>
+                <span className="text-brand">{stats.learners}+</span>
               </div>
-              <p className="text-xs sm:text-sm text-green-100 font-medium mt-2 tracking-wide uppercase">
+              <p className="text-xs sm:text-sm text-gray-500 font-medium mt-2 tracking-wide uppercase">
                 Learners Impacted
               </p>
             </div>
@@ -3061,31 +3061,31 @@ export default function App() {
             </form>
           </div>
         ) : (
-          <>
+          <div className="flex flex-row items-center gap-3 pointer-events-auto">
             <a
               id="floating-whatsapp-btn"
               href="https://wa.me/9779869627250?text=Hello%20Safal%20AI%20and%20Innovation%20Centre"
               target="_blank"
               rel="noopener noreferrer"
-              className="pointer-events-auto h-12 w-12 sm:w-fit p-0 sm:px-4 rounded-full bg-[#25D366] hover:bg-[#20ba5a] shadow-2xl shadow-[#25D366]/30 flex items-center justify-center sm:justify-start gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer hover:ring-4 hover:ring-[#25D366]/20"
+              className="h-12 w-12 rounded-full bg-[#25D366] hover:bg-[#20ba5a] shadow-xl flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer hover:ring-4 hover:ring-[#25D366]/20 border-none shrink-0"
+              title="WhatsApp Us"
             >
-              <svg className="h-5 w-5 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z" />
               </svg>
-              <span className="hidden sm:inline text-xs font-mono tracking-wider font-semibold uppercase shrink-0">WhatsApp Us</span>
             </a>
             <button
               id="open-chatbot"
               onClick={() => setChatOpen(true)}
-              className="pointer-events-auto h-12 w-12 sm:w-fit p-0 sm:px-4 rounded-full bg-brand hover:bg-brand-light shadow-2xl shadow-brand/20 flex items-center justify-center sm:justify-start gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer ring-pulse"
+              className="h-12 w-12 rounded-full bg-brand hover:bg-brand-light shadow-xl flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer ring-pulse border-none shrink-0"
+              title="Open Chatbot"
             >
-              <div className="relative shrink-0 flex items-center justify-center">
+              <div className="relative">
                 <MessageSquare className="h-5 w-5" />
-                <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-[#00C853] border-2 border-[#0A66FF]" />
+                <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-[#10b981] border-2 border-brand" />
               </div>
-              <span className="hidden sm:inline text-xs font-mono tracking-wider font-semibold uppercase shrink-0">SAFAL Mitra</span>
             </button>
-          </>
+          </div>
         )}
       </div>
 
