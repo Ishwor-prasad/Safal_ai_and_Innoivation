@@ -172,7 +172,7 @@ Your grounding facts:
   * AI for Students (4-Week practical bootcamp on Prompt Engineering, custom chatbots)
   * AI for Professionals (1-Week masterclass on automated copywriting, admin workflows)
   * AI for Organizations (Custom institutional planning, compliance, policy blueprints)
-- Contact Info: Level 3, Star Complex, Putalisadak, Kathmandu, Nepal. Ph: +977 1 4455667. Email: info@safalai.org.
+- Contact Info: Level 3, Star Complex, Putalisadak, Kathmandu, Nepal. Ph: +977 986-9627250. Email: info@safalai.com.np.
 
 Guidelines:
 - Keep responses concise, friendly, and structured in clean markdown list or paragraphs. Do not write too much, be helpful and clear.
@@ -201,7 +201,7 @@ You can find more detailed syllabi in the **[#training](#training)** section of 
           simulatedText = `**Namaste!** We would love to collaborate with you. You can easily book a 30-minute integration consultation call with our leads:
 - Simply click the **Book Consultation** button in this chat window to open the booking calendar form.
 - Or scroll down to the **[#contact](#contact)** section at the bottom of this page to submit an inquiry blueprint.
-- You can also email us directly at **info@safalai.org** or call our Lab Desk at **+977 1 4455667**.`;
+- You can also email us directly at **info@safalai.com.np** or call our Lab Desk at **+977 986-9627250**.`;
         } else if (query.includes("product") || query.includes("service") || query.includes("\u0915\u093E\u092E") || query.includes("\u0938\u0947\u0935\u093E")) {
           simulatedText = `**Namaste!** SAFAL AI empowers Nepal's modernization through tailored AI systems:
 - **Products:** *SAFAL Teacher AI* (Active Beta, try it in the **[#sandbox](#sandbox)**), *SAFAL Business AI* (Coming Soon), and *SAFAL Municipal AI* (Coming Soon).
@@ -209,7 +209,7 @@ You can find more detailed syllabi in the **[#training](#training)** section of 
 
 To explore our specific services, head to the **[#solutions](#solutions)** section of this page. What specific challenge are you trying to automate today?`;
         } else {
-          simulatedText = `**Namaste!** Thank you for visiting SAFAL AI & Innovation Centre. I am SAFAL AI Mitra, your intelligence assistant. 
+          simulatedText = `**Namaste!** Thank you for visiting SAFAL AI and Innovation Centre. I am SAFAL AI Mitra, your intelligence assistant. 
 
 I can answer questions regarding:
 - Our curriculum-aligned **SAFAL Teacher AI** (Beta sandbox on-site)

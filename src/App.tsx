@@ -526,7 +526,7 @@ export default function App() {
   // Translation content
   const t = {
     hero: {
-      badge: language === "en" ? "Nepal's Premier AI Catalyst | Sfal AI" : "नेपालको प्रमुख AI उत्प्रेरक | Sfal AI",
+      badge: language === "en" ? "Nepal's Premier AI Catalyst | Safal AI" : "नेपालको प्रमुख AI उत्प्रेरक | Sfal AI",
       title: language === "en" ? "Building Nepal's" : "नेपालको निर्माण",
       titleAccent: language === "en" ? "AI Future" : "AI भविष्य",
       description: language === "en"
@@ -617,11 +617,10 @@ export default function App() {
       {/* STICKY HEADER */}
       <header
         id="navbar"
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
             ? "bg-white/95 backdrop-blur-md border-b border-gray-200 py-3 shadow-sm"
             : "bg-white/90 backdrop-blur py-5 border-b border-gray-100"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <a href="#hero" className="flex items-center gap-2 group" id="logo-anchor">
@@ -667,7 +666,7 @@ export default function App() {
               className="hidden xl:flex bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold text-xs xl:text-sm py-2 px-3.5 rounded-full transition-all hover:scale-105 hover:ring-2 hover:ring-[#25D366]/40 items-center gap-1.5 shadow-md cursor-pointer border-none"
             >
               <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z"/>
+                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z" />
               </svg>
               <span>WhatsApp</span>
             </a>
@@ -776,7 +775,7 @@ export default function App() {
               className="w-full bg-[#25D366] text-white py-3 rounded-full text-base font-semibold transition-all hover:bg-[#20ba5a] flex items-center justify-center gap-2 border-none mb-3"
             >
               <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z"/>
+                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z" />
               </svg>
               <span>Easy Message</span>
             </a>
@@ -810,8 +809,8 @@ export default function App() {
         <div className="absolute bottom-1/3 right-1/4 w-[280px] h-[280px] bg-emerald-300/8 rounded-full filter blur-[80px] pointer-events-none z-0" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full text-center lg:text-left">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/20 rounded-full px-4 py-1.5 text-xs text-brand font-medium uppercase tracking-wider mx-auto lg:mx-0 animate-pulse">
                 <Leaf className="h-3.5 w-3.5 text-brand-accent animate-spin" style={{ animationDuration: '3s' }} />
@@ -873,7 +872,7 @@ export default function App() {
                     <div className="p-2 bg-brand/10 rounded-lg">
                       <BookOpen className="h-6 w-6 text-brand" />
                     </div>
-                    <div>
+                    <div className="hidden sm:block">
                       <p className="text-xs font-bold text-brand">SAFAL Teacher AI</p>
                       <p className="text-[10px] text-gray-600">Instant Lesson Plans</p>
                     </div>
@@ -910,7 +909,7 @@ export default function App() {
       <section id="statistics" className="bg-brand py-12 border-y border-green-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center">
-            
+
             <div className="p-4" id="stat-trained">
               <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold">
                 <span className="text-white">{stats.trained}+</span>
@@ -957,9 +956,9 @@ export default function App() {
         {/* Extra anchor to allow industries navigation */}
         <div id="industries" className="absolute top-0 left-0 scroll-mt-10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
+
             {/* Left Column (Sticky Sidebar on Desktop) */}
             <div className="lg:col-span-4 lg:sticky lg:top-28 h-fit space-y-6">
               <div className="space-y-3">
@@ -978,11 +977,10 @@ export default function App() {
               <div className="flex flex-col gap-3.5 bg-gray-100/50 p-2.5 rounded-2xl border border-gray-200/60 shadow-inner">
                 <button
                   onClick={() => setSolutionsTab("solutions")}
-                  className={`w-full p-4 rounded-xl text-left transition-all duration-300 cursor-pointer border-none flex flex-col gap-0.5 ${
-                    solutionsTab === "solutions"
+                  className={`w-full p-4 rounded-xl text-left transition-all duration-300 cursor-pointer border-none flex flex-col gap-0.5 ${solutionsTab === "solutions"
                       ? "bg-brand text-white shadow-md"
                       : "bg-white hover:bg-gray-50 text-gray-700 hover:text-brand border border-gray-200"
-                  }`}
+                    }`}
                 >
                   <span className="font-bold text-xs uppercase tracking-wider block">Our Core Solutions</span>
                   <span className={`text-[10px] block font-light leading-normal ${solutionsTab === "solutions" ? "text-white/80" : "text-gray-500"}`}>
@@ -991,11 +989,10 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => setSolutionsTab("industries")}
-                  className={`w-full p-4 rounded-xl text-left transition-all duration-300 cursor-pointer border-none flex flex-col gap-0.5 ${
-                    solutionsTab === "industries"
+                  className={`w-full p-4 rounded-xl text-left transition-all duration-300 cursor-pointer border-none flex flex-col gap-0.5 ${solutionsTab === "industries"
                       ? "bg-brand text-white shadow-md"
                       : "bg-white hover:bg-gray-50 text-gray-700 hover:text-brand border border-gray-200"
-                  }`}
+                    }`}
                 >
                   <span className="font-bold text-xs uppercase tracking-wider block">Industries We Serve</span>
                   <span className={`text-[10px] block font-light leading-normal ${solutionsTab === "industries" ? "text-white/80" : "text-gray-500"}`}>
@@ -1008,7 +1005,7 @@ export default function App() {
             {/* Right Column (Interactive Content Panels) */}
             <div className="lg:col-span-8">
               {solutionsTab === "solutions" ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500 animate-none">
+                <div className="flex flex-col md:grid md:grid-cols-2 gap-6 transition-all duration-500 animate-none">
                   {SERVICES.map((s, idx) => {
                     const iconsList = [BookOpen, Leaf, GraduationCap, Sliders, Terminal];
                     const IconComp = iconsList[idx] || Leaf;
@@ -1020,7 +1017,7 @@ export default function App() {
                       >
                         <div>
                           <div className="absolute top-0 left-0 w-1.5 h-full bg-transparent group-hover:bg-brand transition-colors duration-300" />
-                          
+
                           <div className="h-11 w-11 rounded-xl bg-brand/10 border border-brand/20 text-brand flex items-center justify-center mb-5 group-hover:bg-brand group-hover:text-white transition-all duration-300 shrink-0">
                             <IconComp className="h-5 w-5" />
                           </div>
@@ -1028,7 +1025,7 @@ export default function App() {
                           <h3 className="font-display text-lg font-bold text-gray-900 mb-2.5 tracking-tight group-hover:text-brand transition-colors">
                             {s.title}
                           </h3>
-                          
+
                           <p className="text-gray-655 text-xs leading-relaxed mb-4 font-normal">
                             {s.description}
                           </p>
@@ -1044,7 +1041,7 @@ export default function App() {
                   })}
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500 animate-none">
+                <div className="flex flex-col md:grid md:grid-cols-2 gap-6 transition-all duration-500 animate-none">
                   {INDUSTRIES.map((ind, idx) => {
                     const icons = [BookOpen, Briefcase, Building, Users];
                     const IconComp = icons[idx] || Users;
@@ -1061,7 +1058,7 @@ export default function App() {
                               <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest font-semibold">{ind.title}</span>
                             </div>
                           </div>
-                          
+
                           <div className="flex items-center gap-3 mb-4.5">
                             <div className="h-10 w-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center border border-brand/20 shrink-0">
                               <IconComp className="h-4.5 w-4.5" />
@@ -1131,9 +1128,9 @@ export default function App() {
       {/* FLAGSHIP PRODUCTS SECTION WITH EMBEDDED REAL-TIME SANDBOX AI DEMO */}
       <section id="products" className="py-24 bg-dark-primary dark-section scroll-mt-20 relative overflow-hidden">
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-dark-secondary to-transparent pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
               Direct Practical Tools
@@ -1148,25 +1145,23 @@ export default function App() {
 
           {/* Cards grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            
+
             {PRODUCTS.map((prod) => (
               <div
                 key={prod.id}
                 id={`product-card-${prod.id}`}
-                className={`glass-card rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden backdrop-blur-md ${
-                  prod.status === "Beta"
+                className={`glass-card rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden backdrop-blur-md ${prod.status === "Beta"
                     ? "border-brand/40 bg-dark-secondary shadow-lg shadow-brand/10 ring-1 ring-brand/20"
                     : "border-white/10 bg-white/[0.03]"
-                }`}
+                  }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className={`text-[10px] font-mono tracking-widest px-2.5 py-1 rounded-full uppercase font-bold ${
-                        prod.status === "Beta"
+                      className={`text-[10px] font-mono tracking-widest px-2.5 py-1 rounded-full uppercase font-bold ${prod.status === "Beta"
                           ? "bg-brand/10 text-brand border border-brand/25"
                           : "bg-white/5 text-gray-500"
-                      }`}
+                        }`}
                     >
                       {prod.status}
                     </span>
@@ -1177,7 +1172,7 @@ export default function App() {
                     {prod.name}
                   </h3>
                   <p className="text-xs font-mono text-brand mb-4">{prod.tagline}</p>
-                  
+
                   <p className="text-gray-305 text-xs leading-relaxed mb-6 font-normal">
                     {prod.description}
                   </p>
@@ -1186,11 +1181,10 @@ export default function App() {
                 <div className="pt-5 border-t border-white/5 flex items-center justify-between">
                   <a
                     href={prod.status === "Beta" ? "#vibe-coding" : "#contact"}
-                    className={`inline-flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider transition-all ${
-                      prod.status === "Beta"
+                    className={`inline-flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider transition-all ${prod.status === "Beta"
                         ? "text-brand hover:text-brand-light"
                         : "text-gray-400 hover:text-white"
-                    }`}
+                      }`}
                   >
                     <span>{prod.status === "Beta" ? "Launch Interactive Sandbox" : "Inquire Details"}</span>
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -1216,8 +1210,8 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-              
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
+
               {/* Parameter controls panel */}
               <div className="lg:col-span-4 bg-white/[0.02] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md">
                 <div className="space-y-6">
@@ -1233,11 +1227,10 @@ export default function App() {
                         <button
                           key={g}
                           onClick={() => setDemoGrade(g)}
-                          className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${
-                            demoGrade === g
+                          className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${demoGrade === g
                               ? "bg-brand/15 border-brand text-brand font-semibold"
                               : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10"
-                          }`}
+                            }`}
                         >
                           {g}
                         </button>
@@ -1253,11 +1246,10 @@ export default function App() {
                         <button
                           key={s}
                           onClick={() => setDemoSubject(s)}
-                          className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${
-                            demoSubject === s
+                          className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${demoSubject === s
                               ? "bg-brand/15 border-brand text-brand font-semibold"
                               : "bg-white/5 border-white/10 text-gray-400 hover:bg-white/10"
-                          }`}
+                            }`}
                         >
                           {s}
                         </button>
@@ -1305,7 +1297,7 @@ export default function App() {
               {/* Sandbox lesson compiler output panel */}
               <div className="lg:col-span-8 flex flex-col">
                 <div className="bg-[#0b121f] border border-white/10 rounded-3xl flex-1 flex flex-col overflow-hidden shadow-2xl relative">
-                  
+
                   {/* IDE Header */}
                   <div className="bg-[#080d17] px-4 py-3.5 border-b border-white/10 flex items-center justify-between shrink-0 select-none">
                     <div className="flex items-center gap-2">
@@ -1377,9 +1369,9 @@ export default function App() {
         {/* Ambient background accent */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand/5 rounded-full filter blur-[120px] pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-accent/5 rounded-full filter blur-[120px] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
               Proven Transformations
@@ -1398,11 +1390,10 @@ export default function App() {
               <button
                 key={cs.id}
                 onClick={() => setActiveCaseIndex(idx)}
-                className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border ${
-                  activeCaseIndex === idx
+                className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border ${activeCaseIndex === idx
                     ? "bg-brand text-white border-brand shadow-lg shadow-brand/20"
                     : "bg-white/5 text-gray-400 hover:text-white border-white/10"
-                }`}
+                  }`}
               >
                 {cs.clientName}
               </button>
@@ -1413,7 +1404,7 @@ export default function App() {
           {(() => {
             const cs = CASE_STUDIES[activeCaseIndex];
             return (
-              <div 
+              <div
                 key={cs.id}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch transition-all duration-500 animate-none"
               >
@@ -1464,12 +1455,12 @@ export default function App() {
 
                 {/* Right Side Visual Showcase + Quote */}
                 <div className="lg:col-span-6 flex flex-col justify-between relative overflow-hidden rounded-3xl border border-white/10 min-h-[420px] bg-dark-secondary/40 backdrop-blur-md">
-                  
+
                   {/* Photo area with absolute fit */}
                   <div className="flex-1 relative overflow-hidden min-h-[220px]">
                     {cs.image ? (
-                      <img 
-                        src={cs.image} 
+                      <img
+                        src={cs.image}
                         alt={cs.clientName}
                         className="w-full h-full absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
                         loading="lazy"
@@ -1511,12 +1502,12 @@ export default function App() {
       <section id="training" className="py-24 bg-dark-primary dark-section scroll-mt-20 border-b border-white/10 relative overflow-hidden">
         {/* Decorative background visual node elements */}
         <div className="absolute top-1/2 left-0 w-80 h-80 bg-brand-accent/5 rounded-full filter blur-[100px] pointer-events-none" />
-        
+
         {/* Extra anchor to allow research navigation */}
         <div id="research" className="absolute top-0 left-0 scroll-mt-20" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
               Skill &amp; Knowledge Accelerator
@@ -1534,21 +1525,19 @@ export default function App() {
             <div className="bg-white/5 border border-white/10 p-1.5 rounded-full flex gap-1 shadow-sm">
               <button
                 onClick={() => setLearningTab("training")}
-                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${
-                  learningTab === "training"
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${learningTab === "training"
                     ? "bg-brand text-white shadow-md"
                     : "text-gray-400 hover:text-brand"
-                }`}
+                  }`}
               >
                 Training Programs
               </button>
               <button
                 onClick={() => setLearningTab("research")}
-                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${
-                  learningTab === "research"
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer border-none ${learningTab === "research"
                     ? "bg-brand text-white shadow-md"
                     : "text-gray-400 hover:text-brand"
-                }`}
+                  }`}
               >
                 Research Focus Areas
               </button>
@@ -1558,7 +1547,7 @@ export default function App() {
           {/* Tab Panels */}
           {learningTab === "training" ? (
             <div className="space-y-12 transition-all duration-500 animate-none">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="flex flex-col md:grid md:grid-cols-2 gap-8">
                 {TRAINING_PROGRAMS.map((prog) => (
                   <div
                     key={prog.id}
@@ -1632,7 +1621,7 @@ export default function App() {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center transition-all duration-500 animate-none">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center transition-all duration-500 animate-none">
               {/* Left Content column */}
               <div className="lg:col-span-6 space-y-6">
                 <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
@@ -1673,7 +1662,7 @@ export default function App() {
                 <span className="text-xs font-mono text-gray-500 block tracking-wider uppercase mb-2">
                   Primary Research &amp; Focus Domains:
                 </span>
-                
+
                 <div className="space-y-3.5">
                   {RESEARCH_FOCUS_AREAS.map((focus) => (
                     <div
@@ -1773,7 +1762,7 @@ export default function App() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand/5 rounded-full filter blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
               Global Feedback
@@ -1795,11 +1784,10 @@ export default function App() {
                   setActiveTestimonialCategory(cat);
                   setActiveTestimonialIdx(0);
                 }}
-                className={`px-5 py-2.5 rounded-full text-xs font-mono font-medium tracking-wider transition-all cursor-pointer border ${
-                  activeTestimonialCategory === cat
+                className={`px-5 py-2.5 rounded-full text-xs font-mono font-medium tracking-wider transition-all cursor-pointer border ${activeTestimonialCategory === cat
                     ? "bg-brand text-white border-brand shadow-lg shadow-brand/20"
                     : "bg-white/5 text-gray-500 hover:text-white border-white/10"
-                }`}
+                  }`}
               >
                 {cat} Testimonials
               </button>
@@ -1873,7 +1861,7 @@ export default function App() {
       {/* PARTNER ORGANIZATIONS (TRUSTED BY) SECTION */}
       <section className="py-16 dark-section border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-xl mx-auto space-y-1 mb-10">
             <h3 className="font-display text-lg font-bold text-white tracking-tight">
               Trusted By
@@ -1889,11 +1877,10 @@ export default function App() {
               <button
                 key={cat}
                 onClick={() => setActivePartnerFilter(cat)}
-                className={`px-4 py-1.5 rounded-full text-[10px] font-mono tracking-wider transition-all cursor-pointer ${
-                  activePartnerFilter === cat
+                className={`px-4 py-1.5 rounded-full text-[10px] font-mono tracking-wider transition-all cursor-pointer ${activePartnerFilter === cat
                     ? "bg-white text-[#0B1020] font-semibold"
                     : "bg-white/5 text-gray-500 hover:text-white"
-                }`}
+                  }`}
               >
                 {cat}s
               </button>
@@ -1935,9 +1922,9 @@ export default function App() {
       {/* ABOUT US SECTION */}
       <section id="about" className="py-24 dark-section border-b border-white/10 scroll-mt-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
+
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
             {/* Mission Vision statement column */}
             <div className="lg:col-span-7 space-y-6">
               <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
@@ -1946,7 +1933,7 @@ export default function App() {
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                 About SAFAL AI and Innovation Centre
               </h2>
-              
+
               <div className="space-y-4 text-gray-300 text-sm font-normal leading-relaxed">
                 <p>
                   SAFAL AI and Innovation Centre is a Nepal-based artificial intelligence company dedicated to empowering individuals and organizations through AI education, innovation and technology solutions. We believe in building solutions that scale across geography and resource diversity.
@@ -1958,7 +1945,7 @@ export default function App() {
 
               {/* Mission Vision Bento Plate */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" id="about-mission-vision">
-                
+
                 <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-brand/40 transition-all duration-300 space-y-3">
                   <div className="h-10 w-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand">
                     <TreePine className="h-5 w-5 text-brand" />
@@ -1986,7 +1973,7 @@ export default function App() {
             <div className="lg:col-span-5 relative flex justify-center">
               <div className="w-full max-w-[380px] p-8 rounded-3xl bg-white/[0.02] border border-white/15 text-white shadow-2xl relative overflow-hidden backdrop-blur-md">
                 <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-brand/15 rounded-full filter blur-[40px] pointer-events-none" />
-                
+
                 <h3 className="font-display text-lg font-bold text-white tracking-tight mb-4 border-b border-white/5 pb-3">
                   Ethical Alignment Map
                 </h3>
@@ -2031,9 +2018,9 @@ export default function App() {
       <section id="team" className="py-24 bg-surface-muted border-t border-gray-200 scroll-mt-20 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand/5 rounded-full filter blur-[140px] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
             <span className="text-xs font-semibold text-brand tracking-widest uppercase block">
               Our Visionaries
@@ -2065,7 +2052,7 @@ export default function App() {
                     </div>
                     {/* Profile image or avatar monogram */}
                     {member.profileImage ? (
-                      <img 
+                      <img
                         src={member.profileImage}
                         alt={member.name}
                         className="relative h-24 w-24 rounded-full object-cover shadow-lg border-4 border-white transition-transform duration-500 group-hover:scale-105"
@@ -2137,7 +2124,7 @@ export default function App() {
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-brand/10 border border-brand/20 text-brand px-3 py-1.5 rounded-full">
@@ -2427,9 +2414,9 @@ export default function App() {
       {/* CONTACT SECTION WITH FORM INQUIRY SUBMISSIONS */}
       <section id="contact" className="py-24 bg-surface-soft border-t border-gray-100 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-            
+
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+
             {/* Informative column details */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-3">
@@ -2482,7 +2469,7 @@ export default function App() {
 
               {/* Details stack */}
               <div className="space-y-4" id="contact-info-list font-sans">
-                
+
                 <div className="flex gap-3.5 items-start">
                   <div className="h-10 w-10 bg-brand/10 border border-brand/20 text-brand flex items-center justify-center rounded-xl shrink-0">
                     <Mail className="h-5 w-5" />
@@ -2688,9 +2675,9 @@ export default function App() {
       {/* FOOTER */}
       <footer className="bg-dark-primary dark-section text-gray-700 py-16 border-t border-white/10 relative z-20" id="full-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-            
+
             {/* Column 1 Logo */}
             <div className="md:col-span-4 space-y-4">
               <a href="#hero" className="flex items-center gap-2 group">
@@ -2803,7 +2790,7 @@ export default function App() {
               >
                 <X className="h-5 w-5" />
               </button>
-              
+
               <div className="flex items-center gap-2 bg-brand/10 border border-brand/20 px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wider w-fit uppercase text-brand mb-2">
                 <Calendar className="h-3.5 w-3.5" />
                 <span>Strategic Booking Queue</span>
@@ -3031,11 +3018,10 @@ export default function App() {
                       </div>
                     )}
                     <div
-                      className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-xs font-light leading-relaxed ${
-                        isAI
+                      className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-xs font-light leading-relaxed ${isAI
                           ? "bg-white/[0.04] text-slate-200 rounded-tl-none border border-white/5"
                           : "bg-brand text-white rounded-tr-none"
-                      }`}
+                        }`}
                     >
                       <div className="markdown-body text-xs text-left">
                         <Markdown>{msg.content}</Markdown>
@@ -3081,23 +3067,23 @@ export default function App() {
               href="https://wa.me/9779869627250?text=Hello%20Safal%20AI%20and%20Innovation%20Centre"
               target="_blank"
               rel="noopener noreferrer"
-              className="pointer-events-auto h-12 w-fit px-4 rounded-full bg-[#25D366] hover:bg-[#20ba5a] shadow-2xl shadow-[#25D366]/30 flex items-center gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer hover:ring-4 hover:ring-[#25D366]/20"
+              className="pointer-events-auto h-12 w-12 sm:w-fit p-0 sm:px-4 rounded-full bg-[#25D366] hover:bg-[#20ba5a] shadow-2xl shadow-[#25D366]/30 flex items-center justify-center sm:justify-start gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer hover:ring-4 hover:ring-[#25D366]/20"
             >
-              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z"/>
+              <svg className="h-5 w-5 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.13-1.347a9.947 9.947 0 0 0 4.887 1.282c5.506 0 9.99-4.474 9.991-9.984a9.972 9.972 0 0 0-9.996-9.951zm0 18.294a8.276 8.276 0 0 1-4.225-1.157l-.304-.18-3.136.82.835-3.056-.197-.313a8.293 8.293 0 0 1-1.272-4.423c.001-4.57 3.722-8.29 8.297-8.29a8.28 8.28 0 0 1 8.293 8.296c-.001 4.572-3.725 8.293-8.296 8.293zm4.542-6.208c-.249-.125-1.472-.726-1.7-.81-.228-.083-.393-.125-.558.125-.165.25-.638.809-.783.974-.144.166-.29.184-.539.06a6.793 6.793 0 0 1-1.997-1.232c-.776-.692-1.301-1.547-1.453-1.81-.153-.263-.016-.406.117-.538.12-.12.249-.29.373-.434.125-.144.166-.25.25-.415.083-.167.042-.313-.02-.439-.063-.125-.558-1.347-.765-1.849-.2-.486-.402-.422-.558-.43h-.475c-.165 0-.434.062-.661.312-.228.25-.868.85-.868 2.072 0 1.222.888 2.4 1.012 2.564.125.166 1.748 2.67 4.235 3.74.591.255 1.053.408 1.412.523.593.189 1.134.162 1.561.098.476-.071 1.472-.601 1.68-1.182.207-.581.207-1.08.145-1.182-.062-.102-.228-.166-.477-.291z" />
               </svg>
-              <span className="text-xs font-mono tracking-wider font-semibold uppercase shrink-0">WhatsApp Us</span>
+              <span className="hidden sm:inline text-xs font-mono tracking-wider font-semibold uppercase shrink-0">WhatsApp Us</span>
             </a>
             <button
               id="open-chatbot"
               onClick={() => setChatOpen(true)}
-              className="pointer-events-auto h-12 w-fit px-4 rounded-full bg-brand hover:bg-brand-light shadow-2xl shadow-brand/20 flex items-center gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer ring-pulse"
+              className="pointer-events-auto h-12 w-12 sm:w-fit p-0 sm:px-4 rounded-full bg-brand hover:bg-brand-light shadow-2xl shadow-brand/20 flex items-center justify-center sm:justify-start gap-2 text-white transition-all duration-300 transform scale-100 hover:scale-105 active:scale-95 border-none cursor-pointer ring-pulse"
             >
-              <div className="relative">
+              <div className="relative shrink-0 flex items-center justify-center">
                 <MessageSquare className="h-5 w-5" />
                 <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-[#00C853] border-2 border-[#0A66FF]" />
               </div>
-              <span className="text-xs font-mono tracking-wider font-semibold uppercase shrink-0">SAFAL Mitra</span>
+              <span className="hidden sm:inline text-xs font-mono tracking-wider font-semibold uppercase shrink-0">SAFAL Mitra</span>
             </button>
           </>
         )}
