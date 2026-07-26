@@ -561,3 +561,26 @@ export const VIBE_SCHEDULES_NE = [
     tag: "साँझको ब्याच"
   }
 ];
+
+export const translations: Record<string, any> = {
+  en: {
+    hero: {
+      badge: "Empowering Nepal Through Artificial Intelligence",
+      title: "Pioneering AI Solutions &",
+      titleAccent: "Capacity Building for Nepal",
+      description: "SAFAL AI and Innovation Centre deploys curriculum-aligned educational systems, robust customized business workflows, and inclusive public governance templates nationwide.",
+      cta1: "Explore Solutions",
+      cta2: "Book Consultation"
+    }
+  },
+  ne: {
+    hero: {
+      badge: "नेपाललाई एआई मार्फत सबल बनाउँदै",
+      title: "अग्रणी AI समाधान र",
+      titleAccent: "नेपालको लागि क्षमता अभिवृद्धि",
+      description: "सफल एआई र इनोभेशन सेन्टरले देशभर पाठ्यक्रम-अनुकूल शैक्षिक प्रणाली, बलियो अनुकूलित व्यावसायिक कार्यप्रवाह, र समावेशी सार्वजनिक सुशासन ढाँचाहरू सञ्चालन गर्दछ।",
+      cta1: "समाधानहरू हेर्नुहोस्",
+      cta2: "परामर्श लिनुहोस्"
+    }
+  }
+};
