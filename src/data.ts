@@ -363,7 +363,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "SAFAL AI's training was exactly what we needed - practical, relevant, and delivered professionally. Our team is now confident using AI tools in their daily work.",
     author: "IME Group Management",
     role: "Human Resources & Operations",
-    gradient: "from-orange-600/20 to-amber-500/5",
+    gradient: "from-emerald-800/40 via-slate-900 to-green-950/30",
     image: "/ime-group-certification-1.jpeg"
   },
   {
@@ -380,7 +380,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "SAFAL Teacher AI returned Sundays back to our teachers. Instead of getting bogged down in formatting CDC lesson grids, our teachers are actively working on student interactions.",
     author: "Prasanna Shrestha",
     role: "Secondary Level Mathematics Department Head",
-    gradient: "from-blue-600/20 to-cyan-500/5"
+    gradient: "from-green-800/40 via-slate-900 to-emerald-950/30"
   },
   {
     id: "case-biz",
@@ -396,7 +396,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "Integrating SAFAL Business AI has liberated our technical department from repetitive reports. It operates as an invaluable digital catalyst for our operations.",
     author: "Sujita Adhikari",
     role: "Director of Technical Engineering",
-    gradient: "from-purple-600/20 to-pink-500/5"
+    gradient: "from-teal-800/40 via-slate-900 to-emerald-950/30"
   },
   {
     id: "case-gov",
@@ -412,7 +412,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "Working with SAFAL AI enabled us to transition from dusty paper archives to a fast, computerized citizen inquiry system. They are Nepal's premier partner for public sector modernization.",
     author: "Yogendra B. Thapa",
     role: "Municipal IT Coordination Lead",
-    gradient: "from-green-600/20 to-emerald-500/5"
+    gradient: "from-emerald-800/40 via-slate-900 to-teal-950/30"
   }
 ];
 
@@ -508,6 +508,8 @@ export interface VibeCourseSkill {
   id: string;
   icon: string;
   label: string;
+  title?: string;
+  description?: string;
 }
 
 export const VIBE_MODULES: VibeModule[] = [
