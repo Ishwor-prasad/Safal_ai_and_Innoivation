@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { submitContactInquiry } from "../services/contactService";
 
 export function useContactForm() {
   const [contactName, setContactName] = useState("");
@@ -15,27 +16,23 @@ export function useContactForm() {
     setContactSuccessMsg(null);
 
     try {
-      const resp = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: contactName,
-          organization: contactOrg,
-          email: contactEmail,
-          phone: contactPhone,
-          message: contactMessage,
-        }),
+      const result = await submitContactInquiry({
+        name: contactName,
+        organization: contactOrg,
+        email: contactEmail,
+        phone: contactPhone,
+        message: contactMessage,
       });
 
-      if (!resp.ok) throw new Error("Server error");
-      const data = await resp.json();
-      setContactSuccessMsg(data.message);
+      setContactSuccessMsg(result.message);
 
-      setContactName("");
-      setContactOrg("");
-      setContactEmail("");
-      setContactPhone("");
-      setContactMessage("");
+      if (result.success) {
+        setContactName("");
+        setContactOrg("");
+        setContactEmail("");
+        setContactPhone("");
+        setContactMessage("");
+      }
     } catch {
       setContactSuccessMsg("Inquiry submitted successfully! Namaste. We will reach back within 24 business hours.");
     } finally {

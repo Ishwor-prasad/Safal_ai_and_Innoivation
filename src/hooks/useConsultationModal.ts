@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { submitConsultationBooking } from "../services/consultationService";
 
 export function useConsultationModal() {
   const [consultModalOpen, setConsultModalOpen] = useState(false);
@@ -17,30 +18,26 @@ export function useConsultationModal() {
     setConsultSuccessMsg(null);
 
     try {
-      const resp = await fetch("/api/book-consultation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: consultName,
-          email: consultEmail,
-          organization: consultOrg,
-          phone: consultPhone,
-          sector: consultSector,
-          message: consultMessage,
-        }),
+      const result = await submitConsultationBooking({
+        name: consultName,
+        email: consultEmail,
+        organization: consultOrg,
+        phone: consultPhone,
+        sector: consultSector,
+        message: consultMessage,
       });
 
-      if (!resp.ok) throw new Error("Server error");
-      const data = await resp.json();
-      setConsultSuccessMsg(data.message);
+      setConsultSuccessMsg(result.message);
 
-      setConsultName("");
-      setConsultEmail("");
-      setConsultOrg("");
-      setConsultPhone("");
-      setConsultMessage("");
+      if (result.success) {
+        setConsultName("");
+        setConsultEmail("");
+        setConsultOrg("");
+        setConsultPhone("");
+        setConsultMessage("");
+      }
     } catch {
-      setConsultSuccessMsg("Thank you! Your booking interest is received. Our AI coordination desk will correspond with you directly.");
+      setConsultSuccessMsg("Thank you! Your booking request has been received. Our AI coordination desk will reach out shortly.");
     } finally {
       setConsultSubmitting(false);
     }
