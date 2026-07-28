@@ -97,9 +97,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         <button
           id="mobile-menu-trigger"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-gray-600 hover:text-brand focus:outline-none p-1 pointer-events-auto"
+          className="lg:hidden text-gray-600 hover:text-brand focus:outline-none p-1 pointer-events-auto flex items-center gap-2"
           aria-label="Toggle Menu"
         >
+          <button
+            onClick={(e) => { e.stopPropagation(); setLanguage(language === "en" ? "ne" : "en"); }}
+            className="px-2 py-1 text-[10px] font-semibold border border-brand/30 text-brand hover:bg-brand hover:text-white rounded-full transition-all shrink-0 cursor-pointer"
+          >
+            {language === "en" ? "नेपाली" : "EN"}
+          </button>
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
@@ -107,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div
           id="mobile-dropdown"
-          className="lg:hidden bg-white/95 backdrop-blur-2xl border-t border-black/5 absolute top-full left-0 w-full p-8 space-y-4 shadow-2xl text-center flex flex-col z-50"
+          className="lg:hidden bg-white/95 backdrop-blur-2xl border-t border-black/5 absolute top-full left-0 w-full p-6 sm:p-8 space-y-3 shadow-2xl text-center flex flex-col z-50"
         >
           <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100">Home</a>
           <a href="#solutions" onClick={(e) => { e.preventDefault(); handleNavClick("solutions"); }} className="block text-gray-600 hover:text-brand text-base py-2 border-b border-gray-100">Solutions</a>

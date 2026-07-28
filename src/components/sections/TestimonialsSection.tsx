@@ -30,7 +30,7 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Testimonial Tabs */}
-        <div className="flex justify-center gap-3 mb-12" id="testimonial-tabs">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12" id="testimonial-tabs">
           {(["Teacher", "Professional", "Organization"] as const).map((cat) => (
             <button
               key={cat}
@@ -38,7 +38,7 @@ export const TestimonialsSection: React.FC = () => {
                 setActiveTestimonialCategory(cat);
                 setActiveTestimonialIdx(0);
               }}
-              className={`px-5 py-2.5 rounded-full text-xs font-mono font-medium tracking-wider transition-all cursor-pointer border ${
+              className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs font-mono font-medium tracking-wider transition-all cursor-pointer border ${
                 activeTestimonialCategory === cat
                   ? "bg-brand text-white border-brand shadow-lg shadow-emerald-600/20 font-semibold"
                   : "bg-slate-800/80 text-slate-200 hover:text-white border-slate-700 hover:border-emerald-500/50"
@@ -54,7 +54,7 @@ export const TestimonialsSection: React.FC = () => {
           <div className="max-w-3xl mx-auto space-y-6">
             <div
               id={`testimonial-card-${testimonial.id}`}
-              className="bg-white/[0.03] border border-white/15 rounded-3xl p-8 sm:p-12 relative shadow-2xl backdrop-blur-md overflow-hidden flex flex-col justify-between min-h-[280px]"
+              className="bg-white/[0.03] border border-white/15 rounded-3xl p-6 sm:p-8 lg:p-12 relative shadow-2xl backdrop-blur-md overflow-hidden flex flex-col justify-between min-h-[240px] sm:min-h-[280px]"
             >
               <div className="absolute top-6 right-8 text-brand/10 pointer-events-none text-9xl font-serif select-none">
                 “

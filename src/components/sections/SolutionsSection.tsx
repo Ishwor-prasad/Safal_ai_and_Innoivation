@@ -210,7 +210,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
               )}
             </div>
 
-            <div className="col-span-12 mt-8 consult-card-light rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+            <div className="col-span-12 mt-8 consult-card-light rounded-3xl p-6 sm:p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-brand/5 rounded-full filter blur-[50px] pointer-events-none" />
               <div className="space-y-3 max-w-2xl text-center md:text-left">
                 <span className="text-xs font-mono text-brand font-bold tracking-wider uppercase block">

@@ -29,10 +29,10 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-16">
 
           {/* Card 1: SAFAL Teacher AI */}
-          <div className="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden">
+          <div className="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono tracking-widest px-2.5 py-1 rounded-full uppercase font-bold bg-emerald-50 text-brand border border-emerald-200 shadow-xs">
@@ -61,7 +61,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
           </div>
 
           {/* Card 2: SAFAL Business AI */}
-          <div className="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden">
+          <div className="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono tracking-widest px-2.5 py-1 rounded-full uppercase font-bold bg-slate-100 text-slate-700 border border-slate-200">
@@ -89,7 +89,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
           </div>
 
           {/* Card 3: SAFAL Municipal AI */}
-          <div className="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden">
+          <div className="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono tracking-widest px-2.5 py-1 rounded-full uppercase font-bold bg-slate-100 text-slate-700 border border-slate-200">
@@ -117,7 +117,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
           </div>
 
           {/* Card 4: Vibe Coding with AI */}
-          <div className="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden bg-emerald-50/20 border-emerald-300/50">
+          <div className="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative overflow-hidden bg-emerald-50/20 border-emerald-300/50">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono tracking-widest px-2.5 py-1 rounded-full uppercase font-bold bg-emerald-50 text-brand border border-emerald-200 shadow-xs">

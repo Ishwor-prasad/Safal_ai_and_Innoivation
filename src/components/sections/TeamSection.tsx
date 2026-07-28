@@ -80,7 +80,7 @@ export const TeamSection: React.FC = () => {
                 </a>
                 <a
                   href={`mailto:${member.email}`}
-                  className="text-[11px] font-mono text-gray-500 hover:text-brand transition-colors"
+                  className="text-[11px] font-mono text-gray-500 hover:text-brand transition-colors break-all"
                 >
                   {member.email}
                 </a>

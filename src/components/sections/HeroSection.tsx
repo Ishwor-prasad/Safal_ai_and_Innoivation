@@ -24,7 +24,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
     let animationFrameId: number;
     let width = (canvas.width = canvas.parentElement?.clientWidth || window.innerWidth);
-    let height = (canvas.height = 420);
+    let height = (canvas.height = Math.min(420, window.innerHeight * 0.6));
 
     const handleResize = () => {
       if (canvas && canvas.parentElement) {
@@ -122,7 +122,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id="hero"
-      className="relative bg-white pt-36 pb-20 overflow-hidden flex flex-col justify-center min-h-[85vh] border-b border-gray-100"
+      className="relative bg-white pt-24 pb-12 sm:pt-36 sm:pb-20 overflow-hidden flex flex-col justify-center min-h-[85vh] border-b border-gray-100"
     >
       <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
         <canvas ref={canvasRef} className="w-full h-full block" />
@@ -153,14 +153,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <a
                 href="#products"
                 onClick={(e) => { e.preventDefault(); handleNavClick("products"); }}
-                className="bg-brand text-white hover:bg-brand-light font-semibold px-8 py-3.5 rounded-full transition-all text-center flex items-center justify-center gap-2 group shadow-xl shadow-emerald-600/20 hover:scale-[1.03] active:scale-[0.98] cursor-pointer border-none"
+                className="bg-brand text-white hover:bg-brand-light font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all text-center flex items-center justify-center gap-2 group shadow-xl shadow-emerald-600/20 hover:scale-[1.03] active:scale-[0.98] cursor-pointer border-none"
               >
                 <span>{t.hero.cta1}</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <button
                 onClick={() => setConsultModalOpen(true)}
-                className="bg-white hover:bg-gray-50 border border-gray-250 text-gray-800 font-semibold px-8 py-3.5 rounded-full transition-all text-center tracking-wide cursor-pointer text-sm hover:scale-[1.03] active:scale-[0.98] shadow-xs"
+                className="bg-white hover:bg-gray-50 border border-gray-250 text-gray-800 font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all text-center tracking-wide cursor-pointer text-sm hover:scale-[1.03] active:scale-[0.98] shadow-xs"
               >
                 {t.hero.cta2}
               </button>
@@ -168,7 +168,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           <div className="xl:col-span-5 relative flex justify-center xl:justify-end">
-            <div className="w-full max-w-[420px] aspect-square rounded-3xl overflow-hidden relative group shadow-2xl border-4 border-gray-150 transition-all duration-500">
+            <div className="w-full max-w-[420px] aspect-square rounded-2xl sm:rounded-3xl overflow-hidden relative group shadow-2xl border-4 border-gray-150 transition-all duration-500">
               <img
                 src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop"
                 alt="Mountains of Nepal"
@@ -177,7 +177,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-brand/20" />
 
-              <div className="absolute top-8 left-8 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl float-bob border border-brand-border">
+              <div className="absolute top-6 sm:top-8 left-6 sm:left-8 p-3 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl float-bob border border-brand-border">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-green-50 rounded-lg">
                     <BookOpen className="h-6 w-6 text-brand" />
@@ -189,7 +189,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
               </div>
 
-              <div className="absolute bottom-8 right-8 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl float-bob border border-brand-border" style={{ animationDelay: '1s' }}>
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 p-3 sm:p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl float-bob border border-brand-border" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-green-50 rounded-lg">
                     <Leaf className="h-6 w-6 text-brand animate-pulse" />
@@ -202,7 +202,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-24 w-24 bg-white rounded-2xl overflow-hidden flex items-center justify-center shadow-2xl animate-pulse border-4 border-white">
+                <div className="h-20 w-20 sm:h-24 sm:w-24 bg-white rounded-2xl overflow-hidden flex items-center justify-center shadow-2xl animate-pulse border-4 border-white">
                   <img src={safalLogo} alt="Safal AI Logo" className="h-full w-full object-cover" />
                 </div>
               </div>

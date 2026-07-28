@@ -45,7 +45,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <span className="section-badge">
                 Let's Collaborate
               </span>
-              <h2 className="font-display text-4xl font-extrabold text-gray-900 tracking-tight leading-tight mt-3">
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight mt-3">
                 Get In Touch
               </h2>
               <p className="text-gray-600 leading-relaxed text-sm">
@@ -58,30 +58,30 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 Direct Team Contacts
               </h3>
               <div className="space-y-3 text-xs text-gray-600">
-                <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-1.5 border-b border-gray-100 gap-1">
                   <div>
                     <h4 className="font-semibold text-gray-900 text-xs">Uday Ram Jaishi</h4>
                     <p className="text-[10px] text-gray-600">Chief Executive Officer (CEO)</p>
                   </div>
-                  <a href="mailto:uday@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
+                  <a href="mailto:uday@safalai.org" className="text-brand hover:underline font-mono text-[10px] break-all sm:break-normal">
                     uday@safalai.org
                   </a>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-gray-100">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-1.5 border-b border-gray-100 gap-1">
                   <div>
                     <h4 className="font-semibold text-gray-900 text-xs">Ishwor Dhungana</h4>
                     <p className="text-[10px] text-gray-600">Lead AI Trainer</p>
                   </div>
-                  <a href="mailto:ishwor@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
+                  <a href="mailto:ishwor@safalai.org" className="text-brand hover:underline font-mono text-[10px] break-all sm:break-normal">
                     ishwor@safalai.org
                   </a>
                 </div>
-                <div className="flex justify-between items-center py-1.5">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-1.5 gap-1">
                   <div>
                     <h4 className="font-semibold text-gray-900 text-xs">Kamram Muazzam</h4>
                     <p className="text-[10px] text-gray-600">AI Solution Engineer</p>
                   </div>
-                  <a href="mailto:kamram@safalai.org" className="text-brand hover:underline font-mono text-[10px]">
+                  <a href="mailto:kamram@safalai.org" className="text-brand hover:underline font-mono text-[10px] break-all sm:break-normal">
                     kamram@safalai.org
                   </a>
                 </div>

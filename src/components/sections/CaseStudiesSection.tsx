@@ -50,7 +50,7 @@ export const CaseStudiesSection: React.FC = () => {
               className="flex flex-col xl:grid xl:grid-cols-12 gap-8 items-stretch transition-all duration-500 animate-none"
             >
               {/* Left Side Content grid */}
-              <div className="xl:col-span-6 bg-white border border-gray-200 rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-sm">
+              <div className="xl:col-span-6 bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between shadow-sm">
                 <div className="space-y-6">
                   <div className="flex items-center gap-3">
                     <span className="text-[10px] font-mono font-bold text-brand uppercase tracking-widest bg-emerald-50 border border-emerald-200 px-3 py-1 rounded shadow-xs">

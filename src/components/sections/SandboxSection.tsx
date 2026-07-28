@@ -43,7 +43,7 @@ export const SandboxSection: React.FC<SandboxSectionProps> = ({
       <div className="flex flex-col xl:grid xl:grid-cols-12 gap-8 items-stretch">
 
         {/* Parameter controls panel */}
-        <div className="xl:col-span-4 bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm">
+        <div className="xl:col-span-4 bg-white border border-gray-200 rounded-3xl p-5 sm:p-6 lg:p-8 flex flex-col justify-between shadow-sm">
           <div className="space-y-6">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-gray-700 block border-b border-gray-100 pb-3">
               Sandbox Parameters

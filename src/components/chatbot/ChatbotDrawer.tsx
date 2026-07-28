@@ -31,7 +31,7 @@ export const ChatbotDrawer: React.FC<ChatbotDrawerProps> = ({
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 pointer-events-none select-none">
       <div
         id="chatbot-drawer"
-        className="w-80 sm:w-96 max-w-[calc(100vw-2rem)] h-[480px] bg-dark-secondary dark-section rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden pointer-events-auto transition-all duration-300 transform scale-100 opacity-100 mb-2"
+        className="w-80 sm:w-96 max-w-[calc(100vw-2rem)] h-[min(480px,calc(100vh-8rem))] bg-dark-secondary dark-section rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden pointer-events-auto transition-all duration-300 transform scale-100 opacity-100 mb-2"
       >
         {/* Header branding */}
         <div className="bg-[#0F172A] px-5 py-4 border-b border-white/10 flex items-center justify-between">
