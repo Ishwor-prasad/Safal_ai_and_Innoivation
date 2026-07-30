@@ -389,7 +389,8 @@ export const TEAM_MEMBERS_NE: TeamMember[] = [
     avatarInitials: "KM",
     avatarBg: "from-[#00C853] to-[#009688]",
     email: "kamran@safalai.com.np",
-    phone: "+977 9851 303030"
+    phone: "+977 9851 303030",
+    profileImage: "/kamran_muazzam.png"
   }
 ];
 
