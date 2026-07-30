@@ -418,12 +418,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "team-kamram",
-    name: "Kamram Muazzam",
-    position: "AI Solution Engineer",
-    description: "Designing and developing AI-powered solutions, automation systems and innovative digital products tailored to organizational needs.",
+    name: "Kamran Muazzam",
+    position: "AI Solutions Engineer",
+    description: "Specializing in AI for healthcare & medicine, clinical decision support, medical data analysis, and digital health innovation.",
     avatarInitials: "KM",
     avatarBg: "from-[#00C853] to-[#009688]",
-    email: "kamram@safalai.com.np",
+    email: "kamran@safalai.com.np",
     phone: "+977 9851 303030"
   }
 ];

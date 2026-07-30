@@ -383,12 +383,12 @@ export const TEAM_MEMBERS_NE: TeamMember[] = [
   },
   {
     id: "team-kamram",
-    name: "कामराम मुअज्जम",
+    name: "कामरान मुअज्जम",
     position: "AI सोलुसन इन्जिनियर",
-    description: "संस्थागत आवश्यकता अनुसार अनुकूलित AI-द्वारा संचालित समाधान, स्वचालन प्रणाली र नवीन डिजिटल उत्पादनहरूको डिजाइन र विकास गर्दै।",
+    description: "स्वास्थ्य र चिकित्सा क्षेत्रमा AI प्रयोग, क्लिनिकल निर्णय सहयोग, मेडिकल डेटा विश्लेषण र डिजिटल स्वास्थ्य प्रविधिहरूमा विशेषज्ञ।",
     avatarInitials: "KM",
     avatarBg: "from-[#00C853] to-[#009688]",
-    email: "kamram@safalai.com.np",
+    email: "kamran@safalai.com.np",
     phone: "+977 9851 303030"
   }
 ];
