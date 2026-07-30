@@ -68,16 +68,18 @@ export const TeamSection: React.FC = () => {
               </div>
 
               <div className="pt-6 mt-6 border-t border-gray-150 w-full flex flex-col items-center gap-2.5 relative z-10">
-                <a
-                  href={member.linkedinUrl}
-                  target="_blank"
-                  referrerPolicy="no-referrer"
-                  rel="noopener noreferrer"
-                  className="h-9 w-9 rounded-xl bg-gray-50 hover:bg-[#0A66FF] border border-gray-200 hover:border-transparent text-gray-500 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
-                  title={`Connect with ${member.name} on LinkedIn`}
-                >
-                  <Linkedin className="h-4 w-4" />
-                </a>
+                {member.linkedinUrl && (
+                  <a
+                    href={member.linkedinUrl}
+                    target="_blank"
+                    referrerPolicy="no-referrer"
+                    rel="noopener noreferrer"
+                    className="h-9 w-9 rounded-xl bg-gray-50 hover:bg-[#0A66FF] border border-gray-200 hover:border-transparent text-gray-500 hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
+                    title={`Connect with ${member.name} on LinkedIn`}
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+                )}
                 <a
                   href={`mailto:${member.email}`}
                   className="text-[11px] font-mono text-gray-500 hover:text-brand transition-colors"
