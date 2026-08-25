@@ -77,6 +77,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         setConsultModalOpen={setConsultModalOpen}
       />
 
+      <PartnersSection />
+
       <SolutionsSection
         stats={stats}
         setConsultModalOpen={setConsultModalOpen}
@@ -90,6 +92,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       <SandboxSection {...sandboxProps} />
 
+      <TestimonialsSection />
+
       <CaseStudiesSection />
 
       <LearningHubSection
@@ -98,10 +102,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         setConsultMessage={setConsultMessage}
         setConsultModalOpen={setConsultModalOpen}
       />
-
-      <TestimonialsSection />
-
-      <PartnersSection />
 
       <AboutSection />
 
