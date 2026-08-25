@@ -389,7 +389,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Uday Ram Jaishi",
     position: "Chief Executive Officer (CEO)",
     description: "Leading SAFAL AI's vision, partnerships and innovation initiatives to accelerate AI adoption across Nepal.",
-    linkedinUrl: "https://linkedin.com/in/uday-ram-jaishi",
     avatarInitials: "URJ",
     avatarBg: "from-[#0A66FF] to-[#00F0FF]",
     email: "uday@safalai.com.np",
@@ -401,7 +400,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Ishwor Dhungana",
     position: "Lead AI Trainer",
     description: "Specialized in AI education, teacher empowerment, professional development and practical AI implementation for schools and organizations.",
-    linkedinUrl: "https://linkedin.com/in/ishwor-dhungana",
+    linkedinUrl: "https://www.linkedin.com/in/ishwor-dhungana-b1432a306/",
     avatarInitials: "ID",
     avatarBg: "from-[#8A2BE2] to-[#FF007F]",
     email: "ishwor@safalai.com.np",
@@ -413,7 +412,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Ram Tamang",
     position: "Full Stack Developer & Product Lead",
     description: "Building innovative web solutions, driving technical architecture and ensuring seamless user experiences for SAFAL AI's digital ecosystem.",
-    linkedinUrl: "https://ram.tamang.com.np",
+    linkedinUrl: "https://www.linkedin.com/in/ram-tamang-a73241198/",
     avatarInitials: "RT",
     avatarBg: "from-[#22C55E] to-[#84CC16]",
     email: "ram@safalai.com.np",
@@ -422,14 +421,14 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "team-kamram",
-    name: "Kamram Muazzam",
-    position: "AI Solution Engineer",
-    description: "Designing and developing AI-powered solutions, automation systems and innovative digital products tailored to organizational needs.",
-    linkedinUrl: "https://linkedin.com/in/kamram-muazzam",
+    name: "Kamran Muazzam",
+    position: "AI Solutions Engineer",
+    description: "Specializing in AI for healthcare & medicine, clinical decision support, medical data analysis, and digital health innovation.",
     avatarInitials: "KM",
     avatarBg: "from-[#00C853] to-[#009688]",
-    email: "kamram@safalai.com.np",
-    phone: "+977 9851 303030"
+    email: "kamran@safalai.com.np",
+    phone: "+977 9851 303030",
+    profileImage: "/kamran_muazzam.png"
   }
 ];
 

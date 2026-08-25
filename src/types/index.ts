@@ -78,7 +78,7 @@ export interface TeamMember {
   name: string;
   position: string;
   description: string;
-  linkedinUrl: string;
+  linkedinUrl?: string;
   avatarInitials: string;
   avatarBg: string;
   email: string;

@@ -351,7 +351,6 @@ export const TEAM_MEMBERS_NE: TeamMember[] = [
     name: "उदय राम जैसी",
     position: "मुख्य कार्यकारी अधिकृत (CEO)",
     description: "नेपालभर AI को पहुँच र प्रयोग बढाउन SAFAL AI को दृष्टिकोण, साझेदारी र नवीनता पहलहरूको नेतृत्व गर्दै।",
-    linkedinUrl: "https://linkedin.com/in/uday-ram-jaishi",
     avatarInitials: "URJ",
     avatarBg: "from-[#0A66FF] to-[#00F0FF]",
     email: "uday@safalai.com.np",
@@ -363,7 +362,7 @@ export const TEAM_MEMBERS_NE: TeamMember[] = [
     name: "ईश्वर ढुङ्गाना",
     position: "प्रमुख AI प्रशिक्षक",
     description: "विद्यालय र संस्थाहरूको लागि AI शिक्षा, शिक्षक सशक्तिकरण, व्यावसायिक विकास र व्यावहारिक कार्यान्वयनमा विशेषज्ञ।",
-    linkedinUrl: "https://linkedin.com/in/ishwor-dhungana",
+    linkedinUrl: "https://www.linkedin.com/in/ishwor-dhungana-b1432a306/",
     avatarInitials: "ID",
     avatarBg: "from-[#8A2BE2] to-[#FF007F]",
     email: "ishwor@safalai.com.np",
@@ -375,7 +374,7 @@ export const TEAM_MEMBERS_NE: TeamMember[] = [
     name: "राम तामाङ",
     position: "फुल स्ट्याक डेभलपर र प्रोडक्ट लिड",
     description: "SAFAL AI को डिजिटल प्रणालीको लागि प्राविधिक संरचना तयार गर्ने, नयाँ वेब समाधानहरू बनाउने र उत्कृष्ट प्रयोगकर्ता अनुभव सुनिश्चित गर्ने।",
-    linkedinUrl: "https://ram.tamang.com.np",
+    linkedinUrl: "https://www.linkedin.com/in/ram-tamang-a73241198/",
     avatarInitials: "RT",
     avatarBg: "from-[#22C55E] to-[#84CC16]",
     email: "ram@safalai.com.np",
@@ -384,14 +383,14 @@ export const TEAM_MEMBERS_NE: TeamMember[] = [
   },
   {
     id: "team-kamram",
-    name: "कामराम मुअज्जम",
+    name: "कामरान मुअज्जम",
     position: "AI सोलुसन इन्जिनियर",
-    description: "संस्थागत आवश्यकता अनुसार अनुकूलित AI-द्वारा संचालित समाधान, स्वचालन प्रणाली र नवीन डिजिटल उत्पादनहरूको डिजाइन र विकास गर्दै।",
-    linkedinUrl: "https://linkedin.com/in/kamram-muazzam",
+    description: "स्वास्थ्य र चिकित्सा क्षेत्रमा AI प्रयोग, क्लिनिकल निर्णय सहयोग, मेडिकल डेटा विश्लेषण र डिजिटल स्वास्थ्य प्रविधिहरूमा विशेषज्ञ।",
     avatarInitials: "KM",
     avatarBg: "from-[#00C853] to-[#009688]",
-    email: "kamram@safalai.com.np",
-    phone: "+977 9851 303030"
+    email: "kamran@safalai.com.np",
+    phone: "+977 9851 303030",
+    profileImage: "/kamran_muazzam.png"
   }
 ];
 
