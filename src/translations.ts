@@ -567,7 +567,7 @@ export const translations: Record<string, any> = {
       badge: "Empowering Nepal Through Artificial Intelligence",
       title: "Pioneering AI Solutions &",
       titleAccent: "Capacity Building for Nepal",
-      description: "SAFAL AI and Innovation Centre deploys curriculum-aligned educational systems, robust customized business workflows, and inclusive public governance templates nationwide.",
+      description: "We build AI tools that save teachers hours of prep, help businesses automate workflows, and enable governments to digitize public services — all built for Nepal's unique needs.",
       cta1: "Explore Solutions",
       cta2: "Book Consultation"
     }
@@ -577,7 +577,7 @@ export const translations: Record<string, any> = {
       badge: "नेपाललाई एआई मार्फत सबल बनाउँदै",
       title: "अग्रणी AI समाधान र",
       titleAccent: "नेपालको लागि क्षमता अभिवृद्धि",
-      description: "सफल एआई र इनोभेशन सेन्टरले देशभर पाठ्यक्रम-अनुकूल शैक्षिक प्रणाली, बलियो अनुकूलित व्यावसायिक कार्यप्रवाह, र समावेशी सार्वजनिक सुशासन ढाँचाहरू सञ्चालन गर्दछ।",
+      description: "हामी AI उपकरणहरू बनाउँछौं जसले शिक्षकहरूलाई घण्टौंको तयारी बचत गर्छ, व्यवसायहरूलाई कार्यप्रवाह स्वचालित गर्न मद्दत गर्छ, र सरकारहरूलाई सार्वजनिक सेवाहरू डिजिटलाइज गर्न सक्षम बनाउँछ — नेपालको अद्वितीय आवश्यकताहरूका लागि निर्मित।",
       cta1: "समाधानहरू हेर्नुहोस्",
       cta2: "परामर्श लिनुहोस्"
     }

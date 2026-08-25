@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, Calendar, BookOpen } from "lucide-react";
+import { ArrowRight, Calendar, BookOpen, CheckCircle } from "lucide-react";
 
 interface HeroSectionProps {
   t: any;
@@ -50,14 +50,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {t.hero.cta2}
               </button>
             </div>
+
+            {/* Social proof strip */}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1">
+              {[
+                "CDC Aligned",
+                "12+ Districts",
+                "500+ Teachers Trained"
+              ].map((item) => (
+                <span key={item} className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
+                  <CheckCircle className="h-3.5 w-3.5 text-brand" />
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {/* Editorial photograph */}
+          {/* Editorial photograph — Kathmandu, Nepal */}
           <div className="lg:col-span-6 w-full">
             <div className="relative w-full aspect-[4/3] lg:aspect-[5/4] rounded-xl overflow-hidden bg-slate-100 shadow-[0_24px_60px_-24px_rgba(15,23,42,0.25)]">
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80&auto=format&fit=crop"
-                alt="Students and professionals learning together with laptops during an AI training session"
+                src="https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=1200&q=80&auto=format&fit=crop"
+                alt="Kathmandu, Nepal — temples and heritage architecture in the Kathmandu Valley"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/45 to-transparent pointer-events-none" />
