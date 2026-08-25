@@ -36,10 +36,10 @@ export const LearningHubSection: React.FC<LearningHubSectionProps> = ({
 
         {/* Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="bg-surface-muted border border-gray-200 p-1 rounded-lg flex gap-1">
+          <div className="bg-surface-muted border border-gray-200 p-1 rounded-lg flex flex-wrap justify-center gap-1">
             <button
               onClick={() => setLearningTab("training")}
-              className={`px-5 py-2.5 rounded-md text-sm font-medium transition-colors cursor-pointer border-none ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-md text-xs sm:text-sm font-medium transition-colors cursor-pointer border-none ${
                 learningTab === "training"
                   ? "bg-white shadow-sm text-gray-900 font-semibold"
                   : "text-gray-500 hover:text-gray-800"
@@ -49,7 +49,7 @@ export const LearningHubSection: React.FC<LearningHubSectionProps> = ({
             </button>
             <button
               onClick={() => setLearningTab("research")}
-              className={`px-5 py-2.5 rounded-md text-sm font-medium transition-colors cursor-pointer border-none ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-md text-xs sm:text-sm font-medium transition-colors cursor-pointer border-none ${
                 learningTab === "research"
                   ? "bg-white shadow-sm text-gray-900 font-semibold"
                   : "text-gray-500 hover:text-gray-800"
