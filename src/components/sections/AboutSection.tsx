@@ -27,7 +27,7 @@ export const AboutSection: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
 
-              <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 space-y-3">
+              <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 space-y-3 transition-colors hover:border-amber-400/30 hover:bg-white/[0.06]">
                 <div className="flex items-center gap-2.5">
                   <Target className="h-4.5 w-4.5 text-amber-400" />
                   <h3 className="text-sm font-semibold text-white">Our Mission</h3>
@@ -37,7 +37,7 @@ export const AboutSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 space-y-3">
+              <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 space-y-3 transition-colors hover:border-amber-400/30 hover:bg-white/[0.06]">
                 <div className="flex items-center gap-2.5">
                   <Eye className="h-4.5 w-4.5 text-amber-400" />
                   <h3 className="text-sm font-semibold text-white">Our Vision</h3>
