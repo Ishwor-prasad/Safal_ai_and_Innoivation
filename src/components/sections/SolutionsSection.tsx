@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { BookOpen, GraduationCap, Sliders, Terminal, Briefcase, Building, Users, ArrowRight, Calendar } from "lucide-react";
+import { BookOpen, GraduationCap, Sliders, Terminal, Briefcase, ArrowRight, Calendar } from "lucide-react";
 import { SERVICES, INDUSTRIES } from "../../data";
 
 interface SolutionsSectionProps {
-  stats: { trained: number; workshops: number; partners: number; learners: number };
   setConsultModalOpen: (open: boolean) => void;
 }
 
@@ -14,42 +13,13 @@ const industryImages = [
   { src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format&fit=crop", alt: "Development team collaborating around a table" }
 ];
 
-const STATS_LABELS = [
-  "Professionals trained",
-  "Workshops conducted",
-  "Partner institutions",
-  "Learners impacted"
-];
-
 export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
-  stats,
   setConsultModalOpen
 }) => {
   const [solutionsTab, setSolutionsTab] = useState<"solutions" | "industries">("solutions");
-  const statValues = [stats.trained, stats.workshops, stats.partners, stats.learners];
 
   return (
     <>
-      {/* STATISTICS */}
-      <section id="statistics" className="bg-white border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10">
-            {statValues.map((value, i) => (
-              <div
-                key={STATS_LABELS[i]}
-                className={`text-center px-4 ${i > 0 ? "md:border-l md:border-gray-200" : ""}`}
-                id={`stat-${i}`}
-              >
-                <div className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-gray-900 tracking-tight">
-                  {value}<span className="text-brand">+</span>
-                </div>
-                <p className="text-xs sm:text-sm text-gray-500 mt-2">{STATS_LABELS[i]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SOLUTIONS & INDUSTRIES */}
       <section id="solutions" className="py-20 sm:py-24 bg-surface-soft scroll-mt-16 border-b border-gray-200">
         <div id="industries" className="relative top-0" />

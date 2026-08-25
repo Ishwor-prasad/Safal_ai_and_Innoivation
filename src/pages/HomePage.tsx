@@ -4,6 +4,7 @@ import { SolutionsSection } from "../components/sections/SolutionsSection";
 import { ProductsSection } from "../components/sections/ProductsSection";
 import { SandboxSection } from "../components/sections/SandboxSection";
 import { CaseStudiesSection } from "../components/sections/CaseStudiesSection";
+import { StatsSection } from "../components/sections/StatsSection";
 import { LearningHubSection } from "../components/sections/LearningHubSection";
 import { TestimonialsSection } from "../components/sections/TestimonialsSection";
 import { PartnersSection } from "../components/sections/PartnersSection";
@@ -61,14 +62,6 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   const [selectedSyllabusProg, setSelectedSyllabusProg] = useState<TrainingProgram | null>(null);
 
-  // Animated Stats State (Simulated on Mount)
-  const [stats] = useState({
-    trained: 500,
-    workshops: 50,
-    partners: 20,
-    learners: 1000
-  });
-
   return (
     <>
       <HeroSection
@@ -80,7 +73,6 @@ export const HomePage: React.FC<HomePageProps> = ({
       <PartnersSection />
 
       <SolutionsSection
-        stats={stats}
         setConsultModalOpen={setConsultModalOpen}
       />
 
@@ -95,6 +87,8 @@ export const HomePage: React.FC<HomePageProps> = ({
       <TestimonialsSection />
 
       <CaseStudiesSection />
+
+      <StatsSection />
 
       <LearningHubSection
         setSelectedSyllabusProg={setSelectedSyllabusProg}
