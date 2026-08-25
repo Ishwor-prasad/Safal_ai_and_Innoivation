@@ -191,7 +191,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <button
                 type="submit"
                 disabled={consultSubmitting}
-                className="w-full bg-brand hover:bg-brand-light disabled:bg-gray-600 text-white font-semibold py-3 rounded-xl transition-all shadow-md text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-none ring-pulse"
+                className="w-full bg-brand hover:bg-brand-dark disabled:bg-gray-600 text-white font-semibold py-3 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer border-none"
               >
                 <span>Request Placement Slot</span>
                 <Calendar className="h-4 w-4" />

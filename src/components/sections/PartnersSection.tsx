@@ -11,16 +11,13 @@ export const PartnersSection: React.FC = () => {
   });
 
   return (
-    <section className="py-16 dark-section border-b border-white/10">
+    <section className="py-14 sm:py-16 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center max-w-xl mx-auto space-y-1 mb-10">
-          <h3 className="font-display text-lg font-bold text-white tracking-tight">
-            Trusted By
+        <div className="text-center space-y-2 mb-8">
+          <h3 className="font-display text-base font-semibold text-gray-900 tracking-tight">
+            Trusted by schools, colleges, municipalities &amp; enterprises across Nepal
           </h3>
-          <p className="text-xs text-slate-300 font-normal uppercase tracking-wider font-mono">
-            Schools, Colleges, Enterprises &amp; Municipal Governments
-          </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-8" id="partner-tabs">
@@ -28,43 +25,35 @@ export const PartnersSection: React.FC = () => {
             <button
               key={cat}
               onClick={() => setActivePartnerFilter(cat)}
-              className={`px-4 py-1.5 rounded-full text-[10px] font-mono tracking-wider transition-all cursor-pointer ${
+              className={`px-4 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer border ${
                 activePartnerFilter === cat
-                  ? "bg-brand text-white font-semibold shadow-md shadow-emerald-600/20"
-                  : "bg-slate-800/80 text-slate-300 hover:text-white border border-slate-700"
+                  ? "bg-gray-900 text-white border-gray-900"
+                  : "bg-white text-gray-500 hover:text-gray-800 border-gray-200"
               }`}
             >
-              {cat}s
+              {cat === "All" ? "All" : `${cat}s`}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4" id="partner-logos-grid">
-          {filteredPartners.map((p: PartnerOrg) => {
-            const typesColors: Record<string, string> = {
-              School: "border-white/15 bg-white/5 hover:border-emerald-500/50",
-              College: "border-white/15 bg-white/5 hover:border-emerald-400/50",
-              Municipality: "border-white/15 bg-white/5 hover:border-emerald-500/50",
-              Enterprise: "border-white/15 bg-white/5 hover:border-teal-400/50",
-              Partner: "border-white/15 bg-white/5 hover:border-emerald-400/50"
-            };
-            const colorClass = typesColors[p.category] || "border-white/15 bg-white/5";
-            return (
-              <div
-                key={p.id}
-                id={`partner-card-${p.id}`}
-                className={`border ${colorClass} rounded-xl p-4 flex flex-col items-center justify-center text-center group cursor-default transition-all duration-300 hover:scale-[1.02]`}
-                title={p.name}
-              >
-                <span className="text-xs font-display font-semibold text-slate-200 group-hover:text-white transition-colors uppercase tracking-wider block">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3" id="partner-logos-grid">
+          {filteredPartners.map((p: PartnerOrg) => (
+            <div
+              key={p.id}
+              id={`partner-card-${p.id}`}
+              className="border border-gray-200 bg-surface-soft rounded-lg px-4 py-5 flex items-center justify-center text-center transition-colors hover:border-gray-300"
+              title={p.name}
+            >
+              <div>
+                <span className="text-sm font-display font-semibold text-gray-700 tracking-wide block">
                   {p.logoText}
                 </span>
-                <span className="text-[10px] font-mono text-emerald-400 tracking-widest mt-1 block uppercase font-semibold">
+                <span className="text-[10px] text-gray-400 uppercase tracking-wider mt-1 block">
                   {p.category}
                 </span>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
       </div>

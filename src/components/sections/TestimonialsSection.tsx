@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TESTIMONIALS } from "../../data";
 
 export const TestimonialsSection: React.FC = () => {
@@ -12,25 +12,23 @@ export const TestimonialsSection: React.FC = () => {
   const testimonial = activeTestimonials[idx] || activeTestimonials[0];
 
   return (
-    <section id="testimonials" className="py-24 bg-[#070b16] dark-section border-y border-dark-slate relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand/5 rounded-full filter blur-[120px] pointer-events-none" />
+    <section id="testimonials" className="py-20 sm:py-24 dark-section scroll-mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-          <span className="text-xs font-semibold text-emerald-400 font-mono tracking-widest uppercase block">
-            Global Feedback
+        <div className="text-center max-w-2xl mx-auto space-y-4 mb-10">
+          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-emerald-400 block">
+            Testimonials
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            What Our Participants Say
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            What participants say
           </h2>
-          <p className="text-slate-300 font-normal">
-            Read how teachers, professionals, software engineers, and community executives leverage our tools to restructure efficiency.
+          <p className="text-slate-400 leading-relaxed">
+            Teachers, professionals, and organizations we have trained and worked alongside.
           </p>
         </div>
 
-        {/* Testimonial Tabs */}
-        <div className="flex justify-center gap-3 mb-12" id="testimonial-tabs">
+        {/* Category tabs */}
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 border-b border-white/10 max-w-xl mx-auto">
           {(["Teacher", "Professional", "Organization"] as const).map((cat) => (
             <button
               key={cat}
@@ -38,63 +36,56 @@ export const TestimonialsSection: React.FC = () => {
                 setActiveTestimonialCategory(cat);
                 setActiveTestimonialIdx(0);
               }}
-              className={`px-5 py-2.5 rounded-full text-xs font-mono font-medium tracking-wider transition-all cursor-pointer border ${
+              className={`pb-3 pt-1 text-sm transition-colors cursor-pointer bg-transparent border-0 border-b-2 -mb-px ${
                 activeTestimonialCategory === cat
-                  ? "bg-brand text-white border-brand shadow-lg shadow-emerald-600/20 font-semibold"
-                  : "bg-slate-800/80 text-slate-200 hover:text-white border-slate-700 hover:border-emerald-500/50"
+                  ? "text-white font-semibold border-brand"
+                  : "text-slate-400 hover:text-slate-200 font-medium border-transparent"
               }`}
             >
-              {cat} Testimonials
+              {cat}s
             </button>
           ))}
         </div>
 
-        {/* Active reviews sliding block */}
         {testimonial && (
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-3xl mx-auto">
             <div
               id={`testimonial-card-${testimonial.id}`}
-              className="bg-white/[0.03] border border-white/15 rounded-3xl p-8 sm:p-12 relative shadow-2xl backdrop-blur-md overflow-hidden flex flex-col justify-between min-h-[280px]"
+              className="bg-white/[0.04] border border-white/10 rounded-xl p-6 sm:p-10 lg:p-12 flex flex-col justify-between min-h-[260px]"
             >
-              <div className="absolute top-6 right-8 text-brand/10 pointer-events-none text-9xl font-serif select-none">
-                “
-              </div>
-              <div className="space-y-4 relative z-10">
-                <div className="text-brand text-4xl font-serif">“</div>
-                <p className="text-slate-100 text-base sm:text-lg leading-relaxed italic font-normal">
-                  {testimonial.quote}
-                </p>
-              </div>
+              <p className="text-slate-100 text-base sm:text-lg leading-relaxed">
+                “{testimonial.quote}”
+              </p>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-white/10 mt-8 relative z-10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pt-7 mt-7 border-t border-white/10">
                 <div className="flex items-center gap-4">
-                  <div className={`h-11 w-11 rounded-full ${testimonial.avatarBg || "bg-brand"} flex items-center justify-center font-bold text-white text-xs border border-white/20 shrink-0 shadow-md`}>
-                    {testimonial.author.split(" ").map((n) => n[0]).join("")}
+                  <div className={`h-11 w-11 rounded-full ${testimonial.avatarBg || "bg-slate-600"} flex items-center justify-center font-semibold text-white text-xs shrink-0`}>
+                    {testimonial.author.split(" ").filter(w => !w.includes(".")).map((n) => n[0]).slice(0, 2).join("")}
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white tracking-tight">{testimonial.author}</h4>
-                    <p className="text-xs text-slate-300 font-light">{testimonial.role}</p>
-                    <p className="text-[10px] text-emerald-400 font-mono font-medium">{testimonial.institution}</p>
+                    <h4 className="text-sm font-semibold text-white">{testimonial.author}</h4>
+                    <p className="text-xs text-slate-400 mt-0.5">{testimonial.role}</p>
+                    <p className="text-xs text-emerald-400 mt-0.5">{testimonial.institution}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3 self-start sm:self-auto">
                   <button
                     onClick={() => setActiveTestimonialIdx((prev) => (prev - 1 + totalTestimonials) % totalTestimonials)}
-                    className="h-9 w-9 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white flex items-center justify-center transition-all cursor-pointer"
-                    title="Previous review"
+                    className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-200 flex items-center justify-center transition-colors cursor-pointer"
+                    aria-label="Previous testimonial"
                   >
-                    <ChevronRight className="h-4 w-4 rotate-180 text-white" />
+                    <ChevronLeft className="h-4 w-4" />
                   </button>
-                  <span className="text-[10px] font-mono text-gray-500">
+                  <span className="text-xs text-slate-500 tabular-nums">
                     {idx + 1} / {totalTestimonials}
                   </span>
                   <button
                     onClick={() => setActiveTestimonialIdx((prev) => (prev + 1) % totalTestimonials)}
-                    className="h-9 w-9 rounded-full bg-brand/10 border border-brand/20 hover:bg-brand text-white flex items-center justify-center transition-all cursor-pointer"
-                    title="Next review"
+                    className="h-9 w-9 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-slate-200 flex items-center justify-center transition-colors cursor-pointer"
+                    aria-label="Next testimonial"
                   >
-                    <ChevronRight className="h-4 w-4 text-white" />
+                    <ChevronRight className="h-4 w-4" />
                   </button>
                 </div>
               </div>

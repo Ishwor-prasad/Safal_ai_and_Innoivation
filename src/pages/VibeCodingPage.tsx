@@ -20,7 +20,7 @@ export const VibeCodingPage: React.FC<VibeCodingPageProps> = ({
   return (
     <div className="bg-white flex-1 animate-fade-in">
       {/* Course Hero Banner */}
-      <div className="relative bg-gradient-to-br from-white via-[#f5f5f7] to-white pt-36 pb-20 overflow-hidden border-b border-gray-250">
+      <div className="relative bg-gradient-to-br from-white via-[#f5f5f7] to-white pt-24 pb-12 sm:pt-36 sm:pb-20 overflow-hidden border-b border-gray-250">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-[500px] h-[300px] bg-green-400/5 rounded-full blur-[100px]" />
           <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-brand/5 rounded-full blur-[120px]" />
