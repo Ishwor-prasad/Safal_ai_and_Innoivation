@@ -344,7 +344,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "SAFAL Teacher AI returned Sundays back to our teachers. Instead of getting bogged down in formatting CDC lesson grids, our teachers are actively working on student interactions.",
     author: "Prasanna Shrestha",
     role: "Secondary Level Mathematics Department Head",
-    gradient: "from-green-800/40 via-slate-900 to-emerald-950/30"
+    gradient: "from-green-800/40 via-slate-900 to-emerald-950/30",
+    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=900&q=80&auto=format&fit=crop"
   },
   {
     id: "case-biz",
@@ -360,7 +361,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "Integrating SAFAL Business AI has liberated our technical department from repetitive reports. It operates as an invaluable digital catalyst for our operations.",
     author: "Sujita Adhikari",
     role: "Director of Technical Engineering",
-    gradient: "from-teal-800/40 via-slate-900 to-emerald-950/30"
+    gradient: "from-teal-800/40 via-slate-900 to-emerald-950/30",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&auto=format&fit=crop"
   },
   {
     id: "case-gov",
@@ -376,7 +378,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "Working with SAFAL AI enabled us to transition from dusty paper archives to a fast, computerized citizen inquiry system. They are Nepal's premier partner for public sector modernization.",
     author: "Yogendra B. Thapa",
     role: "Municipal IT Coordination Lead",
-    gradient: "from-emerald-800/40 via-slate-900 to-teal-950/30"
+    gradient: "from-emerald-800/40 via-slate-900 to-teal-950/30",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80&auto=format&fit=crop"
   }
 ];
 
