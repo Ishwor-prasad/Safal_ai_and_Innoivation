@@ -126,6 +126,13 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
                         <p className="pt-4 border-t border-gray-100 text-xs text-gray-500 leading-relaxed mt-auto">
                           {s.longDescription}
                         </p>
+                        <button
+                          onClick={() => setConsultModalOpen(true)}
+                          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors cursor-pointer bg-transparent border-none p-0 self-start"
+                        >
+                          Learn more
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                        </button>
                       </div>
                     );
                   })}

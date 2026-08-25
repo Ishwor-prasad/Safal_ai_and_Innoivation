@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { TESTIMONIALS } from "../../data";
 
 export const TestimonialsSection: React.FC = () => {
@@ -93,6 +93,16 @@ export const TestimonialsSection: React.FC = () => {
           </div>
         )}
 
+        <div className="text-center mt-10">
+          <a
+            href="#contact"
+            onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+            className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold text-sm px-6 py-3 rounded-lg transition-colors cursor-pointer border-none"
+          >
+            Join 500+ professionals trained
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

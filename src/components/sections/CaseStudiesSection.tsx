@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Check, Quote } from "lucide-react";
+import { Check, Quote, ArrowRight, Calendar } from "lucide-react";
 import { CASE_STUDIES } from "../../data";
 
 export const CaseStudiesSection: React.FC = () => {
@@ -72,6 +72,25 @@ export const CaseStudiesSection: React.FC = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-3">
+                  <a
+                    href="#contact"
+                    onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+                    className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors cursor-pointer border-none"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Discuss a similar project
+                  </a>
+                  <a
+                    href="#case-studies"
+                    onClick={(e) => { e.preventDefault(); document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' }); }}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-dark transition-colors cursor-pointer bg-transparent border-none px-2"
+                  >
+                    View all case studies
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
                 </div>
               </div>
 
