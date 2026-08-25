@@ -51,9 +51,9 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     >
       <div
         id="consultation-modal-card"
-        className="w-full max-w-lg bg-[#0F172A] rounded-3xl overflow-hidden shadow-2xl border border-emerald-500/20 flex flex-col max-h-[90vh]"
+        className="w-full max-w-lg bg-[#2C2417] rounded-3xl overflow-hidden shadow-2xl border border-amber-500/20 flex flex-col max-h-[90vh]"
       >
-        <div className="bg-[#0F172A] p-6 text-white relative border-b border-slate-800">
+        <div className="bg-[#2C2417] p-6 text-white relative border-b border-slate-800">
           <button
             id="close-consult-modal"
             onClick={() => setConsultModalOpen(false)}
@@ -63,7 +63,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <X className="h-5 w-5" />
           </button>
 
-          <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wider w-fit uppercase text-emerald-400 mb-2">
+          <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wider w-fit uppercase text-amber-400 mb-2">
             <Calendar className="h-3.5 w-3.5" />
             <span>Strategic Booking Queue</span>
           </div>
@@ -77,8 +77,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
         <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-4">
           {consultSuccessMsg ? (
-            <div className="p-6 bg-emerald-950/40 border border-emerald-500/30 rounded-2xl text-emerald-300 space-y-3" id="modal-success-box">
-              <CheckCircle2 className="h-10 w-10 text-emerald-400" />
+            <div className="p-6 bg-amber-950/40 border border-amber-500/30 rounded-2xl text-amber-300 space-y-3" id="modal-success-box">
+              <CheckCircle2 className="h-10 w-10 text-amber-400" />
               <h4 className="font-display text-base font-bold text-white">Consultation Interest Logged</h4>
               <p className="text-xs font-light text-slate-200 leading-relaxed">
                 {consultSuccessMsg}
@@ -165,7 +165,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   id="consult-sector-select"
                   value={consultSector}
                   onChange={(e) => setConsultSector(e.target.value)}
-                  className="glass-input w-full px-4 py-2.5 text-xs text-white cursor-pointer [&>option]:bg-[#0F172A] [&>option]:text-white"
+                  className="glass-input w-full px-4 py-2.5 text-xs text-white cursor-pointer [&>option]:bg-[#2C2417] [&>option]:text-white"
                 >
                   <option value="Education">Academic Integration (Schools &amp; Colleges)</option>
                   <option value="Enterprise">Enterprise Workspace (SMEs, Startups)</option>
@@ -184,7 +184,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   value={consultMessage}
                   onChange={(e) => setConsultMessage(e.target.value)}
                   placeholder="Briefly share any special workflows or curricula goals you intend to transform."
-                  className="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-4 text-xs text-white focus:outline-none focus:border-emerald-500 resize-none placeholder:text-slate-400"
+                  className="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-4 text-xs text-white focus:outline-none focus:border-amber-500 resize-none placeholder:text-slate-400"
                 />
               </div>
 

@@ -9,7 +9,7 @@ export const AboutSection: React.FC = () => {
         <div className="flex flex-col xl:grid xl:grid-cols-12 gap-12 xl:gap-16 items-center">
 
           <div className="xl:col-span-7 space-y-7">
-            <span className="text-xs font-semibold uppercase tracking-[0.08em] text-emerald-400 block">
+            <span className="text-xs font-semibold uppercase tracking-[0.08em] text-amber-400 block">
               About Us
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
@@ -29,7 +29,7 @@ export const AboutSection: React.FC = () => {
 
               <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 space-y-3">
                 <div className="flex items-center gap-2.5">
-                  <Target className="h-4.5 w-4.5 text-emerald-400" />
+                  <Target className="h-4.5 w-4.5 text-amber-400" />
                   <h3 className="text-sm font-semibold text-white">Our Mission</h3>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
@@ -39,7 +39,7 @@ export const AboutSection: React.FC = () => {
 
               <div className="p-5 rounded-xl bg-white/[0.04] border border-white/10 space-y-3">
                 <div className="flex items-center gap-2.5">
-                  <Eye className="h-4.5 w-4.5 text-emerald-400" />
+                  <Eye className="h-4.5 w-4.5 text-amber-400" />
                   <h3 className="text-sm font-semibold text-white">Our Vision</h3>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
@@ -51,15 +51,15 @@ export const AboutSection: React.FC = () => {
 
             <ul className="space-y-2.5 pt-2 text-sm text-slate-300">
               <li className="flex gap-2.5 items-start">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
                 <span>Localized first — products tuned to Nepali language and administrative norms</span>
               </li>
               <li className="flex gap-2.5 items-start">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
                 <span>Inclusive by design — built to run on standard networks and modest hardware</span>
               </li>
               <li className="flex gap-2.5 items-start">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
                 <span>Your data stays yours — strict safeguards around institutional information</span>
               </li>
             </ul>
