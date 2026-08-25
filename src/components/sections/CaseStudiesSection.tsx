@@ -62,7 +62,7 @@ export const CaseStudiesSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-auto pt-6 mt-6 border-t border-gray-100">
+                <div className="mt-6 pt-6 border-t border-gray-100">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Results</h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
                     {cs.results.map((resMsg, ridx) => (
