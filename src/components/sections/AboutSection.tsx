@@ -69,8 +69,8 @@ export const AboutSection: React.FC = () => {
           <div className="xl:col-span-5 w-full">
             <div className="photo-frame aspect-[4/5] max-w-md mx-auto xl:max-w-none rounded-xl shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]">
               <img
-                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1000&q=80&auto=format&fit=crop"
-                alt="Kathmandu, Nepal — home of SAFAL AI and Innovation Centre"
+                src="https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=1000&q=80&auto=format&fit=crop"
+                alt="Kathmandu, Nepal — heritage temples and architecture in the Kathmandu Valley"
                 loading="lazy"
               />
               <div className="photo-caption">
