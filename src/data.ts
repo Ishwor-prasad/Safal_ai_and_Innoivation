@@ -379,7 +379,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     author: "Yogendra B. Thapa",
     role: "Municipal IT Coordination Lead",
     gradient: "from-emerald-800/40 via-slate-900 to-teal-950/30",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=900&q=80&auto=format&fit=crop"
   }
 ];
 

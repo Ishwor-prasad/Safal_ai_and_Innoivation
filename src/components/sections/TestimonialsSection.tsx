@@ -16,7 +16,7 @@ export const TestimonialsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center max-w-2xl mx-auto space-y-4 mb-10">
-          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-emerald-400 block">
+          <span className="text-xs font-semibold uppercase tracking-[0.08em] text-amber-400 block">
             Testimonials
           </span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -59,13 +59,13 @@ export const TestimonialsSection: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pt-7 mt-7 border-t border-white/10">
                 <div className="flex items-center gap-4">
-                  <div className={`h-11 w-11 rounded-full ${testimonial.avatarBg || "bg-slate-600"} flex items-center justify-center font-semibold text-white text-xs shrink-0`}>
+                  <div className="h-11 w-11 rounded-full bg-stone-600 flex items-center justify-center font-semibold text-stone-50 text-xs shrink-0">
                     {testimonial.author.split(" ").filter(w => !w.includes(".")).map((n) => n[0]).slice(0, 2).join("")}
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-white">{testimonial.author}</h4>
                     <p className="text-xs text-slate-400 mt-0.5">{testimonial.role}</p>
-                    <p className="text-xs text-emerald-400 mt-0.5">{testimonial.institution}</p>
+                    <p className="text-xs text-amber-400 mt-0.5">{testimonial.institution}</p>
                   </div>
                 </div>
 
