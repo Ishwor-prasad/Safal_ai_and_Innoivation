@@ -32,7 +32,7 @@ export function App() {
       <p className="text-gray-600 text-sm max-w-md mb-8">The link or route you requested might have been moved or does not exist. Let's return back to the main workspace.</p>
       <button
         onClick={() => nav.navigate("/")}
-        className="bg-brand hover:bg-brand-light text-white font-semibold px-8 py-3 rounded-full transition-all border-none cursor-pointer"
+        className="bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-3 rounded-lg transition-all border-none cursor-pointer"
       >
         Go Back Home
       </button>
@@ -41,8 +41,6 @@ export function App() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-white text-gray-900 selection:bg-brand selection:text-white overflow-x-hidden" id="safal-main">
-      <div className="fixed top-0 right-0 w-[500px] h-[300px] bg-brand/5 rounded-full blur-[120px] -mr-48 -mt-24 pointer-events-none z-0" />
-
       <Navbar
         scrolled={nav.scrolled}
         activeSection={nav.activeSection}
