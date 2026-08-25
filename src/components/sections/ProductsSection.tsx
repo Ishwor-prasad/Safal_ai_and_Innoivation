@@ -76,7 +76,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-4">
 
           {products.map((p) => (
-            <div key={p.name} className="card-white p-6 lg:p-7 flex flex-col group">
+            <div key={p.name} className="card-elevated p-6 lg:p-7 flex flex-col group">
               <div className="flex items-start justify-between mb-5">
                 <div className="h-11 w-11 rounded-lg bg-surface-muted border border-gray-200 text-gray-700 flex items-center justify-center">
                   <p.icon className="h-5 w-5" />

@@ -110,7 +110,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {INDUSTRIES.map((ind, idx) => (
-                    <div key={ind.id} id={`industry-card-${ind.id}`} className="card-white overflow-hidden flex flex-col group">
+                    <div key={ind.id} id={`industry-card-${ind.id}`} className="card-elevated overflow-hidden flex flex-col group">
                       <div className="photo-frame h-44 rounded-none">
                         <img src={industryImages[idx].src} alt={industryImages[idx].alt} loading="lazy" />
                       </div>
