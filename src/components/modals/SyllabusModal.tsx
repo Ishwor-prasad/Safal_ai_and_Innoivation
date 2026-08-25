@@ -34,7 +34,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
             <span className="text-xs font-mono font-medium text-brand bg-brand/10 border border-brand/20 px-3 py-1 rounded">
               {selectedSyllabusProg.duration}
             </span>
-            <span className="text-[10px] font-mono tracking-widest uppercase text-emerald-400 font-semibold">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-amber-400 font-semibold">
               Accredited Program Outline
             </span>
           </div>
@@ -45,11 +45,11 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
           <p className="text-xs text-slate-300 mb-6 font-mono">Target: {selectedSyllabusProg.target}</p>
 
           <div className="space-y-4 pt-4 border-t border-white/10">
-            <span className="text-xs font-mono font-semibold uppercase text-emerald-400 block">Syllabus Overview &amp; Modules:</span>
+            <span className="text-xs font-mono font-semibold uppercase text-amber-400 block">Syllabus Overview &amp; Modules:</span>
             <ul className="space-y-3.5 text-sm text-slate-200 font-normal">
               {selectedSyllabusProg.syllabus.map((syl: string, i: number) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="h-5 w-5 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+                  <div className="h-5 w-5 rounded bg-brand/10 border border-brand/20 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
                     <Check className="h-3.5 w-3.5" />
                   </div>
                   <span>{syl}</span>

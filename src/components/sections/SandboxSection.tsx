@@ -122,7 +122,7 @@ export const SandboxSection: React.FC<SandboxSectionProps> = ({
 
         {/* Output panel */}
         <div className="xl:col-span-8 flex flex-col">
-          <div className="bg-[#0B1220] border border-gray-800 rounded-xl flex-1 flex flex-col overflow-hidden shadow-lg">
+          <div className="bg-[#211A10] border border-white/10 rounded-xl flex-1 flex flex-col overflow-hidden shadow-lg">
 
             <div className="px-5 py-3.5 border-b border-white/10 flex items-center justify-between shrink-0 select-none">
               <div className="flex items-center gap-2.5 text-slate-300">
@@ -153,7 +153,7 @@ export const SandboxSection: React.FC<SandboxSectionProps> = ({
                       <div>Class<br /><span className="text-white font-medium">{demoGrade}</span></div>
                       <div>Subject<br /><span className="text-white font-medium">{demoSubject}</span></div>
                       <div>Topic<br /><span className="text-white font-medium">{demoTopic}</span></div>
-                      <div>Curriculum<br /><span className="text-emerald-400 font-medium">CDC Nepal</span></div>
+                      <div>Curriculum<br /><span className="text-amber-300 font-medium">CDC Nepal</span></div>
                     </div>
                   </div>
                   <Markdown>{compiledResult}</Markdown>
