@@ -17,11 +17,11 @@ interface NavbarProps {
 
 const NAV_LINKS: Array<{ label: string; sectionId: string }> = [
   { label: "Home", sectionId: "hero" },
+  { label: "Solutions", sectionId: "solutions" },
   { label: "Products", sectionId: "products" },
+  { label: "Case Studies", sectionId: "case-studies" },
   { label: "Training", sectionId: "training" },
-  { label: "Research", sectionId: "research" },
   { label: "Team", sectionId: "team" },
-  { label: "About", sectionId: "about" },
   { label: "Contact", sectionId: "contact" }
 ];
 
@@ -69,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </a>
 
         <nav className="hidden lg:flex items-center gap-6" id="desktop-nav">
-          {NAV_LINKS.slice(0, 2).map((l) => (
+          {NAV_LINKS.map((l) => (
             <a key={l.sectionId} href={`#${l.sectionId}`} onClick={(e) => { e.preventDefault(); handleNavClick(l.sectionId); }} className={linkClass(activeSection === l.sectionId && path === "/")}>
               {l.label}
             </a>
@@ -77,11 +77,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           <a href="/courses/vibe-coding" onClick={(e) => { e.preventDefault(); navigate("/courses/vibe-coding"); }} className={linkClass(path === "/courses/vibe-coding")}>
             Vibe Coding
           </a>
-          {NAV_LINKS.slice(2).map((l) => (
-            <a key={l.sectionId} href={`#${l.sectionId}`} onClick={(e) => { e.preventDefault(); handleNavClick(l.sectionId); }} className={linkClass(activeSection === l.sectionId && path === "/")}>
-              {l.label}
-            </a>
-          ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-3 shrink-0">

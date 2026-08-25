@@ -11,7 +11,7 @@ export const PartnersSection: React.FC = () => {
   });
 
   return (
-    <section className="py-14 sm:py-16 bg-white border-b border-gray-200">
+    <section id="partners" className="py-14 sm:py-16 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center space-y-2 mb-8">

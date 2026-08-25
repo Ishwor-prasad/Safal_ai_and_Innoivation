@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram, Youtube, CheckCircle2, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, CheckCircle2, Send } from "lucide-react";
 
 interface ContactSectionProps {
   contactName: string;
@@ -98,10 +98,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <span className="text-xs font-medium text-gray-500 block mb-3">Follow us</span>
               <div className="flex gap-2.5" id="social-links-grid">
                 {[
-                  { href: "https://linkedin.com", Icon: Linkedin, label: "LinkedIn" },
-                  { href: "https://www.facebook.com/profile.php?id=100083926890788", Icon: Facebook, label: "Facebook" },
-                  { href: "https://instagram.com", Icon: Instagram, label: "Instagram" },
-                  { href: "https://youtube.com", Icon: Youtube, label: "YouTube" }
+                  { href: "https://www.facebook.com/profile.php?id=100083926890788", Icon: Facebook, label: "Facebook" }
                 ].map(({ href, Icon, label }) => (
                   <a
                     key={label}
@@ -186,7 +183,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     <label className={labelClass} htmlFor="contact-phone">Phone (optional)</label>
                     <input
                       id="contact-phone"
-                      type="text"
+                      type="tel"
                       value={contactPhone}
                       onChange={(e) => setContactPhone(e.target.value)}
                       placeholder="+977 98XXXXXXXX"
