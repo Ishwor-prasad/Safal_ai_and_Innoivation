@@ -17,12 +17,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: src/node_modules
+          key: npm-${{ hashFiles('src/package-lock.json') }}
       - name: Install dependencies
         working-directory: ./src
-        run: npm install
+        run: npm ci
+      - name: Type-check
+        working-directory: ./src
+        run: npx tsc --noEmit
       - name: Build
         working-directory: ./src
-        run: npx vite build
+        run: npm run build
+      - name: Copy CNAME into dist
+        run: cp CNAME src/dist/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./src/dist
