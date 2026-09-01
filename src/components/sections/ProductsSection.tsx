@@ -57,12 +57,12 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
     },
     {
       icon: FileDown,
-      status: "PDF",
+      status: "New",
       statusStyle: "bg-brand-muted text-brand-dark border-brand-border",
       name: "AI for Managers",
-      tagline: "7-day program documentation",
-      description: "A printable A4 guide to our AI for Managers program — full syllabus, daily deliverables, and roadmap.",
-      cta: "View & download PDF",
+      tagline: "7-day program for teams",
+      description: "Turn AI from a curiosity into part of how your team runs — no coding, no technical background required.",
+      cta: "View course page",
       href: "/ai-for-managers.html",
       external: true
     }
