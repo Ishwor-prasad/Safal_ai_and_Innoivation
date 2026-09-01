@@ -25,11 +25,11 @@ export const TeamSection: React.FC = () => {
               className="bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col transition-shadow hover:shadow-lg"
             >
               {member.profileImage ? (
-                <div className="aspect-[4/3] overflow-hidden bg-surface-muted">
+                <div className="aspect-square overflow-hidden bg-surface-muted">
                   <img
                     src={member.profileImage}
                     alt={`${member.name}, ${member.position}`}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-[center_20%]"
                     loading="lazy"
                   />
                 </div>
