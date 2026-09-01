@@ -28,6 +28,8 @@ interface HomePageProps {
     setDemoSubject: (s: string) => void;
     demoTopic: string;
     setDemoTopic: (t: string) => void;
+    demoLanguage: string;
+    setDemoLanguage: (l: string) => void;
     sandboxLoading: boolean;
     compiledResult: string | null;
     handleTriggerSandbox: (e: React.FormEvent) => void;

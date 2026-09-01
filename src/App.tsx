@@ -70,6 +70,8 @@ export function App() {
               setDemoSubject: sandbox.setDemoSubject,
               demoTopic: sandbox.demoTopic,
               setDemoTopic: sandbox.setDemoTopic,
+              demoLanguage: sandbox.demoLanguage,
+              setDemoLanguage: sandbox.setDemoLanguage,
               sandboxLoading: sandbox.demoLoading,
               compiledResult: sandbox.demoResult,
               handleTriggerSandbox: sandbox.handleGenerateTeacherAI

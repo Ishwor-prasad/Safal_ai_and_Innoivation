@@ -9,6 +9,8 @@ interface SandboxSectionProps {
   setDemoSubject: (s: string) => void;
   demoTopic: string;
   setDemoTopic: (t: string) => void;
+  demoLanguage: string;
+  setDemoLanguage: (l: string) => void;
   sandboxLoading: boolean;
   compiledResult: string | null;
   handleTriggerSandbox: (e: React.FormEvent) => void;
@@ -21,6 +23,8 @@ export const SandboxSection: React.FC<SandboxSectionProps> = ({
   setDemoSubject,
   demoTopic,
   setDemoTopic,
+  demoLanguage,
+  setDemoLanguage,
   sandboxLoading,
   compiledResult,
   handleTriggerSandbox
@@ -93,6 +97,28 @@ export const SandboxSection: React.FC<SandboxSectionProps> = ({
                 className="w-full bg-white border border-gray-200 rounded-lg px-3.5 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand transition-colors"
                 placeholder="e.g. Force and Motion, Fractions..."
               />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-xs font-medium text-gray-500 block">Output language</label>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { value: "English", label: "English" },
+                  { value: "Nepali", label: "Nepali (नेपाली)" }
+                ].map((lang) => (
+                  <button
+                    key={lang.value}
+                    onClick={() => setDemoLanguage(lang.value)}
+                    className={`py-2.5 px-3 rounded-lg text-xs font-medium border text-center transition-colors cursor-pointer ${
+                      demoLanguage === lang.value
+                        ? "bg-brand-muted border-brand text-brand-dark font-semibold"
+                        : "bg-white border-gray-200 text-gray-600 hover:border-gray-300"
+                    }`}
+                  >
+                    <span className="block">{lang.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
