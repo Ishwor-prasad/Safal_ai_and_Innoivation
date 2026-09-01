@@ -82,7 +82,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-4">
 
           {products.map((p) => (
             <div key={p.name} className="card-elevated p-6 lg:p-7 flex flex-col group">
