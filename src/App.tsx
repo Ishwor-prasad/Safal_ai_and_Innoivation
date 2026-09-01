@@ -1,7 +1,6 @@
 import React from "react";
 import { translations } from "./translations";
 import { useNavigation } from "./hooks/useNavigation";
-import { useSandboxCompiler } from "./hooks/useSandboxCompiler";
 import { useConsultationModal } from "./hooks/useConsultationModal";
 import { useContactForm } from "./hooks/useContactForm";
 import { useChatbot } from "./hooks/useChatbot";
@@ -16,7 +15,6 @@ import { HelpCircle } from "lucide-react";
 
 export function App() {
   const nav = useNavigation();
-  const sandbox = useSandboxCompiler();
   const consult = useConsultationModal();
   const contact = useContactForm();
   const chat = useChatbot();
@@ -63,19 +61,6 @@ export function App() {
             setConsultModalOpen={consult.setConsultModalOpen}
             setConsultSector={consult.setConsultSector}
             setConsultMessage={consult.setConsultMessage}
-            sandboxProps={{
-              demoGrade: sandbox.demoGrade,
-              setDemoGrade: sandbox.setDemoGrade,
-              demoSubject: sandbox.demoSubject,
-              setDemoSubject: sandbox.setDemoSubject,
-              demoTopic: sandbox.demoTopic,
-              setDemoTopic: sandbox.setDemoTopic,
-              demoLanguage: sandbox.demoLanguage,
-              setDemoLanguage: sandbox.setDemoLanguage,
-              sandboxLoading: sandbox.demoLoading,
-              compiledResult: sandbox.demoResult,
-              handleTriggerSandbox: sandbox.handleGenerateTeacherAI
-            }}
             contactProps={{
               contactName: contact.contactName,
               setContactName: contact.setContactName,

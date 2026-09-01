@@ -55,7 +55,7 @@ export const Footer: React.FC<FooterProps> = ({ setConsultModalOpen }) => {
               <li><a href="#products" className="hover:text-white transition-colors block">SAFAL Teacher AI</a></li>
               <li><span className="block">SAFAL Business AI</span></li>
               <li><span className="block">SAFAL Municipal AI</span></li>
-              <li><a href="#vibe-coding" className="hover:text-white transition-colors block">Lesson Plan Sandbox</a></li>
+              <li><a href="/ai-for-managers.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block">AI for Managers PDF</a></li>
             </ul>
           </div>
 

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { HeroSection } from "../components/sections/HeroSection";
 import { SolutionsSection } from "../components/sections/SolutionsSection";
 import { ProductsSection } from "../components/sections/ProductsSection";
-import { SandboxSection } from "../components/sections/SandboxSection";
 import { CaseStudiesSection } from "../components/sections/CaseStudiesSection";
 import { StatsSection } from "../components/sections/StatsSection";
 import { LearningHubSection } from "../components/sections/LearningHubSection";
@@ -21,19 +20,6 @@ interface HomePageProps {
   setConsultModalOpen: (open: boolean) => void;
   setConsultSector: (sector: string) => void;
   setConsultMessage: (msg: string) => void;
-  sandboxProps: {
-    demoGrade: string;
-    setDemoGrade: (g: string) => void;
-    demoSubject: string;
-    setDemoSubject: (s: string) => void;
-    demoTopic: string;
-    setDemoTopic: (t: string) => void;
-    demoLanguage: string;
-    setDemoLanguage: (l: string) => void;
-    sandboxLoading: boolean;
-    compiledResult: string | null;
-    handleTriggerSandbox: (e: React.FormEvent) => void;
-  };
   contactProps: {
     contactName: string;
     setContactName: (val: string) => void;
@@ -59,7 +45,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   setConsultModalOpen,
   setConsultSector,
   setConsultMessage,
-  sandboxProps,
   contactProps
 }) => {
   const [selectedSyllabusProg, setSelectedSyllabusProg] = useState<TrainingProgram | null>(null);
@@ -79,12 +64,9 @@ export const HomePage: React.FC<HomePageProps> = ({
       />
 
       <ProductsSection
-        handleNavClick={handleNavClick}
         navigate={navigate}
         setConsultModalOpen={setConsultModalOpen}
       />
-
-      <SandboxSection {...sandboxProps} />
 
       <TestimonialsSection />
 

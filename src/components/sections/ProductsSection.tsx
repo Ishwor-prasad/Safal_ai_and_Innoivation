@@ -1,14 +1,12 @@
 import React from "react";
-import { GraduationCap, Briefcase, Building, Code2, ArrowRight } from "lucide-react";
+import { GraduationCap, Briefcase, Building, Code2, ArrowRight, FileDown } from "lucide-react";
 
 interface ProductsSectionProps {
-  handleNavClick: (sectionId: string) => void;
   navigate: (path: string) => void;
   setConsultModalOpen: (open: boolean) => void;
 }
 
 export const ProductsSection: React.FC<ProductsSectionProps> = ({
-  handleNavClick,
   navigate,
   setConsultModalOpen
 }) => {
@@ -20,9 +18,9 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
       name: "SAFAL Teacher AI",
       tagline: "Curriculum-aligned lesson assistant",
       description: "Generates CDC-aligned lesson plans, rubrics, and assessments for Nepali classrooms — in English and Nepali.",
-      cta: "Try the sandbox",
-      onClick: () => handleNavClick("vibe-coding"),
-      href: "#vibe-coding"
+      cta: "Register interest",
+      onClick: () => setConsultModalOpen(true),
+      href: undefined
     },
     {
       icon: Briefcase,
@@ -56,6 +54,17 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
       cta: "View the course",
       onClick: () => navigate("/courses/vibe-coding"),
       href: "/courses/vibe-coding"
+    },
+    {
+      icon: FileDown,
+      status: "PDF",
+      statusStyle: "bg-brand-muted text-brand-dark border-brand-border",
+      name: "AI for Managers",
+      tagline: "7-day program documentation",
+      description: "A printable A4 guide to our AI for Managers program — full syllabus, daily deliverables, and roadmap.",
+      cta: "View & download PDF",
+      href: "/ai-for-managers.html",
+      external: true
     }
   ];
 
@@ -95,7 +104,17 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
               </p>
 
               <div className="mt-auto pt-4 border-t border-gray-100">
-                {p.href ? (
+                {p.external ? (
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
+                  >
+                    {p.cta}
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                ) : p.href ? (
                   <a
                     href={p.href}
                     onClick={(e) => { e.preventDefault(); p.onClick(); }}
