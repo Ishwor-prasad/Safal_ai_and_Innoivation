@@ -17,146 +17,115 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
-    width: 210mm;
-    background: var(--frame);
-    font-family: 'Liberation Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: var(--body);
+    background: #ece7da;
   }
 
+  /* Each page is A4 (794 x 1123 px @ 96dpi) on desktop. */
   .page {
     position: relative;
-    width: 210mm;
-    height: 297mm;
+    width: 794px;
+    height: 1123px;
+    max-width: 100%;
     background: var(--frame);
-    page-break-after: always;
+    margin: 24px auto;
     overflow: hidden;
+    page-break-after: always;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
   }
-
   .page:last-child { page-break-after: auto; }
 
   .inner {
     position: absolute;
-    top: 13mm; left: 13mm; right: 13mm; bottom: 13mm;
+    top: 49px; left: 49px; right: 49px; bottom: 49px;
     background: var(--cream);
     border: 1px solid var(--hair);
-    padding: 22mm 18mm;
+    padding: 83px 68px;
     display: flex;
     flex-direction: column;
   }
 
-  h1.serif, h2.serif, h3.serif {
-    font-family: 'Lora', serif;
-    color: var(--heading);
-    font-weight: 600;
-  }
+  h1.serif, h2.serif, h3.serif { font-family: Georgia, 'Times New Roman', serif; color: var(--heading); font-weight: 600; }
 
   /* COVER PAGE */
-  .cover .inner { justify-content: flex-start; padding-top: 34mm; }
+  .cover .inner { justify-content: flex-start; padding-top: 128px; }
   .cover .kicker {
     font-size: 12.5px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 10mm;
+    margin-bottom: 38px;
   }
-  .cover h1 { font-size: 46px; line-height: 1.15; margin-bottom: 6mm; }
-  .cover .tagline { font-size: 18px; font-style: italic; color: var(--body); margin-bottom: 3mm; font-family: 'Lora', serif; }
-  .cover .sub { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body); margin-top: 8mm; }
-  .cover-motif { position: absolute; bottom: -20mm; right: -20mm; width: 140mm; height: 140mm; opacity: 0.9; }
+  .cover h1 { font-size: 46px; line-height: 1.15; margin-bottom: 22px; }
+  .cover .tagline { font-size: 18px; font-style: italic; color: var(--body); margin-bottom: 12px; font-family: Georgia, 'Times New Roman', serif; }
+  .cover .sub { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body); margin-top: 30px; }
+  .cover-motif { position: absolute; bottom: -75px; right: -75px; width: 528px; height: 528px; opacity: 0.9; }
 
-  /* GLANCE / TABLE PAGE */
-  .glance h2 { font-size: 30px; margin-bottom: 10mm; }
-  table.glance-table { border-collapse: collapse; width: 100%; margin-top: 4mm; }
+  /* GLANCE PAGE */
+  .glance h2 { font-size: 30px; margin-bottom: 38px; }
+  table.glance-table { border-collapse: collapse; width: 100%; margin-top: 15px; }
   table.glance-table th {
     text-align: left;
-    font-family: 'Lora', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-weight: 600;
     color: var(--heading);
     font-size: 13.5px;
-    padding-bottom: 8px;
+    padding-bottom: 30px;
     border-bottom: 1.5px solid var(--heading);
   }
   table.glance-table td {
     font-size: 13px;
     color: var(--body);
-    padding: 11px 10px 11px 0;
+    padding: 41px 38px 41px 0;
     border-bottom: 1px solid var(--hair);
     vertical-align: top;
   }
-  table.glance-table td.day { font-family: 'Lora', serif; color: var(--gold); font-weight: 600; width: 10%; }
+  table.glance-table td.day { font-family: Georgia, 'Times New Roman', serif; color: var(--gold); font-weight: 600; width: 10%; }
   table.glance-table td.theme { width: 42%; color: var(--heading); font-weight: 500; }
 
   /* DAY / NUMBERED PAGES */
-  .day-page .num-heading { display: flex; align-items: baseline; gap: 14px; margin-bottom: 10mm; }
-  .day-page .num { font-family: 'Lora', serif; font-size: 34px; color: var(--gold); font-weight: 600; }
+  .day-page .num-heading { display: flex; align-items: baseline; gap: 53px; margin-bottom: 38px; }
+  .day-page .num { font-family: Georgia, 'Times New Roman', serif; font-size: 34px; color: var(--gold); font-weight: 600; }
   .day-page h2 { font-size: 28px; }
-  .day-page p.body-text { font-size: 14.5px; line-height: 1.85; max-width: 62ch; color: var(--body); }
-  .day-page .deliverable {
-    margin-top: auto;
-    border-top: 1.5px solid var(--heading);
-    padding-top: 6mm;
-  }
-  .day-page .deliverable .label {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 4px;
-  }
-  .day-page .deliverable .value {
-    font-family: 'Lora', serif;
-    font-size: 17px;
-    color: var(--heading);
-    font-weight: 600;
-  }
+  .day-page p.body-text { font-size: 14.5px; line-height: 1.85; max-width: 60ch; color: var(--body); }
+  .day-page .deliverable { margin-top: auto; border-top: 1.5px solid var(--heading); padding-top: 22px; }
+  .day-page .deliverable .label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
+  .day-page .deliverable .value { font-family: Georgia, 'Times New Roman', serif; font-size: 17px; color: var(--heading); font-weight: 600; }
 
   /* SIMPLE TEXT PAGES */
-  .text-page h2 { font-size: 28px; margin-bottom: 10mm; }
-  .text-page .section { margin-bottom: 10mm; }
-  .text-page .section h3 { font-size: 14px; color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4mm; font-family: 'Liberation Sans', Arial, sans-serif; font-weight: 700; }
-  .text-page .section p { font-size: 14.5px; line-height: 1.85; max-width: 62ch; }
+  .text-page h2 { font-size: 28px; margin-bottom: 38px; }
+  .text-page .section { margin-bottom: 38px; }
+  .text-page .section h3 { font-size: 14px; color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 15px; font-family: Arial, Helvetica, sans-serif; font-weight: 700; }
+  .text-page .section p { font-size: 14.5px; line-height: 1.85; max-width: 60ch; }
 
   /* LEAVE-WITH LIST PAGE */
-  .list-page h2 { font-size: 30px; margin-bottom: 12mm; }
+  .list-page h2 { font-size: 30px; margin-bottom: 45px; }
   .list-page ul { list-style: none; }
   .list-page li {
     font-size: 15.5px;
     color: var(--heading);
-    padding: 12px 0 12px 30px;
+    padding: 45px 0 45px 113px;
     border-bottom: 1px solid var(--hair);
     position: relative;
-    font-family: 'Lora', serif;
+    font-family: Georgia, 'Times New Roman', serif;
   }
   .list-page li::before {
     content: "◆";
     position: absolute;
     left: 0;
-    top: 13px;
+    top: 49px;
     font-size: 10px;
     color: var(--gold);
   }
-  .list-page .closer {
-    margin-top: auto;
-    padding-top: 10mm;
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: 16px;
-    color: var(--body);
-  }
+  .list-page .closer { margin-top: auto; padding-top: 38px; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 16px; color: var(--body); }
 
-  .pagefoot {
-    margin-top: auto;
-    padding-top: 6mm;
-    font-size: 10px;
-    color: var(--gold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  .pagefoot { margin-top: auto; padding-top: 22px; font-size: 10px; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
 
   /* SCREEN-ONLY TOOLBAR */
   .toolbar {
-    position: fixed;
-    top: 0; left: 0; right: 0;
+    position: sticky;
+    top: 0;
     z-index: 999;
     background: #241811;
     padding: 14px 22px;
@@ -165,12 +134,11 @@
     justify-content: space-between;
     gap: 16px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-    width: 100vw;
   }
-  .toolbar .brand { font-family: 'Lora', serif; color: var(--cream); font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .toolbar .brand { font-family: Georgia, 'Times New Roman', serif; color: var(--cream); font-size: 15px; font-weight: 600; white-space: nowrap; }
   .toolbar .actions { display: flex; gap: 10px; }
   .toolbar button {
-    font-family: 'Liberation Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     border: 1px solid var(--gold);
     background: transparent;
     color: var(--cream);
@@ -184,37 +152,67 @@
   }
   .toolbar button.primary { background: var(--gold); color: #241811; border-color: var(--gold); }
   .toolbar button:hover { opacity: 0.9; }
+  .toolbar .status { color: var(--cream); font-size: 12px; font-family: Arial, Helvetica, sans-serif; }
 
+  /* RESPONSIVE: fluid, centered, scrollable on small screens */
+  @media screen and (max-width: 860px) {
+    .page {
+      width: 100%;
+      height: auto;
+      min-height: 1123px;
+      margin: 16px 0;
+      box-shadow: none;
+    }
+    .inner {
+      position: relative;
+      top: auto; left: auto; right: auto; bottom: auto;
+      min-height: 100%;
+      padding: 64px 22px;
+    }
+    .cover .inner { padding-top: 80px; }
+    .cover h1 { font-size: 40px; }
+    .num-heading, .day-page .num-heading { gap: 16px; flex-wrap: wrap; }
+  }
+  @media screen and (max-width: 480px) {
+    .cover-motif { width: 260px; height: 260px; bottom: -40px; right: -40px; }
+    .cover h1 { font-size: 32px; }
+    .toolbar { flex-wrap: wrap; }
+  }
+
+  /* PRINT: clean full-bleed A4, no browser header/footer/page numbers */
   @media print {
     @page { size: A4 portrait; margin: 0; }
-    html, body {
-      width: 210mm;
-      height: 297mm;
-      background: #fff !important;
-      padding: 0 !important;
-    }
+    html, body { width: 210mm; background: #fff; padding: 0 !important; }
     .toolbar { display: none !important; }
     .page {
       width: 210mm;
       height: 297mm;
       margin: 0;
+      box-shadow: none;
       page-break-after: always;
       break-after: page;
     }
     .page:last-child { page-break-after: auto; break-after: auto; }
     .inner { border: none; }
   }
+
+  /* FOR PDF EXPORT: force exact A4 pixel dimensions regardless of viewport */
+  body.for-pdf .page { width: 794px !important; height: 1123px !important; margin: 0 !important; box-shadow: none !important; }
+  body.for-pdf .inner { position: absolute !important; top: 49px !important; left: 49px !important; right: 49px !important; bottom: 49px !important; padding: 83px 68px !important; }
+  body.for-pdf .cover .inner { padding-top: 128px !important; }
 </style>
 </head>
-<body style="padding-top: 68px;">
+<body>
 
 <!-- SCREEN TOOLBAR -->
 <div class="toolbar">
   <div class="brand">AI for Managers</div>
   <div class="actions">
-    <button onclick="window.close()">Close</button>
-    <button class="primary" onclick="window.print()">Download / Save as PDF</button>
+    <button id="closeBtn">Close</button>
+    <button id="printBtn">Print</button>
+    <button id="downloadBtn" class="primary">Download PDF</button>
   </div>
+  <span class="status" id="status"></span>
 </div>
 
 <!-- PAGE 1: COVER -->
@@ -389,6 +387,80 @@
     </div>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  (function () {
+    var status = document.getElementById('status');
+    var downloadBtn = document.getElementById('downloadBtn');
+    var printBtn = document.getElementById('printBtn');
+    var closeBtn = document.getElementById('closeBtn');
+
+    function setStatus(text) {
+      if (status) status.textContent = text || '';
+    }
+
+    closeBtn.addEventListener('click', function () {
+      window.close();
+    });
+
+    printBtn.addEventListener('click', function () {
+      window.print();
+    });
+
+    downloadBtn.addEventListener('click', function () {
+      var btn = this;
+      if (typeof html2pdf === 'undefined') {
+        setStatus('PDF engine failed to load. Use Print instead.');
+        window.print();
+        return;
+      }
+      btn.disabled = true;
+      setStatus('Preparing PDF…');
+      var oldText = btn.textContent;
+      btn.textContent = 'Generating…';
+
+      // Force A4 pixel layout and hide toolbar before capture
+      document.body.classList.add('for-pdf');
+      var toolbar = document.querySelector('.toolbar');
+      if (toolbar) toolbar.style.display = 'none';
+
+      var opt = {
+        margin: [0, 0, 0, 0],
+        filename: 'AI-for-Managers.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          scrollX: 0,
+          scrollY: 0,
+          windowWidth: document.documentElement.scrollWidth
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: [210, 297],
+          orientation: 'portrait'
+        },
+        pagebreak: { mode: ['css', 'avoid-all'] }
+      };
+
+      html2pdf().set(opt).from(document.body).save().then(function () {
+        document.body.classList.remove('for-pdf');
+        if (toolbar) toolbar.style.display = '';
+        btn.disabled = false;
+        btn.textContent = oldText;
+        setStatus('Saved to your Downloads folder.');
+        setTimeout(function () { setStatus(''); }, 4000);
+      }).catch(function () {
+        document.body.classList.remove('for-pdf');
+        if (toolbar) toolbar.style.display = '';
+        btn.disabled = false;
+        btn.textContent = oldText;
+        setStatus('Could not generate automatically. Use Print.');
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
