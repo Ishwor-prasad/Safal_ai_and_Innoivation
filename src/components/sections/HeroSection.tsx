@@ -75,11 +75,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="offset-frame">
               <div className="hero-art aspect-[4/5] rounded-[1.25rem] shadow-[0_28px_70px_-28px_rgba(17,37,26,0.45)] max-w-sm mx-auto lg:max-w-none">
 
+                {/* Video background */}
+                <video
+                  className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster=""
+                >
+                  <source src="/hero-video.mp4" type="video/mp4" />
+                </video>
+
                 {/* Ghost serif word behind */}
                 <span className="ghost-word" aria-hidden="true">AI</span>
 
-                {/* Gradient mesh base */}
-                <span className="grad-base" />
+                {/* Gradient mesh base (fades over video) */}
+                <span className="grad-base opacity-60" />
                 {/* Organic blobs */}
                 <span className="aurora-a" />
                 <span className="aurora-b" />
