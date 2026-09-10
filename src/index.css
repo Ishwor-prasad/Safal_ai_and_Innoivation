@@ -463,6 +463,16 @@ body {
     user-select: none;
     z-index: 0;
   }
+  /* Ghost word overlaid on the full-bleed hero footage */
+  .ghost-word.hero-ghost {
+    position: absolute;
+    top: 62%;
+    right: -3%;
+    transform: translateY(-50%);
+    font-size: clamp(15rem, 26vw, 26rem);
+    -webkit-text-stroke: 1.5px rgba(207, 224, 213, 0.11);
+    z-index: 1;
+  }
   /* Hero streams — more numerous, varied angles */
   .hero-art .hstream {
     position: absolute;

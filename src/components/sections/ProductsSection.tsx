@@ -10,7 +10,20 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
   navigate,
   setConsultModalOpen
 }) => {
-  const products = [
+  interface ProductCard {
+    icon: React.ComponentType<{ className?: string }>;
+    status: string;
+    statusStyle: string;
+    name: string;
+    tagline: string;
+    description: string;
+    cta: string;
+    href?: string;
+    target?: string;
+    onClick?: () => void;
+  }
+
+  const products: ProductCard[] = [
     {
       icon: GraduationCap,
       status: "Beta",
@@ -62,9 +75,10 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
       name: "AI for Managers",
       tagline: "8-session program for teams",
       description: "Turn AI from a curiosity into part of how your team runs — no coding, no technical background required.",
-      cta: "Program details",
-      href: "#training",
-      onClick: () => document.getElementById("training")?.scrollIntoView({ behavior: "smooth" })
+      cta: "View course documentation",
+      href: "/ai-for-managers.html",
+      target: "_blank",
+      onClick: undefined
     }
   ];
 
@@ -107,7 +121,9 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
                 {p.href ? (
                   <a
                     href={p.href}
-                    onClick={(e) => { e.preventDefault(); p.onClick?.(); }}
+                    target={p.target}
+                    rel={p.target === "_blank" ? "noopener noreferrer" : undefined}
+                    onClick={p.onClick ? (e) => { e.preventDefault(); p.onClick(); } : undefined}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
                   >
                     {p.cta}
