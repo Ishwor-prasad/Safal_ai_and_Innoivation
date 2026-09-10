@@ -49,13 +49,13 @@ export const Navbar: React.FC<NavbarProps> = ({
       id="navbar"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-lg py-3 shadow-[0_1px_0_0_rgba(15,23,42,0.08)]"
-          : "bg-white py-5"
+          ? "bg-white/80 backdrop-blur-xl py-3 shadow-[0_1px_0_0_rgba(17,17,16,0.06)]"
+          : "bg-white/60 backdrop-blur-sm py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} className="flex items-center gap-2.5 group shrink-0" id="logo-anchor">
-          <div className="h-10 w-10 rounded-lg overflow-hidden flex items-center justify-center bg-white border border-gray-200 shrink-0">
+          <div className="h-10 w-10 rounded-full overflow-hidden flex items-center justify-center bg-white border border-gray-200 ring-1 ring-gray-100 shrink-0">
             <img src={safalLogo} alt="Safal AI Logo" className="h-full w-full object-cover" />
           </div>
           <div>
@@ -89,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="nav-consult-btn"
             onClick={() => setConsultModalOpen(true)}
-            className="bg-brand hover:bg-brand-dark text-white text-sm font-semibold py-2.5 px-5 rounded-lg transition-colors flex items-center gap-2 cursor-pointer shrink-0 border-none"
+            className="bg-brand hover:bg-brand-dark text-white text-sm font-semibold py-2.5 px-5 rounded-full transition-colors flex items-center gap-2 cursor-pointer shrink-0 border-none"
           >
             <span>Book Consultation</span>
             <Calendar className="h-4 w-4" />
