@@ -77,13 +77,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
                 {/* Video background */}
                 <video
-                  className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  className="absolute inset-0 w-full h-full object-cover"
                   autoPlay
                   muted
                   loop
                   playsInline
-                  preload="metadata"
-                  poster=""
+                  preload="auto"
                 >
                   <source src="/hero-video.mp4" type="video/mp4" />
                 </video>
@@ -91,8 +90,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {/* Ghost serif word behind */}
                 <span className="ghost-word" aria-hidden="true">AI</span>
 
-                {/* Gradient mesh base (fades over video) */}
-                <span className="grad-base opacity-60" />
+                {/* Light veil so text stays readable — mesh is now thin */}
+                <span className="grad-base opacity-20" />
                 {/* Organic blobs */}
                 <span className="aurora-a" />
                 <span className="aurora-b" />
