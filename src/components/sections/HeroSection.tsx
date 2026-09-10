@@ -60,8 +60,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {[
                 "CDC Aligned",
                 "Bilingual EN · नेपाली",
-                "8 Training Tracks",
-                "ram-tamang.com.np"
+                "8 Training Tracks"
               ].map((item) => (
                 <span key={item} className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
                   <CheckCircle className="h-3.5 w-3.5 text-brand" />
@@ -71,33 +70,54 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Portrait — Ram Kumar Tamang */}
+          {/* Cinematic motion-art cover — Drifted Himalayan base + flowing light */}
           <div className="lg:col-span-5 w-full">
-            <div className="relative max-w-sm mx-auto lg:max-w-none">
-              <div className="offset-frame">
-                <div className="relative aspect-[4/5] rounded-[1.25rem] overflow-hidden bg-surface-muted shadow-[0_28px_70px_-28px_rgba(17,37,26,0.45)]">
-                  <img
-                    src="/ram_tamang.jpg"
-                    alt="Ram Kumar Tamang — Product Lead at SAFAL AI"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/55 to-transparent pointer-events-none" />
+            <div className="offset-frame">
+              <div
+                className="motion-panel aspect-[4/5] rounded-[1.25rem] shadow-[0_28px_70px_-28px_rgba(17,37,26,0.45)] flex items-center justify-center max-w-sm mx-auto lg:max-w-none"
+                aria-hidden="true"
+              >
+                <img
+                  src="/hero-cover.jpg"
+                  alt=""
+                  className="cover-base"
+                  loading="eager"
+                  decoding="async"
+                />
+                <span className="cover-tint" />
+                <span className="stream" />
+                <span className="stream s2" />
+                <span className="aurora-a" />
+                <span className="aurora-b" />
+                <span className="spin-ring"><i /></span>
+
+                <div className="relative z-10 text-center px-6 sm:px-10 space-y-5 select-none breathe">
+                  <span className="eyebrow eyebrow-center justify-center !text-brand-light">AI Studio — काठमाडौँ</span>
+                  <div className="font-display leading-none">
+                    <span className="block text-6xl sm:text-7xl font-semibold text-white tracking-tight">AI</span>
+                    <span className="block text-3xl sm:text-4xl font-semibold text-brand-light italic mt-2">for Nepal</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-white/60">
+                    <span className="pulse-dot" />
+                    Now taking 2026 cohorts
+                  </div>
+                  <span className="section-index text-[5rem] leading-none block select-none">26</span>
                 </div>
 
-                <div className="absolute left-4 bottom-4 right-4 sm:left-6 sm:right-auto sm:bottom-6 flex items-center gap-3 bg-white/90 backdrop-blur rounded-full px-4 py-3 shadow-lg">
-                  <div className="p-1.5 bg-brand-muted rounded-full">
-                    <span className="block h-2 w-2 rounded-full bg-brand" />
-                  </div>
-                  <div className="pr-1">
-                    <a
-                      href="https://ram-tamang.com.np"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-semibold text-gray-900 leading-tight hover:text-brand transition-colors block"
-                    >
-                      Ram Kumar Tamang
-                    </a>
-                    <p className="text-xs text-gray-500">Product Lead · ram-tamang.com.np</p>
+                {/* Vertical mono label */}
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 [writing-mode:vertical-rl]">
+                  EST. 2023 — AI, SOFTWARE &amp; TRAINING
+                </span>
+
+                {/* Offering marquee */}
+                <div className="absolute inset-x-0 bottom-0 overflow-hidden border-t border-white/10 py-3 bg-black/25">
+                  <div className="marquee-track text-[10px] font-mono uppercase tracking-[0.2em] text-white/50">
+                    {["शिक्षा", "Education", "व्यवसाय", "Business", "सरकार", "Government", "अनुसन्धान", "Research"].map((d) => (
+                      <span key={d} className="flex items-center gap-3.5 shrink-0">
+                        <span>{d}</span>
+                        <span className="text-brand-light">✦</span>
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

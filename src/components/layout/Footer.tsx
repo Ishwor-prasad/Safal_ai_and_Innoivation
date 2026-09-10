@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
 const safalLogo = "/logo.png";
 
 interface FooterProps {
@@ -31,15 +30,6 @@ export const Footer: React.FC<FooterProps> = ({ setConsultModalOpen }) => {
             <p className="text-sm text-slate-400 leading-relaxed">
               Empowering Nepal through artificial intelligence — practical education, business automation, and public-sector solutions built for local context.
             </p>
-            <a
-              href="https://ram-tamang.com.np"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-white transition-colors"
-            >
-              <ArrowUpRight className="h-3.5 w-3.5" />
-              Product Lead · ram-tamang.com.np
-            </a>
           </div>
 
           {/* Column 2 Services */}
