@@ -1,5 +1,5 @@
 import React from "react";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, Globe } from "lucide-react";
 import { TEAM_MEMBERS } from "../../data";
 
 export const TeamSection: React.FC = () => {
@@ -22,19 +22,20 @@ export const TeamSection: React.FC = () => {
             <div
               key={member.id}
               id={`member-card-${member.id}`}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col transition-shadow hover:shadow-lg"
+              className="card-elevated overflow-hidden flex flex-col group"
             >
               {member.profileImage ? (
-                <div className="aspect-square overflow-hidden bg-surface-muted">
+                <div className="aspect-[4/5] overflow-hidden bg-surface-muted relative">
                   <img
                     src={member.profileImage}
                     alt={`${member.name}, ${member.position}`}
-                    className="w-full h-full object-cover object-[center_20%]"
+                    className="w-full h-full object-cover object-[center_22%] transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
                 </div>
               ) : (
-                <div className="aspect-[4/3] bg-dark-primary flex items-center justify-center">
+                <div className="aspect-[4/5] bg-dark-primary flex items-center justify-center">
                   <span className="font-display text-3xl font-bold text-white/80 tracking-wider">
                     {member.avatarInitials}
                   </span>
@@ -54,7 +55,19 @@ export const TeamSection: React.FC = () => {
                 </p>
 
                 <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between gap-2">
-                  {member.linkedinUrl ? (
+                  {member.website ? (
+                    <a
+                      href={member.website}
+                      target="_blank"
+                      referrerPolicy="no-referrer"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-brand hover:text-brand-dark transition-colors"
+                      title={`Visit ${member.name}'s website`}
+                    >
+                      <Globe className="h-3.5 w-3.5" />
+                      Website
+                    </a>
+                  ) : member.linkedinUrl ? (
                     <a
                       href={member.linkedinUrl}
                       target="_blank"

@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowUpRight } from "lucide-react";
 const safalLogo = "/logo.png";
 
 interface FooterProps {
@@ -30,6 +31,15 @@ export const Footer: React.FC<FooterProps> = ({ setConsultModalOpen }) => {
             <p className="text-sm text-slate-400 leading-relaxed">
               Empowering Nepal through artificial intelligence — practical education, business automation, and public-sector solutions built for local context.
             </p>
+            <a
+              href="https://ram-tamang.com.np"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-light hover:text-white transition-colors"
+            >
+              <ArrowUpRight className="h-3.5 w-3.5" />
+              Product Lead · ram-tamang.com.np
+            </a>
           </div>
 
           {/* Column 2 Services */}
@@ -55,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ setConsultModalOpen }) => {
               <li><a href="#products" className="hover:text-white transition-colors block">SAFAL Teacher AI</a></li>
               <li><span className="block">SAFAL Business AI</span></li>
               <li><span className="block">SAFAL Municipal AI</span></li>
-              <li><a href="/ai-for-managers.html" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block">AI for Managers</a></li>
+              <li><a href="#training" className="hover:text-white transition-colors block">AI for Managers</a></li>
             </ul>
           </div>
 
@@ -67,8 +77,9 @@ export const Footer: React.FC<FooterProps> = ({ setConsultModalOpen }) => {
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li><a href="#training" className="hover:text-white transition-colors block">AI for Educators</a></li>
               <li><a href="#training" className="hover:text-white transition-colors block">AI for Students</a></li>
+              <li><a href="#training" className="hover:text-white transition-colors block">AI for Managers</a></li>
+              <li><a href="#training" className="hover:text-white transition-colors block">AI for Researchers</a></li>
               <li><a href="#training" className="hover:text-white transition-colors block">AI for Professionals</a></li>
-              <li><a href="#training" className="hover:text-white transition-colors block">AI for Public Teams</a></li>
             </ul>
           </div>
 

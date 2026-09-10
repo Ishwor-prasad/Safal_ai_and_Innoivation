@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, Award, Plus, Minus, CheckCircle2, Calendar } from "lucide-react";
+import { ArrowRight, Award, Plus, Minus, CheckCircle2, Calendar, GraduationCap } from "lucide-react";
 import { VIBE_STATS, VIBE_MODULES, VIBE_SKILLS, VIBE_SCHEDULES } from "../data";
 
 interface VibeCodingPageProps {
@@ -36,7 +36,8 @@ export const VibeCodingPage: React.FC<VibeCodingPageProps> = ({
                   New Course 2026
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest bg-emerald-50/80 border border-emerald-200 text-slate-700 px-3 py-1.5 rounded-full shadow-xs">
-                  🎓 Industry Certificate Included
+                  <GraduationCap className="h-3.5 w-3.5 text-brand" />
+                  Industry Certificate Included
                 </span>
               </div>
 
@@ -204,8 +205,10 @@ export const VibeCodingPage: React.FC<VibeCodingPageProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {VIBE_SKILLS.map((skill, idx) => (
               <div key={idx} className="flex items-start gap-4 bg-white border border-gray-150 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <div className="p-3 bg-green-50 text-brand rounded-xl text-xl shrink-0">
-                  {skill.icon || "⚡"}
+                <div className="shrink-0 flex items-center justify-center h-11 w-11 rounded-xl border border-brand-border bg-brand-muted/60">
+                  <span className="font-display text-lg font-semibold text-brand-dark italic">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
                 </div>
                 <div>
                   <h4 className="font-display font-semibold text-gray-950 text-base mb-1">{skill.title || skill.label}</h4>

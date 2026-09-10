@@ -303,6 +303,90 @@ body {
   @keyframes orbit {
     to { transform: rotate(360deg); }
   }
+
+  /* Auroral motion artwork (About panel) */
+  .motion-panel {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 80% -20%, rgba(47, 125, 80, 0.55) 0%, rgba(14, 14, 13, 0) 55%),
+      radial-gradient(90% 70% at 0% 110%, rgba(22, 65, 43, 0.8) 0%, rgba(14, 14, 13, 0) 60%),
+      #0E0E0D;
+  }
+  .motion-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .motion-panel .aurora-a,
+  .motion-panel .aurora-b {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(64px);
+    opacity: 0.75;
+    pointer-events: none;
+  }
+  .motion-panel .aurora-a {
+    width: 16rem;
+    height: 16rem;
+    top: -3rem;
+    right: -4rem;
+    background: radial-gradient(circle at 30% 30%, #2F7D50, #122A1C 70%);
+    animation: drift-a 16s ease-in-out infinite alternate;
+  }
+  .motion-panel .aurora-b {
+    width: 14rem;
+    height: 14rem;
+    bottom: -4rem;
+    left: -3.5rem;
+    background: radial-gradient(circle at 60% 60%, #16412B, #0B1D13 70%);
+    animation: drift-b 20s ease-in-out infinite alternate;
+  }
+  @keyframes drift-a {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-2.5rem, 2rem) scale(1.15); }
+  }
+  @keyframes drift-b {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(2.5rem, -3rem) scale(1.2); }
+  }
+  .motion-panel .spin-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 68%;
+    aspect-ratio: 1;
+    margin: -34% 0 0 -34%;
+    border: 1px dashed rgba(207, 224, 213, 0.35);
+    border-radius: 50%;
+    animation: orbit 60s linear infinite;
+    pointer-events: none;
+  }
+  .motion-panel .spin-ring i {
+    position: absolute;
+    top: -0.3rem;
+    left: 50%;
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: #CFE0D5;
+  }
+  .motion-panel .pulse-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #4AE27B;
+    box-shadow: 0 0 0 0 rgba(74, 226, 123, 0.5);
+    animation: pulse-dot 2.4s ease-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%   { box-shadow: 0 0 0 0 rgba(74, 226, 123, 0.45); }
+    70%  { box-shadow: 0 0 0 0.8rem rgba(74, 226, 123, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 226, 123, 0); }
+  }
 }
 
 /* ────────────────────────────────────── */

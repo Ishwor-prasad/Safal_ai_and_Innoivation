@@ -1,6 +1,6 @@
 import React from "react";
 import Markdown from "react-markdown";
-import { Heart, X, Loader2, Send } from "lucide-react";
+import { Heart, X, Loader2, Send, Lightbulb, BookOpen, Calendar } from "lucide-react";
 
 interface ChatbotDrawerProps {
   chatOpen: boolean;
@@ -34,11 +34,11 @@ export const ChatbotDrawer: React.FC<ChatbotDrawerProps> = ({
         className="w-80 sm:w-96 max-w-[calc(100vw-2rem)] h-[min(480px,calc(100vh-8rem))] bg-dark-secondary dark-section rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden pointer-events-auto transition-all duration-300 transform scale-100 opacity-100 mb-2"
       >
         {/* Header branding */}
-        <div className="bg-[#0F172A] px-5 py-4 border-b border-white/10 flex items-center justify-between">
+        <div className="bg-[#0C1F14] px-5 py-4 border-b border-white/10 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="h-10 w-10 rounded-xl bg-amber-500/20 border border-amber-500/35 flex items-center justify-center">
-                <Heart className="h-5 w-5 text-amber-400" />
+              <div className="h-10 w-10 rounded-xl bg-brand-light/20 border border-brand-light/35 flex items-center justify-center">
+                <Heart className="h-5 w-5 text-brand-light" />
               </div>
               <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-emerald-400 border-2 border-dark-primary" />
             </div>
@@ -46,7 +46,7 @@ export const ChatbotDrawer: React.FC<ChatbotDrawerProps> = ({
               <h4 className="font-display text-sm font-bold text-white leading-tight">
                 SAFAL AI Mitra
               </h4>
-              <span className="text-[10px] text-amber-400 font-mono tracking-wider uppercase flex items-center gap-1 font-semibold">
+              <span className="text-[10px] text-brand-light font-mono tracking-wider uppercase flex items-center gap-1 font-semibold">
                 <span>Virtual Advisor</span>
               </span>
             </div>
@@ -61,32 +61,35 @@ export const ChatbotDrawer: React.FC<ChatbotDrawerProps> = ({
         </div>
 
         {/* Suggested Chip list */}
-        <div className="p-3 bg-[#070b16] border-b border-white/5 flex gap-1.5 overflow-x-auto select-none no-scrollbar">
+        <div className="p-3 bg-[#0F1B12] border-b border-white/5 flex gap-1.5 overflow-x-auto select-none no-scrollbar">
           <button
             onClick={() => handleSendChatMessage(undefined, "Tell me about SAFAL Teacher AI and our sandbox")}
-            className="text-[10px] shrink-0 bg-slate-800 border border-slate-700 hover:border-amber-500 hover:bg-amber-950/40 text-slate-200 px-2.5 py-1 rounded-lg font-mono transition-all cursor-pointer"
+            className="text-[10px] shrink-0 bg-slate-800 border border-slate-700 hover:border-brand-light hover:bg-brand-light/15 text-slate-200 px-2.5 py-1 rounded-lg font-mono transition-all cursor-pointer flex items-center gap-1.5"
           >
-            💡 Teacher AI &amp; Sandbox
+            <Lightbulb className="h-3 w-3 text-brand-light" />
+            Teacher AI &amp; Sandbox
           </button>
           <button
             onClick={() => handleSendChatMessage(undefined, "What kinds of training courses do we offer?")}
-            className="text-[10px] shrink-0 bg-slate-800 border border-slate-700 hover:border-amber-500 hover:bg-amber-950/40 text-slate-200 px-2.5 py-1 rounded-lg font-mono transition-all cursor-pointer"
+            className="text-[10px] shrink-0 bg-slate-800 border border-slate-700 hover:border-brand-light hover:bg-brand-light/15 text-slate-200 px-2.5 py-1 rounded-lg font-mono transition-all cursor-pointer flex items-center gap-1.5"
           >
-            📚 AI Certifications
+            <BookOpen className="h-3 w-3 text-brand-light" />
+            AI Certifications
           </button>
           <button
             onClick={() => {
               setChatOpen(false);
               setConsultModalOpen(true);
             }}
-            className="text-[10px] shrink-0 bg-amber-500/10 border border-amber-500/30 hover:border-amber-400 text-amber-400 px-2.5 py-1 rounded-lg font-mono transition-all cursor-pointer flex items-center gap-1 font-semibold"
+            className="text-[10px] shrink-0 bg-brand/15 border border-brand-light/40 hover:border-brand-light text-brand-light px-2.5 py-1 rounded-lg font-mono transition-all cursor-pointer flex items-center gap-1.5 font-semibold"
           >
-            📅 Book Consultation
+            <Calendar className="h-3 w-3" />
+            Book Consultation
           </button>
         </div>
 
         {/* Chat viewport */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-[#0A1020]/20 scroll-mt-2 flex flex-col">
+        <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-[#0E2013]/30 scroll-mt-2 flex flex-col">
           {chatMessages.map((msg, idx) => {
             const isAI = msg.role === "assistant";
             return (
@@ -95,7 +98,7 @@ export const ChatbotDrawer: React.FC<ChatbotDrawerProps> = ({
                 className={`flex items-start gap-2.5 ${isAI ? "justify-start" : "justify-end"}`}
               >
                 {isAI && (
-                  <div className="h-7 w-7 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 flex items-center justify-center font-bold text-xs border border-amber-500/30">
+                  <div className="h-7 w-7 rounded-lg bg-brand/25 text-brand-light shrink-0 flex items-center justify-center font-bold text-xs border border-brand-light/40">
                     स
                   </div>
                 )}
@@ -115,7 +118,7 @@ export const ChatbotDrawer: React.FC<ChatbotDrawerProps> = ({
           })}
           {chatLoading && (
             <div className="flex items-center gap-2 text-slate-300 text-[10px] font-mono pl-9 py-2">
-              <Loader2 className="h-3 w-3 animate-spin text-amber-400" />
+              <Loader2 className="h-3 w-3 animate-spin text-brand-light" />
               <span>Mitra is synthesizing responses...</span>
             </div>
           )}
@@ -125,14 +128,14 @@ export const ChatbotDrawer: React.FC<ChatbotDrawerProps> = ({
         {/* Text entry board */}
         <form
           onSubmit={(e) => handleSendChatMessage(e)}
-          className="p-3 bg-[#0F172A] border-t border-white/10 flex items-center gap-1.5"
+          className="p-3 bg-[#0C1F14] border-t border-white/10 flex items-center gap-1.5"
         >
           <input
             type="text"
             value={chatInput}
             onChange={(e) => setChatInput(e.target.value)}
             placeholder="Ask SAFAL AI Mitra..."
-            className="flex-1 bg-slate-900 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none placeholder:text-slate-400 font-light"
+            className="flex-1 bg-slate-900 border border-slate-700 focus:border-brand-light rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none placeholder:text-slate-400 font-light"
           />
           <button
             type="submit"

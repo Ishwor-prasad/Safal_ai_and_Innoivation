@@ -60,11 +60,11 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
       status: "New",
       statusStyle: "bg-brand-muted text-brand-dark border-brand-border",
       name: "AI for Managers",
-      tagline: "7-day program for teams",
+      tagline: "8-session program for teams",
       description: "Turn AI from a curiosity into part of how your team runs — no coding, no technical background required.",
-      cta: "View course page",
-      href: "/ai-for-managers.html",
-      external: true
+      cta: "Program details",
+      href: "#training",
+      onClick: () => document.getElementById("training")?.scrollIntoView({ behavior: "smooth" })
     }
   ];
 
@@ -104,20 +104,10 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
               </p>
 
               <div className="mt-auto pt-4 border-t border-gray-100">
-                {p.external ? (
+                {p.href ? (
                   <a
                     href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
-                  >
-                    {p.cta}
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </a>
-                ) : p.href ? (
-                  <a
-                    href={p.href}
-                    onClick={(e) => { e.preventDefault(); p.onClick(); }}
+                    onClick={(e) => { e.preventDefault(); p.onClick?.(); }}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
                   >
                     {p.cta}

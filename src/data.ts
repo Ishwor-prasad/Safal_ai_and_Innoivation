@@ -468,16 +468,16 @@ export const VIBE_STATS: VibeStat[] = [
 ];
 
 export const VIBE_SKILLS: VibeCourseSkill[] = [
-  { id: "sk-01", icon: "🤖", label: "Claude Code & Gemini CLI" },
-  { id: "sk-02", icon: "💬", label: "Advanced Prompt Engineering" },
-  { id: "sk-03", icon: "⚛️",  label: "React with AI Assistance" },
-  { id: "sk-04", icon: "🛠️", label: "Node.js + Express APIs" },
-  { id: "sk-05", icon: "🔗", label: "Model Context Protocol (MCP)" },
-  { id: "sk-06", icon: "🤝", label: "Multi-Agent Workflows" },
-  { id: "sk-07", icon: "🗄️", label: "AI-Assisted Database Design" },
-  { id: "sk-08", icon: "🧪", label: "Test-Driven Dev with AI" },
-  { id: "sk-09", icon: "🚀", label: "Production-Ready CI/CD" },
-  { id: "sk-10", icon: "🔒", label: "Auth, JWT & Security Audits" }
+  { id: "sk-01", label: "Claude Code & Gemini CLI" },
+  { id: "sk-02", label: "Advanced Prompt Engineering" },
+  { id: "sk-03", label: "React with AI Assistance" },
+  { id: "sk-04", label: "Node.js + Express APIs" },
+  { id: "sk-05", label: "Model Context Protocol (MCP)" },
+  { id: "sk-06", label: "Multi-Agent Workflows" },
+  { id: "sk-07", label: "AI-Assisted Database Design" },
+  { id: "sk-08", label: "Test-Driven Dev with AI" },
+  { id: "sk-09", label: "Production-Ready CI/CD" },
+  { id: "sk-10", label: "Auth, JWT & Security Audits" }
 ];
 
 export const VIBE_SUCCESS_STORIES = [

@@ -445,16 +445,16 @@ export const VIBE_STATS_NE: VibeStat[] = [
 ];
 
 export const VIBE_SKILLS_NE: VibeCourseSkill[] = [
-  { id: "sk-01", icon: "🤖", label: "Claude Code र Gemini CLI" },
-  { id: "sk-02", icon: "💬", label: "उन्नत प्रम्प्ट इन्जिनियरिङ" },
-  { id: "sk-03", icon: "⚛️",  label: "AI को सहायतामा React" },
-  { id: "sk-04", icon: "🛠️", label: "Node.js + Express APIs" },
-  { id: "sk-05", icon: "🔗", label: "मोडेल सन्दर्भ प्रोटोकल (MCP)" },
-  { id: "sk-06", icon: "🤝", label: "बहु-एजेन्ट कार्यप्रवाह" },
-  { id: "sk-07", icon: "🗄️", label: "AI को सहायतामा डाटाबेस डिजाइन" },
-  { id: "sk-08", icon: "🧪", label: "AI सँग टेस्ट-ड्राइभन डेभलपमेन्ट" },
-  { id: "sk-09", icon: "🚀", label: "उत्पादन-तयार CI/CD" },
-  { id: "sk-10", icon: "🔒", label: "Auth, JWT र सुरक्षा अडिटहरू" }
+  { id: "sk-01", label: "Claude Code र Gemini CLI" },
+  { id: "sk-02", label: "उन्नत प्रम्प्ट इन्जिनियरिङ" },
+  { id: "sk-03", label: "AI को सहायतामा React" },
+  { id: "sk-04", label: "Node.js + Express APIs" },
+  { id: "sk-05", label: "मोडेल सन्दर्भ प्रोटोकल (MCP)" },
+  { id: "sk-06", label: "बहु-एजेन्ट कार्यप्रवाह" },
+  { id: "sk-07", label: "AI को सहायतामा डाटाबेस डिजाइन" },
+  { id: "sk-08", label: "AI सँग टेस्ट-ड्राइभन डेभलपमेन्ट" },
+  { id: "sk-09", label: "उत्पादन-तयार CI/CD" },
+  { id: "sk-10", label: "Auth, JWT र सुरक्षा अडिटहरू" }
 ];
 
 export const VIBE_SUCCESS_STORIES_NE = [

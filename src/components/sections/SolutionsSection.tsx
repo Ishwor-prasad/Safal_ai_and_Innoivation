@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import { BookOpen, GraduationCap, Sliders, Terminal, Briefcase, ArrowRight, Calendar } from "lucide-react";
+import { BookOpen, GraduationCap, Sliders, Terminal, Briefcase, ArrowRight, Calendar, Landmark, HeartHandshake } from "lucide-react";
 import { SERVICES, INDUSTRIES } from "../../data";
 
 interface SolutionsSectionProps {
   setConsultModalOpen: (open: boolean) => void;
 }
-
-const industryImages = [
-  { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&auto=format&fit=crop", alt: "Students in a classroom in Nepal" },
-  { src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80&auto=format&fit=crop", alt: "Business team reviewing work on a laptop" },
-  { src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&auto=format&fit=crop", alt: "Officials processing official documents" },
-  { src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format&fit=crop", alt: "Development team collaborating around a table" }
-];
 
 export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
   setConsultModalOpen
@@ -109,31 +102,44 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {INDUSTRIES.map((ind, idx) => (
-                    <div key={ind.id} id={`industry-card-${ind.id}`} className="card-elevated overflow-hidden flex flex-col group">
-                      <div className="photo-frame h-44 rounded-none">
-                        <img src={industryImages[idx].src} alt={industryImages[idx].alt} loading="lazy" />
+                  {INDUSTRIES.map((ind, idx) => {
+                    const industryIcons = [BookOpen, Briefcase, Landmark, HeartHandshake];
+                    const IndIcon = industryIcons[idx] || Briefcase;
+                    return (
+                      <div key={ind.id} id={`industry-card-${ind.id}`} className="card-elevated overflow-hidden flex flex-col group">
+                        <div className="h-44 relative overflow-hidden bg-gradient-to-br from-[#16281C] via-[#0E0E0D] to-[#0B1D13]">
+                          <span className="aurora-a w-[10rem] h-[10rem] -top-8 -right-6" />
+                          <span className="section-index absolute -right-3 -bottom-8 text-[6rem] select-none" aria-hidden="true">
+                            {String(idx + 1).padStart(2, "0")}
+                          </span>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="flex items-center gap-3 rounded-full border border-brand-light/40 bg-[#0E0E0D]/70 backdrop-blur px-4 py-2.5 font-mono text-xs uppercase tracking-[0.2em] text-brand-light">
+                              <IndIcon className="h-4 w-4" />
+                              {ind.title.split(" ")[0]}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="p-6 flex flex-col flex-1">
+                          <h3 className="font-display text-lg font-semibold text-gray-900 tracking-tight">
+                            {ind.title}
+                          </h3>
+                          <p className="text-xs text-gray-500 mt-1.5">
+                            {ind.subsectors.join(" · ")}
+                          </p>
+                          <p className="text-sm text-gray-600 leading-relaxed mt-3 mb-5">
+                            {ind.description}
+                          </p>
+                          <button
+                            onClick={() => setConsultModalOpen(true)}
+                            className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors cursor-pointer bg-transparent border-none p-0 self-start"
+                          >
+                            Discuss your use case
+                            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                          </button>
+                        </div>
                       </div>
-                      <div className="p-6 flex flex-col flex-1">
-                        <h3 className="font-display text-lg font-semibold text-gray-900 tracking-tight">
-                          {ind.title}
-                        </h3>
-                        <p className="text-xs text-gray-500 mt-1.5">
-                          {ind.subsectors.join(" · ")}
-                        </p>
-                        <p className="text-sm text-gray-600 leading-relaxed mt-3 mb-5">
-                          {ind.description}
-                        </p>
-                        <button
-                          onClick={() => setConsultModalOpen(true)}
-                          className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors cursor-pointer bg-transparent border-none p-0 self-start"
-                        >
-                          Discuss your use case
-                          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -150,7 +156,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
               </div>
               <button
                 onClick={() => setConsultModalOpen(true)}
-                className="bg-brand hover:bg-brand-dark text-white font-semibold py-3.5 px-7 rounded-lg transition-colors shrink-0 flex items-center gap-2 cursor-pointer border-none text-sm"
+                className="bg-brand hover:bg-brand-dark text-white font-semibold py-3.5 px-7 rounded-full transition-colors shrink-0 flex items-center gap-2 cursor-pointer border-none text-sm"
               >
                 <Calendar className="h-4 w-4" />
                 <span>Book a Free Consultation</span>

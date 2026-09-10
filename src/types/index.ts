@@ -94,7 +94,6 @@ export interface VibeStat {
 
 export interface VibeCourseSkill {
   id: string;
-  icon: string;
   label: string;
   title?: string;
   description?: string;

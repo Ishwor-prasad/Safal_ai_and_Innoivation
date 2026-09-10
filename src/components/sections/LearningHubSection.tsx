@@ -62,11 +62,11 @@ export const LearningHubSection: React.FC<LearningHubSectionProps> = ({
 
         {learningTab === "training" ? (
           <div className="space-y-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {TRAINING_PROGRAMS.map((prog) => (
                 <div key={prog.id} id={`training-card-${prog.id}`} className="card-white p-7 lg:p-8 flex flex-col">
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-surface-muted border border-gray-200 px-2.5 py-1 rounded-md">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-surface-muted border border-gray-200 px-2.5 py-1 rounded-full">
                       <Clock className="h-3.5 w-3.5 text-gray-400" />
                       {prog.duration}
                     </span>
@@ -103,7 +103,7 @@ export const LearningHubSection: React.FC<LearningHubSectionProps> = ({
                         setConsultMessage(`I'm interested in enrolling in the "${prog.title}" training program. Please share schedule and pricing details.`);
                         setConsultModalOpen(true);
                       }}
-                      className="bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors cursor-pointer border-none"
+                      className="bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-5 py-2 rounded-full transition-colors cursor-pointer border-none"
                     >
                       Enroll
                     </button>
@@ -122,7 +122,7 @@ export const LearningHubSection: React.FC<LearningHubSectionProps> = ({
                   setConsultMessage("Hi, I'd like to discuss a custom training program for our institution.");
                   setConsultModalOpen(true);
                 }}
-                className="inline-flex items-center gap-2 border border-gray-300 hover:border-brand hover:text-brand text-gray-700 font-semibold text-sm py-3 px-6 rounded-lg transition-colors cursor-pointer bg-transparent"
+                className="inline-flex items-center gap-2 border border-gray-300 hover:border-brand hover:text-brand text-gray-700 font-semibold text-sm py-3 px-7 rounded-full transition-colors cursor-pointer bg-transparent"
               >
                 Plan an institutional program
                 <ChevronRight className="h-4 w-4" />
