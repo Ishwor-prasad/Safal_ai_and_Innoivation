@@ -5,8 +5,6 @@ import { ProductsSection } from "../components/sections/ProductsSection";
 import { CaseStudiesSection } from "../components/sections/CaseStudiesSection";
 import { StatsSection } from "../components/sections/StatsSection";
 import { LearningHubSection } from "../components/sections/LearningHubSection";
-import { TestimonialsSection } from "../components/sections/TestimonialsSection";
-import { PartnersSection } from "../components/sections/PartnersSection";
 import { AboutSection } from "../components/sections/AboutSection";
 import { TeamSection } from "../components/sections/TeamSection";
 import { ContactSection } from "../components/sections/ContactSection";
@@ -57,8 +55,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         setConsultModalOpen={setConsultModalOpen}
       />
 
-      <PartnersSection />
-
       <SolutionsSection
         setConsultModalOpen={setConsultModalOpen}
       />
@@ -67,8 +63,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         navigate={navigate}
         setConsultModalOpen={setConsultModalOpen}
       />
-
-      <TestimonialsSection />
 
       <CaseStudiesSection />
 
