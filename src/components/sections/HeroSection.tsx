@@ -70,49 +70,55 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Generative art cover — Higgsfield-style pure gradient composition */}
+          {/* Generative art cover — dramatic, asymmetric, unique from About */}
           <div className="lg:col-span-5 w-full">
             <div className="offset-frame">
-              <div
-                className="motion-panel aspect-[4/5] rounded-[1.25rem] shadow-[0_28px_70px_-28px_rgba(17,37,26,0.45)] flex items-center justify-center max-w-sm mx-auto lg:max-w-none"
-              >
-                {/* Gradient meshes */}
-                <span className="mesh-a" />
-                <span className="mesh-b" />
-                <span className="mesh-c" />
-                {/* Flowing streams */}
-                <span className="stream s1" />
-                <span className="stream s2" />
-                <span className="stream s3" />
+              <div className="hero-art aspect-[4/5] rounded-[1.25rem] shadow-[0_28px_70px_-28px_rgba(17,37,26,0.45)] max-w-sm mx-auto lg:max-w-none">
+
+                {/* Ghost serif word behind */}
+                <span className="ghost-word" aria-hidden="true">AI</span>
+
+                {/* Gradient mesh base */}
+                <span className="grad-base" />
                 {/* Organic blobs */}
                 <span className="aurora-a" />
                 <span className="aurora-b" />
-                {/* Particle dots */}
-                <span className="dot h-1.5 w-1.5 top-[18%] left-[22%]" />
-                <span className="dot h-2 w-2 top-[38%] right-[16%]" />
-                <span className="dot h-1 w-1 bottom-[28%] left-[35%]" />
-                <span className="dot h-1 w-1 top-[62%] right-[30%] opacity-40" />
-                {/* Orbit ring */}
-                <span className="spin-ring"><i /></span>
+                {/* Flowing streams */}
+                <span className="hstream hs1" />
+                <span className="hstream hs2" />
+                <span className="hstream hs3" />
+                {/* Constellation dots */}
+                <span className="hdot h-1.5 w-1.5 top-[16%] left-[18%] text-[#CFE0D5]" style={{ animation: "hdot-breathe 4.5s ease-in-out infinite" }} />
+                <span className="hdot h-2 w-2 top-[34%] right-[14%] text-[#4AE27B]" style={{ animation: "hdot-breathe 6s ease-in-out -1.5s infinite" }} />
+                <span className="hdot h-1 w-1 bottom-[30%] left-[38%] text-[#CFE0D5]" style={{ animation: "hdot-breathe 5s ease-in-out -3s infinite" }} />
+                <span className="hdot h-1 w-1 top-[58%] right-[28%] text-[#2F7D50]" style={{ animation: "hdot-breathe 7s ease-in-out -2s infinite" }} />
+                <span className="hdot h-[3px] w-[3px] top-[22%] left-[62%] text-[#CFE0D5]" style={{ animation: "hdot-breathe 3.5s ease-in-out -0.5s infinite" }} />
 
-                <div className="relative z-10 text-center px-6 sm:px-10 space-y-5 select-none breathe">
-                  <span className="eyebrow eyebrow-center justify-center !text-brand-light">AI Studio — काठमाडौँ</span>
-                  <div className="font-display leading-none">
-                    <span className="block text-6xl sm:text-7xl font-semibold text-white tracking-tight">AI</span>
-                    <span className="block text-3xl sm:text-4xl font-semibold text-brand-light italic mt-2">for Nepal</span>
+                {/* Content — asymmetric layout */}
+                <div className="relative z-10 flex flex-col justify-between h-full p-7 sm:p-10 select-none">
+                  <span className="eyebrow !text-brand-light self-start">AI Studio — काठमाडौँ</span>
+
+                  <div className="font-display leading-[0.92] breathe">
+                    <span className="block text-7xl sm:text-8xl font-semibold text-white tracking-tight">AI</span>
+                    <span className="block text-4xl sm:text-5xl font-semibold text-brand-light italic mt-1">for Nepal</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-white/60">
-                    <span className="pulse-dot" />
-                    Now taking 2026 cohorts
+
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-white/60">
+                      <span className="pulse-dot" />
+                      Now taking 2026 cohorts
+                    </div>
+                    <span className="section-index text-[4.5rem] leading-none block select-none">26</span>
                   </div>
-                  <span className="section-index text-[5rem] leading-none block select-none">26</span>
                 </div>
 
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 [writing-mode:vertical-rl]">
+                {/* Vertical label */}
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 [writing-mode:vertical-rl] z-10">
                   EST. 2023 — AI, SOFTWARE &amp; TRAINING
                 </span>
 
-                <div className="absolute inset-x-0 bottom-0 overflow-hidden border-t border-white/10 py-3 bg-black/25">
+                {/* Bottom marquee */}
+                <div className="absolute inset-x-0 bottom-0 overflow-hidden border-t border-white/10 py-3 bg-black/25 z-10">
                   <div className="marquee-track text-[10px] font-mono uppercase tracking-[0.2em] text-white/50">
                     {["शिक्षा", "Education", "व्यवसाय", "Business", "सरकार", "Government", "अनुसन्धान", "Research"].map((d) => (
                       <span key={d} className="flex items-center gap-3.5 shrink-0">

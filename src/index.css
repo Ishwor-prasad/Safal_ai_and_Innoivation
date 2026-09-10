@@ -388,106 +388,218 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(74, 226, 123, 0); }
   }
 
-  /* Cinematic hero cover — Pure generative art (Higgsfield-style) */
-  .motion-panel .cover-base { display: none; }
-  .motion-panel .cover-tint {
+  /* ── Hero generative art — dramatic, asymmetric ── */
+  .hero-art {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background: #0E0E0D;
+  }
+  .hero-art .grad-base {
     position: absolute;
     inset: 0;
-    background: #0E0E0D;
-    pointer-events: none;
-  }
-  /* Drifting gradient meshes — the "AI-generated art" feel */
-  .motion-panel .mesh-a {
-    position: absolute;
-    width: 140%;
-    height: 140%;
-    top: -20%;
-    left: -20%;
     background:
-      radial-gradient(ellipse 55% 45% at 25% 30%, rgba(30, 90, 58, 0.7) 0%, transparent 70%),
-      radial-gradient(ellipse 45% 55% at 75% 70%, rgba(47, 125, 80, 0.35) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 40% at 50% 50%, rgba(22, 65, 43, 0.5) 0%, transparent 60%);
-    animation: mesh-drift 25s ease-in-out infinite alternate;
-    pointer-events: none;
+      radial-gradient(ellipse 70% 55% at 20% 20%, rgba(30, 90, 58, 0.8) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 65% at 80% 85%, rgba(47, 125, 80, 0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 35% at 65% 15%, rgba(207, 224, 213, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 35% 45% at 10% 75%, rgba(22, 65, 43, 0.6) 0%, transparent 55%);
+    animation: hero-drift 20s ease-in-out infinite alternate;
   }
-  @keyframes mesh-drift {
-    0%   { transform: translate(0, 0) rotate(0deg); }
-    33%  { transform: translate(3%, -2%) rotate(1.5deg); }
-    66%  { transform: translate(-2%, 3%) rotate(-1deg); }
-    100% { transform: translate(1%, 1%) rotate(0.5deg); }
-  }
-  .motion-panel .mesh-b {
-    position: absolute;
-    width: 120%;
-    height: 120%;
-    top: -10%;
-    left: -10%;
-    background:
-      radial-gradient(ellipse 40% 60% at 70% 25%, rgba(74, 226, 123, 0.15) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 35% at 20% 80%, rgba(47, 125, 80, 0.25) 0%, transparent 55%);
-    animation: mesh-drift-b 32s ease-in-out infinite alternate;
-    pointer-events: none;
-  }
-  @keyframes mesh-drift-b {
+  @keyframes hero-drift {
     0%   { transform: translate(0, 0) scale(1); }
-    50%  { transform: translate(-3%, 2%) scale(1.05); }
-    100% { transform: translate(2%, -1%) scale(0.98); }
+    50%  { transform: translate(2%, -1.5%) scale(1.03); }
+    100% { transform: translate(-1%, 2%) scale(0.98); }
   }
-  .motion-panel .mesh-c {
+  .hero-art .aurora-a,
+  .hero-art .aurora-b {
     position: absolute;
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
-    background: radial-gradient(circle at 60% 40%, rgba(207, 224, 213, 0.08) 0%, transparent 50%);
-    animation: mesh-drift 38s ease-in-out infinite alternate-reverse;
+    border-radius: 50%;
+    filter: blur(72px);
+    opacity: 0.65;
     pointer-events: none;
   }
-  /* Flowing light streams — thin, organic, varied timing */
-  .motion-panel .stream {
+  .hero-art .aurora-a {
+    width: 18rem; height: 18rem;
+    top: -4rem; right: -5rem;
+    background: radial-gradient(circle at 30% 30%, #2F7D50, #0B1D13 70%);
+    animation: drift-a 18s ease-in-out infinite alternate;
+  }
+  .hero-art .aurora-b {
+    width: 15rem; height: 15rem;
+    bottom: -5rem; left: -4rem;
+    background: radial-gradient(circle at 60% 60%, #16412B, #070E0A 70%);
+    animation: drift-b 22s ease-in-out infinite alternate;
+  }
+  @keyframes drift-a {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-3rem, 2.5rem) scale(1.2); }
+  }
+  @keyframes drift-b {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(3rem, -3.5rem) scale(1.25); }
+  }
+  /* Grain overlay for texture */
+  .hero-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 3;
+  }
+  /* Ghost serif word behind composition */
+  .hero-art .ghost-word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: clamp(10rem, 18vw, 16rem);
+    font-weight: 700;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(207, 224, 213, 0.06);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  /* Hero streams — more numerous, varied angles */
+  .hero-art .hstream {
     position: absolute;
     height: 1.5px;
     border-radius: 9999px;
-    background: linear-gradient(90deg, transparent 5%, rgba(207, 224, 213, 0.0) 15%, rgba(207, 224, 213, 0.5) 45%, rgba(47, 125, 80, 0.3) 60%, transparent 90%);
-    filter: blur(0.3px);
     pointer-events: none;
   }
-  .motion-panel .stream.s1 {
-    top: 35%;
-    animation: stream-a 11s ease-in-out infinite;
+  .hero-art .hstream::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    filter: blur(0.3px);
   }
-  .motion-panel .stream.s2 {
-    top: 52%;
-    height: 1px;
-    animation: stream-a 15s ease-in-out -5s infinite;
-    opacity: 0.55;
+  .hero-art .hstream.hs1 {
+    top: 30%; width: 70%;
+    background: linear-gradient(90deg, transparent, rgba(207, 224, 213, 0.4) 40%, rgba(47, 125, 80, 0.2) 65%, transparent);
+    animation: hero-stream 10s ease-in-out infinite;
   }
-  .motion-panel .stream.s3 {
-    top: 68%;
-    height: 2px;
-    animation: stream-a 9s ease-in-out -2s infinite;
-    opacity: 0.3;
+  .hero-art .hstream.hs2 {
+    top: 48%; width: 55%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(74, 226, 123, 0.3) 50%, transparent);
+    animation: hero-stream 14s ease-in-out -4s infinite;
+  }
+  .hero-art .hstream.hs3 {
+    top: 65%; width: 80%; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(207, 224, 213, 0.2) 30%, rgba(47, 125, 80, 0.15) 60%, transparent);
+    animation: hero-stream 8s ease-in-out -2s infinite;
     filter: blur(1px);
   }
-  @keyframes stream-a {
-    0%   { left: -35%; transform: rotate(0.4deg); opacity: 0; }
-    10%  { opacity: 0.45; }
-    55%  { opacity: 0.25; }
-    100% { left: 120%; transform: rotate(-0.4deg); opacity: 0; }
+  @keyframes hero-stream {
+    0%   { left: -35%; opacity: 0; }
+    10%  { opacity: 1; }
+    60%  { opacity: 0.6; }
+    100% { left: 115%; opacity: 0; }
   }
-  /* Particle dots — scattered, subtle breathing */
-  .motion-panel .dot {
+  /* Particle constellation */
+  .hero-art .hdot {
     position: absolute;
     border-radius: 50%;
-    background: rgba(207, 224, 213, 0.45);
     pointer-events: none;
-    animation: dot-pulse 5s ease-in-out infinite;
   }
-  .motion-panel .dot:nth-child(2) { animation-delay: -1.2s; background: rgba(74, 226, 123, 0.35); }
-  .motion-panel .dot:nth-child(3) { animation-delay: -3s; background: rgba(207, 224, 213, 0.3); }
-  @keyframes dot-pulse {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50%      { opacity: 0.7; transform: scale(1.6); }
+  .hero-art .hdot::after {
+    content: "";
+    position: absolute;
+    inset: -300%;
+    border-radius: 50%;
+    background: radial-gradient(circle, currentColor 0%, transparent 70%);
+    opacity: 0.15;
+  }
+  @keyframes hdot-breathe {
+    0%, 100% { opacity: 0.25; transform: scale(1); }
+    50%      { opacity: 0.8; transform: scale(1.5); }
+  }
+
+  /* ── About generative art — simpler, warmer ── */
+  .motion-panel {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 80% -20%, rgba(47, 125, 80, 0.55) 0%, rgba(14, 14, 13, 0) 55%),
+      radial-gradient(90% 70% at 0% 110%, rgba(22, 65, 43, 0.8) 0%, rgba(14, 14, 13, 0) 60%),
+      #0E0E0D;
+  }
+  .motion-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .motion-panel .aurora-a,
+  .motion-panel .aurora-b {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(64px);
+    opacity: 0.75;
+    pointer-events: none;
+  }
+  .motion-panel .aurora-a {
+    width: 16rem;
+    height: 16rem;
+    top: -3rem;
+    right: -4rem;
+    background: radial-gradient(circle at 30% 30%, #2F7D50, #122A1C 70%);
+    animation: drift-a 16s ease-in-out infinite alternate;
+  }
+  .motion-panel .aurora-b {
+    width: 14rem;
+    height: 14rem;
+    bottom: -4rem;
+    left: -3.5rem;
+    background: radial-gradient(circle at 60% 60%, #16412B, #0B1D13 70%);
+    animation: drift-b 20s ease-in-out infinite alternate;
+  }
+  .motion-panel .spin-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 68%;
+    aspect-ratio: 1;
+    margin: -34% 0 0 -34%;
+    border: 1px dashed rgba(207, 224, 213, 0.35);
+    border-radius: 50%;
+    animation: orbit 60s linear infinite;
+    pointer-events: none;
+  }
+  .motion-panel .spin-ring i {
+    position: absolute;
+    top: -0.3rem;
+    left: 50%;
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: #CFE0D5;
+  }
+  .motion-panel .pulse-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #4AE27B;
+    box-shadow: 0 0 0 0 rgba(74, 226, 123, 0.5);
+    animation: pulse-dot 2.4s ease-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%   { box-shadow: 0 0 0 0 rgba(74, 226, 123, 0.45); }
+    70%  { box-shadow: 0 0 0 0.8rem rgba(74, 226, 123, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 226, 123, 0); }
+  }
+  .motion-panel .breathe {
+    animation: breathe 7s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.025); }
   }
   .motion-panel .breathe {
     animation: breathe 7s ease-in-out infinite;
