@@ -10,6 +10,7 @@ import { TeamSection } from "../components/sections/TeamSection";
 import { ContactSection } from "../components/sections/ContactSection";
 import { SyllabusModal } from "../components/modals/SyllabusModal";
 import { WhyChooseSafalSection } from "../components/sections/WhyChooseSafalSection";
+import { AudiencePathsSection } from "../components/sections/AudiencePathsSection";
 import { TrainingProgram } from "../types";
 
 interface HomePageProps {
@@ -54,6 +55,13 @@ export const HomePage: React.FC<HomePageProps> = ({
         t={t}
         handleNavClick={handleNavClick}
         setConsultModalOpen={setConsultModalOpen}
+      />
+
+      <AudiencePathsSection
+        t={t}
+        setConsultSector={setConsultSector}
+        setConsultModalOpen={setConsultModalOpen}
+        handleNavClick={handleNavClick}
       />
 
       <SolutionsSection

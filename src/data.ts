@@ -2,6 +2,7 @@ import type {
   Service,
   Product,
   ChoiceReason,
+  AudiencePath,
   IndustryServed,
   ResearchFocus,
   TrainingProgram,
@@ -18,6 +19,7 @@ export type {
   Service,
   Product,
   ChoiceReason,
+  AudiencePath,
   IndustryServed,
   ResearchFocus,
   TrainingProgram,
@@ -126,6 +128,30 @@ export const WHY_CHOOSE_SAFAL: ChoiceReason[] = [
     id: "innovation-driven",
     title: "Innovation Driven",
     description: "We are continuously exploring, researching, and experimenting with pioneering AI frameworks, models, and paradigms to keep our community globally competitive."
+  }
+];
+
+export const AUDIENCE_PATHS: AudiencePath[] = [
+  {
+    id: "corporates",
+    icon: "Briefcase",
+    title: "For Corporates & Teams",
+    description: "Upskill your workforce or automate repeatable workflows with hands-on AI training and custom solutions.",
+    ctaLabel: "Request a training proposal"
+  },
+  {
+    id: "schools",
+    icon: "GraduationCap",
+    title: "For Schools & Teachers",
+    description: "CDC-aligned lesson planning, teacher certification training, and student-ready AI tools for Nepali classrooms.",
+    ctaLabel: "Book a school training"
+  },
+  {
+    id: "individuals",
+    icon: "User",
+    title: "For Individuals & Students",
+    description: "Learn AI from scratch — prompt engineering, Python, vibe coding, and career-ready skills for today's job market.",
+    ctaLabel: "Explore training programs"
   }
 ];
 

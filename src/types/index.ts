@@ -21,6 +21,14 @@ export interface ChoiceReason {
   description: string;
 }
 
+export interface AudiencePath {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+}
+
 export interface IndustryServed {
   id: string;
   title: string;

@@ -2,6 +2,7 @@ import {
   Service,
   Product,
   ChoiceReason,
+  AudiencePath,
   IndustryServed,
   ResearchFocus,
   TrainingProgram,
@@ -109,6 +110,30 @@ export const WHY_CHOOSE_SAFAL_NE: ChoiceReason[] = [
     id: "innovation-driven",
     title: "नवीनताद्वारा सञ्चालित",
     description: "हामी नेपाली समुदायलाई विश्व बजारमा प्रतिस्पर्धी राख्न लगातार नयाँ AI फ्रेमवर्क र मोडेलहरूको अनुसन्धान र परीक्षण गरिरहन्छौं।"
+  }
+];
+
+export const AUDIENCE_PATHS_NE: AudiencePath[] = [
+  {
+    id: "corporates",
+    icon: "Briefcase",
+    title: "कर्पोरेट र टोलीहरूका लागि",
+    description: "ह्यान्ड्स-अन AI तालिम र अनुकूलित समाधानहरूद्वारा आफ्नो कार्यबलको सीप वृद्धि गर्नुहोस् वा दोहोरिने कार्यप्रवाह स्वचालित गर्नुहोस्।",
+    ctaLabel: "तालिम प्रस्ताव अनुरोध गर्नुहोस्"
+  },
+  {
+    id: "schools",
+    icon: "GraduationCap",
+    title: "विद्यालय र शिक्षकहरूका लागि",
+    description: "CDC-अनुकूलित पाठ योजना, शिक्षक प्रमाणीकरण तालिम, र नेपाली कक्षाकोठाका लागि विद्यार्थी-तयार AI उपकरणहरू।",
+    ctaLabel: "विद्यालय तालिम बुक गर्नुहोस्"
+  },
+  {
+    id: "individuals",
+    icon: "User",
+    title: "व्यक्तिगत र विद्यार्थीहरूका लागि",
+    description: "सुरुदेखि AI सिक्नुहोस् — प्रम्प्ट इन्जिनियरिङ, Python, वाइब कोडिङ, र आजको रोजगार बजारका लागि तयार सीपहरू।",
+    ctaLabel: "तालिम कार्यक्रमहरू हेर्नुहोस्"
   }
 ];
 
@@ -544,6 +569,12 @@ export const translations: Record<string, any> = {
       description: "We build AI tools that save teachers hours of prep, help businesses automate workflows, and enable governments to digitize public services — all built for Nepal's unique needs.",
       cta1: "Explore Solutions",
       cta2: "Book Consultation"
+    },
+    audience: {
+      eyebrow: "Who is this for?",
+      heading: "Pick your path — we'll handle the rest",
+      subheading: "Three ways to work with us, each with its own clear starting point.",
+      fallbackCta: "Not sure which path? Book a free consultation"
     }
   },
   ne: {
@@ -554,6 +585,12 @@ export const translations: Record<string, any> = {
       description: "हामी AI उपकरणहरू बनाउँछौं जसले शिक्षकहरूलाई घण्टौंको तयारी बचत गर्छ, व्यवसायहरूलाई कार्यप्रवाह स्वचालित गर्न मद्दत गर्छ, र सरकारहरूलाई सार्वजनिक सेवाहरू डिजिटलाइज गर्न सक्षम बनाउँछ — नेपालको अद्वितीय आवश्यकताहरूका लागि निर्मित।",
       cta1: "समाधानहरू हेर्नुहोस्",
       cta2: "परामर्श लिनुहोस्"
+    },
+    audience: {
+      eyebrow: "कसका लागि हो?",
+      heading: "आफ्नो मार्ग रोज्नुहोस् — बाँकी हामी मिलाउँछौं",
+      subheading: "हामीसँग काम गर्ने तीन तरिका, प्रत्येकको आफ्नै स्पष्ट सुरुवात बिन्दु।",
+      fallbackCta: "कुन मार्ग उपयुक्त यकिन छैन? निःशुल्क परामर्श बुक गर्नुहोस्"
     }
   }
 };
