@@ -66,7 +66,7 @@ See `.env.example` for the full list:
 
 ## Design system
 
-- **Fonts:** Inter (body), Space Grotesk (headings/display), JetBrains Mono (code)
+- **Fonts:** Inter (body), Fraunces (headings/display), JetBrains Mono (code)
 - **Brand color:** emerald green (`#16A34A`) with light/dark variants
 - **Dark sections:** custom `.dark-section` class with emerald-tinted dark gradients
 - **Animations:** custom utilities in `index.css` (float-bob, fade-in-up, shimmer, ring-pulse, etc.)
