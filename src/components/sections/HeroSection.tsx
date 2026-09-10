@@ -13,105 +13,87 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   setConsultModalOpen
 }) => {
   return (
-    <section id="hero" className="relative bg-[#070E0A] overflow-hidden">
-      {/* Full-bleed footage — the hero IS the video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover sm:object-center"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
+    <section id="hero" className="relative bg-white pt-28 pb-20 sm:pt-36 sm:pb-24 overflow-hidden">
+      {/* Soft abstract depth — same art language as the rest of the page */}
+      <div className="blob h-96 w-96 top-[-6rem] right-[-4rem] bg-brand-muted opacity-60" />
+      <div className="blob h-72 w-72 bottom-[-8rem] left-[-5rem] bg-brand-border opacity-50" />
 
-      {/* Legibility veils — left-weighted for text, bottom fade for marquee */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070E0A]/95 via-[#070E0A]/60 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070E0A]/85 via-transparent to-[#070E0A]/40" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-      {/* Ghost serif word — large, behind the copy */}
-      <span
-        aria-hidden="true"
-        className="ghost-word hero-ghost"
-      >
-        AI
-      </span>
+          {/* Editorial masthead copy */}
+          <div className="lg:col-span-6 space-y-7">
+            <span className="eyebrow">{t.hero.badge}</span>
 
-      {/* Constellation dots */}
-      <span className="hdot h-2 w-2 top-[22%] right-[24%] text-[#4AE27B]" style={{ animation: "hdot-breathe 6s ease-in-out -1.5s infinite" }} />
-      <span className="hdot h-1.5 w-1.5 bottom-[32%] right-[12%] text-[#CFE0D5]" style={{ animation: "hdot-breathe 4.5s ease-in-out infinite" }} />
-      <span className="hdot h-1 w-1 top-[40%] right-[58%] text-[#CFE0D5]" style={{ animation: "hdot-breathe 5s ease-in-out -3s infinite" }} />
+            <h1 className="font-display text-4xl sm:text-6xl xl:text-[4rem] font-semibold tracking-tight text-gray-900 leading-[1.05]">
+              {t.hero.title}{" "}
+              <span className="text-brand italic">{t.hero.titleAccent}</span>
+            </h1>
 
-      {/* Vertical label */}
-      <span className="absolute right-5 top-1/2 -translate-y-1/2 text-[10px] font-mono uppercase tracking-[0.3em] text-white/35 [writing-mode:vertical-rl] z-10 hidden lg:block">
-        EST. 2023 — AI, SOFTWARE &amp; TRAINING
-      </span>
+            <p className="text-gray-600 text-base sm:text-lg max-w-xl leading-relaxed">
+              {t.hero.description}
+            </p>
 
-      {/* Copy on the footage */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 min-h-[92svh] flex flex-col justify-center py-28 sm:py-32">
-        <div className="max-w-3xl space-y-7">
-          <span className="eyebrow !text-brand-light [&::before]:bg-brand-light">
-            {t.hero.badge}
-          </span>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+              <button
+                onClick={() => setConsultModalOpen(true)}
+                className="bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-center flex items-center justify-center gap-2 cursor-pointer border-none text-sm sm:text-base"
+              >
+                <span>{t.hero.cta2}</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <a
+                href="#solutions"
+                onClick={(e) => { e.preventDefault(); handleNavClick("solutions"); }}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors cursor-pointer"
+              >
+                {t.hero.cta1}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
+            </div>
 
-          <h1 className="font-display text-[2.75rem] leading-[1.02] sm:text-6xl xl:text-[4.5rem] font-semibold tracking-tight text-white">
-            {t.hero.title}{" "}
-            <span className="text-brand-light italic">{t.hero.titleAccent}</span>
-          </h1>
+            {/* Social proof strip */}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1">
+              {[
+                "CDC Aligned",
+                "Bilingual EN · नेपाली",
+                "8 Training Tracks"
+              ].map((item) => (
+                <span key={item} className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
+                  <CheckCircle className="h-3.5 w-3.5 text-brand" />
+                  {item}
+                </span>
+              ))}
+            </div>
 
-          <p className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed">
-            {t.hero.description}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <button
-              onClick={() => setConsultModalOpen(true)}
-              className="bg-brand hover:bg-brand-light text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-center flex items-center justify-center gap-2 cursor-pointer border-none text-sm sm:text-base"
-            >
-              <span>{t.hero.cta2}</span>
-              <ArrowRight className="h-4 w-4" />
-            </button>
-            <a
-              href="#products"
-              onClick={(e) => { e.preventDefault(); handleNavClick("products"); }}
-              className="border border-white/30 bg-white/5 backdrop-blur hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm sm:text-base cursor-pointer flex items-center justify-center gap-2"
-            >
-              {t.hero.cta1}
-            </a>
+            {/* Editorial footnote */}
+            <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-gray-400 pt-1">
+              <span className="pulse-dot" />
+              AI Studio — काठमाडौँ · Now taking 2026 cohorts
+            </div>
           </div>
 
-          {/* Social proof strip */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1">
-            {[
-              "CDC Aligned",
-              "Bilingual EN · नेपाली",
-              "8 Training Tracks"
-            ].map((item) => (
-              <span key={item} className="flex items-center gap-1.5 text-xs text-white/60 font-medium">
-                <CheckCircle className="h-3.5 w-3.5 text-brand-light" />
-                {item}
-              </span>
-            ))}
+          {/* Featured video card — uses the site's photo-frame + caption language */}
+          <div className="lg:col-span-6 w-full">
+            <div className="offset-frame">
+              <div className="photo-frame rounded-[1.25rem] aspect-[4/5] max-w-md mx-auto lg:max-w-none">
+                <img
+                  src="/hero-cover.jpg"
+                  alt="SAFAL AI hands-on training session with participants in a classroom in Kathmandu"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+                <span className="photo-caption flex items-center justify-between font-mono uppercase tracking-[0.2em] text-[10px] text-white/80">
+                  <span>Session 01 — AI TRAINING · काठमाडौँ</span>
+                  <span className="section-index !text-[2.5rem] leading-none text-brand-light">26</span>
+                </span>
+              </div>
+            </div>
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-gray-400 text-center lg:text-left">
+              LIVE FROM THE WORKSHOP FLOOR — REAL SESSION, REAL PEOPLE
+            </p>
           </div>
 
-          {/* Cohort pulse */}
-          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-white/45 pt-1">
-            <span className="pulse-dot" />
-            Now taking 2026 cohorts
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom marquee */}
-      <div className="relative z-10 border-t border-white/10 bg-black/30 py-3">
-        <div className="marquee-track text-[10px] font-mono uppercase tracking-[0.2em] text-white/50">
-          {["शिक्षा", "Education", "व्यवसाय", "Business", "सरकार", "Government", "अनुसन्धान", "Research"].map((d) => (
-            <span key={d} className="flex items-center gap-3.5 shrink-0">
-              <span>{d}</span>
-              <span className="text-brand-light">✦</span>
-            </span>
-          ))}
         </div>
       </div>
     </section>
