@@ -9,6 +9,7 @@ import { AboutSection } from "../components/sections/AboutSection";
 import { TeamSection } from "../components/sections/TeamSection";
 import { ContactSection } from "../components/sections/ContactSection";
 import { SyllabusModal } from "../components/modals/SyllabusModal";
+import { WhyChooseSafalSection } from "../components/sections/WhyChooseSafalSection";
 import { TrainingProgram } from "../types";
 
 interface HomePageProps {
@@ -67,6 +68,8 @@ export const HomePage: React.FC<HomePageProps> = ({
       <CaseStudiesSection />
 
       <StatsSection />
+
+      <WhyChooseSafalSection />
 
       <LearningHubSection
         setSelectedSyllabusProg={setSelectedSyllabusProg}
