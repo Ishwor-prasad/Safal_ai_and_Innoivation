@@ -388,51 +388,106 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(74, 226, 123, 0); }
   }
 
-  /* Cinematic hero cover — Ken Burns drift + flowing light streams */
-  .motion-panel .cover-base {
-    position: absolute;
-    inset: -6%;
-    object-fit: cover;
-    width: 112%;
-    height: 112%;
-    max-width: none;
-    opacity: 0.85;
-    animation: kenburns 70s ease-in-out infinite alternate;
-    pointer-events: none;
-  }
-  @keyframes kenburns {
-    from { transform: scale(1.02) translate(-1.5%, -1%); }
-    to   { transform: scale(1.18) translate(2%, 1.5%); }
-  }
+  /* Cinematic hero cover — Pure generative art (Higgsfield-style) */
+  .motion-panel .cover-base { display: none; }
   .motion-panel .cover-tint {
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(180deg, rgba(14, 14, 13, 0.5) 0%, rgba(14, 14, 13, 0.12) 45%, rgba(14, 14, 13, 0.16) 60%, rgba(14, 14, 13, 0.92) 100%),
-      radial-gradient(120% 90% at 20% 10%, rgba(30, 90, 58, 0.35) 0%, rgba(14, 14, 13, 0) 55%);
+    background: #0E0E0D;
     pointer-events: none;
   }
+  /* Drifting gradient meshes — the "AI-generated art" feel */
+  .motion-panel .mesh-a {
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
+    background:
+      radial-gradient(ellipse 55% 45% at 25% 30%, rgba(30, 90, 58, 0.7) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 55% at 75% 70%, rgba(47, 125, 80, 0.35) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 40% at 50% 50%, rgba(22, 65, 43, 0.5) 0%, transparent 60%);
+    animation: mesh-drift 25s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes mesh-drift {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    33%  { transform: translate(3%, -2%) rotate(1.5deg); }
+    66%  { transform: translate(-2%, 3%) rotate(-1deg); }
+    100% { transform: translate(1%, 1%) rotate(0.5deg); }
+  }
+  .motion-panel .mesh-b {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background:
+      radial-gradient(ellipse 40% 60% at 70% 25%, rgba(74, 226, 123, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 35% at 20% 80%, rgba(47, 125, 80, 0.25) 0%, transparent 55%);
+    animation: mesh-drift-b 32s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes mesh-drift-b {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(-3%, 2%) scale(1.05); }
+    100% { transform: translate(2%, -1%) scale(0.98); }
+  }
+  .motion-panel .mesh-c {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    background: radial-gradient(circle at 60% 40%, rgba(207, 224, 213, 0.08) 0%, transparent 50%);
+    animation: mesh-drift 38s ease-in-out infinite alternate-reverse;
+    pointer-events: none;
+  }
+  /* Flowing light streams — thin, organic, varied timing */
   .motion-panel .stream {
     position: absolute;
-    height: 2px;
+    height: 1.5px;
     border-radius: 9999px;
-    background: linear-gradient(90deg, transparent, rgba(207, 224, 213, 0.0) 20%, rgba(207, 224, 213, 0.55) 50%, rgba(47, 125, 80, 0.25) 65%, transparent);
-    filter: blur(0.5px);
-    opacity: 0.5;
+    background: linear-gradient(90deg, transparent 5%, rgba(207, 224, 213, 0.0) 15%, rgba(207, 224, 213, 0.5) 45%, rgba(47, 125, 80, 0.3) 60%, transparent 90%);
+    filter: blur(0.3px);
     pointer-events: none;
-    animation: stream 9s ease-in-out infinite;
+  }
+  .motion-panel .stream.s1 {
+    top: 35%;
+    animation: stream-a 11s ease-in-out infinite;
   }
   .motion-panel .stream.s2 {
-    top: 42%;
-    animation-duration: 13s;
-    animation-delay: -4s;
-    opacity: 0.35;
+    top: 52%;
+    height: 1px;
+    animation: stream-a 15s ease-in-out -5s infinite;
+    opacity: 0.55;
   }
-  @keyframes stream {
-    0%   { left: -30%; transform: rotate(0.5deg); opacity: 0; }
-    12%  { opacity: 0.5; }
-    60%  { opacity: 0.35; }
-    100% { left: 115%; transform: rotate(-0.5deg); opacity: 0; }
+  .motion-panel .stream.s3 {
+    top: 68%;
+    height: 2px;
+    animation: stream-a 9s ease-in-out -2s infinite;
+    opacity: 0.3;
+    filter: blur(1px);
+  }
+  @keyframes stream-a {
+    0%   { left: -35%; transform: rotate(0.4deg); opacity: 0; }
+    10%  { opacity: 0.45; }
+    55%  { opacity: 0.25; }
+    100% { left: 120%; transform: rotate(-0.4deg); opacity: 0; }
+  }
+  /* Particle dots — scattered, subtle breathing */
+  .motion-panel .dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(207, 224, 213, 0.45);
+    pointer-events: none;
+    animation: dot-pulse 5s ease-in-out infinite;
+  }
+  .motion-panel .dot:nth-child(2) { animation-delay: -1.2s; background: rgba(74, 226, 123, 0.35); }
+  .motion-panel .dot:nth-child(3) { animation-delay: -3s; background: rgba(207, 224, 213, 0.3); }
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50%      { opacity: 0.7; transform: scale(1.6); }
   }
   .motion-panel .breathe {
     animation: breathe 7s ease-in-out infinite;

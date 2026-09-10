@@ -70,25 +70,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Cinematic motion-art cover — Drifted Himalayan base + flowing light */}
+          {/* Generative art cover — Higgsfield-style pure gradient composition */}
           <div className="lg:col-span-5 w-full">
             <div className="offset-frame">
               <div
                 className="motion-panel aspect-[4/5] rounded-[1.25rem] shadow-[0_28px_70px_-28px_rgba(17,37,26,0.45)] flex items-center justify-center max-w-sm mx-auto lg:max-w-none"
-                aria-hidden="true"
               >
-                <img
-                  src="/hero-cover.jpg"
-                  alt=""
-                  className="cover-base"
-                  loading="eager"
-                  decoding="async"
-                />
-                <span className="cover-tint" />
-                <span className="stream" />
+                {/* Gradient meshes */}
+                <span className="mesh-a" />
+                <span className="mesh-b" />
+                <span className="mesh-c" />
+                {/* Flowing streams */}
+                <span className="stream s1" />
                 <span className="stream s2" />
+                <span className="stream s3" />
+                {/* Organic blobs */}
                 <span className="aurora-a" />
                 <span className="aurora-b" />
+                {/* Particle dots */}
+                <span className="dot h-1.5 w-1.5 top-[18%] left-[22%]" />
+                <span className="dot h-2 w-2 top-[38%] right-[16%]" />
+                <span className="dot h-1 w-1 bottom-[28%] left-[35%]" />
+                <span className="dot h-1 w-1 top-[62%] right-[30%] opacity-40" />
+                {/* Orbit ring */}
                 <span className="spin-ring"><i /></span>
 
                 <div className="relative z-10 text-center px-6 sm:px-10 space-y-5 select-none breathe">
@@ -104,12 +108,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <span className="section-index text-[5rem] leading-none block select-none">26</span>
                 </div>
 
-                {/* Vertical mono label */}
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-mono uppercase tracking-[0.3em] text-white/40 [writing-mode:vertical-rl]">
                   EST. 2023 — AI, SOFTWARE &amp; TRAINING
                 </span>
 
-                {/* Offering marquee */}
                 <div className="absolute inset-x-0 bottom-0 overflow-hidden border-t border-white/10 py-3 bg-black/25">
                   <div className="marquee-track text-[10px] font-mono uppercase tracking-[0.2em] text-white/50">
                     {["शिक्षा", "Education", "व्यवसाय", "Business", "सरकार", "Government", "अनुसन्धान", "Research"].map((d) => (
