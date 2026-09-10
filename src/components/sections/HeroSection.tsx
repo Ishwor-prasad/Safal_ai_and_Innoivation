@@ -70,12 +70,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Generative art cover — dramatic, asymmetric, unique from About */}
+          {/* Hero cover — real ink-on-black footage, editorial overlay */}
           <div className="lg:col-span-5 w-full">
             <div className="offset-frame">
               <div className="hero-art aspect-[4/5] rounded-[1.25rem] shadow-[0_28px_70px_-28px_rgba(17,37,26,0.45)] max-w-sm mx-auto lg:max-w-none">
 
-                {/* Video background */}
+                {/* Video background — green + blue ink on black (real footage) */}
                 <video
                   className="absolute inset-0 w-full h-full object-cover"
                   autoPlay
@@ -90,15 +90,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {/* Ghost serif word behind */}
                 <span className="ghost-word" aria-hidden="true">AI</span>
 
-                {/* Light veil so text stays readable — mesh is now thin */}
-                <span className="grad-base opacity-20" />
-                {/* Organic blobs */}
-                <span className="aurora-a" />
-                <span className="aurora-b" />
-                {/* Flowing streams */}
-                <span className="hstream hs1" />
-                <span className="hstream hs2" />
-                <span className="hstream hs3" />
+                {/* Thin veil for text legibility over footage */}
+                <span className="grad-base opacity-15" />
                 {/* Constellation dots */}
                 <span className="hdot h-1.5 w-1.5 top-[16%] left-[18%] text-[#CFE0D5]" style={{ animation: "hdot-breathe 4.5s ease-in-out infinite" }} />
                 <span className="hdot h-2 w-2 top-[34%] right-[14%] text-[#4AE27B]" style={{ animation: "hdot-breathe 6s ease-in-out -1.5s infinite" }} />
