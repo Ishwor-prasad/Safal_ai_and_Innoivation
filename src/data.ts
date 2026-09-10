@@ -5,8 +5,6 @@ import type {
   IndustryServed,
   ResearchFocus,
   TrainingProgram,
-  Testimonial,
-  PartnerOrg,
   CaseStudy,
   TeamMember,
   VibeModule,
@@ -23,8 +21,6 @@ export type {
   IndustryServed,
   ResearchFocus,
   TrainingProgram,
-  Testimonial,
-  PartnerOrg,
   CaseStudy,
   TeamMember,
   VibeModule,
@@ -214,6 +210,37 @@ export const TRAINING_PROGRAMS: TrainingProgram[] = [
     ]
   },
   {
+    id: "prog-managers",
+    title: "AI for Managers & Executives",
+    target: "Managers, team leads & operations staff",
+    duration: "8-Session Program (2 hrs each)",
+    syllabus: [
+      "AI landscape & mindset: map your real week into Do / Delegate / Automate / Eliminate",
+      "Communicating with AI: build a reusable manager prompt library",
+      "Docs, meetings & knowledge: an 'ask my documents' workflow",
+      "Data & decision making: one-page AI Decision Briefs with evidence and options",
+      "Workflow & automation: one real recurring process rebuilt and tested live",
+      "Managing an AI-powered team: security, data-leak risk, bias & a one-page AI policy",
+      "Strategy: a week-by-week 30-Day AI Implementation Roadmap",
+      "Tools lab: task boards, team chat (MCP) & native AI integrations wired into your stack"
+    ]
+  },
+  {
+    id: "prog-researchers",
+    title: "AI for Researchers & Scholars",
+    target: "Academics, thesis writers & research teams",
+    duration: "2-Week Intensive Lab",
+    syllabus: [
+      "Literature search: Google Scholar, Semantic Scholar & Elicit",
+      "Deep reading & synthesis: NotebookLM with GPT, Gemini & Claude",
+      "Verification: Consensus and research-grounded answer engines",
+      "Knowledge base: Zotero, Obsidian & mind-mapping for connected notes",
+      "Quantitative analysis: clean data, run statistics, let AI explain the results",
+      "Qualitative analysis: AI-assisted thematic coding of interviews & surveys",
+      "Academic writing: citation discipline and AI-aware draft quality"
+    ]
+  },
+  {
     id: "prog-profs",
     title: "AI for Professionals & Creatives",
     target: "Corporate Executives, Software Devs, Product Managers",
@@ -239,147 +266,29 @@ export const TRAINING_PROGRAMS: TrainingProgram[] = [
   }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: "test-1",
-    category: "Teacher",
-    quote: "SAFAL Teacher AI has completely transformed my daily preparation. Generating lessons plans and quizzes that align perfectly with the NEB standards used to take me hours every Sunday. Now, I have a world-class lesson outline in a few seconds, letting me focus on the actual teaching and student interactions.",
-    author: "Prasanna Shrestha",
-    role: "Secondary Level Mathematics Department Head",
-    institution: "Elite Secondary Academy, Pokhara",
-    avatarBg: "bg-blue-600"
-  },
-  {
-    id: "test-2",
-    category: "Teacher",
-    quote: "मेरो कक्षा ८ को सामाजिक अध्ययनको पाठ योजना बनाउन मैले सफल टिचर एआई प्रयोग गरें। यसले नेपालको पाठ्यक्रम अनुकूल, अत्यन्त प्रष्ट र नवीन शिक्षण विधिहरू सहितको योजना तयार पारेर मलाई दियो। यो नेपाली र अंग्रेजी दुवै भाषामा उत्तिकै प्रभावकारी छ।",
-    author: "Ramesh Dahal",
-    role: "Social Studies Educator",
-    institution: "Janajyoti Secondary Public School, Lalitpur",
-    avatarBg: "bg-green-600"
-  },
-  {
-    id: "test-3",
-    category: "Professional",
-    quote: "The 'AI for Professionals' masterclass was exceptionally structured. Instead of passing over generic theories, SAFAL AI focused on actual API deployments and local workflow integrations. Our development team successfully automated 3 hours of daily manual reports right after the program.",
-    author: "Sujita Adhikari",
-    role: "Director of Technical Engineering",
-    institution: "Apex Digital Solutions, Kathmandu",
-    avatarBg: "bg-violet-600"
-  },
-  {
-    id: "test-4",
-    category: "Professional",
-    quote: "As a project manager, staying on top of multi-stakeholder reports was overwhelming. SAFAL AI's prompt training has streamlined my research synthesis, meeting notes drafting, and client updates. It has increased my daily bandwidth tenfold.",
-    author: "Anish Lamichhane",
-    role: "Senior Project Manager",
-    institution: "Hamro Tech Group, Lalitpur",
-    avatarBg: "bg-cyan-600"
-  },
-  {
-    id: "test-5",
-    category: "Organization",
-    quote: "We partnered with SAFAL AI to execute an upskilling drive across all our departments. Their structured capability building and clear security frameworks took our staff from apprehensive to fully active automated agents within weeks. Their professionalism is outstanding.",
-    author: "Dr. K. B. Gurung",
-    role: "Academic Superintendent & Advisor",
-    institution: "National Development & Educational Council (NDEC)",
-    avatarBg: "bg-orange-600"
-  },
-  {
-    id: "test-6",
-    category: "Organization",
-    quote: "Our local government office cooperated with SAFAL AI to execute digital literacy workshops and municipal AI blueprints. They are not merely an educational course provider; they are an active, strategic innovation partner capable of deploying customized technology engines.",
-    author: "Yogendra B. Thapa",
-    role: "Municipal IT Coordination Lead",
-    institution: "Lekhnath Municipal Office, Kaski",
-    avatarBg: "bg-red-600"
-  }
-];
-
-export const TRUSTED_PARTNERS: PartnerOrg[] = [
-  { id: "p-sch1", name: "Elite Secondary Academy, Pokhara", category: "School", logoText: "Elite Academy" },
-  { id: "p-sch2", name: "Janajyoti Public School, Lalitpur", category: "School", logoText: "Janajyoti Public" },
-  { id: "p-col1", name: "Apex College of IT, Kathmandu", category: "College", logoText: "Apex College" },
-  { id: "p-col2", name: "Lalitpur Institute of Science", category: "College", logoText: "Lalitpur Sci" },
-  { id: "p-mun1", name: "Lekhnath Municipal Council", category: "Municipality", logoText: "Lekhnath Muni" },
-  { id: "p-mun2", name: "Bidur Municipal Board, Nuwakot", category: "Municipality", logoText: "Bidur Governance" },
-  { id: "p-ent1", name: "Apex Digital Solutions Co.", category: "Enterprise", logoText: "Apex Digital" },
-  { id: "p-ent2", name: "Hamro Tech Group", category: "Enterprise", logoText: "Hamro Tech" },
-  { id: "p-ngo1", name: "Nepal Literacy Trust", category: "Partner", logoText: "Nepal Lit Trust" }
-];
-
-export const PARTNERS = TRUSTED_PARTNERS;
-
-
 export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "case-ime",
     industry: "Corporate Training & Human Resources",
     clientName: "IME Group - Nepal's Leading Money Transfer",
-    challenge: "IME Group sought to upskill their entire workforce in AI fundamentals, data literacy, and practical AI tools integration without disrupting daily operations. Needed culturally-relevant, accessible training for staff across multiple branches nationwide.",
-    solution: "Designed and delivered comprehensive AI certification program customized for IME Group staff, featuring hands-on workshops, real-world use cases, and certification distribution. Training adapted to organizational workflows and included practical exercises for financial sector applications.",
+    challenge: "IME Group sought to upskill their entire workforce in AI fundamentals, data literacy, and practical AI tools integration without disrupting daily operations. They needed culturally-relevant, accessible training for staff across multiple branches nationwide.",
+    solution: "Designed and delivered a comprehensive AI certification program customized for IME Group staff, featuring hands-on workshops, real-world use cases, and certification distribution. Training adapted to organizational workflows and included practical exercises for financial sector applications.",
     results: [
       "Successfully certified 150+ employees across multiple branches.",
       "100% training completion rate with positive feedback.",
       "Staff adopted AI tools for improving customer service workflows.",
-      "Created internal knowledge base for ongoing AI literacy."
+      "Created an internal knowledge base for ongoing AI literacy."
     ],
     quote: "SAFAL AI's training was exactly what we needed - practical, relevant, and delivered professionally. Our team is now confident using AI tools in their daily work.",
     author: "IME Group Management",
     role: "Human Resources & Operations",
-    gradient: "from-emerald-800/40 via-slate-900 to-green-950/30",
-    image: "/ime-group-certification-1.jpeg"
-  },
-  {
-    id: "case-edu",
-    industry: "Education (Academic Management)",
-    clientName: "Elite Secondary Academy, Pokhara",
-    challenge: "Teachers spent upward of 12-15 hours each week manually drafting highly specific lesson plans and custom assessment rubrics aligned with Curriculum Development Centre (CDC) Nepal guidelines, leaving limited time for actual classroom engagement.",
-    solution: "Deployed SAFAL Teacher AI sandbox and certification course, enabling immediate generation of CDC-compliant curriculum outlines, question banks, and multi-level grading rubrics in both English and professional Nepali.",
-    results: [
-      "Over 80% reduction in weekly lesson preparation duration.",
-      "100% curriculum compliance across all primary subjects.",
-      "Reclaimed hours reallocated directly to targeted student-teacher feedback cycles."
-    ],
-    quote: "SAFAL Teacher AI returned Sundays back to our teachers. Instead of getting bogged down in formatting CDC lesson grids, our teachers are actively working on student interactions.",
-    author: "Prasanna Shrestha",
-    role: "Secondary Level Mathematics Department Head",
-    gradient: "from-green-800/40 via-slate-900 to-emerald-950/30",
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=900&q=80&auto=format&fit=crop"
-  },
-  {
-    id: "case-biz",
-    industry: "Business (SME Enterprises)",
-    clientName: "Apex Digital Solutions, Kathmandu",
-    challenge: "Managing massive volumes of customer enquiries and repetitive administrative reports created significant bottlenecks as the company scaled, resulting in customer service delays and lost leads.",
-    solution: "Designed and integrated a specialized SAFAL Business AI automation engine connected directly to existing invoicing systems and service manuals, assisting support personnel with context-aware responses.",
-    results: [
-      "65% faster query turnaround time for complex technical FAQs.",
-      "Reclaimed 3 hours per day of manual analytics mapping for digital coordinators.",
-      "Improved general user engagement metrics by 50% via automated chat channels."
-    ],
-    quote: "Integrating SAFAL Business AI has liberated our technical department from repetitive reports. It operates as an invaluable digital catalyst for our operations.",
-    author: "Sujita Adhikari",
-    role: "Director of Technical Engineering",
-    gradient: "from-teal-800/40 via-slate-900 to-emerald-950/30",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&auto=format&fit=crop"
-  },
-  {
-    id: "case-gov",
-    industry: "Government (Local Public Sector)",
-    clientName: "Lekhnath Municipal Council, Kaski",
-    challenge: "Cataloging massive archives of physical public records and organizing public grievance redressal mechanisms across diverse languages created substantial administrative delays.",
-    solution: "Provided a pilot implementation of SAFAL Municipal AI featuring localized OCR document parsers, automated ticketing, and intuitive bilingual citizens search portals.",
-    results: [
-      "12,000+ public document records digitized and indexed.",
-      "40% drop in overall administrative wait-times for citizen services.",
-      "Empowered local public staff via hands-on AI literacy workshops."
-    ],
-    quote: "Working with SAFAL AI enabled us to transition from dusty paper archives to a fast, computerized citizen inquiry system. They are Nepal's premier partner for public sector modernization.",
-    author: "Yogendra B. Thapa",
-    role: "Municipal IT Coordination Lead",
-    gradient: "from-emerald-800/40 via-slate-900 to-teal-950/30",
-    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=900&q=80&auto=format&fit=crop"
+    gradient: "from-[#1E5A3A]/50 via-[#0E0E0D] to-[#16412B]/40",
+    image: "/trainings/ime_group/group.jpg",
+    gallery: [
+      "/trainings/ime_group/group.jpg",
+      "/trainings/ime_group/session.jpg",
+      "/trainings/ime_group/certification.jpg"
+    ]
   }
 ];
 
@@ -410,14 +319,15 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "team-ram",
     name: "Ram Tamang",
-    position: "Full Stack Developer & Product Lead",
-    description: "Building innovative web solutions, driving technical architecture and ensuring seamless user experiences for SAFAL AI's digital ecosystem.",
+    position: "Product Lead",
+    description: "Building innovative web solutions, driving technical architecture, and ensuring seamless user experiences across the AI digital ecosystem.",
+    website: "https://ram-tamang.com.np",
     linkedinUrl: "https://www.linkedin.com/in/ram-tamang-a73241198/",
     avatarInitials: "RT",
-    avatarBg: "from-[#22C55E] to-[#84CC16]",
+    avatarBg: "from-[#1E5A3A] to-[#2F7D50]",
     email: "ram@safalai.com.np",
     phone: "+977 9851 404040",
-    profileImage: "/ram_tamang.png"
+    profileImage: "/ram_tamang.jpg"
   },
   {
     id: "team-kamram",

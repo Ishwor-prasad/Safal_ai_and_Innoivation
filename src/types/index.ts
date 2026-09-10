@@ -42,23 +42,6 @@ export interface TrainingProgram {
   syllabus: string[];
 }
 
-export interface Testimonial {
-  id: string;
-  quote: string;
-  author: string;
-  role: string;
-  institution: string;
-  category: "Teacher" | "Professional" | "Organization";
-  avatarBg?: string;
-}
-
-export interface PartnerOrg {
-  id: string;
-  name: string;
-  category: "School" | "College" | "Municipality" | "Enterprise" | "Partner";
-  logoText: string;
-}
-
 export interface CaseStudy {
   id: string;
   industry: string;
@@ -71,6 +54,7 @@ export interface CaseStudy {
   role: string;
   gradient: string;
   image?: string;
+  gallery?: string[];
 }
 
 export interface TeamMember {
@@ -78,6 +62,7 @@ export interface TeamMember {
   name: string;
   position: string;
   description: string;
+  website?: string;
   linkedinUrl?: string;
   avatarInitials: string;
   avatarBg: string;
