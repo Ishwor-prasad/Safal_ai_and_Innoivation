@@ -70,7 +70,14 @@ const BRICK = "rgba(183,110,110,0.16)";
 const BRICK_LINE = "rgba(183,110,110,0.4)";
 const INK = "#1c1c1c";
 
-// Real signatures extracted from the official issued certificate (transparent PNGs)
+// Real signatures extracted from the official issued certificate (transparent PNGs).
+// `padTop`/`inkH` describe where the ink sits inside each crop so we can anchor the
+// handwriting to a fixed canvas band regardless of the crop's transparent padding.
+const SIG_META = {
+  left: { natH: 124, padTop: 0, inkH: 95 },
+  right: { natH: 108, padTop: 4, inkH: 96 },
+} as const;
+
 const signatureCache = new Map<string, HTMLImageElement>();
 function getSignature(url: string): Promise<HTMLImageElement | null> {
   const hit = signatureCache.get(url);
@@ -84,11 +91,21 @@ function getSignature(url: string): Promise<HTMLImageElement | null> {
   });
 }
 
-function drawSignature(ctx: CanvasRenderingContext2D, img: HTMLImageElement | null, cx: number, lineY: number) {
+function drawSignature(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement | null,
+  key: keyof typeof SIG_META,
+  cx: number,
+  inkTop: number,
+  inkBottom: number
+) {
   if (!img || !img.naturalWidth) return;
-  const targetH = 96;
-  const w = (img.naturalWidth / img.naturalHeight) * targetH;
-  ctx.drawImage(img, cx - w / 2, lineY - targetH + 8, w, targetH);
+  const m = SIG_META[key];
+  const span = inkBottom - inkTop;
+  const scale = span / m.inkH;
+  const drawH = m.natH * scale;
+  const drawW = img.naturalWidth * scale;
+  ctx.drawImage(img, cx - drawW / 2, inkTop - m.padTop * scale, drawW, drawH);
 }
 
 const SERIF = "'Fraunces','Noto Sans Devanagari',Georgia,serif";
@@ -342,11 +359,13 @@ async function drawCertificateImage(cert: RenderOpts): Promise<HTMLCanvasElement
   // Closing
   ctx.font = `italic 400 17px ${BODY}`;
   ctx.fillStyle = "#5a5a5a";
-  ctx.fillText(T.close1, bodyCx, y + 64);
-  ctx.fillText(T.close2, bodyCx, y + 92);
+  const close1Y = y + 64;
+  const close2Y = y + 92;
+  ctx.fillText(T.close1, bodyCx, close1Y);
+  ctx.fillText(T.close2, bodyCx, close2Y);
 
   // ── Signatures ──
-  const sigY = 1024;
+  const sigY = 1042;
   const leftX = 620;
   const rightX = 1035;
   ctx.strokeStyle = "#b8b2a0";
@@ -359,9 +378,13 @@ async function drawCertificateImage(cert: RenderOpts): Promise<HTMLCanvasElement
   ctx.stroke();
 
   // ── Real handwritten signatures (from the official issued certificate) ──
+  // Adaptive placement: ink always starts below the closing text and sits on the line,
+  // so it never overlaps "...and wish you success in your future endeavors."
   const [sigLeft, sigRight] = await Promise.all([getSignature(sigLeftUrl), getSignature(sigRightUrl)]);
-  drawSignature(ctx, sigLeft, leftX, sigY);
-  drawSignature(ctx, sigRight, rightX, sigY);
+  const inkTop = close2Y + 24;
+  const inkBottom = Math.max(inkTop + 64, sigY);
+  drawSignature(ctx, sigLeft, "left", leftX, inkTop, inkBottom);
+  drawSignature(ctx, sigRight, "right", rightX, inkTop, inkBottom);
 
   ctx.textAlign = "center";
   ctx.fillStyle = ORG_NAVY;
