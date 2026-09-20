@@ -64,23 +64,41 @@ export const CertificateSection: React.FC<CertificateSectionProps> = ({ navigate
           {/* Visual preview mock */}
           <div className="lg:col-span-6 relative z-10 hidden sm:block">
             <div className="relative max-w-[520px] mx-auto">
-              <div className="absolute -inset-8 bg-brand/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute -inset-8 bg-[#00a878]/20 rounded-full blur-[100px] pointer-events-none" />
               <div className="relative bg-[#FBF9F2] rounded-2xl p-2 shadow-2xl">
-                <div className="border-[3px] border-[#1E5A3A] rounded-xl px-6 py-8 text-center">
-                  <p className="font-mono text-[10px] tracking-[0.2em] text-[#1E5A3A] font-semibold">SAFAL AI AND INNOVATION CENTRE</p>
-                  <p className="mt-1 font-mono text-[8px] tracking-[0.14em] text-gray-500">CERTIFIED BY SAFALAI.COM.NP</p>
-                  <div className="w-40 h-px bg-[#CFE0D5] mx-auto my-6" />
-                  <h3 className="font-display text-3xl font-bold text-gray-900">Certificate of<br />Completion</h3>
-                  <p className="text-[11px] text-gray-500 mt-4">this is proudly presented to</p>
-                  <p className="font-display text-3xl italic text-[#1E5A3A] mt-1">Samir Shrestha</p>
-                  <p className="text-[11px] text-gray-600 mt-3">for successfully completing the training program</p>
-                  <p className="font-display italic text-base text-[#16412B] mt-1">AI Fundamentals &amp; Prompt Engineering</p>
-                  <div className="flex items-center justify-between mt-8">
-                    <span className="text-[9px] text-gray-500 font-mono">Issued on 2026-08-30</span>
-                    <div className="h-12 w-12 rounded-full border-[3px] border-[#1E5A3A] flex items-center justify-center">
-                      <span className="font-display text-[9px] font-bold text-[#1E5A3A]">SAFAL</span>
+                <div className="relative rounded-xl px-6 py-8 text-center overflow-hidden">
+                  <p className="absolute top-3 left-1/2 -translate-x-1/2 font-mono text-[9px] text-[#b76e6e]/50 tracking-[0.3em] whitespace-nowrap rotate-[-3deg]">
+                    0101011001010110 0101011001010110 0101011001010110
+                  </p>
+                  <p className="relative font-display text-2xl font-bold text-[#10253d]">SAFAL AI</p>
+                  <p className="relative text-[8px] tracking-[0.28em] text-[#b9964f] font-semibold">AND INNOVATION CENTRE</p>
+                  <p className="relative text-[8px] italic tracking-[0.12em] text-[#b9964f] mt-0.5">EMPOWERING MINDS, BUILDING INTELLIGENCE</p>
+
+                  <div className="relative mt-6">
+                    <h3 className="font-display text-3xl font-bold text-[#10253d]">CERTIFICATE</h3>
+                    <p className="text-[9px] tracking-[0.3em] text-[#b9964f] font-semibold mt-1">OF COMPLETION</p>
+                    <div className="w-32 h-px bg-[#b9964f] mx-auto mt-3" />
+                  </div>
+
+                  <p className="relative text-[9px] tracking-[0.14em] text-[#10253d] font-semibold mt-5">THIS IS TO CERTIFY THAT</p>
+                  <p className="relative font-display text-3xl text-[#10253d] mt-2 border-b-[3px] border-[#b9964f] inline-block pb-1">Samir Shrestha</p>
+                  <p className="relative text-[10px] text-gray-600 mt-4">has successfully completed the</p>
+                  <p className="relative font-display text-sm font-semibold text-[#10253d]">AI Fundamentals &amp; Prompt Engineering</p>
+                  <p className="relative text-[10px] text-gray-600 mt-2">organized by Safal AI and Innovation Centre,<br />held at Prakriti Resources Centre, Kathmandu.</p>
+                  <p className="relative text-[10px] text-gray-500 italic mt-2">We commend your dedication and commitment to learning,<br />and wish you success in your future endeavors.</p>
+
+                  <div className="relative flex items-center justify-center gap-8 mt-8 pb-1">
+                    <span className="text-2xl text-[#b9964f] leading-none">★</span>
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-32 border-t border-[#b8b2a0]" />
+                      <p className="text-[9px] font-bold text-[#10253d]">Ishwor Dhungana</p>
+                      <p className="text-[8px] text-gray-500">Lead AI Facilitator</p>
                     </div>
-                    <span className="text-[9px] text-gray-500 font-mono"># 2K7M-Q4BR</span>
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="w-32 border-t border-[#b8b2a0]" />
+                      <p className="text-[9px] font-bold text-[#10253d]">Uday Ram Jaishi</p>
+                      <p className="text-[8px] text-gray-500">Chief Executive Officer</p>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -36,16 +36,23 @@ interface CertificatePageProps {
 
 // ══════════════════════════════════════════════════════════════════════════
 // Canvas certificate renderer (crisp PNG downloads, no external libs)
+// Ports the SAFAL A4-landscape design: binary-tech band, network mountains,
+// triangle logo, navy/gold/green palette, signature blocks, seal, star.
 // ══════════════════════════════════════════════════════════════════════════
 
-const CERT_W = 1600;
+const CERT_W = 1600; // A4 landscape ratio 1.414:1
 const CERT_H = 1131;
 
-interface RenderOpts {
-  name: string;
-  course: string;
-  issuedOn: string;
-  code: string;
+const ORG_NAVY = "#10253d";
+const GOLD = "#b9964f";
+const EMERALD = "#00a878";
+const BIN_TINT = "rgba(180,105,105,0.14)";
+const BRICK = "rgba(183,110,110,0.16)";
+const BRICK_LINE = "rgba(183,110,110,0.4)";
+const INK = "#1c1c1c";
+
+interface RenderOpts extends CertificateRecipient {
+  code?: string;
 }
 
 function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
@@ -75,122 +82,242 @@ function fitFont(ctx: CanvasRenderingContext2D, text: string, family: string, st
   return px;
 }
 
+function drawCircularText(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  cx: number,
+  cy: number,
+  radius: number,
+  startAngle: number,
+  fontSize: number
+) {
+  ctx.font = `${fontSize}px Inter, sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  const step = (Math.PI * 2) / (text.length * 1.05);
+  for (let i = 0; i < text.length; i++) {
+    const angle = startAngle + step * i;
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(angle);
+    ctx.fillText(text[i], 0, -radius);
+    ctx.restore();
+  }
+}
+
 function drawCertificateImage(cert: RenderOpts): HTMLCanvasElement {
   const canvas = document.createElement("canvas");
   canvas.width = CERT_W;
   canvas.height = CERT_H;
   const ctx = canvas.getContext("2d")!;
 
-  // Paper
-  ctx.fillStyle = "#FBF9F2";
-  ctx.fillRect(0, 0, CERT_W, CERT_H);
-
-  // Outer frame
-  ctx.strokeStyle = "#1E5A3A";
-  ctx.lineWidth = 14;
-  ctx.strokeRect(34, 34, CERT_W - 68, CERT_H - 68);
-  ctx.strokeStyle = "#2F7D50";
-  ctx.lineWidth = 3;
-  ctx.strokeRect(58, 58, CERT_W - 116, CERT_H - 116);
-  ctx.lineWidth = 1.5;
-  ctx.strokeRect(72, 72, CERT_W - 144, CERT_H - 144);
-
   const cx = CERT_W / 2;
 
-  // Wordmark
-  ctx.textAlign = "center";
-  ctx.fillStyle = "#1E5A3A";
-  ctx.font = "600 30px 'JetBrains Mono', monospace";
-  ctx.fillText("SAFAL AI AND INNOVATION CENTRE", cx, 150);
-  ctx.font = "500 17px 'Inter', sans-serif";
-  ctx.fillStyle = "#4D4D49";
-  ctx.fillText("CERTIFIED BY SAFALAI.COM.NP", cx, 182);
+  // ── Paper (cream, subtle vignette) ──
+  const paper = ctx.createLinearGradient(0, 0, 0, CERT_H);
+  paper.addColorStop(0, "#fdfcf8");
+  paper.addColorStop(0.55, "#f9f6ef");
+  paper.addColorStop(1, "#f4efe4");
+  ctx.fillStyle = paper;
+  ctx.fillRect(0, 0, CERT_W, CERT_H);
 
-  // Rule under header
-  const ruleY = 215;
-  ctx.strokeStyle = "#CFE0D5";
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(cx - 260, ruleY);
-  ctx.lineTo(cx + 260, ruleY);
-  ctx.stroke();
-
-  // Title
-  ctx.fillStyle = "#111110";
-  ctx.font = "700 66px 'Fraunces', Georgia, serif";
-  ctx.fillText("Certificate of Completion", cx, 330);
-
-  ctx.fillStyle = "#5B6B61";
-  ctx.font = "400 24px 'Inter', sans-serif";
-  ctx.fillText("this is proudly presented to", cx, 392);
-
-  // Name (wrapped, serif)
-  const nameLines = wrapText(ctx, cert.name, 1100).slice(0, 2);
-  const namePx = fitFont(ctx, cert.name, "italic 600 84px 'Fraunces', Georgia, serif".replace("italic 600 84px ", "italic 600 "), 84, 1100);
-  ctx.font = `${namePx}px italic 600 'Fraunces', Georgia, serif`;
-  ctx.textAlign = ctx.font.match(/[A-Za-z]/) ? "center" : "center";
-  ctx.fillStyle = "#1E5A3A";
-  ctx.textBaseline = "alphabetic";
-  const nameStart = 470;
-  nameLines.forEach((line, i) => ctx.fillText(line, cx, nameStart + i * (namePx + 14)));
-
-  // Course line
-  const courseY = nameStart + Math.max(1, nameLines.length) * (namePx + 14) + 60;
-  ctx.fillStyle = "#111110";
-  ctx.font = "400 27px 'Inter', sans-serif";
-  ctx.fillText("for successfully completing the training program", cx, courseY);
-
-  const courseLines = wrapText(ctx, cert.course, 1000).slice(0, 2);
-  const coursePx = fitFont(ctx, cert.course, "italic 600 38px 'Fraunces', Georgia, serif".replace("italic 600 38px ", "italic 600 "), 38, 1000);
-  ctx.font = `${coursePx}px italic 600 'Fraunces', Georgia, serif`;
-  ctx.fillStyle = "#16412B";
-  courseLines.forEach((line, i) => ctx.fillText(line, cx, courseY + 55 + i * (coursePx + 12)));
-
-  // Bottom metadata
-  const bottomY = CERT_H - 150;
-  ctx.font = "400 22px 'Inter', sans-serif";
-  ctx.fillStyle = "#4D4D49";
-  ctx.textAlign = "left";
-  ctx.fillText(`Issued on ${cert.issuedOn}`, 150, bottomY);
-  ctx.textAlign = "right";
-  ctx.fillText(`Certificate # ${cert.code}`, CERT_W - 150, bottomY);
-
-  // Signature
-  const sigY = CERT_H - 170;
-  ctx.strokeStyle = "#BFBFB6";
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(150, sigY);
-  ctx.lineTo(420, sigY);
-  ctx.stroke();
-  ctx.textAlign = "left";
-  ctx.font = "500 20px 'Inter', sans-serif";
-  ctx.fillStyle = "#111110";
-  ctx.fillText("Head of Training", 150, sigY + 34);
-
-  // Seal (right side)
-  const sealX = CERT_W - 210;
-  const sealY = CERT_H - 185;
+  // ── Binary-tech backdrop (rotated, faint) ──
+  const bitRow = "0101011010010110100101101010010110100101011001010101101";
+  const binCx = CERT_W * 3 / 5;
+  const binCy = CERT_H * 0.3;
   ctx.save();
-  ctx.translate(sealX, sealY);
+  ctx.translate(binCx, binCy);
+  ctx.rotate(-0.14);
+  ctx.fillStyle = BIN_TINT;
+  ctx.font = "16px 'JetBrains Mono', monospace";
+  ctx.textAlign = "center";
+  for (let i = -8; i <= 8; i++) {
+    ctx.fillText(bitRow, i * 170, i * 30 * -1 + 10);
+  }
+  ctx.restore();
+
+  // ── Network mountains (bottom polygon) ──
+  const mTop = CERT_H - 566;
+  const mp: Array<[number, number]> = [
+    [0, 1], [0.1, 0.57], [0.18, 0.78], [0.3, 0.2], [0.43, 0.7],
+    [0.53, 0.35], [0.66, 0.75], [0.78, 0.27], [0.9, 0.7], [1, 0.45], [1, 1],
+  ];
   ctx.beginPath();
-  ctx.arc(0, 0, 64, 0, Math.PI * 2);
-  ctx.strokeStyle = "#1E5A3A";
-  ctx.lineWidth = 5;
-  ctx.stroke();
+  ctx.moveTo(0, CERT_H);
+  mp.forEach(([px, py]) => ctx.lineTo(px * CERT_W, mTop + py * 566));
+  ctx.closePath();
+  ctx.fillStyle = BRICK;
+  ctx.fill();
   ctx.beginPath();
-  ctx.arc(0, 0, 52, 0, Math.PI * 2);
-  ctx.strokeStyle = "#2F7D50";
+  mp.forEach(([px, py], i) => {
+    const [x, y] = [px * CERT_W, mTop + py * 566];
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.strokeStyle = BRICK_LINE;
   ctx.lineWidth = 1.5;
   ctx.stroke();
-  ctx.fillStyle = "#1E5A3A";
-  ctx.font = "700 40px 'Fraunces', Georgia, serif";
+  ctx.beginPath();
+  ctx.moveTo(0, CERT_H - 1);
+  ctx.lineTo(CERT_W, CERT_H - 1);
+  ctx.strokeStyle = BRICK_LINE;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // ── Triangle logo (top-left) ──
+  const logo = [
+    { x: 245, y: 96 },
+    { x: 158, y: 226 },
+    { x: 332, y: 226 },
+  ];
+  ctx.beginPath();
+  ctx.moveTo(logo[0].x, logo[0].y);
+  ctx.lineTo(logo[1].x, logo[1].y);
+  ctx.lineTo(logo[2].x, logo[2].y);
+  ctx.closePath();
+  ctx.fillStyle = EMERALD;
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(235, 122);
+  ctx.lineTo(196, 200);
+  ctx.moveTo(255, 122);
+  ctx.lineTo(294, 200);
+  ctx.strokeStyle = "rgba(255,255,255,0.9)";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(245, 122);
+  ctx.lineTo(245, 196);
+  ctx.strokeStyle = "rgba(255,255,255,0.9)";
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+
+  // ── Header wordmark ──
+  const headCx = CERT_W * 0.5;
   ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText("SAFAL", 0, -4);
-  ctx.font = "600 22px 'JetBrains Mono', monospace";
-  ctx.fillText("● AI ●", 0, 26);
-  ctx.restore();
+  ctx.fillStyle = ORG_NAVY;
+  ctx.font = "700 58px Fraunces, Georgia, serif";
+  ctx.fillText("SAFAL AI", headCx, 150);
+  ctx.fillStyle = GOLD;
+  ctx.font = "500 15px Inter, sans-serif";
+  ctx.fillText("A N D   I N N O V A T I O N   C E N T R E", headCx, 186);
+  ctx.fillStyle = GOLD;
+  ctx.font = "italic 500 14px Inter, sans-serif";
+  ctx.fillText("EMPOWERING MINDS, BUILDING INTELLIGENCE", headCx, 214);
+
+  // ── Title ──
+  ctx.fillStyle = ORG_NAVY;
+  ctx.font = "700 86px Fraunces, Georgia, serif";
+  ctx.fillText("CERTIFICATE", cx, 420);
+  ctx.fillStyle = GOLD;
+  ctx.font = "500 21px Inter, sans-serif";
+  ctx.fillText("O F   C O M P L E T I O N", cx, 468);
+  const dividerW = 560;
+  ctx.beginPath();
+  ctx.moveTo(cx - dividerW / 2, 506);
+  ctx.lineTo(cx + dividerW / 2, 506);
+  ctx.strokeStyle = GOLD;
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // ── "THIS IS TO CERTIFY THAT" ──
+  ctx.fillStyle = ORG_NAVY;
+  ctx.font = "600 16px Inter, sans-serif";
+  ctx.fillText("THIS IS TO CERTIFY THAT", cx, 566);
+
+  // ── Name (serif, gold underline) ──
+  const namePx = fitFont(ctx, cert.name, "700 Fraunces, Georgia, serif", 92, 1150);
+  ctx.font = `${namePx}px 700 Fraunces, Georgia, serif`;
+  ctx.fillStyle = ORG_NAVY;
+  ctx.fillText(cert.name, cx, 682);
+  const nameWidth = ctx.measureText(cert.name).width;
+  ctx.beginPath();
+  ctx.moveTo(cx - nameWidth / 2 - 18, 706);
+  ctx.lineTo(cx + nameWidth / 2 + 18, 706);
+  ctx.strokeStyle = GOLD;
+  ctx.lineWidth = 4;
+  ctx.stroke();
+
+  // ── Body ──
+  const bodyCx = cx;
+  const bodyW = 1000;
+  const location = cert.location || "Prakriti Resources Centre, Kathmandu";
+  const conductedOn = cert.conductedOn || cert.issuedOn;
+  let y = 772;
+  ctx.textAlign = "center";
+  ctx.fillStyle = INK;
+  ctx.font = "400 19px Inter, sans-serif";
+  ctx.fillText("has successfully completed the", bodyCx, y);
+  y += 40;
+  ctx.font = "700 30px Fraunces, Georgia, serif";
+  const courseLines = wrapText(ctx, cert.course, bodyW).slice(0, 2);
+  ctx.font = `${fitFont(ctx, cert.course, "700 Fraunces, Georgia, serif", 30, bodyW)}px 700 Fraunces, Georgia, serif`;
+  courseLines.forEach((l, i) => ctx.fillText(l, bodyCx, y + i * 38));
+  y += courseLines.length * 38;
+  ctx.font = "400 19px Inter, sans-serif";
+  ctx.fillStyle = INK;
+  const orgLine = `organized by Safal AI and Innovation Centre, held at ${location}`;
+  const orgLines = wrapText(ctx, orgLine, bodyW).slice(0, 2);
+  orgLines.forEach((l, i) => ctx.fillText(l, bodyCx, y + i * 30));
+  y += orgLines.length * 30;
+  const dateLine = `The training was conducted from ${conductedOn}`;
+  ctx.fillText(dateLine, bodyCx, y + 2);
+
+  // Closing
+  ctx.font = "italic 400 17px Inter, sans-serif";
+  ctx.fillStyle = "#5a5a5a";
+  ctx.fillText("We commend your dedication and commitment to learning,", bodyCx, y + 64);
+  ctx.fillText("and wish you success in your future endeavors.", bodyCx, y + 92);
+
+  // ── Signatures ──
+  const sigY = 1024;
+  const leftX = 620;
+  const rightX = 1035;
+  ctx.strokeStyle = "#b8b2a0";
+  ctx.lineWidth = 1.6;
+  ctx.beginPath();
+  ctx.moveTo(leftX - 150, sigY);
+  ctx.lineTo(leftX + 150, sigY);
+  ctx.moveTo(rightX - 150, sigY);
+  ctx.lineTo(rightX + 150, sigY);
+  ctx.stroke();
+  ctx.textAlign = "center";
+  ctx.fillStyle = ORG_NAVY;
+  ctx.font = "700 18px Fraunces, Georgia, serif";
+  ctx.fillText(cert.leftSignatory || "Ishwor Dhungana", leftX, sigY + 34);
+  ctx.fillText(cert.rightSignatory || "Uday Ram Jaishi", rightX, sigY + 34);
+  ctx.fillStyle = "#6b675c";
+  ctx.font = "500 13px Inter, sans-serif";
+  ctx.fillText(cert.leftRole || "Lead AI Facilitator", leftX, sigY + 56);
+  ctx.fillText(cert.rightRole || "Chief Executive Officer", rightX, sigY + 56);
+
+  // ── Star (left) ──
+  ctx.fillStyle = GOLD;
+  ctx.font = "110px Georgia, serif";
+  ctx.textAlign = "center";
+  ctx.fillText("★", 205, 996);
+
+  // ── Seal (right) ──
+  const sealX = 1330;
+  const sealY = 970;
+  ctx.beginPath();
+  ctx.arc(sealX, sealY, 96, 0, Math.PI * 2);
+  ctx.fillStyle = "rgba(185,150,79,0.08)";
+  ctx.fill();
+  ctx.lineWidth = 3.5;
+  ctx.strokeStyle = GOLD;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(sealX, sealY, 84, 0, Math.PI * 2);
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  drawCircularText(ctx, "SAFAL AI AND INNOVATION CENTRE ESTD. 2026", sealX, sealY, 74, -Math.PI / 2, 15);
+  ctx.fillStyle = ORG_NAVY;
+  ctx.textAlign = "center";
+  ctx.font = "600 30px Fraunces, Georgia, serif";
+  ctx.fillText("★", sealX, sealY - 6);
+  ctx.font = "600 19px Inter, sans-serif";
+  ctx.fillStyle = INK;
+  ctx.fillText("VERIFIED", sealX, sealY + 28);
 
   return canvas;
 }
@@ -218,6 +345,8 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate }) =>
   const [course, setCourse] = useState("");
   const [namesText, setNamesText] = useState("");
   const [issuedOn, setIssuedOn] = useState(() => new Date().toISOString().slice(0, 10));
+  const [location, setLocation] = useState("");
+  const [conductedOn, setConductedOn] = useState("");
   const [publishLoading, setPublishLoading] = useState(false);
   const [publishError, setPublishError] = useState<string | null>(null);
   const [published, setPublished] = useState<PublishedCertificate[] | null>(null);
@@ -247,9 +376,7 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate }) =>
 
   const renderCertificate = useCallback((c: { recipient: CertificateRecipient; code?: string }) => {
     const canvas = drawCertificateImage({
-      name: c.recipient.name,
-      course: c.recipient.course,
-      issuedOn: c.recipient.issuedOn,
+      ...c.recipient,
       code: c.code || "VERIFIED",
     });
     setCertCanvas(canvas);
@@ -322,6 +449,8 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate }) =>
         name: rawName,
         course: rawCourse || course.trim() || "Artificial Intelligence & Innovation Training",
         issuedOn,
+        location: location.trim() || undefined,
+        conductedOn: conductedOn.trim() || undefined,
       });
     }
     return recipients;
@@ -602,6 +731,24 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate }) =>
                     <div>
                       <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1.5">Issued date</label>
                       <input type="date" value={issuedOn} onChange={(e) => setIssuedOn(e.target.value)} className={inputCls} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1.5">Location (optional)</label>
+                      <input
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        placeholder="e.g. Prakriti Resources Centre, Kathmandu"
+                        className={inputCls}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1.5">Conducted on (optional)</label>
+                      <input
+                        value={conductedOn}
+                        onChange={(e) => setConductedOn(e.target.value)}
+                        placeholder="e.g. 27/08/2026 to 01/09/2026"
+                        className={inputCls}
+                      />
                     </div>
                   </div>
 
