@@ -11,6 +11,7 @@ import { ConsultationModal } from "./components/modals/ConsultationModal";
 import { ChatbotDrawer } from "./components/chatbot/ChatbotDrawer";
 import { HomePage } from "./pages/HomePage";
 import { VibeCodingPage } from "./pages/VibeCodingPage";
+import { CertificatePage } from "./pages/CertificatePage";
 import { HelpCircle } from "lucide-react";
 
 export function App() {
@@ -84,6 +85,10 @@ export function App() {
             setConsultSector={consult.setConsultSector}
             setConsultMessage={consult.setConsultMessage}
             setConsultModalOpen={consult.setConsultModalOpen}
+          />
+        ) : nav.path === "/certificates" ? (
+          <CertificatePage
+            navigate={nav.navigate}
           />
         ) : (
           renderNotFoundPage()

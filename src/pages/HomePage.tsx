@@ -8,6 +8,7 @@ import { LearningHubSection } from "../components/sections/LearningHubSection";
 import { AboutSection } from "../components/sections/AboutSection";
 import { TeamSection } from "../components/sections/TeamSection";
 import { ContactSection } from "../components/sections/ContactSection";
+import { CertificateSection } from "../components/sections/CertificateSection";
 import { SyllabusModal } from "../components/modals/SyllabusModal";
 import { WhyChooseSafalSection } from "../components/sections/WhyChooseSafalSection";
 import { AudiencePathsSection } from "../components/sections/AudiencePathsSection";
@@ -91,6 +92,10 @@ export const HomePage: React.FC<HomePageProps> = ({
       <TeamSection />
 
       <ContactSection {...contactProps} />
+
+      <CertificateSection
+        navigate={navigate}
+      />
 
       <SyllabusModal
         selectedSyllabusProg={selectedSyllabusProg}
