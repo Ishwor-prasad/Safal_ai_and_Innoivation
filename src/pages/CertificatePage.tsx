@@ -25,6 +25,7 @@ import {
   extractCodeFromUrl,
   certificatesToCsv,
   downloadCsv,
+  ensureDemoCertificate,
   CertificateRecipient,
   CertificateLookup,
   PublishedCertificate,
@@ -437,6 +438,31 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate }) =>
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleLoadDemo = async () => {
+    setVerifyError(null);
+    setVerifyLoading(true);
+    try {
+      const demo = await ensureDemoCertificate();
+      if (!demo) {
+        setVerifyError("Could not prepare the demo certificate. Please try again.");
+        return;
+      }
+      const found = await lookupCertificate(demo.code);
+      if (!found) {
+        setVerifyError("Demo certificate wasn't found after seeding. Please try again.");
+        return;
+      }
+      setVerifyCode(demo.code);
+      setVerifyName(found.recipient.name);
+      setCertificate(found);
+      renderCertificate(found);
+    } catch (err: any) {
+      setVerifyError(err.message || "Failed to load demo certificate.");
+    } finally {
+      setVerifyLoading(false);
+    }
+  };
+
   // ── Publish handlers ──
   const parseNames = (): CertificateRecipient[] => {
     const lines = namesText.split("\n").map((l) => l.trim()).filter(Boolean);
@@ -638,14 +664,25 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate }) =>
                 </div>
               )}
 
-              <button
-                type="submit"
-                disabled={verifyLoading}
-                className="mt-6 w-full bg-brand hover:bg-brand-dark text-white font-semibold py-3 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer border-none disabled:opacity-60"
-              >
-                {verifyLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : <ShieldCheck className="h-5 w-5" />}
-                Verify Certificate
-              </button>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <button
+                  type="submit"
+                  disabled={verifyLoading}
+                  className="flex-1 bg-brand hover:bg-brand-dark text-white font-semibold py-3 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer border-none disabled:opacity-60"
+                >
+                  {verifyLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : <ShieldCheck className="h-5 w-5" />}
+                  Verify Certificate
+                </button>
+                <button
+                  type="button"
+                  onClick={handleLoadDemo}
+                  disabled={verifyLoading}
+                  className="border border-gray-300 hover:border-brand hover:text-brand text-gray-600 font-semibold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer bg-white disabled:opacity-60"
+                >
+                  {verifyLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : <Eye className="h-5 w-5" />}
+                  View sample certificate
+                </button>
+              </div>
             </form>
 
             {/* Result */}

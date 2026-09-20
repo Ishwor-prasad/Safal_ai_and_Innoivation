@@ -259,6 +259,55 @@ export async function publishCertificateBatch(
   return { batchId, certificates: published };
 }
 
+const DEMO_BATCH_ID = null;
+
+/**
+ * Seed a single real demo certificate so visitors can try the verification
+ * flow without an admin sheet. The record goes through the exact same
+ * encrypt → store → lookup pipeline as published certificates; the returned
+ * code is the unlock key. Idempotent per browser (localStorage flag).
+ */
+export async function ensureDemoCertificate(): Promise<{ code: string; recipient: CertificateRecipient } | null> {
+  const flag = "safal_demo_seeded_v1";
+  const cached = localStorage.getItem(flag);
+  if (cached) {
+    try {
+      const marker = JSON.parse(cached) as { code: string; recipient: CertificateRecipient };
+      const codeHash = await sha256Hex(`safal::${marker.code.toUpperCase()}`);
+      const rowStillExists = isSupabaseConfigured
+        ? Boolean((await supabase.from("certificates").select("id").eq("code_hash", codeHash).maybeSingle()).data)
+        : readLocalRows().some((r) => r.codeHash === codeHash);
+      if (rowStillExists) return marker;
+    } catch { /* fall through and re-seed */ }
+  }
+
+  const recipient: CertificateRecipient = {
+    name: "Samir Shrestha",
+    course: "AI Fundamentals & Prompt Engineering",
+    issuedOn: "2026-08-30",
+    location: "Prakriti Resources Centre, Kathmandu",
+    conductedOn: "27/08/2026 to 01/09/2026",
+  };
+  const code = generateCertificateCode();
+  const codeHash = await sha256Hex(`safal::${code.toUpperCase()}`);
+  const { cipher, salt, iv } = await encrypt(JSON.stringify(recipient), code);
+
+  if (isSupabaseConfigured) {
+    const { error } = await supabase
+      .from("certificates")
+      .insert({ batch_id: DEMO_BATCH_ID, code_hash: codeHash, payload: cipher, salt, iv });
+    if (error) throw new Error(error.message);
+  } else {
+    const rows = readLocalRows();
+    rows.push({ id: crypto.randomUUID(), codeHash, batchId: DEMO_BATCH_ID, cipher, salt, iv });
+    writeLocalRows(rows);
+  }
+
+  const marker = { code, recipient };
+  try { localStorage.setItem(flag, JSON.stringify(marker)); } catch { /* ignore quota */ }
+  return marker;
+}
+
 /**
  * Look up a certificate by its code.
  * The code is the decryption key — nothing is revealed unless the code is correct.
