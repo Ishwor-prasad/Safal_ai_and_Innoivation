@@ -89,6 +89,7 @@ export function App() {
         ) : nav.path === "/certificates" ? (
           <CertificatePage
             navigate={nav.navigate}
+            language={nav.language}
           />
         ) : (
           renderNotFoundPage()

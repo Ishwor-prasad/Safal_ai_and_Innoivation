@@ -7,8 +7,8 @@ interface CertificateSectionProps {
 
 export const CertificateSection: React.FC<CertificateSectionProps> = ({ navigate }) => {
   const steps = [
-    { icon: FileSpreadsheet, title: "Encrypted publisher sheet", desc: "Paste trainee names; the whole batch is encrypted with your passphrase before storage." },
-    { icon: ShieldCheck, title: "Private per-certificate codes", desc: "Every trainee gets a unique code that is the only key able to unlock their credential." },
+    { icon: FileSpreadsheet, title: "Encrypted publisher sheet", desc: "Paste trainee names from Google Sheets; the whole batch is encrypted with your passphrase before storage." },
+    { icon: ShieldCheck, title: "Phone or email is the key", desc: "Each trainee unlocks their own certificate with just the phone or email they registered — no codes to hand out." },
     { icon: Download, title: "Shareable & downloadable", desc: "One link verifies the certificate and lets the owner download it as a crisp PNG." },
   ];
 
