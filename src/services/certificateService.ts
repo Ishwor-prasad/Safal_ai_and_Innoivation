@@ -209,6 +209,10 @@ export function parseCsvToRecipients(csv: string): CertificateRecipient[] {
   const lines = csv.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
   if (lines.length === 0) return [];
 
+  const headerLine = lines[0];
+  const tabDelimited = headerLine.includes("\t") && !headerLine.includes(",");
+  const delim = tabDelimited ? "\t" : ",";
+
   // Detect quoted CSV cells (Google Sheets exports quotes on commas)
   const cellsOf = (line: string): string[] => {
     const out: string[] = [];
@@ -219,7 +223,7 @@ export function parseCsvToRecipients(csv: string): CertificateRecipient[] {
       if (ch === '"') {
         if (inQ && line[i + 1] === '"') { cur += '"'; i++; }
         else inQ = !inQ;
-      } else if (ch === "," && !inQ) {
+      } else if (ch === delim && !inQ) {
         out.push(cur.trim());
         cur = "";
       } else {

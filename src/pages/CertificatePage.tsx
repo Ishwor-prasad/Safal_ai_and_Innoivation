@@ -20,7 +20,12 @@ import {
   CalendarDays,
   MapPin,
   Hash,
+  ArrowLeft,
+  Upload,
+  FileText,
 } from "lucide-react";
+import sigLeftUrl from "../assets/signature-left.png";
+import sigRightUrl from "../assets/signature-right.png";
 import {
   publishCertificateBatch,
   lookupByCredential,
@@ -64,6 +69,27 @@ const BIN_TINT = "rgba(180,105,105,0.14)";
 const BRICK = "rgba(183,110,110,0.16)";
 const BRICK_LINE = "rgba(183,110,110,0.4)";
 const INK = "#1c1c1c";
+
+// Real signatures extracted from the official issued certificate (transparent PNGs)
+const signatureCache = new Map<string, HTMLImageElement>();
+function getSignature(url: string): Promise<HTMLImageElement | null> {
+  const hit = signatureCache.get(url);
+  if (hit) return Promise.resolve(hit);
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => { signatureCache.set(url, img); resolve(img); };
+    img.onerror = () => resolve(null);
+    img.src = url;
+  });
+}
+
+function drawSignature(ctx: CanvasRenderingContext2D, img: HTMLImageElement | null, cx: number, lineY: number) {
+  if (!img || !img.naturalWidth) return;
+  const targetH = 96;
+  const w = (img.naturalWidth / img.naturalHeight) * targetH;
+  ctx.drawImage(img, cx - w / 2, lineY - targetH + 8, w, targetH);
+}
 
 const SERIF = "'Fraunces','Noto Sans Devanagari',Georgia,serif";
 const BODY = "Inter,'Noto Sans Devanagari',sans-serif";
@@ -155,7 +181,7 @@ function drawCircularText(
   }
 }
 
-function drawCertificateImage(cert: RenderOpts): HTMLCanvasElement {
+async function drawCertificateImage(cert: RenderOpts): Promise<HTMLCanvasElement> {
   const canvas = document.createElement("canvas");
   canvas.width = CERT_W;
   canvas.height = CERT_H;
@@ -331,6 +357,12 @@ function drawCertificateImage(cert: RenderOpts): HTMLCanvasElement {
   ctx.moveTo(rightX - 150, sigY);
   ctx.lineTo(rightX + 150, sigY);
   ctx.stroke();
+
+  // ── Real handwritten signatures (from the official issued certificate) ──
+  const [sigLeft, sigRight] = await Promise.all([getSignature(sigLeftUrl), getSignature(sigRightUrl)]);
+  drawSignature(ctx, sigLeft, leftX, sigY);
+  drawSignature(ctx, sigRight, rightX, sigY);
+
   ctx.textAlign = "center";
   ctx.fillStyle = ORG_NAVY;
   ctx.font = `700 18px ${SERIF}`;
@@ -415,8 +447,14 @@ const UI: Record<Lang, any> = {
     conductedPlaceholder: "e.g. 27/08/2026 to 01/09/2026",
     defaultCourse: "Default course (optional — fills empty Course cells)",
     csvLabel: "Paste trainees from Google Sheets (CSV)",
-    csvTip: "Copy from Google Sheets → columns: Name, Course, Phone/Mobile, Email (Location, Conducted-on optional). Rows without a phone or email are skipped.",
+    csvTip: "Paste from a sheet, upload a .csv file, or load a sheet link. Columns: Name, Course, Phone/Mobile, Email (Location, Conducted-on optional). Rows without a phone or email are skipped.",
     csvEmpty: "No rows detected yet. Paste your sheet above.",
+    uploadCsv: "Upload .csv file",
+    sheetLink: "Load from Google Sheets link",
+    sheetLinkPlaceholder: "https://docs.google.com/spreadsheets/d/...",
+    loadSheet: "Load sheet",
+    sheetLinkErr: "Couldn't open that sheet — make sure it's shared 'Anyone with the link → Viewer' and it starts with a header row.",
+    back: "Back to verification",
     publishBtn: (n: number) => `Encrypt & Publish ${n} certificates`,
     noValidRows: "No valid rows — every trainee needs at least a phone or email.",
     skipped: (n: number) => `${n} row(s) skipped — no phone/email`,
@@ -482,8 +520,14 @@ const UI: Record<Lang, any> = {
     conductedPlaceholder: "जस्तै: २७/०८/२०२६ देखि ०१/०९/२०२६",
     defaultCourse: "पूर्वनिर्धारित पाठ्यक्रम (वैकल्पिक)",
     csvLabel: "गुगल शीटबाट विद्यार्थी टाँस्नुहोस् (CSV)",
-    csvTip: "गुगल शीट → Name, Course, Phone/Mobile, Email स्तम्भहरू (Location, Conducted-on वैकल्पिक)। फोन वा इमेल नभएका लाई छोडिन्छ।",
-    csvEmpty: "अहिलेसम्म कुनै पङ्क्ति देखिएको छैन।",
+    csvTip: "शीटबाट टाँस्नुहोस्, .csv फाइल अपलोड गर्नुहोस् वा शीट लिंक लोड गर्नुहोस्। Name, Course, Phone/Mobile, Email स्तम्भहरू (Location, Conducted-on वैकल्पिक)। फोन वा इमेल नभएका लाई छोडिन्छ।",
+    csvEmpty: "अहिलेसम्म कुनै पङ्क्ति देखिएको छैन। माथि आफ्नो शीट टाँस्नुहोस्।",
+    uploadCsv: ".csv फाइल अपलोड",
+    sheetLink: "गुगल शीट लिंकबाट लोड",
+    sheetLinkPlaceholder: "https://docs.google.com/spreadsheets/d/...",
+    loadSheet: "शीट लोड",
+    sheetLinkErr: "शीट खोल्न सकिएन — 'Anyone with the link → Viewer' सेयर गरिएको र हेडर पङ्क्तिले सुरु भएको सुनिश्चित गर्नुहोस्।",
+    back: "प्रमाणीकरणमा फर्कनुहोस्",
     publishBtn: (n: number) => `${n} प्रमाणपत्र इन्क्रिप्टेड र प्रकाशित गर्नुहोस्`,
     noValidRows: "मान्य पङ्क्ति छैन — प्रत्येक विद्यार्थीलाई फोन वा इमेल चाहिन्छ।",
     skipped: (n: number) => `${n} पङ्क्ति छाडियो — फोन/इमेल छैन`,
@@ -526,8 +570,10 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate, lang
   const [verifyError, setVerifyError] = useState<string | null>(null);
   const [certificate, setCertificate] = useState<CertificateLookup | null>(null);
   const [certCanvas, setCertCanvas] = useState<HTMLCanvasElement | null>(null);
+  const [fullscreen, setFullscreen] = useState(false);
   const [copied, setCopied] = useState(false);
   const certContainerRef = useRef<HTMLDivElement | null>(null);
+  const certOverlayHostRef = useRef<HTMLDivElement | null>(null);
 
   // ── Batch browser state ──
   const [batches, setBatches] = useState<CertificateBatchMeta[]>([]);
@@ -540,9 +586,9 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate, lang
   const [vaultError, setVaultError] = useState<string | null>(null);
 
   const [batchNumber, setBatchNumber] = useState("");
-  const [sheetTitle, setSheetTitle] = useState("");
+  const [sheetTitle, setSheetTitle] = useState("AI for Teachers");
   const [issuedOn, setIssuedOn] = useState(() => new Date().toISOString().slice(0, 10));
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("Online");
   const [conductedOn, setConductedOn] = useState("");
   const [course, setCourse] = useState("");
   const [csvText, setCsvText] = useState("");
@@ -552,6 +598,10 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate, lang
   const [publishedTitle, setPublishedTitle] = useState<string | null>(null);
   const [publishedBatchNumber, setPublishedBatchNumber] = useState<string | null>(null);
   const [publishCopied, setPublishCopied] = useState(false);
+  const [showSheetLink, setShowSheetLink] = useState(false);
+  const [sheetLinkInput, setSheetLinkInput] = useState("");
+  const [sheetLoading, setSheetLoading] = useState(false);
+  const [sheetLinkError, setSheetLinkError] = useState<string | null>(null);
   const [reloadMode, setReloadMode] = useState(false);
   const [reloadAuth, setReloadAuth] = useState("");
   const [reloadLoading, setReloadLoading] = useState(false);
@@ -568,17 +618,19 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate, lang
     return () => { alive = false; };
   }, []);
 
-  // Mount the drawn certificate canvas into the DOM when it is generated
+  // Mount the drawn certificate canvas into the DOM wherever it is being shown
   useEffect(() => {
     if (!certCanvas) return;
     certCanvas.className = "max-w-full h-auto rounded-sm shadow-xl border border-gray-200";
-    certContainerRef.current?.appendChild(certCanvas);
+    const host = fullscreen ? certOverlayHostRef.current : certContainerRef.current;
+    host?.appendChild(certCanvas);
     return () => { certCanvas.remove(); };
-  }, [certCanvas, language]);
+  }, [certCanvas, language, fullscreen]);
 
-  const renderCertificate = useCallback((c: CertificateLookup) => {
-    const canvas = drawCertificateImage({ ...c.recipient, lang });
+  const renderCertificate = useCallback(async (c: CertificateLookup) => {
+    const canvas = await drawCertificateImage({ ...c.recipient, lang });
     setCertCanvas(canvas);
+    setFullscreen(true);
   }, [lang]);
 
   const handleVerify = async (e?: React.FormEvent) => {
@@ -778,6 +830,38 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate, lang
     downloadCsv(`SAFAL-batch-${publishedBatchNumber || d}-${d}.csv`, csv);
   };
 
+  const handleCsvFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => { setCsvText(String(reader.result || "")); setSheetLinkError(null); };
+    reader.onerror = () => setSheetLinkError(T.sheetLinkErr);
+    reader.readAsText(file);
+    e.target.value = "";
+  };
+
+  const handleSheetLinkLoad = async () => {
+    setSheetLinkError(null);
+    setSheetLoading(true);
+    try {
+      const m = sheetLinkInput.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+      if (!m) { setSheetLinkError(T.sheetLinkErr); return; }
+      const res = await fetch(`https://docs.google.com/spreadsheets/d/${m[1]}/export?format=csv`);
+      if (!res.ok) { setSheetLinkError(T.sheetLinkErr); return; }
+      const text = await res.text();
+      setCsvText(text);
+    } catch {
+      setSheetLinkError(T.sheetLinkErr);
+    } finally {
+      setSheetLoading(false);
+    }
+  };
+
+  const handleBack = () => {
+    setFullscreen(false);
+    document.getElementById("verify-form")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const resetPublishForm = () => {
     setPublished(null);
     setPublishedTitle(null);
@@ -841,6 +925,7 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate, lang
           <div className="max-w-5xl mx-auto">
             {/* Verify form */}
             <form
+              id="verify-form"
               onSubmit={handleVerify}
               className="card-elevated p-6 sm:p-8 mb-10 max-w-3xl mx-auto"
             >
@@ -1094,6 +1179,46 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate, lang
                         className={`${inputCls} resize-y font-mono text-[13px] leading-relaxed`}
                       />
                       <p className="text-[11px] text-gray-400 mt-1.5">{T.csvTip}</p>
+
+                      <div className="flex flex-wrap items-center gap-2 mt-3">
+                        <label className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 border border-gray-200 hover:border-brand hover:text-brand px-3 py-2 rounded-lg transition-all cursor-pointer bg-white">
+                          <Upload className="h-3.5 w-3.5" /> {T.uploadCsv}
+                          <input type="file" accept=".csv,text/csv" className="hidden" onChange={handleCsvFile} />
+                        </label>
+                        <button
+                          type="button"
+                          onClick={() => { setShowSheetLink(!showSheetLink); setSheetLinkError(null); }}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 border border-gray-200 hover:border-brand hover:text-brand px-3 py-2 rounded-lg transition-all cursor-pointer bg-white"
+                        >
+                          <FileText className="h-3.5 w-3.5" /> {T.sheetLink}
+                        </button>
+                      </div>
+
+                      {showSheetLink && (
+                        <div className="mt-2 space-y-2">
+                          <div className="flex flex-col sm:flex-row gap-2">
+                            <input
+                              value={sheetLinkInput}
+                              onChange={(e) => setSheetLinkInput(e.target.value)}
+                              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); handleSheetLinkLoad(); } }}
+                              placeholder={T.sheetLinkPlaceholder}
+                              className={`${inputCls} font-mono text-xs`}
+                            />
+                            <button
+                              type="button"
+                              onClick={handleSheetLinkLoad}
+                              disabled={sheetLoading}
+                              className="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-white bg-brand hover:bg-brand-dark px-4 py-2 rounded-lg transition-all cursor-pointer border-none disabled:opacity-60 shrink-0"
+                            >
+                              {sheetLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <ArrowRight className="h-3.5 w-3.5" />}
+                              {T.loadSheet}
+                            </button>
+                          </div>
+                          {sheetLinkError && (
+                            <p className="text-[11px] text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2">{sheetLinkError}</p>
+                          )}
+                        </div>
+                      )}
                     </div>
 
                     {/* Live preview */}
@@ -1287,6 +1412,49 @@ export const CertificatePage: React.FC<CertificatePageProps> = ({ navigate, lang
           </div>
         )}
       </div>
+
+      {/* Full-screen certificate view (opens on every successful verify) */}
+      {fullscreen && certificate && certCanvas && (
+        <div className="fixed inset-0 z-[100] bg-gray-950/90 backdrop-blur-sm overflow-y-auto">
+          <div className="max-w-5xl mx-auto px-4 py-6 sm:py-10">
+            <div className="flex items-center justify-between flex-wrap gap-3 mb-6">
+              <button
+                onClick={handleBack}
+                className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white border border-white/20 hover:border-white/40 px-4 py-2.5 rounded-xl transition-all cursor-pointer bg-transparent"
+              >
+                <ArrowLeft className="h-4 w-4" /> {T.back}
+              </button>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={handleCopyLink}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white border border-white/20 hover:border-white/40 px-4 py-2.5 rounded-xl transition-all cursor-pointer bg-transparent"
+                >
+                  {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Link2 className="h-4 w-4" />}
+                  {copied ? T.copyLinkDone : T.copyLink}
+                </button>
+                <button
+                  onClick={handleDownload}
+                  className="inline-flex items-center gap-2 text-sm font-semibold bg-brand hover:bg-brand-light text-white px-5 py-2.5 rounded-xl transition-all cursor-pointer border-none"
+                >
+                  <Download className="h-4 w-4" /> {T.download}
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 text-sm font-semibold text-emerald-400 mb-4">
+              <CheckCircle2 className="h-5 w-5" />
+              {T.verifiedFor} {certificate.recipient.name}
+            </div>
+
+            <div
+              ref={certOverlayHostRef}
+              className="bg-surface-muted border border-white/10 rounded-2xl p-4 sm:p-10 flex justify-center overflow-x-auto"
+            />
+
+            <p className="text-center text-xs text-gray-400 font-mono mt-5">{T.verifyAnywhere}</p>
+          </div>
+        </div>
+      )}
 
       {/* Footer CTA */}
       <div className="bg-gray-50 py-16 border-t border-gray-200">
