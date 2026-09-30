@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI for Managers — Course Documentation</title>
+<title>AI for Managers — Nepal AI and Tech Manager Wing</title>
+<meta name="description" content="An 8-day practical AI program for managers. Two hours a day, one real problem from your own job. Demo session: Sunday, October 4.">
 <style>
   :root {
     --frame: #17110C;
@@ -50,186 +51,130 @@
     font-weight: 600;
   }
 
-  /* COVER PAGE */
-  .cover .inner { justify-content: flex-start; padding-top: 45.333mm; }
-  .cover .kicker {
+  .kicker {
     font-size: 12.5px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 13.333mm;
   }
-  .cover h1 { font-size: 46px; line-height: 1.15; margin-bottom: 8mm; }
-  .cover .tagline { font-size: 18px; font-style: italic; color: var(--body); margin-bottom: 4mm; font-family: 'Lora', serif; }
-  .cover .sub { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body); margin-top: 10.667mm; }
-  .cover-motif { position: absolute; bottom: -26.667mm; right: -26.667mm; width: 186.667mm; height: 186.667mm; opacity: 0.9; }
 
-  /* GLANCE / TABLE PAGE */
-  .glance h2 { font-size: 30px; margin-bottom: 13.333mm; }
-  table.glance-table { border-collapse: collapse; width: 100%; margin-top: 5.333mm; }
-  table.glance-table th {
+  /* COVER */
+  .cover .inner { justify-content: flex-start; padding-top: 45.333mm; }
+  .cover .kicker { margin-bottom: 13.333mm; }
+  .cover h1 { font-size: 46px; line-height: 1.15; margin-bottom: 8mm; }
+  .cover .tagline {
+    font-size: 20px; line-height: 1.45; max-width: 20em;
+    font-style: italic; color: var(--heading); margin-bottom: 4mm;
+    font-family: 'Lora', serif;
+  }
+  .cover .sub { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body); margin-top: 10.667mm; }
+  .cover .stamp {
+    margin-top: 2mm; font-size: 12.5px; letter-spacing: 0.04em; color: var(--gold);
+  }
+  .motif { position: absolute; bottom: -26.667mm; right: -26.667mm; width: 186.667mm; height: 186.667mm; opacity: 0.9; }
+
+  /* SECTION HEADS */
+  .text-page h2 { font-size: 30px; line-height: 1.2; margin-bottom: 5.333mm; }
+  .text-page .sub { font-size: 14.5px; color: var(--body); max-width: 60ch; }
+  .text-page .sub + .block { margin-top: 11.333mm; }
+
+  /* LEDE + FACTS */
+  .lede { font-size: 16px; line-height: 1.8; max-width: 58ch; color: var(--heading); font-family: 'Lora', serif; }
+  .lede + .lede { margin-top: 4mm; }
+  .lede em { color: var(--body); }
+
+  .facts {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 8mm;
+    margin-top: 12mm; padding-top: 7mm; border-top: 1px solid var(--hair);
+  }
+  .facts .v { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; color: var(--heading); line-height: 1.3; }
+  .facts .k { font-size: 12.5px; color: var(--body); margin-top: 1mm; }
+
+  /* OUTCOMES */
+  .outcomes { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 12mm; }
+  .outcomes li { padding: 5mm 0 5.5mm; border-top: 1px solid var(--hair); }
+  .outcomes h3 { font-size: 15.5px; margin-bottom: 1.5mm; }
+  .outcomes p { font-size: 13.5px; line-height: 1.7; }
+
+  /* DAYS TABLE */
+  table.days { border-collapse: collapse; width: 100%; margin-top: 5.333mm; }
+  table.days th {
     text-align: left;
     font-family: 'Lora', serif;
     font-weight: 600;
     color: var(--heading);
     font-size: 13.5px;
-    padding-bottom: 8px;
+    padding-bottom: 3mm;
     border-bottom: 1.5px solid var(--heading);
   }
-  table.glance-table td {
-    font-size: 13px;
+  table.days td {
+    font-size: 13.5px; line-height: 1.6;
     color: var(--body);
-    padding: 11px 10px 11px 0;
+    padding: 4.5mm 6mm 4.5mm 0;
     border-bottom: 1px solid var(--hair);
     vertical-align: top;
   }
-  table.glance-table td.day { font-family: 'Lora', serif; color: var(--gold); font-weight: 600; width: 10%; }
-  table.glance-table td.theme { width: 42%; color: var(--heading); font-weight: 500; }
+  table.days td.day { font-family: 'Lora', serif; color: var(--gold); font-weight: 600; width: 16%; white-space: nowrap; }
+  table.days td.theme { width: 30%; color: var(--heading); font-weight: 500; }
 
-  /* DAY / NUMBERED PAGES */
-  .day-page .num-heading { display: flex; align-items: baseline; margin-bottom: 13.333mm; }
-  .day-page .num { font-family: 'Lora', serif; font-size: 34px; color: var(--gold); font-weight: 600; margin-right: 14px; }
-  .day-page h2 { font-size: 28px; }
-  .day-page p.body-text { font-size: 14.5px; line-height: 1.85; max-width: 62ch; color: var(--body); }
-  .day-page .deliverable {
-    margin-top: auto;
-    border-top: 1.5px solid var(--heading);
-    padding-top: 8mm;
-  }
-  .day-page .deliverable .label {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 4px;
-  }
-  .day-page .deliverable .value {
-    font-family: 'Lora', serif;
-    font-size: 17px;
-    color: var(--heading);
-    font-weight: 600;
-  }
+  /* DELIVERABLE FLOWS */
+  .flows { display: grid; gap: 7mm; }
+  .flow { display: grid; grid-template-columns: 32mm 1fr; gap: 0 8mm; align-items: center; }
+  .flow-name { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); line-height: 1.4; }
+  .steps { list-style: none; display: flex; align-items: center; flex-wrap: wrap; }
+  .steps li { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: var(--heading); display: flex; align-items: center; }
+  .steps li::after { content: "\2192"; font-family: 'Liberation Sans', Arial, sans-serif; font-weight: 400; color: var(--gold); margin: 0 5mm; }
+  .steps li:last-child::after { content: none; }
 
-  /* SIMPLE TEXT PAGES */
-  .text-page h2 { font-size: 28px; margin-bottom: 13.333mm; }
-  .text-page .section { margin-bottom: 13.333mm; }
-  .text-page .section h3 { font-size: 14px; color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 5.333mm; font-family: 'Liberation Sans', Arial, sans-serif; font-weight: 700; }
-  .text-page .section p { font-size: 14.5px; line-height: 1.85; max-width: 62ch; }
+  /* AUDIENCE + DUO */
+  .audience { font-family: 'Lora', serif; font-size: 17px; line-height: 1.75; color: var(--heading); max-width: 56ch; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12mm; margin-top: 12mm; padding-top: 8mm; border-top: 1px solid var(--hair); }
+  .duo h3 {
+    font-family: 'Liberation Sans', Arial, sans-serif;
+    font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 3.5mm;
+  }
+  .duo p { font-size: 13.5px; line-height: 1.75; }
 
-  /* LEAVE-WITH LIST PAGE */
-  .list-page h2 { font-size: 30px; margin-bottom: 16mm; }
-  .list-page ul { list-style: none; }
-  .list-page li {
-    font-size: 15.5px;
-    color: var(--heading);
-    padding: 12px 0 12px 30px;
-    border-bottom: 1px solid var(--hair);
-    position: relative;
-    font-family: 'Lora', serif;
+  /* CLOSE */
+  .back .inner { padding-top: 45.333mm; }
+  .back h2 { font-size: 40px; line-height: 1.2; max-width: 16em; }
+  .back .rule { width: 60px; height: 1.5px; background: var(--gold); margin: 10mm 0; }
+  .back .demo-label { margin-bottom: 2mm; }
+  .back .demo-when { font-family: 'Lora', serif; font-size: 30px; font-weight: 600; color: var(--heading); }
+  .back .note { margin-top: 10mm; font-size: 14.5px; line-height: 1.8; max-width: 52ch; }
+  .back .org {
+    margin-top: auto; font-size: 11.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
   }
-  .list-page li::before {
-    content: "◆";
-    position: absolute;
-    left: 0;
-    top: 13px;
-    font-size: 10px;
-    color: var(--gold);
-  }
-  .list-page .closer {
-    margin-top: auto;
-    padding-top: 13.333mm;
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: 16px;
-    color: var(--body);
-  }
+  .back .motif { opacity: 0.5; }
 
   .pagefoot {
-    margin-top: auto;
-    padding-top: 8mm;
-    font-size: 10px;
-    color: var(--gold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    margin-top: auto; padding-top: 8mm;
+    font-size: 11.5px; line-height: 1.7; color: var(--body);
+    max-width: 62ch;
   }
-
-  /* TOOLBAR */
-  .toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #241811;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-  }
-  .toolbar .brand {
-    font-family: 'Lora', serif;
-    color: var(--cream);
-    font-size: 15px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .toolbar .actions { display: flex; gap: 10px; }
-  .toolbar button, .toolbar a {
-    font-family: 'Liberation Sans', Arial, sans-serif;
-    border: 1px solid var(--gold);
-    background: transparent;
-    color: var(--cream);
-    padding: 9px 18px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .toolbar .primary { background: var(--gold); color: #241811; border-color: var(--gold); }
-  .toolbar button:hover, .toolbar a:hover { opacity: 0.88; }
+  .pagefoot strong { color: var(--heading); font-weight: 500; }
 
   /* RESPONSIVE */
   @media screen and (max-width: 900px) {
-    .page {
-      width: 100%;
-      height: auto;
-      min-height: 0;
-      margin: 12px 0;
-      box-shadow: none;
-      overflow: visible;
-    }
-    .inner {
-      position: relative;
-      top: auto; left: auto; right: auto; bottom: auto;
-      min-height: auto;
-      padding: 40px 28px;
-    }
-    .cover .inner { padding-top: 60px; }
+    .page { width: 100%; height: auto; min-height: 0; margin: 12px 0; overflow: visible; }
+    .inner { position: relative; top: auto; left: auto; right: auto; bottom: auto; min-height: auto; padding: 40px 28px; }
+    .cover .inner, .back .inner { padding-top: 60px; }
     .cover h1 { font-size: 34px; }
-    .cover-motif { width: 200px; height: 200px; bottom: -50px; right: -50px; }
-    .num-heading, .day-page .num-heading { gap: 10px; flex-wrap: wrap; }
-    .list-page li { padding-left: 24px; }
+    .back h2 { font-size: 30px; }
+    .motif { width: 200px; height: 200px; bottom: -50px; right: -50px; }
+    .facts { grid-template-columns: 1fr 1fr; gap: 6mm; }
+    .outcomes, .duo { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: 1fr; gap: 2mm; }
+    .back .org { margin-top: 12mm; }
   }
 
   /* PRINT */
   @media print {
     @page { size: A4 portrait; margin: 0; }
     html, body { background: #fff; }
-    .toolbar { display: none !important; }
-    .page {
-      width: 210mm;
-      height: 297mm;
-      margin: 0;
-      overflow: hidden;
-      page-break-after: always;
-      break-after: page;
-    }
+    .page { width: 210mm; height: 297mm; margin: 0; overflow: hidden; page-break-after: always; break-after: page; }
     .page:last-child { page-break-after: auto; break-after: auto; }
     .inner { border: none; }
   }
@@ -237,21 +182,15 @@
 </head>
 <body>
 
-<div class="toolbar">
-  <div class="brand">AI for Managers</div>
-  <div class="actions">
-    <button onclick="window.close()">Close</button>
-    <a href="ai-for-managers.pdf" download="AI-for-Managers-Course-Documentation.pdf" class="primary">Download PDF</a>
-  </div>
-</div>
-
+<!-- PAGE 1 — COVER -->
 <div class="page cover">
   <div class="inner">
     <div class="kicker">Course Documentation</div>
     <h1 class="serif">AI for Managers</h1>
-    <div class="tagline">AI, Already Installed</div>
-    <div class="sub">A Seven-Day Practical Program</div>
-    <svg class="cover-motif" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <div class="tagline">Spend your week deciding, not drafting.</div>
+    <div class="sub">An Eight-Day Practical Program</div>
+    <div class="stamp">Demo session &mdash; Sunday, October 4</div>
+    <svg class="motif" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M0 220 Q 90 160, 150 210 T 300 190 V300 H0 Z" fill="#241811"/>
       <circle cx="245" cy="150" r="3" fill="#A8703E"/>
       <circle cx="270" cy="185" r="1.8" fill="#A8703E" opacity="0.6"/>
@@ -260,149 +199,112 @@
   </div>
 </div>
 
-<div class="page glance">
+<!-- PAGE 2 — AT A GLANCE + OUTCOMES -->
+<div class="page text-page">
   <div class="inner">
-    <h2 class="serif">Program at a Glance</h2>
-    <table class="glance-table">
-      <tr><th>Day</th><th>Theme</th><th>Output</th></tr>
-      <tr><td class="day">01</td><td class="theme">AI Mindset for Managers</td><td>Personal AI Opportunity Map</td></tr>
-      <tr><td class="day">02</td><td class="theme">Communicating &amp; Working With AI</td><td>Manager Prompt Library</td></tr>
-      <tr><td class="day">03</td><td class="theme">Documents, Meetings &amp; Knowledge</td><td>Manager Knowledge Assistant</td></tr>
-      <tr><td class="day">04</td><td class="theme">Data &amp; Decision Making</td><td>AI Decision Brief</td></tr>
-      <tr><td class="day">05</td><td class="theme">AI Workflow &amp; Automation</td><td>One Working AI Workflow</td></tr>
-      <tr><td class="day">06</td><td class="theme">Managing an AI-Powered Team</td><td>Team AI Playbook</td></tr>
-      <tr><td class="day">07</td><td class="theme">AI Strategy &amp; 30-Day Roadmap</td><td>30-Day Implementation Plan</td></tr>
+    <h2 class="serif">The week, at a glance</h2>
+    <div class="block">
+      <p class="lede">Reports to read. Emails to write. Meetings that end with no clear owner. AI can carry most of it, once you know where to put it.</p>
+      <p class="lede"><em>In eight days, you build a working workflow for one real problem from your own job.</em></p>
+
+      <div class="facts">
+        <div><div class="v">8 days</div><div class="k">Two hours each</div></div>
+        <div><div class="v">Your own work</div><div class="k">Real problems only</div></div>
+        <div><div class="v">October 4</div><div class="k">Demo session</div></div>
+        <div><div class="v">Certificate</div><div class="k">On completion</div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3 class="serif" style="font-size:15px;margin-bottom:1.5mm">What you will be able to do</h3>
+      <p class="sub" style="margin-bottom:5mm">Practical skills you can use the week after.</p>
+      <ul class="outcomes">
+        <li><h3 class="serif">Read faster</h3><p>Long reports, policies and manuals become clear one-page briefs.</p></li>
+        <li><h3 class="serif">Write less</h3><p>Emails, notices, memos and proposals drafted in minutes.</p></li>
+        <li><h3 class="serif">Close the loop</h3><p>Every meeting ends with decisions, owners and deadlines.</p></li>
+        <li><h3 class="serif">Stay organized</h3><p>Projects, tasks and deadlines that need less chasing.</p></li>
+        <li><h3 class="serif">Understand numbers</h3><p>Budgets, sales and KPIs made readable with spreadsheets and AI.</p></li>
+        <li><h3 class="serif">Decide with evidence</h3><p>Research an issue and arrive at the decision with options ready.</p></li>
+        <li><h3 class="serif">Present clearly</h3><p>Turn information into clean updates and presentations.</p></li>
+        <li><h3 class="serif">Automate the routine</h3><p>Connect your tools so repeat work moves on its own.</p></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3 — THE EIGHT DAYS -->
+<div class="page text-page">
+  <div class="inner">
+    <h2 class="serif">Eight days, two hours each</h2>
+    <p class="sub">Every day is tied to a real management task.</p>
+    <table class="days">
+      <tr><th>Day</th><th>Theme</th><th>Focus</th></tr>
+      <tr><td class="day">01</td><td class="theme">AI for the Manager</td><td>Find where AI fits in your work, and how to use it safely.</td></tr>
+      <tr><td class="day">02</td><td class="theme">Documents and knowledge</td><td>Turn long documents, policies and reports into clear briefs and answers.</td></tr>
+      <tr><td class="day">03</td><td class="theme">Communication</td><td>Draft emails, reports, proposals, notices and minutes in less time.</td></tr>
+      <tr><td class="day">04</td><td class="theme">Meetings and follow-up</td><td>Go from discussion to decisions, owners, deadlines and follow-up.</td></tr>
+      <tr><td class="day">05</td><td class="theme">Projects and tasks</td><td>Organize projects, tasks and deadlines with modern tools and AI.</td></tr>
+      <tr><td class="day">06</td><td class="theme">Data and decisions</td><td>Use spreadsheets and AI to turn numbers into management insight.</td></tr>
+      <tr><td class="day">07</td><td class="theme">Automation</td><td>Find repetitive work and build workflows that handle it.</td></tr>
+      <tr><td class="day">08</td><td class="theme">Build your own workflow</td><td>Build a working workflow for a real problem from your own job.</td></tr>
     </table>
-    <div class="pagefoot">The course is built hands-on: every day produces a real, usable output — not a lecture.</div>
+    <div class="pagefoot"><strong>Roughly 70% hands-on, 30% concept.</strong> Every session produces something you keep and can use the following week.</div>
   </div>
 </div>
 
-<div class="page day-page">
-  <div class="inner">
-    <div class="num-heading"><span class="num">01</span><h2 class="serif">AI Mindset for Managers</h2></div>
-    <p class="body-text">Before touching any tool, managers map their actual week — emails, meetings, reports, decisions — and sort each task into Do, Delegate, Automate, or Eliminate. Every task is then scored by value, frequency, and risk, so the day ends with a ranked list, not just an inventory.</p>
-    <div class="deliverable">
-      <div class="label">Deliverable</div>
-      <div class="value">Personal AI Opportunity Map — a ranked list of exactly where to start.</div>
-    </div>
-  </div>
-</div>
-
-<div class="page day-page">
-  <div class="inner">
-    <div class="num-heading"><span class="num">02</span><h2 class="serif">Communicating &amp; Working With AI</h2></div>
-    <p class="body-text">Managers learn to use AI that already lives inside their everyday tools — native scheduling, reporting, and search — before ever opening a prompt window. From there, they build a small library of reusable prompts for the roles they actually need: report writer, meeting summarizer, proposal reviewer, research assistant.</p>
-    <div class="deliverable">
-      <div class="label">Deliverable</div>
-      <div class="value">Personal Manager Prompt Library — 10+ reusable prompts built from their own work.</div>
-    </div>
-  </div>
-</div>
-
-<div class="page day-page">
-  <div class="inner">
-    <div class="num-heading"><span class="num">03</span><h2 class="serif">Documents, Meetings &amp; Knowledge</h2></div>
-    <p class="body-text">Managers turn scattered documents, policies, and meeting notes into an AI-assisted knowledge process — asking what happened, what changed, what risks exist, and what decisions are needed, instead of reading everything themselves cover to cover.</p>
-    <div class="deliverable">
-      <div class="label">Deliverable</div>
-      <div class="value">Manager Knowledge Assistant — a repeatable process for turning documents into answers.</div>
-    </div>
-  </div>
-</div>
-
-<div class="page day-page">
-  <div class="inner">
-    <div class="num-heading"><span class="num">04</span><h2 class="serif">Data &amp; Decision Making</h2></div>
-    <p class="body-text">Working with a real business dataset, managers practice using AI as an analytical partner rather than an oracle — asking what's happening, why, what evidence supports it, and what options exist. The manager remains responsible for the final call; AI's job is to shorten the distance to a good decision.</p>
-    <div class="deliverable">
-      <div class="label">Deliverable</div>
-      <div class="value">AI Decision Brief — a one-page document: problem, evidence, options, recommendation.</div>
-    </div>
-  </div>
-</div>
-
-<div class="page day-page">
-  <div class="inner">
-    <div class="num-heading"><span class="num">05</span><h2 class="serif">AI Workflow &amp; Automation</h2></div>
-    <p class="body-text">Managers connect AI directly to the tools their team already runs on — a task board, a chat app, a document store — instead of working around a chatbot in a separate tab. One real, repetitive process, chosen back on Day 1, gets redesigned end to end and tested live.</p>
-    <div class="deliverable">
-      <div class="label">Deliverable</div>
-      <div class="value">One working AI-powered workflow, built on their own backlog or inbox.</div>
-    </div>
-  </div>
-</div>
-
-<div class="page day-page">
-  <div class="inner">
-    <div class="num-heading"><span class="num">06</span><h2 class="serif">Managing an AI-Powered Team</h2></div>
-    <p class="body-text">Managers address the questions that come after adoption: what should employees hand to AI, how is output verified, which decisions must stay human, and what information should never go into a public AI tool. This is where AI stops being a personal habit and starts being a team standard.</p>
-    <div class="deliverable">
-      <div class="label">Deliverable</div>
-      <div class="value">Team AI Playbook — a one-page policy covering approved uses, review requirements, and data rules.</div>
-    </div>
-  </div>
-</div>
-
-<div class="page day-page">
-  <div class="inner">
-    <div class="num-heading"><span class="num">07</span><h2 class="serif">AI Strategy &amp; 30-Day Roadmap</h2></div>
-    <p class="body-text">All identified opportunities are scored together and ranked by value, frequency, and risk. Each manager leaves with a week-by-week plan: select a problem, build and test, run it against real work, then measure and standardize what works.</p>
-    <div class="deliverable">
-      <div class="label">Deliverable</div>
-      <div class="value">A signed-off 30-Day AI Implementation Roadmap.</div>
-    </div>
-  </div>
-</div>
-
+<!-- PAGE 4 — DELIVERABLES + AUDIENCE -->
 <div class="page text-page">
   <div class="inner">
-    <h2 class="serif">Who This Is For</h2>
-    <div class="section">
-      <h3>Participants</h3>
-      <p>Managers and team leads, operations and admin staff, and anyone responsible for a team's output. No coding, and no technical background required.</p>
+    <h2 class="serif">You leave with a workflow, not a folder of prompts</h2>
+    <p class="sub">Every participant builds at least one for their own work. Something you can use on Monday. For example:</p>
+    <div class="block flows">
+      <div class="flow">
+        <div class="flow-name">Meetings</div>
+        <ol class="steps"><li>Meeting</li><li>Summary</li><li>Action items</li><li>Task list</li></ol>
+      </div>
+      <div class="flow">
+        <div class="flow-name">Documents</div>
+        <ol class="steps"><li>Document</li><li>Analysis</li><li>Management brief</li></ol>
+      </div>
+      <div class="flow">
+        <div class="flow-name">Data</div>
+        <ol class="steps"><li>Data</li><li>Analysis</li><li>Report</li></ol>
+      </div>
     </div>
-    <div class="section">
-      <h3>What You Bring</h3>
-      <p>One real, recurring problem from your own work — a report you dread, a backlog nobody triages, an inbox that eats your mornings, or a decision that keeps stalling. The course is built around solving it, not around a hypothetical case study.</p>
-    </div>
-    <div class="section">
-      <h3>Format</h3>
-      <p>Roughly 70% hands-on, 30% concept. Every session produces something you keep and can use the following week.</p>
+
+    <h2 class="serif" style="margin-top:16mm">Who it is for</h2>
+    <p class="audience" style="margin-top:4mm">Managers and team leads in any industry: banking, insurance, hydropower, NGOs, education, hospitality, retail, project management and small businesses.</p>
+    <p class="sub" style="margin-top:4mm">No technical background needed. The industry changes; many management problems do not.</p>
+
+    <div class="duo">
+      <div>
+        <h3>The right tool for the job</h3>
+        <p>ChatGPT, Microsoft 365 and Copilot, NotebookLM, spreadsheet tools, research AI, and automation platforms like Make or n8n. We never teach a tool for its own sake.</p>
+      </div>
+      <div>
+        <h3>Your trainer and support</h3>
+        <p>Led by an AI and Backend Engineer with experience in backend services, CRM automation, robotics, AI and management tools. A support team helps after you enroll.</p>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="page list-page">
+<!-- PAGE 5 — CLOSE -->
+<div class="page back">
   <div class="inner">
-    <h2 class="serif">What You Leave With</h2>
-    <ul>
-      <li>Personal AI Opportunity Map</li>
-      <li>Manager Prompt Library</li>
-      <li>Manager Knowledge Assistant</li>
-      <li>AI Decision Brief</li>
-      <li>One working AI-powered workflow</li>
-      <li>Team AI Playbook</li>
-      <li>30-Day AI Implementation Roadmap</li>
-    </ul>
-    <div class="closer">Not a certificate. A working system.</div>
-  </div>
-</div>
-
-<div class="page text-page">
-  <div class="inner">
-    <h2 class="serif">Extras</h2>
-    <div class="section">
-      <h3>Built Around Your Tools</h3>
-      <p>Every organization runs on a different mix of tools — a different task board, a different chat app, a different CRM. The course adapts to whichever tools your team already uses; nothing here depends on one specific platform.</p>
-    </div>
-    <div class="section">
-      <h3>Flexible by Design</h3>
-      <p>This document outlines the program's structure and what participants can expect to leave with. Day order, exercises, and depth can be adjusted to the group's experience level and the problems they bring.</p>
-    </div>
-    <div class="section">
-      <h3>Investment</h3>
-      <p>Program pricing and scheduling can be discussed directly, based on group size and format.</p>
-    </div>
+    <div class="kicker">Next step</div>
+    <h2 class="serif">See it work before you decide.</h2>
+    <div class="rule"></div>
+    <div class="kicker demo-label">Demo session</div>
+    <div class="demo-when">Sunday, October 4</div>
+    <p class="note">Come to the session, watch the tools on a real management problem, and decide afterwards. Message us to reserve your seat. Program pricing and scheduling are discussed directly, based on group size and format.</p>
+    <div class="org">Nepal AI and Tech Manager Wing</div>
+    <svg class="motif" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 220 Q 90 160, 150 210 T 300 190 V300 H0 Z" fill="#241811"/>
+      <circle cx="245" cy="150" r="3" fill="#A8703E"/>
+      <circle cx="270" cy="185" r="1.8" fill="#A8703E" opacity="0.6"/>
+      <path d="M20 240 Q 110 190, 170 235 T 300 220" fill="none" stroke="#3A281C" stroke-width="1"/>
+    </svg>
   </div>
 </div>
 
