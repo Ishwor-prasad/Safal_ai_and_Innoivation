@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI for Managers — Nepal AI and Tech Manager Wing</title>
 <meta name="description" content="An 8-day practical AI program for managers. Two hours a day, one real problem from your own job. Demo session: Sunday, October 4.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
 <style>
   :root {
     --frame: #17110C;
@@ -13,6 +16,7 @@
     --body: #6B5643;
     --hair: rgba(74,36,22,0.22);
     --gold: #A8703E;
+    --dark: #241811;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,292 +25,261 @@
     background: var(--frame);
     font-family: 'Liberation Sans', Arial, sans-serif;
     color: var(--body);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
+
+  h1, h2, h3 { font-family: 'Lora', Georgia, serif; color: var(--heading); font-weight: 600; }
 
   .page {
     position: relative;
-    width: 280mm;
-    max-width: 100%;
-    height: 396mm;
-    background: var(--frame);
-    page-break-after: always;
-    overflow: hidden;
-    margin: 24px auto;
-  }
-  .page:last-child { page-break-after: auto; }
-
-  .inner {
-    position: absolute;
-    top: 17.333mm; left: 17.333mm; right: 17.333mm; bottom: 17.333mm;
+    width: 210mm;
+    height: 297mm;
+    padding: 15mm;
     background: var(--cream);
-    border: 1px solid var(--hair);
-    padding: 29.333mm 24mm;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    page-break-after: always;
   }
+  .page:last-of-type { page-break-after: auto; }
 
-  h1.serif, h2.serif, h3.serif {
-    font-family: 'Lora', serif;
-    color: var(--heading);
-    font-weight: 600;
-  }
-
-  .kicker {
-    font-size: 12.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .page-no {
+    position: absolute;
+    bottom: 8mm; right: 15mm;
+    font-size: 11px; letter-spacing: 0.12em;
     color: var(--gold);
   }
 
-  /* COVER */
-  .cover .inner { justify-content: flex-start; padding-top: 45.333mm; }
-  .cover .kicker { margin-bottom: 13.333mm; }
-  .cover h1 { font-size: 46px; line-height: 1.15; margin-bottom: 8mm; }
-  .cover .tagline {
-    font-size: 20px; line-height: 1.45; max-width: 20em;
-    font-style: italic; color: var(--heading); margin-bottom: 4mm;
-    font-family: 'Lora', serif;
-  }
-  .cover .sub { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body); margin-top: 10.667mm; }
-  .cover .stamp {
-    margin-top: 2mm; font-size: 12.5px; letter-spacing: 0.04em; color: var(--gold);
-  }
-  .motif { position: absolute; bottom: -26.667mm; right: -26.667mm; width: 186.667mm; height: 186.667mm; opacity: 0.9; }
-
-  /* SECTION HEADS */
-  .text-page h2 { font-size: 30px; line-height: 1.2; margin-bottom: 5.333mm; }
-  .text-page .sub { font-size: 14.5px; color: var(--body); max-width: 60ch; }
-  .text-page .sub + .block { margin-top: 11.333mm; }
-
-  /* LEDE + FACTS */
-  .lede { font-size: 16px; line-height: 1.8; max-width: 58ch; color: var(--heading); font-family: 'Lora', serif; }
-  .lede + .lede { margin-top: 4mm; }
-  .lede em { color: var(--body); }
-
-  .facts {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 8mm;
-    margin-top: 12mm; padding-top: 7mm; border-top: 1px solid var(--hair);
-  }
-  .facts .v { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; color: var(--heading); line-height: 1.3; }
-  .facts .k { font-size: 12.5px; color: var(--body); margin-top: 1mm; }
-
-  /* OUTCOMES */
-  .outcomes { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 12mm; }
-  .outcomes li { padding: 5mm 0 5.5mm; border-top: 1px solid var(--hair); }
-  .outcomes h3 { font-size: 15.5px; margin-bottom: 1.5mm; }
-  .outcomes p { font-size: 13.5px; line-height: 1.7; }
-
-  /* DAYS TABLE */
-  table.days { border-collapse: collapse; width: 100%; margin-top: 5.333mm; }
-  table.days th {
-    text-align: left;
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    color: var(--heading);
-    font-size: 13.5px;
-    padding-bottom: 3mm;
-    border-bottom: 1.5px solid var(--heading);
-  }
-  table.days td {
-    font-size: 13.5px; line-height: 1.6;
-    color: var(--body);
-    padding: 4.5mm 6mm 4.5mm 0;
+  .brand-strip {
+    display: flex; align-items: center; gap: 4mm;
+    padding-bottom: 4mm; margin-bottom: 9mm;
     border-bottom: 1px solid var(--hair);
-    vertical-align: top;
   }
-  table.days td.day { font-family: 'Lora', serif; color: var(--gold); font-weight: 600; width: 16%; white-space: nowrap; }
-  table.days td.theme { width: 30%; color: var(--heading); font-weight: 500; }
-
-  /* DELIVERABLE FLOWS */
-  .flows { display: grid; gap: 7mm; }
-  .flow { display: grid; grid-template-columns: 32mm 1fr; gap: 0 8mm; align-items: center; }
-  .flow-name { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); line-height: 1.4; }
-  .steps { list-style: none; display: flex; align-items: center; flex-wrap: wrap; }
-  .steps li { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: var(--heading); display: flex; align-items: center; }
-  .steps li::after { content: "\2192"; font-family: 'Liberation Sans', Arial, sans-serif; font-weight: 400; color: var(--gold); margin: 0 5mm; }
-  .steps li:last-child::after { content: none; }
-
-  /* AUDIENCE + DUO */
-  .audience { font-family: 'Lora', serif; font-size: 17px; line-height: 1.75; color: var(--heading); max-width: 56ch; }
-  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12mm; margin-top: 12mm; padding-top: 8mm; border-top: 1px solid var(--hair); }
-  .duo h3 {
-    font-family: 'Liberation Sans', Arial, sans-serif;
-    font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold); font-weight: 700; margin-bottom: 3.5mm;
+  .brand-strip .mark {
+    width: 12mm; height: 12mm; border-radius: 50%;
+    object-fit: cover; background: #fff;
+    border: 1px solid var(--hair);
   }
-  .duo p { font-size: 13.5px; line-height: 1.75; }
-
-  /* CLOSE */
-  .back .inner { padding-top: 45.333mm; }
-  .back h2 { font-size: 40px; line-height: 1.2; max-width: 16em; }
-  .back .rule { width: 60px; height: 1.5px; background: var(--gold); margin: 10mm 0; }
-  .back .demo-label { margin-bottom: 2mm; }
-  .back .demo-when { font-family: 'Lora', serif; font-size: 30px; font-weight: 600; color: var(--heading); }
-  .back .note { margin-top: 10mm; font-size: 14.5px; line-height: 1.8; max-width: 52ch; }
-  .back .org {
-    margin-top: auto; font-size: 11.5px; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--gold);
+  .brand-strip .name { line-height: 1.15; }
+  .brand-strip .name b {
+    display: block;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
+    color: var(--heading);
   }
-  .back .motif { opacity: 0.5; }
-
-  .pagefoot {
-    margin-top: auto; padding-top: 8mm;
-    font-size: 11.5px; line-height: 1.7; color: var(--body);
-    max-width: 62ch;
-  }
-  .pagefoot strong { color: var(--heading); font-weight: 500; }
-
-  /* RESPONSIVE */
-  @media screen and (max-width: 900px) {
-    .page { width: 100%; height: auto; min-height: 0; margin: 12px 0; overflow: visible; }
-    .inner { position: relative; top: auto; left: auto; right: auto; bottom: auto; min-height: auto; padding: 40px 28px; }
-    .cover .inner, .back .inner { padding-top: 60px; }
-    .cover h1 { font-size: 34px; }
-    .back h2 { font-size: 30px; }
-    .motif { width: 200px; height: 200px; bottom: -50px; right: -50px; }
-    .facts { grid-template-columns: 1fr 1fr; gap: 6mm; }
-    .outcomes, .duo { grid-template-columns: 1fr; }
-    .flow { grid-template-columns: 1fr; gap: 2mm; }
-    .back .org { margin-top: 12mm; }
+  .brand-strip .name span { font-size: 10.5px; color: var(--body); }
+  .brand-strip .rule { flex: 1; height: 1px; background: var(--hair); }
+  .brand-strip .org {
+    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); white-space: nowrap;
   }
 
-  /* PRINT */
+  .eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 7mm; }
+  h1 { font-size: 58px; line-height: 1.05; margin-bottom: 5mm; }
+  h2 { font-size: 34px; line-height: 1.15; margin-bottom: 3mm; }
+  h3 { font-size: 16px; margin-bottom: 1.5mm; }
+  p { font-size: 15px; line-height: 1.65; }
+
+  .tagline { font-family: 'Lora', Georgia, serif; font-style: italic; font-size: 22px; color: var(--heading); margin-bottom: 4mm; }
+  .meta { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--body); }
+  .stamp { margin-top: 5mm; font-size: 14px; letter-spacing: 0.08em; color: var(--gold); }
+
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6mm; margin-top: auto; padding-top: 8mm; border-top: 1px solid var(--hair); }
+  .facts .v { font-family: 'Lora', Georgia, serif; font-size: 19px; font-weight: 600; color: var(--heading); }
+  .facts .k { font-size: 12.5px; margin-top: 1.5mm; }
+
+  .list { list-style: none; counter-reset: item; margin-top: 5mm; }
+  .list li { position: relative; padding-left: 9mm; margin-bottom: 4.5mm; }
+  .list li::before {
+    counter-increment: item; content: counter(item, decimal-leading-zero);
+    position: absolute; left: 0; top: 1px;
+    font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--gold);
+  }
+  .list strong { font-family: 'Lora', Georgia, serif; font-size: 16px; color: var(--heading); display: block; }
+  .list p { font-size: 14.5px; }
+
+  .dark { background: var(--dark); color: #E8DCC6; padding: 10mm; margin-top: 8mm; }
+  .dark h2, .dark h3 { color: var(--cream); }
+  .dark p { color: #D8C9AE; }
+
+  .days { list-style: none; margin-top: 4mm; }
+  .days li { display: grid; grid-template-columns: 11mm 1fr; gap: 0 4mm; padding: 2.6mm 0; border-top: 1px solid var(--hair); }
+  .days .n { font-family: 'Lora', Georgia, serif; color: var(--gold); font-size: 15px; font-weight: 600; }
+  .days h3 { margin-bottom: 1mm; }
+  .days p { font-size: 13.5px; line-height: 1.55; }
+
+  .flow { display: flex; align-items: center; gap: 3mm; margin-bottom: 3.5mm; font-family: 'Lora', Georgia, serif; font-size: 15px; color: var(--heading); }
+  .flow span { white-space: nowrap; }
+  .flow i { font-style: normal; color: var(--gold); }
+  .foot { margin-top: auto; padding-top: 6mm; font-size: 13.5px; }
+  .foot strong { color: var(--heading); }
+
+  .tools { margin-top: 4mm; }
+  .tools li { margin-bottom: 3mm; padding-left: 5mm; position: relative; }
+  .tools li::before { content: ""; position: absolute; left: 0; top: 9px; width: 2mm; height: 1px; background: var(--gold); }
+
+  .cta { margin-top: 7mm; display: grid; grid-template-columns: 1fr 34mm; gap: 0 8mm; align-items: center; }
+  .cta h2 { font-size: 33px; line-height: 1.1; margin-bottom: 2mm; }
+  .cta .when { font-family: 'Lora', Georgia, serif; font-size: 17px; color: var(--gold); margin: 2mm 0 3mm; }
+  .cta .org { margin-top: 4mm; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #B99A72; }
+  .qr { text-align: center; }
+  .qr img { width: 34mm; height: 34mm; background: #fff; padding: 2mm; display: block; }
+  .qr span { display: block; margin-top: 2mm; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #B99A72; }
+  .cta a { color: var(--cream); text-decoration: none; border-bottom: 1px solid rgba(232,220,198,0.4); }
+
   @media print {
     @page { size: A4 portrait; margin: 0; }
     html, body { background: #fff; }
-    .page { width: 210mm; height: 297mm; margin: 0; overflow: hidden; page-break-after: always; break-after: page; }
-    .page:last-child { page-break-after: auto; break-after: auto; }
-    .inner { border: none; }
+    .page { margin: 0; transform: none !important; }
   }
 </style>
 </head>
 <body>
 
 <!-- PAGE 1 — COVER -->
-<div class="page cover">
-  <div class="inner">
-    <div class="kicker">Course Documentation</div>
-    <h1 class="serif">AI for Managers</h1>
-    <div class="tagline">Spend your week deciding, not drafting.</div>
-    <div class="sub">An Eight-Day Practical Program</div>
-    <div class="stamp">Demo session &mdash; Sunday, October 4</div>
-    <svg class="motif" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M0 220 Q 90 160, 150 210 T 300 190 V300 H0 Z" fill="#241811"/>
-      <circle cx="245" cy="150" r="3" fill="#A8703E"/>
-      <circle cx="270" cy="185" r="1.8" fill="#A8703E" opacity="0.6"/>
-      <path d="M20 240 Q 110 190, 170 235 T 300 220" fill="none" stroke="#3A281C" stroke-width="1"/>
-    </svg>
+<section class="page">
+  <div class="brand-strip">
+    <img class="mark" src="/logo.png" alt="Safal AI and Innovation Centre">
+    <div class="name"><b>SAFAL AI</b><span>and Innovation Centre</span></div>
+    <span class="rule"></span>
+    <span class="org">Nepal AI and Tech Manager Wing</span>
   </div>
-</div>
+  <div class="eyebrow">AI &amp; Leadership Program</div>
+  <h1>AI for<br>Managers</h1>
+  <p class="tagline">Spend your week deciding, not drafting.</p>
+  <p class="meta">An eight-day practical program &middot; two hours a day</p>
+  <p class="stamp">Demo session &mdash; Sunday, October 4</p>
+  <div class="facts">
+    <div><div class="v">8 days</div><div class="k">Two hours each</div></div>
+    <div><div class="v">Your own work</div><div class="k">Real problems only</div></div>
+    <div><div class="v">October 4</div><div class="k">Demo session</div></div>
+    <div><div class="v">Certificate</div><div class="k">On completion</div></div>
+  </div>
+  <div class="page-no">01</div>
+</section>
 
-<!-- PAGE 2 — AT A GLANCE + OUTCOMES -->
-<div class="page text-page">
-  <div class="inner">
-    <h2 class="serif">The week, at a glance</h2>
-    <div class="block">
-      <p class="lede">Reports to read. Emails to write. Meetings that end with no clear owner. AI can carry most of it, once you know where to put it.</p>
-      <p class="lede"><em>In eight days, you build a working workflow for one real problem from your own job.</em></p>
+<!-- PAGE 2 — OUTCOMES + AUDIENCE -->
+<section class="page">
+  <div class="brand-strip">
+    <img class="mark" src="/logo.png" alt="Safal AI and Innovation Centre">
+    <div class="name"><b>SAFAL AI</b><span>and Innovation Centre</span></div>
+    <span class="rule"></span>
+    <span class="org">Nepal AI and Tech Manager Wing</span>
+  </div>
+  <h2>What you will be able to do</h2>
+  <ol class="list">
+    <li><strong>Read faster</strong><p>Long reports, policies and manuals become clear one-page briefs.</p></li>
+    <li><strong>Write less</strong><p>Emails, notices, memos and proposals drafted in minutes.</p></li>
+    <li><strong>Close the loop</strong><p>Every meeting ends with decisions, owners and deadlines.</p></li>
+    <li><strong>Stay organized</strong><p>Projects, tasks and deadlines that need less chasing.</p></li>
+    <li><strong>Understand numbers</strong><p>Budgets, sales and KPIs made readable with spreadsheets and AI.</p></li>
+    <li><strong>Decide with evidence</strong><p>Research an issue and arrive at the decision with options ready.</p></li>
+    <li><strong>Present clearly</strong><p>Turn information into clean updates and presentations.</p></li>
+    <li><strong>Automate the routine</strong><p>Connect your tools so repeat work moves on its own.</p></li>
+  </ol>
+  <div class="dark">
+    <h3>Who it is for</h3>
+    <p>Managers and team leads in any industry: banking, insurance, hydropower, NGOs, education, hospitality, retail, project management and small businesses.</p>
+    <p style="margin-top:3mm">No technical background needed. The industry changes; many management problems do not.</p>
+  </div>
+  <div class="page-no">02</div>
+</section>
 
-      <div class="facts">
-        <div><div class="v">8 days</div><div class="k">Two hours each</div></div>
-        <div><div class="v">Your own work</div><div class="k">Real problems only</div></div>
-        <div><div class="v">October 4</div><div class="k">Demo session</div></div>
-        <div><div class="v">Certificate</div><div class="k">On completion</div></div>
-      </div>
+<!-- PAGE 3 — CURRICULUM + OUTPUTS -->
+<section class="page">
+  <div class="brand-strip">
+    <img class="mark" src="/logo.png" alt="Safal AI and Innovation Centre">
+    <div class="name"><b>SAFAL AI</b><span>and Innovation Centre</span></div>
+    <span class="rule"></span>
+    <span class="org">Nepal AI and Tech Manager Wing</span>
+  </div>
+  <h2>The eight days</h2>
+  <ol class="days">
+    <li><span class="n">01</span><div><h3>AI for the Manager</h3><p>Find where AI fits in your work, and how to use it safely.</p></div></li>
+    <li><span class="n">02</span><div><h3>Documents and knowledge</h3><p>Turn long documents, policies and reports into clear briefs and answers.</p></div></li>
+    <li><span class="n">03</span><div><h3>Communication</h3><p>Draft emails, reports, proposals, notices and minutes in less time.</p></div></li>
+    <li><span class="n">04</span><div><h3>Meetings and follow-up</h3><p>Go from discussion to decisions, owners, deadlines and follow-up.</p></div></li>
+    <li><span class="n">05</span><div><h3>Projects and tasks</h3><p>Organize projects, tasks and deadlines with modern tools and AI.</p></div></li>
+    <li><span class="n">06</span><div><h3>Data and decisions</h3><p>Use spreadsheets and AI to turn numbers into management insight.</p></div></li>
+    <li><span class="n">07</span><div><h3>Automation</h3><p>Find repetitive work and build workflows that handle it.</p></div></li>
+    <li><span class="n">08</span><div><h3>Build your own workflow</h3><p>Build a working workflow for a real problem from your own job.</p></div></li>
+  </ol>
+  <h2 style="margin-top:7mm">What you will build</h2>
+  <p style="margin-top:2mm">You leave with a workflow, not a folder of prompts. For example:</p>
+  <div style="margin-top:4mm">
+    <div class="flow"><span>Meetings</span><i>&rarr;</i><span>Summary</span><i>&rarr;</i><span>Action items</span><i>&rarr;</i><span>Task list</span></div>
+    <div class="flow"><span>Documents</span><i>&rarr;</i><span>Analysis</span><i>&rarr;</i><span>Management brief</span></div>
+    <div class="flow"><span>Data</span><i>&rarr;</i><span>Analysis</span><i>&rarr;</i><span>Management report</span></div>
+  </div>
+  <p class="foot"><strong>Roughly 70% hands-on, 30% concept.</strong> Every session produces something you keep and can use the following week.</p>
+  <div class="page-no">03</div>
+</section>
+
+<!-- PAGE 4 — TOOLS, TRAINER, CTA -->
+<section class="page">
+  <div class="brand-strip">
+    <img class="mark" src="/logo.png" alt="Safal AI and Innovation Centre">
+    <div class="name"><b>SAFAL AI</b><span>and Innovation Centre</span></div>
+    <span class="rule"></span>
+    <span class="org">Nepal AI and Tech Manager Wing</span>
+  </div>
+  <h2>Tools you will use</h2>
+  <ul class="tools">
+    <li>ChatGPT, Microsoft 365 and Copilot</li>
+    <li>NotebookLM for long documents and knowledge</li>
+    <li>Spreadsheet tools with AI for numbers and KPIs</li>
+    <li>Research AI for faster background reading</li>
+    <li>Automation platforms such as Make and n8n</li>
+  </ul>
+  <p style="margin-top:3mm">We never teach a tool for its own sake &mdash; only the one that fits the job in front of you.</p>
+
+  <h2 style="margin-top:8mm">Your trainer</h2>
+  <p style="margin-top:2mm">Led by an AI and Backend Engineer with experience in backend services, CRM automation, robotics, AI and management tools. A support team helps you after you enroll.</p>
+
+  <h2 style="margin-top:8mm">What to bring</h2>
+  <p style="margin-top:2mm">A laptop, a Google account, and one real problem from your own work. We build on that.</p>
+
+  <div class="dark cta">
+    <div>
+      <h2>See it work<br>before you decide.</h2>
+      <p>Come to the session, watch the tools on a real management problem, and decide afterwards.</p>
+      <p class="when">Demo session &mdash; Sunday, October 4</p>
+      <p>Message us to reserve your seat:<br>
+        <a href="https://wa.me/9779747887484">WhatsApp +977 9747887484</a> &middot;
+        <a href="mailto:hello@natds.safalai.com.np">hello@natds.safalai.com.np</a><br>
+        <a href="https://safalai.com.np">safalai.com.np</a>
+      </p>
+      <p class="org">Nepal AI and Tech Manager Wing &middot; Safal AI and Innovation Centre</p>
     </div>
-
-    <div class="block">
-      <h3 class="serif" style="font-size:15px;margin-bottom:1.5mm">What you will be able to do</h3>
-      <p class="sub" style="margin-bottom:5mm">Practical skills you can use the week after.</p>
-      <ul class="outcomes">
-        <li><h3 class="serif">Read faster</h3><p>Long reports, policies and manuals become clear one-page briefs.</p></li>
-        <li><h3 class="serif">Write less</h3><p>Emails, notices, memos and proposals drafted in minutes.</p></li>
-        <li><h3 class="serif">Close the loop</h3><p>Every meeting ends with decisions, owners and deadlines.</p></li>
-        <li><h3 class="serif">Stay organized</h3><p>Projects, tasks and deadlines that need less chasing.</p></li>
-        <li><h3 class="serif">Understand numbers</h3><p>Budgets, sales and KPIs made readable with spreadsheets and AI.</p></li>
-        <li><h3 class="serif">Decide with evidence</h3><p>Research an issue and arrive at the decision with options ready.</p></li>
-        <li><h3 class="serif">Present clearly</h3><p>Turn information into clean updates and presentations.</p></li>
-        <li><h3 class="serif">Automate the routine</h3><p>Connect your tools so repeat work moves on its own.</p></li>
-      </ul>
+    <div class="qr">
+      <img src="ai-for-managers-qr.png" width="800" height="800" alt="QR code to join the demo group on WhatsApp">
+      <span>Scan to join</span>
     </div>
   </div>
-</div>
+  <div class="page-no">04</div>
+</section>
 
-<!-- PAGE 3 — THE EIGHT DAYS -->
-<div class="page text-page">
-  <div class="inner">
-    <h2 class="serif">Eight days, two hours each</h2>
-    <p class="sub">Every day is tied to a real management task.</p>
-    <table class="days">
-      <tr><th>Day</th><th>Theme</th><th>Focus</th></tr>
-      <tr><td class="day">01</td><td class="theme">AI for the Manager</td><td>Find where AI fits in your work, and how to use it safely.</td></tr>
-      <tr><td class="day">02</td><td class="theme">Documents and knowledge</td><td>Turn long documents, policies and reports into clear briefs and answers.</td></tr>
-      <tr><td class="day">03</td><td class="theme">Communication</td><td>Draft emails, reports, proposals, notices and minutes in less time.</td></tr>
-      <tr><td class="day">04</td><td class="theme">Meetings and follow-up</td><td>Go from discussion to decisions, owners, deadlines and follow-up.</td></tr>
-      <tr><td class="day">05</td><td class="theme">Projects and tasks</td><td>Organize projects, tasks and deadlines with modern tools and AI.</td></tr>
-      <tr><td class="day">06</td><td class="theme">Data and decisions</td><td>Use spreadsheets and AI to turn numbers into management insight.</td></tr>
-      <tr><td class="day">07</td><td class="theme">Automation</td><td>Find repetitive work and build workflows that handle it.</td></tr>
-      <tr><td class="day">08</td><td class="theme">Build your own workflow</td><td>Build a working workflow for a real problem from your own job.</td></tr>
-    </table>
-    <div class="pagefoot"><strong>Roughly 70% hands-on, 30% concept.</strong> Every session produces something you keep and can use the following week.</div>
-  </div>
-</div>
-
-<!-- PAGE 4 — DELIVERABLES + AUDIENCE -->
-<div class="page text-page">
-  <div class="inner">
-    <h2 class="serif">You leave with a workflow, not a folder of prompts</h2>
-    <p class="sub">Every participant builds at least one for their own work. Something you can use on Monday. For example:</p>
-    <div class="block flows">
-      <div class="flow">
-        <div class="flow-name">Meetings</div>
-        <ol class="steps"><li>Meeting</li><li>Summary</li><li>Action items</li><li>Task list</li></ol>
-      </div>
-      <div class="flow">
-        <div class="flow-name">Documents</div>
-        <ol class="steps"><li>Document</li><li>Analysis</li><li>Management brief</li></ol>
-      </div>
-      <div class="flow">
-        <div class="flow-name">Data</div>
-        <ol class="steps"><li>Data</li><li>Analysis</li><li>Report</li></ol>
-      </div>
-    </div>
-
-    <h2 class="serif" style="margin-top:16mm">Who it is for</h2>
-    <p class="audience" style="margin-top:4mm">Managers and team leads in any industry: banking, insurance, hydropower, NGOs, education, hospitality, retail, project management and small businesses.</p>
-    <p class="sub" style="margin-top:4mm">No technical background needed. The industry changes; many management problems do not.</p>
-
-    <div class="duo">
-      <div>
-        <h3>The right tool for the job</h3>
-        <p>ChatGPT, Microsoft 365 and Copilot, NotebookLM, spreadsheet tools, research AI, and automation platforms like Make or n8n. We never teach a tool for its own sake.</p>
-      </div>
-      <div>
-        <h3>Your trainer and support</h3>
-        <p>Led by an AI and Backend Engineer with experience in backend services, CRM automation, robotics, AI and management tools. A support team helps after you enroll.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PAGE 5 — CLOSE -->
-<div class="page back">
-  <div class="inner">
-    <div class="kicker">Next step</div>
-    <h2 class="serif">See it work before you decide.</h2>
-    <div class="rule"></div>
-    <div class="kicker demo-label">Demo session</div>
-    <div class="demo-when">Sunday, October 4</div>
-    <p class="note">Come to the session, watch the tools on a real management problem, and decide afterwards. Message us to reserve your seat. Program pricing and scheduling are discussed directly, based on group size and format.</p>
-    <div class="org">Nepal AI and Tech Manager Wing</div>
-    <svg class="motif" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M0 220 Q 90 160, 150 210 T 300 190 V300 H0 Z" fill="#241811"/>
-      <circle cx="245" cy="150" r="3" fill="#A8703E"/>
-      <circle cx="270" cy="185" r="1.8" fill="#A8703E" opacity="0.6"/>
-      <path d="M20 240 Q 110 190, 170 235 T 300 220" fill="none" stroke="#3A281C" stroke-width="1"/>
-    </svg>
-  </div>
-</div>
+<script>
+  (function () {
+    var doc = document.documentElement;
+    var pages = document.querySelectorAll('.page');
+    function fit() {
+      doc.style.setProperty('--page-w', '210mm');
+      var avail = doc.clientWidth - 48;
+      var pw = pages[0].offsetWidth;
+      var s = pw > 0 ? Math.min(1, avail / pw) : 1;
+      for (var i = 0; i < pages.length; i++) {
+        pages[i].style.transformOrigin = 'top center';
+        pages[i].style.transform = 'scale(' + s + ')';
+        pages[i].style.marginBottom = (296 * (s - 1)) + 'px';
+      }
+    }
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fit); }
+    window.addEventListener('resize', fit);
+    fit();
+  })();
+</script>
 
 </body>
 </html>
